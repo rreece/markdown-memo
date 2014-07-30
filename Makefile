@@ -42,14 +42,14 @@ html: $(HTML_MD_FILES)
 index.html: index.md
 	pandoc \
 		--variable=siteheader:"$(HEADER)" \
-		--variable=title:"$(@:%.html=$(HEADER) - %)" \
+		--variable=title:"$(HEADER)" \
 		--variable=author-meta:"$(AUTHOR)" \
 		--variable=author:"$(AUTHOR)" \
 		--variable=date-meta:"$(DATE)" \
 		--variable=date:"$(DATE)" \
 		--variable=css:"$(CSS)" \
 		--template=./templates/toc.html \
-		--ascii -t html \
+		-t html \
 		-o $@ $<
 
 %.html: %.md
@@ -62,7 +62,7 @@ index.html: index.md
 		--variable=date:"$(DATE)" \
 		--variable=css:"$(CSS)" \
 		--template=./templates/outline.html \
-		--ascii -t html \
+		-t html \
 		-o $@ $<
 
 pdf: $(PDF_MD_FILES)
