@@ -27,7 +27,7 @@ export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
 PRINT = @echo '==>  '
 MD_FILES := $(filter-out .//README.md, $(shell find ./ -name '*.md'))
 HTML_MD_FILES := $(MD_FILES:%.md=%.html)
-PDF_MD_FILES := $(MD_FILES:%.md=%.pdf)
+PDF_MD_FILES := $(filter-out .//index.pdf, $(MD_FILES:%.md=%.pdf))
 
 
 #------------------------------------------------------------------------------
