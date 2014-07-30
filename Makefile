@@ -11,14 +11,11 @@
 # user config
 #------------------------------------------------------------------------------
 
-DATE     := $(shell date +"%a %b %d, %Y")
-
 AUTHOR   := Ryan Reece
-HEADER   := My Collection of Memos
-FOOTER   := <p><i>Ryan Reece</i> <br/> <img src=\"img/my_email.png\" alt=\"my email address\"/> <br/> $(DATE)</p>
+HEADER   := Ryan's Outline of Philosophy
 
+DATE     := $(shell date +"%a %b %d, %Y")
 CSS      := templates/markdown-memo.css
-TEMPLATE := templates/outline.html
 
 export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
 
@@ -43,10 +40,30 @@ html: $(HTML_MD_FILES)
 	$(PRINT) "html done."
 
 index.html: index.md
-	pandoc --variable=siteheader:"$(HEADER)" --variable=sitefooter:"$(FOOTER)" --variable=title:"$(@:%.html=$(HEADER) - %)" --variable=author-meta:"$(AUTHOR)" --variable=date-meta:"$(DATE)" --variable=css:"$(CSS)" --ascii -t html --template=$(TEMPLATE) -o $@ $<
+	pandoc \
+		--variable=siteheader:"$(HEADER)" \
+		--variable=title:"$(@:%.html=$(HEADER) - %)" \
+		--variable=author-meta:"$(AUTHOR)" \
+		--variable=author:"$(AUTHOR)" \
+		--variable=date-meta:"$(DATE)" \
+		--variable=date:"$(DATE)" \
+		--variable=css:"$(CSS)" \
+		--template=./templates/toc.html \
+		--ascii -t html \
+		-o $@ $<
 
 %.html: %.md
-	pandoc --variable=siteheader:"$(HEADER)" --variable=sitefooter:"$(FOOTER)" --variable=title:"$(@:%.html=$(HEADER) - %)" --variable=author-meta:"$(AUTHOR)" --variable=date-meta:"$(DATE)" --variable=css:"$(CSS)" --ascii -t html -B ./templates/back-to-toc.html -A ./templates/back-to-toc.html --template=$(TEMPLATE) -o $@ $<
+	pandoc \
+		--variable=siteheader:"$(HEADER)" \
+		--variable=title:"$(@:%.html=$(HEADER) - %)" \
+		--variable=author-meta:"$(AUTHOR)" \
+		--variable=author:"$(AUTHOR)" \
+		--variable=date-meta:"$(DATE)" \
+		--variable=date:"$(DATE)" \
+		--variable=css:"$(CSS)" \
+		--template=./templates/outline.html \
+		--ascii -t html \
+		-o $@ $<
 
 pdf: $(PDF_MD_FILES)
 	$(PRINT) "pdf done."
