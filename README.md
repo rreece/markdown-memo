@@ -21,7 +21,7 @@ Requirements
 Getting started
 ----------------------------------
 
--   Clone/Fork this package and possibly rename the `markdown-memo`
+-   Clone/fork this package and possibly rename the `markdown-memo`
     directory as your project.
 -   Put some `*.md` files in that directory.
 -   In those files, just start writing the `h1` heading.
