@@ -69,7 +69,14 @@ pdf: $(PDF_MD_FILES)
 	$(PRINT) "pdf done."
 
 %.pdf: %.md
-	pandoc --variable=title:"$(@:%.pdf=$(HEADER) - %)" --variable=author-meta:"$(AUTHOR)" --variable=date-meta:"$(DATE)" --variable=author:"$(AUTHOR)" --variable=date:"$(DATE)" --template=templates/default.latex -o $@ $<
+	pandoc \
+		--variable=title:"$(@:%.pdf=$(HEADER) - %)" \
+		--variable=author-meta:"$(AUTHOR)" \
+		--variable=author:"$(AUTHOR)" \
+		--variable=date-meta:"$(DATE)" \
+		--variable=date:"$(DATE)" \
+		--template=templates/default.latex \
+		-o $@ $<
 
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
 JUNK = *.html *.pdf
