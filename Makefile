@@ -11,8 +11,8 @@
 # user config
 #------------------------------------------------------------------------------
 
-AUTHOR   := Ryan Reece
-HEADER   := Ryan's Outline of Philosophy
+AUTHOR   := John Doe
+HEADER   := My Collection of Memos
 
 DATE     := $(shell date +"%a %b %d, %Y")
 CSS      := templates/markdown-memo.css
