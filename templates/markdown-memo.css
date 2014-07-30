@@ -241,6 +241,15 @@ div.nav a:hover {
     margin: 0;
 }
 
+.signature {
+    margin: 10px 0;
+}
+
+.markdown_memo_link {
+    float: right;
+    margin: 10px 0;
+}
+
 
 /* classes ---------------------------------------------------------- */
 .floatright
