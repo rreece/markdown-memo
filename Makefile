@@ -11,7 +11,7 @@
 # user config
 #------------------------------------------------------------------------------
 
-AUTHOR   := John Doe
+AUTHOR   := Ryan Reece
 HEADER   := My Collection of Memos
 
 DATE     := $(shell date +"%a %b %d, %Y")
@@ -49,7 +49,7 @@ index.html: index.md
 		--variable=date:"$(DATE)" \
 		--variable=css:"$(CSS)" \
 		--template=./templates/toc.html \
-		-t html \
+		-t html --ascii \
 		-o $@ $<
 
 %.html: %.md
@@ -62,7 +62,7 @@ index.html: index.md
 		--variable=date:"$(DATE)" \
 		--variable=css:"$(CSS)" \
 		--template=./templates/outline.html \
-		-t html \
+		-t html --ascii \
 		-o $@ $<
 
 pdf: $(PDF_MD_FILES)
