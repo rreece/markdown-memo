@@ -156,8 +156,8 @@ code {
     max-width: 700px;
 }
 blockquote {
-    border-left:.5em solid #cccccc;
-    padding: 0 2em;
+    border-left:12px solid #cccccc;
+    padding: 0 24px;
     margin-left:0;
     max-width: 700px;
     color: black;
