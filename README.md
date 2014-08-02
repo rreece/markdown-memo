@@ -41,4 +41,5 @@ Getting started
 
 -   Edit the `AUTHOR` and `HEADER` variables in the `Makefile`.
 -   Call `make` to generate valid xhtml.
+-   Call `make pdf` to generate pdf documents.
 

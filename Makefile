@@ -76,6 +76,7 @@ pdf: $(PDF_MD_FILES)
 		--variable=date-meta:"$(DATE)" \
 		--variable=date:"$(DATE)" \
 		--template=templates/default.latex \
+		--variable=fontfamily:"mathpazo" \
 		-o $@ $<
 
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
