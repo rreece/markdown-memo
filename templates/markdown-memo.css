@@ -248,6 +248,7 @@ div.nav a:hover {
 .markdown_memo_link {
     float: right;
     margin: 10px 0;
+    text-align: right;
 }
 
 
