@@ -37,7 +37,10 @@ $endfor$
 
 <div id="site_footer">
   <div class="markdown_memo_link">
-    Licensed for sharing under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>. <br/>
+    $if(license)$
+    $license$
+    <br/>
+    $endif$
     Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.
   </div>
   <div class="signature">
