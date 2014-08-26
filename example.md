@@ -26,37 +26,16 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
 eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-1.  blah
-2.  blah
+1.  Make some
+2.  lists
 
-Carnap[^Carnap-1950] thought hard about science.
+Carnap[^Carnap-1950] thought hard about [science](http://en.wikipedia.org/wiki/Scientific_realism).
 Carnap[^Carnap-1955] is the man.
 Van Frassen[^van-Frassen-1980] can go to anti-reality.
 
-
-### Pragmatism
-
-Dewey. Peirce.
-
-
-Links and Encyclopedia Articles
---------------------------------------------------------------------------------
-
-SEP
-
--   [Computer Simulations in Science](http://plato.stanford.edu/entries/simulations-science/)
--   [Constructive Empiricism](http://plato.stanford.edu/entries/constructive-empiricism/)
--   [Duhem](http://plato.stanford.edu/entries/duhem/)
-
-IEP
-
--   [Carnap](http://www.iep.utm.edu/carnap/)
--   [Confirmation and Induction](http://www.iep.utm.edu/conf-ind/)
-
-Wikipedia
-
--   [Philosophical Realism](http://en.wikipedia.org/wiki/Philosophical_realism)
--   [Science Realism](http://en.wikipedia.org/wiki/Scientific_realism)
+-   Empiricism
+-   Semantics
+-   Ontology
 
 
   [^Carnap-1950]:       Carnap, R. (1950). Empiricism, Semantics, and Ontology.
