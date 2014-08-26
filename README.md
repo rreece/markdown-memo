@@ -27,6 +27,7 @@ Getting started
 -   In those files, just start writing the `h1` heading.
     There's no need for additional markup or html.
 
+
         Chapter
         =================================
 
@@ -38,6 +39,7 @@ Getting started
         1.  one
         1.  two
         1.  three
+
 
 -   Edit the `AUTHOR` and `HEADER` variables in the `Makefile`.
 -   Call `make` to generate valid xhtml.
