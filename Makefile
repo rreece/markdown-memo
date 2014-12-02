@@ -13,7 +13,8 @@
 
 AUTHOR   := Ryan Reece
 HEADER   := My Collection of Memos
-# LICENSE  := Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>
+# LICENSE  := Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">(CC-BY-4.0)  2014  Ryan Reece.</a>
+# LICENSE  := &copy; 2014 Ryan Reece. All rights reserved.
 LICENSE  :=
 
 DATE     := $(shell date +"%a %b %d, %Y")
