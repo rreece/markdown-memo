@@ -15,15 +15,26 @@ $endif$
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$"/>
 $endfor$
+
+<!--- Google Analytics Tracking stuff  -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-55199032-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
 </head>
 
 <body>
 
 <div id="site_header">
-    <a href="index.html">$siteheader$</a>
+    <a href="./">$siteheader$</a>
 </div>
 
-<div class="nav"><a href="index.html">Go back to the Table of Contents</a></div>
+<div class="nav"><a href="./">Go back to the Table of Contents</a></div>
 
 $for(include-before)$
 $include-before$
@@ -33,7 +44,7 @@ $for(include-after)$
 $include-after$
 $endfor$
 
-<div class="nav"><a href="index.html">Go back to the Table of Contents</a></div>
+<div class="nav"><a href="./">Go back to the Table of Contents</a></div>
 
 <div id="site_footer">
   <div class="markdown_memo_link">
