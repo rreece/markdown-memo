@@ -1,9 +1,10 @@
 markdown-memo
 =============
 
-This package makes it very easy to compile notes taken in
+This package makes it very easy to use [pandoc](http://johnmacfarlane.net/pandoc/)
+to compile notes taken in
 [Markdown](http://daringfireball.net/projects/markdown/)
-to valid xhtml or to a pdf via LaTeX using [pandoc](http://johnmacfarlane.net/pandoc/).
+into valid xhtml or to a pdf via LaTeX.
 It basically consists of a Makefile and some html/css templates.
 
 -   author:  Ryan Reece <ryan.reece@cern.ch>
