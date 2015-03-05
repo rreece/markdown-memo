@@ -46,3 +46,10 @@ Getting started
 -   Call `make pdf` to generate pdf documents.
 
 
+License
+----------------------------------
+
+-   Copyright 2014-2015 The authors
+-   License: GPL <http://www.gnu.org/licenses/gpl.html>
+
+
