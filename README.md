@@ -10,14 +10,12 @@ It basically consists of a Makefile and some html/css templates.
 -   author:  Ryan Reece <ryan.reece@cern.ch>
 -   created: July 29, 2014
 
-
 Requirements
 ----------------------------------
 
 -   LaTeX
 -   pandoc
 -   make
-
 
 
 Getting started
@@ -46,4 +44,5 @@ Getting started
 -   Edit the `AUTHOR` and `HEADER` variables in the `Makefile`.
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate pdf documents.
+
 
