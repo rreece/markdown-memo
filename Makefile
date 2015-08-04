@@ -12,7 +12,7 @@
 #------------------------------------------------------------------------------
 
 AUTHOR   := Ryan Reece
-HEADER   := Drafts for my blog: statisticalsignificance.net
+HEADER   := My Collection of Memos
 # LICENSE  := Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>
 LICENSE  := &copy; 2014-2015 Ryan Reece. All rights reserved.
 # LICENSE  :=
@@ -74,13 +74,6 @@ pdf: $(PDF_MD_FILES)
 	$(PRINT) "pdf done."
 
 %.pdf: %.md
-	pandoc \
-		--template=templates/default.latex \
-		--variable=fontfamily:"mathpazo" \
-		--toc \
-		$< -o $@ 
-
-%.pd: %.md
 	pandoc \
 		--variable=title:"$(@:%.pdf=$(HEADER) - %)" \
 		--variable=author-meta:"$(AUTHOR)" \
