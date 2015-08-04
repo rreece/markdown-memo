@@ -12,10 +12,10 @@
 #------------------------------------------------------------------------------
 
 AUTHOR   := Ryan Reece
-HEADER   := My Collection of Memos
+HEADER   := Drafts for my blog: statisticalsignificance.net
 # LICENSE  := Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>
-# LICENSE  := &copy; 2014 Ryan Reece. All rights reserved.
-LICENSE  :=
+LICENSE  := &copy; 2014-2015 Ryan Reece. All rights reserved.
+# LICENSE  :=
 
 DATE     := $(shell date +"%a %b %d, %Y")
 CSS      := templates/markdown-memo.css
@@ -75,6 +75,13 @@ pdf: $(PDF_MD_FILES)
 
 %.pdf: %.md
 	pandoc \
+		--template=templates/default.latex \
+		--variable=fontfamily:"mathpazo" \
+		--toc \
+		$< -o $@ 
+
+%.pd: %.md
+	pandoc \
 		--variable=title:"$(@:%.pdf=$(HEADER) - %)" \
 		--variable=author-meta:"$(AUTHOR)" \
 		--variable=author:"$(AUTHOR)" \
@@ -82,6 +89,7 @@ pdf: $(PDF_MD_FILES)
 		--variable=date:"$(DATE)" \
 		--template=templates/default.latex \
 		--variable=fontfamily:"mathpazo" \
+		--toc \
 		-o $@ $<
 
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d

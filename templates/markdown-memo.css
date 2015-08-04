@@ -40,7 +40,12 @@ p, ol, ul {
     max-width: 700px;
     font-size: 16px;
     line-height: 22px;
+}
+p {
     text-align: justify;
+}
+ol, ul {
+    text-align: left;
 }
 ol,ul > ol,ul {
     margin-top: 0;
@@ -118,6 +123,10 @@ div#site_footer {
     padding-bottom: 4px;
 }
 
+div#site_footer img {
+    margin-left: 0;
+}
+
 
 /* headers ------------------------------------------------------- */
 h1, h2, h3, h4, h5 {
@@ -182,6 +191,15 @@ hr {
     text-align: left;
 }
 
+
+/* img ---------------------------------------------------------- */
+img {
+    display: block;
+    max-width:  600px; 
+    max-height: 500px; 
+    margin-left: auto;
+    margin-right:auto;
+}
 
 /* table ---------------------------------------------------------- */
 table {
