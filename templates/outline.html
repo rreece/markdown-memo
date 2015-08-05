@@ -42,18 +42,24 @@ $endfor$
 
 <div class="nav"><a href="./">Go back to the Table of Contents</a></div>
 
+<div id="afterbody">
 $for(include-before)$
 $include-before$
 $endfor$
+</div>
+
 $body$
 
-<div id="aftertxt">
+<div id="afterbody">
 $for(include-after)$
 $include-after$
 $endfor$
 </div>
 
-<div class="nav"><a href="./">Go back to the Table of Contents</a></div>
+<div class="nav">
+<a href="#site_header">Go back to the top</a>
+<a href="./">Go back to the Table of Contents</a>
+</div>
 
 <div id="site_footer">
   <div class="signature">

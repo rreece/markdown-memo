@@ -24,9 +24,9 @@ PRINT = @echo '==>  '
 
 DATE     := $(shell date +"%a %b %d, %Y")
 #MD_FILES := $(filter-out .//README.md, $(shell find ./ -name '*.md'))
-MD_FILES := $(filter-out .//README.md, $(wildcard *.md))
+MD_FILES := $(filter-out README.md, $(wildcard *.md))
 HTML_FILES := $(MD_FILES:%.md=%.html)
-MD_FILES := $(filter-out .//index.md,  $(MD_FILES))
+MD_FILES := $(filter-out index.md, $(MD_FILES))
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
 
 # MD_FILES   =            chap1.md   chap2.md   ...
@@ -72,6 +72,7 @@ index.html: index.md meta.yaml
 	rm -f meta.yaml.tmp
 
 $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
+	echo $(MD_FILES)
 	echo '---' >> meta.yaml.tmp
 	grep -E '(^title|^authorshort|^date|^license)' meta.yaml >> meta.yaml.tmp
 	echo '...\n' >> meta.yaml.tmp

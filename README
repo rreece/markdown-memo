@@ -41,7 +41,9 @@ Getting started
         1.  three
 
 
--   Edit the `AUTHOR` and `HEADER` variables in the `Makefile`.
+-   Edit the metadata in meta.yaml. Example licenses are
+        license: '&copy; 2014-2015 Ryan Reece. All rights reserved.'
+        license: 'Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>'
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate pdf documents.
 

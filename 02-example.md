@@ -20,7 +20,7 @@ Some text.
     e^{i\pi} + 1 = 0
 \end{equation}
 
-You can also refer to labeled equations, such as $\eqref{eq:1}$.
+You can also refer to labeled equations, such as eq.\ $\eqref{eq:1}$.
 
 Stokes' theorem is pretty cool:
 
@@ -38,4 +38,5 @@ to ask MathJax to render it and number the equations:
         MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
     </script>
 
+And back to writing plain text.
 
