@@ -144,6 +144,10 @@ $endfor$
 %\captionsetup{belowskip=-8pt,aboveskip=-8pt,labelfont=bf,format=hang}
 \captionsetup{labelfont=bf,format=hang}
 
+% tightlist HACK
+\providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \begin{document}
 $if(title)$
 \maketitle

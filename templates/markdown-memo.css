@@ -44,7 +44,7 @@ p, ol, ul {
 p {
     text-align: justify;
 }
-ol, ul {
+ol,ul {
     text-align: left;
 }
 ol,ul > ol,ul {
@@ -53,6 +53,22 @@ ol,ul > ol,ul {
 }
 li {
     margin-left: 36px;
+}
+ol p, ul p {
+    text-align: left;
+}
+
+/* bibliography from md -> html */
+div[id^="ref"] p {
+    text-align: left;
+}
+
+/* bibliography from md -> mds -> html */
+h1[id="bibliography"] ~ p {
+    text-align: left;
+}
+h2[id="bibliography"] ~ p {
+    text-align: left;
 }
 
 /* links ---------------------------------------------------------- */
@@ -124,6 +140,7 @@ div#site_footer {
 }
 
 div#site_footer img {
+    display: inline;
     margin-left: 0;
 }
 
@@ -260,19 +277,22 @@ div.nav a:hover {
 }
 
 
-/* footnotes ---------------------------------------------------------- */
+/* footnotes / footer -------------------------------------------------- */
 .footnotes ol li p
 {
     margin: 0;
 }
 
 .signature {
-    margin: 10px 0;
+    position: relative;
+    float: left;
+    margin: 5px 0;
 }
 
-.markdown_memo_link {
+.license {
+    position: relative;
     float: right;
-    margin: 10px 0;
+    margin: 5px 0;
     text-align: right;
 }
 

@@ -1,0 +1,19 @@
+---
+title: 'This is the title: it contains a colon'
+author: |
+    Ryan Reece[^ReeceSCIPP] \and Coauthor Joe[^CoauthorJoe]
+
+    [^ReeceSCIPP]: University of California, Santa Cruz
+
+    [^CoauthorJoe]: Joe University, Joeville
+authorshort: 'R. Reece and C. Joe'
+date: 'August 1, 2015'
+abstract: |
+    This is the abstract. This is the abstract. This is the abstract.
+    This is the abstract. This is the abstract. This is the abstract.
+    This is the abstract. This is the abstract. This is the abstract.
+
+    This is the second paragraph in the abstract.
+    This is the second paragraph in the abstract.
+    This is the second paragraph in the abstract.
+...

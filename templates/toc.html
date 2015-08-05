@@ -5,16 +5,22 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
+$for(authorshort)$
+  <meta name="author" content="$authorshort$" />
 $endfor$
-$if(date-meta)$
-  <meta name="date" content="$date-meta$" />
+$if(date)$
+  <meta name="date" content="$date$" />
 $endif$
   <title>$title$</title>
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$"/>
 $endfor$
+
+<!--- MathJax stuff -->
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+</script>
 
 <!--- Google Analytics Tracking stuff  -->
 <script>
@@ -31,7 +37,7 @@ $endfor$
 <body>
 
 <div id="site_header">
-    <a href="./">$siteheader$</a>
+    <a href="./">$title$</a>
 </div>
 
 $for(include-before)$
@@ -43,19 +49,17 @@ $include-after$
 $endfor$
 
 <div id="site_footer">
-  <div class="markdown_memo_link">
-    $if(license)$
-    $license$
-    <br/>
-    $endif$
-    Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.
-  </div>
   <div class="signature">
-    <i>$author$</i> <br/> <img src="img/my_email.png" alt="my email address"/> <br/>
+    <i>$authorshort$</i> <br/>
+    <img src="img/my_email.png" alt="my email address"/> <br/>
     $date$
   </div>
+  <div class="license">
+    $if(license)$ $license$ <br/> $endif$
+    Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.
+  </div>
+  <div style="clear:both;"></div>
 </div>
-
 
 </body>
 </html>
