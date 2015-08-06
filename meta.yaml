@@ -19,7 +19,8 @@ abstract: |
     This is the second paragraph in the abstract.
 fontsize: '11pt'
 fontfamily: 'mathpazo'
-linestretch: '1.1'
+#linestretch: '1.1'
+spacing: '1.2'
 geometry: 
     -   'paperwidth=8.5in'
     -   'paperheight=11in'

@@ -4,8 +4,8 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
-$if(linestretch)$
 \usepackage{setspace}
+$if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 \usepackage{amssymb,amsmath}
@@ -49,9 +49,9 @@ $endif$
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-\setcitestyle{aysep={}}
-\renewcommand{\bibfont}{\footnotesize}
-\setlength{\bibsep}{2pt}
+%\setcitestyle{aysep={}}
+%\renewcommand{\bibfont}{\footnotesize}
+%\setlength{\bibsep}{2pt}
 $endif$
 $if(biblatex)$
 \usepackage{biblatex}
@@ -202,7 +202,14 @@ $if(lof)$
 \listoffigures
 \clearpage
 $endif$
+
+$if(spacing)$
+\begin{spacing}{$spacing$}
+$endif$
 $body$
+$if(spacing)$
+\end{spacing}
+$endif$
 
 $if(natbib)$
 $if(biblio-files)$
@@ -214,15 +221,15 @@ $else$
 $endif$
 $endif$
 \bibliography{$biblio-files$}
+$endif$
+$endif$
 
-$endif$
-$endif$
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
 $endif$
+
 $for(include-after)$
 $include-after$
-
 $endfor$
+
 \end{document}
