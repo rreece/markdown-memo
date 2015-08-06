@@ -25,6 +25,7 @@ abstract: |
 fontsize: '11pt'
 fontfamily: 'mathpazo'
 #linestretch: '1.1'
+numbersections: true
 spacing: '1.2'
 geometry: 
     -   'paperwidth=8.5in'
