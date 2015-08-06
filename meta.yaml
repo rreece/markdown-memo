@@ -1,11 +1,16 @@
 ---
 title: 'This is the title: it contains a colon'
-author: |
-    Ryan Reece[^ReeceSCIPP] \and Coauthor Joe[^CoauthorJoe]
+titleshort: 'This is the title'
+author:
+    -   |
+        Ryan Reece[^ReeceSCIPP]
 
-    [^ReeceSCIPP]: University of California, Santa Cruz
+        [^ReeceSCIPP]: University of California, Santa Cruz
 
-    [^CoauthorJoe]: Joe University, Joeville
+    -   |
+        Coauthor Joe[^CoauthorJoe]
+
+        [^CoauthorJoe]: Joe University, Joeville
 authorshort: 'R. Reece and C. Joe'
 date: 'August 1, 2015'
 license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
