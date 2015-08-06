@@ -49,6 +49,9 @@ $endif$
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+\setcitestyle{aysep={}}
+\renewcommand{\bibfont}{\footnotesize}
+\setlength{\bibsep}{2pt}
 $endif$
 $if(biblatex)$
 \usepackage{biblatex}
@@ -91,12 +94,14 @@ $endif$
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={$author-meta$},
-            pdftitle={$title-meta$},
+            pdfauthor={$authorshort$},
+            pdftitle={$title$},
             colorlinks=true,
-            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            linktocpage=true,
+            citecolor=$if(citecolor)$$citecolor$$else$cyan$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$cyan$endif$,
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            filecolor=$if(filecolor)$$filecolor$$else$black$endif$,
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 $if(links-as-notes)$
@@ -131,13 +136,27 @@ $endif$
 $if(title)$
 \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
 $endif$
+
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
+
 \date{$date$}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+%% fancyhdr
+$if(fancyhdr)$
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[RO]{\textit{$authorshort$}}
+\fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
+\fancyfoot[CO,CE]{\thepage}
+\pagestyle{fancy}
+%\renewcommand\headrulewidth{0pt}
+$endif$
 
 % caption settings:
 \usepackage{caption}
@@ -149,9 +168,14 @@ $endfor$
       \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
+
 $if(title)$
 \maketitle
+$if(fancyhdr)$
+\noindent\rule{\textwidth}{2pt}
 $endif$
+$endif$
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
@@ -164,16 +188,19 @@ $include-before$
 $endfor$
 $if(toc)$
 {
-\hypersetup{linkcolor=black}
+%\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
+\clearpage
 }
 $endif$
 $if(lot)$
 \listoftables
+\clearpage
 $endif$
 $if(lof)$
 \listoffigures
+\clearpage
 $endif$
 $body$
 

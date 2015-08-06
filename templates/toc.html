@@ -8,8 +8,8 @@
 $for(authorshort)$
   <meta name="author" content="$authorshort$" />
 $endfor$
-$if(date)$
-  <meta name="date" content="$date$" />
+$if(date-meta)$
+  <meta name="date" content="$date-meta$" />
 $endif$
   <title>$title$</title>
 $for(css)$
@@ -52,7 +52,7 @@ $endfor$
   <div class="signature">
     <i>$authorshort$</i> <br/>
     <img src="img/my_email.png" alt="my email address"/> <br/>
-    $date$
+    $date-meta$
   </div>
   <div class="license">
     $if(license)$ $license$ <br/> $endif$

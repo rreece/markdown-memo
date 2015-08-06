@@ -8,6 +8,7 @@ author: |
     [^CoauthorJoe]: Joe University, Joeville
 authorshort: 'R. Reece and C. Joe'
 date: 'August 1, 2015'
+license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
 abstract: |
     This is the abstract. This is the abstract. This is the abstract.
     This is the abstract. This is the abstract. This is the abstract.
@@ -16,5 +17,23 @@ abstract: |
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
-license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
+fontsize: '11pt'
+fontfamily: 'mathpazo'
+linestretch: '1.1'
+geometry: 
+    -   'paperwidth=8.5in'
+    -   'paperheight=11in'
+    -   'top=1in'
+    -   'bottom=1in'
+    -   'left=1.5in'
+    -   'right=1.5in'
+    -   'headheight=14pt'
+    -   'headsep=\baselineskip'
+fancyhdr: true
+classoption:
+    -   'openany'
+    -   'twoside'
+natbib: true
+biblio-style: 'chicago'
 ...
+

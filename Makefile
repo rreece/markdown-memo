@@ -49,6 +49,7 @@ index.html: index.md meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
+		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/toc.html \
 		-o $@ $< meta.yaml
@@ -63,6 +64,7 @@ index.html: index.md meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
+		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline.html \
 		--mathjax \
@@ -81,6 +83,7 @@ $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
+		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline.html \
 		--mathjax \
@@ -94,7 +97,7 @@ $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 	pandoc \
 		--standalone \
 		--smart \
-		--variable=fontfamily:"mathpazo" \
+		--variable=date-meta:"$(DATE)" \
 		--template=templates/default.latex \
 		--toc \
 		--filter pandoc-eqnos \
@@ -106,7 +109,7 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 	pandoc \
 		--standalone \
 		--smart \
-		--variable=fontfamily:"mathpazo" \
+		--variable=date-meta:"$(DATE)" \
 		--template=templates/default.latex \
 		--toc \
 		--filter pandoc-eqnos \
@@ -152,6 +155,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
+		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline.html \
 		-o $@ $< meta.yaml.tmp
@@ -164,7 +168,6 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
-		--variable=fontfamily:"mathpazo" \
 		--template=templates/default.latex \
 		--toc \
 		--bibliography=mybib.bib \
@@ -178,7 +181,6 @@ $(OUTNAME).tex: $(MD_FILES) mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
-		--variable=fontfamily:"mathpazo" \
 		--template=templates/default.latex \
 		--toc \
 		--bibliography=mybib.bib \
