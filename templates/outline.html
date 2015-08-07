@@ -64,7 +64,10 @@ $endfor$
 <div id="site_footer">
   <div class="signature">
     <i>$authorshort$</i> <br/>
-    <img src="img/my_email.png" alt="my email address"/> <br/>
+$if(email)$
+    $email$
+    <br/>
+$endif$
     $date-meta$
   </div>
   <div class="license">

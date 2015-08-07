@@ -45,7 +45,7 @@ html: $(HTML_FILES)
 
 index.html: index.md meta.yaml
 	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license|^disqus)' meta.yaml >> meta.yaml.tmp
+	grep -E '(^title|^authorshort|^date|^license|^email|^disqus)' meta.yaml >> meta.yaml.tmp
 	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
@@ -61,7 +61,7 @@ index.html: index.md meta.yaml
 # create html
 %.html: %.md mybib.bib meta.yaml
 	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license|^disqus)' meta.yaml >> meta.yaml.tmp
+	grep -E '(^title|^authorshort|^date|^license|^email|^disqus)' meta.yaml >> meta.yaml.tmp
 	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
