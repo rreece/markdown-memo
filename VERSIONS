@@ -1,4 +1,7 @@
 
+v0.2    Ryan Reece  <ryan.reece@cern.ch>
+-   Many major changes including bibliography and disqus integration.
+
 v0.1    Ryan Reece  <ryan.reece@cern.ch>
 -   added LICENSE option to the Makefile
 
