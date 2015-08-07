@@ -26,10 +26,10 @@ Getting started
 -   In those files, just start writing the `h1` heading.
     There's no need for additional markup or html.
 
-        Chapter
+        Section 1
         =================================
 
-        Section 1
+        Sub-section 1
         ---------------------------------
 
         Blah blah blah.
