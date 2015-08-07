@@ -23,7 +23,10 @@ abstract: |
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
-# pdflatex options ----------------------------
+# html options --------------------------------------
+#disqus: true
+#disqus_shortname: 'my-sites-disqus-name'
+# pdflatex options ----------------------------------
 fontsize: '11pt'
 fontfamily: 'mathpazo'
 #linestretch: '1.1'

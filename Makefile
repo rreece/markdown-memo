@@ -44,6 +44,9 @@ html: $(HTML_FILES)
 	$(PRINT) "html done."
 
 index.html: index.md meta.yaml
+	echo '---' >> meta.yaml.tmp
+	grep -E '(^title|^authorshort|^date|^license|^disqus)' meta.yaml >> meta.yaml.tmp
+	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
 		--ascii \
@@ -52,12 +55,13 @@ index.html: index.md meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/toc.html \
-		-o $@ $< meta.yaml
+		-o $@ $< meta.yaml.tmp
+	rm -f meta.yaml.tmp
 
 # create html
 %.html: %.md mybib.bib meta.yaml
 	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license)' meta.yaml >> meta.yaml.tmp
+	grep -E '(^title|^authorshort|^date|^license|^disqus)' meta.yaml >> meta.yaml.tmp
 	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
