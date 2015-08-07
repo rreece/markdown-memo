@@ -14,6 +14,7 @@ author:
 authorshort: 'R. Reece and C. Joe'
 date: 'August 1, 2015'
 license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
+# ^ required meta-data ^ ----------------------------
 abstract: |
     \noindent This is the abstract. This is the abstract. This is the abstract.
     This is the abstract. This is the abstract. This is the abstract.
@@ -22,6 +23,7 @@ abstract: |
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
+# pdflatex options ----------------------------
 fontsize: '11pt'
 fontfamily: 'mathpazo'
 #linestretch: '1.1'

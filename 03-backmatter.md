@@ -1,7 +1,7 @@
 \appendix
 \clearpage
 
-Appendix A
+Appendix: A detail to discuss
 ===============================================================================
 
 This is an appendix.
@@ -9,7 +9,7 @@ This is an appendix.
 
 \clearpage
 
-Appendix B
+Appendix: Some more details
 ===============================================================================
 
 This is another appendix.

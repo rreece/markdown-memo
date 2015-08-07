@@ -17,7 +17,6 @@ Requirements
 -   make
 
 
-
 Getting started
 ----------------------------------
 
@@ -26,7 +25,6 @@ Getting started
 -   Put some `*.md` files in that directory.
 -   In those files, just start writing the `h1` heading.
     There's no need for additional markup or html.
-
 
         Chapter
         =================================
@@ -40,10 +38,19 @@ Getting started
         1.  two
         1.  three
 
-
 -   Edit the metadata in meta.yaml. Example licenses are
         license: '&copy; 2014-2015 Ryan Reece. All rights reserved.'
         license: 'Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>'
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate pdf documents.
+
+
+See also
+----------------------------------
+
+-   [kprussing.github.io/writing-with-markdown](http://kprussing.github.io/writing-with-markdown/)
+-   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown/)
+-   [pandoc.org/README.html](http://pandoc.org/README.html)
+-   [commonmark.org)](http://commonmark.org/)
+
 
