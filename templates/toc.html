@@ -11,7 +11,11 @@ $endfor$
 $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
+$if(page_title)$
+  <title>$page_title$ - $doc_title$</title>
+$else$
   <title>$title$</title>
+$endif$
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$"/>
 $endfor$
@@ -40,13 +44,19 @@ $endfor$
     <a href="./">$title$</a>
 </div>
 
+<div id="afterbody">
 $for(include-before)$
 $include-before$
 $endfor$
+</div>
+
 $body$
+
+<div id="afterbody">
 $for(include-after)$
 $include-after$
 $endfor$
+</div>
 
 <div id="site_footer">
   <div class="signature">

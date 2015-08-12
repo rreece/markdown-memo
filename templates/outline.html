@@ -11,7 +11,11 @@ $endfor$
 $if(date-meta)$
   <meta name="date" content="$date-meta$" />
 $endif$
+$if(page_title)$
+  <title>$page_title$ - $doc_title$</title>
+$else$
   <title>$title$</title>
+$endif$
 $for(css)$
   <link rel="stylesheet" type="text/css" href="$css$"/>
 $endfor$
