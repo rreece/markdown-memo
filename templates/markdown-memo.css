@@ -33,8 +33,8 @@ body{
 
 /* pargarphs and lists --------------------------------------------- */
 p, ol, ul {
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 16px;
+    margin-bottom: 16px;
     border: 0;
     padding: 0;
     max-width: 700px;
@@ -44,10 +44,11 @@ p, ol, ul {
 p {
     text-align: justify;
 }
-ol,ul {
+ol, ul {
     text-align: left;
 }
-ol,ul > ol,ul {
+/*ol,ul > ol,ul {*/
+ol ol, ul ul, ol ul, ul ol {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -216,6 +217,8 @@ img {
     display: block;
     max-width:  600px; 
     max-height: 500px; 
+    margin-top: 8px;
+    margin-bottom: 8px;
     margin-left: auto;
     margin-right:auto;
 }
@@ -281,13 +284,28 @@ div.nav a:hover {
     /* border-bottom: 1px solid black; */
 }
 
+/* footnotes -------------------------------------------------- */
+a.footnoteRef {
+    position:relative;
+    font-size: 16px;
+    text-decoration: none;
+}
+a.footnoteRef:before {
+    content: "\00a0[";
+}
+a.footnoteRef:after {
+    content: "]";
+}
+a.footnoteRef sup {
+    vertical-align: baseline;
+}
 
-/* footnotes / footer -------------------------------------------------- */
 .footnotes ol li p
 {
     margin: 0;
 }
 
+/* footer -------------------------------------------------- */
 .signature {
     position: relative;
     float: left;
@@ -355,4 +373,47 @@ div.nav a:hover {
     font-size: 12px;
     color: #444444;
 }
+
+/* click for more ---------------------------------------------------- */
+/* To use, in your md, do 
+
+<div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
+<div id="test1" class="more">
+
+Put the paragraph you want to hide here.
+
+</div>
+*/
+div.clickmore a
+{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    color: #444444;
+}
+div.clickmore a:hover {
+    color: red;
+}
+div.clickmore a.open:before
+{
+    font-family: monospace;
+    content: "[-] ";
+}
+div.clickmore a.closed:before
+{
+    font-family: monospace;
+    content: "[+] ";
+}
+div.more
+{
+    display: none;
+    clear: both;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-top: 2px #cccccc dashed;
+    border-bottom: 2px #cccccc dashed;
+}
+
 

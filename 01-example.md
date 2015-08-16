@@ -19,6 +19,9 @@ ideas spinning in my head. I hope I can spend more time fleshing out
 what the school got me thinking about in this blog, but first I want to
 discuss something more basic to the entire effort: what is ontology?
 
+<div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
+<div id="test1" class="more">
+
 Ontology is the study of what exists, what is the nature of being, 
 and what it means "to be". It is a sub-branch of the larger branch of
 philosophy called metaphysics, which deals some of the most fundamental
@@ -29,6 +32,8 @@ Ontology is the focus on---What are the things that exist in the world,
 its furnishings, ingredients, or parts?
 What kinds of things are they?
 Are they waves, or particles, or something else?
+
+</div>
 
 
 Subsection 1.2
