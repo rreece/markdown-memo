@@ -57,25 +57,35 @@ $endfor$
     <a href="./">$title$</a>
 </div>
 
-<div class="nav"><a href="./">Go back to the Table of Contents</a></div>
-
-<div id="afterbody">
+<div id="beforebody">
 $for(include-before)$
 $include-before$
 $endfor$
 </div>
 
+<div id="mainbody">
+
+<div class="nav">
+<ul>
+    <li> <a href="./">Go back to the Table of Contents</a> </li>
+</ul>
+</div>
+
 $body$
+
+<div class="nav">
+<ul>
+    <li> <a href="#site_header">Go back to the top</a> </li>
+    <li> <a href="./">Go back to the Table of Contents</a> </li>
+</ul>
+</div>
+
+</div> <!-- end mainbody -->
 
 <div id="afterbody">
 $for(include-after)$
 $include-after$
 $endfor$
-</div>
-
-<div class="nav">
-<a href="#site_header">Go back to the top</a>
-<a href="./">Go back to the Table of Contents</a>
 </div>
 
 <div id="site_footer">

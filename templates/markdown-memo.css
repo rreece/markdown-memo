@@ -87,25 +87,7 @@ a:hover {
     color: red;
 }
 
-/* site title ------------------------------------------------------- */
-/*
-div#site_title {
-    clear: left;
-    float: left;
-    font-size: 42px;
-    font-weight: bold;
-    color: #444444;
-    margin-bottom: 24px;
-}
-div#site_subtitle {
-    clear: right;
-    float: right;
-    font-size: 13px;
-    color: #444444;
-    text-align: right;
-}
-*/
-
+/* site header / footer ---------------------------------------------- */
 div#site_header {
     font-size: 24px;
     font-weight: bold;
@@ -240,48 +222,51 @@ td {
     vertical-align: top;
 }
 
+/* mainbody ---------------------------------------------------------- */
+div#mainbody
+{
+    float: left;
+}
+
 /* nav ---------------------------------------------------------- */
 div.nav
 {
-    clear: right;
     float: right;
-    /*font-family: Consolas, Monaco, Andale Mono, monospace;*/
-    text-align: center;
-    font-size: 14px;
-    margin: 10px 0;
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
     border: 2px solid #444444;
-    padding: 10px;
+    padding: 5px;
 }
 
 div.nav ul
 {
-    list-style: none;
     margin: 0;
     border: 0;
     padding: 0;
+    font-size: 12px;
+    list-style-type: square;
 }
 
-div.nav li
+div.nav ul li
 {
-    display: inline;
-}
-
-div.nav li+li:before
-{
-    content: "\02022\0A0";
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 16px;
+    margin-right: 5px;
+    padding: 0;
+    text-transform: lowercase;
 }
 
 div.nav a
 {
-    display: block;
     text-decoration: none;
-    margin-bottom: 4px;
-    /* text-transform: lowercase; */
 }
 
 div.nav a:hover {
     text-decoration: underline;
-    /* border-bottom: 1px solid black; */
 }
 
 /* footnotes -------------------------------------------------- */
@@ -318,7 +303,6 @@ a.footnoteRef sup {
     margin: 5px 0;
     text-align: right;
 }
-
 
 /* classes ---------------------------------------------------------- */
 .floatright
