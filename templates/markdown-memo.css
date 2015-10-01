@@ -205,6 +205,13 @@ img {
     margin-right:auto;
 }
 
+img.email {
+    display: inline;
+    margin-bottom: -5px;
+    border:0;
+    padding:0;
+}
+
 /* table ---------------------------------------------------------- */
 table {
     margin-top: 24px;
