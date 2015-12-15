@@ -24,7 +24,7 @@ body{
     margin-bottom: 20px;
     margin-left: auto;
     padding: 20px;
-    max-width: 700px;
+    width: 700px;
     /* font-family: Verdana, Helvetica, Arial, sans-serif; */
     font-family: Georgia, Palatino, serif;
     color: #444444;
@@ -134,9 +134,11 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 24px;
 }
 h1 {
+    width: 700px;  /* forces page width */
     font-size: 42px;
 }
 h2 {
+    width: 700px;  /* forces page width */
     border-bottom: 2px solid #444444;
     font-size: 36px;
 }
@@ -205,13 +207,6 @@ img {
     margin-right:auto;
 }
 
-img.email {
-    display: inline;
-    margin-bottom: -5px;
-    border:0;
-    padding:0;
-}
-
 /* table ---------------------------------------------------------- */
 table {
     margin-top: 24px;
@@ -245,7 +240,7 @@ div.nav
     margin-left: 0;
     margin-right: 0;
     border: 2px solid #444444;
-    padding: 5px;
+    padding: 5px 10px;
 }
 
 div.nav ul
