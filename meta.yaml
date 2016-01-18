@@ -27,6 +27,8 @@ abstract: |
 email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #disqus: true
 #disqus_shortname: 'my-sites-disqus-name'
+#google_analytics_tracking_id: 'UA-55199032-1'
+mathjax: true
 ## pdflatex options ---------------------------------------
 fontsize: '11pt'
 fontfamily: 'mathpazo'
