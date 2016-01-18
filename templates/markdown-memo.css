@@ -127,6 +127,12 @@ div#site_footer img {
     margin: 0;
 }
 
+img.email {
+    display: inline;
+    margin: 0;
+    vertical-align: text-bottom;
+}
+
 
 /* headers ------------------------------------------------------- */
 h1, h2, h3, h4, h5 {
