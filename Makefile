@@ -61,13 +61,27 @@ index.html: index.md meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
+		--template=./templates/outline.html \
+		-o $@.tmp $< meta.yaml
+	rm -f meta.yaml.tmp
+	grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
+	echo "# ---------------------------------------------------" >> meta.yaml.tmp
+	echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
+	echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
+	echo '...\n' >> meta.yaml.tmp
+	pandoc \
+		-t html \
+		--ascii \
+		--standalone \
+		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline.html \
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< meta.yaml
+		-o $@ $< meta.yaml.tmp
+	rm -f meta.yaml.tmp $@.tmp
 
 $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 	pandoc \
