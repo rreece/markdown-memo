@@ -44,9 +44,6 @@ html: $(HTML_FILES)
 	$(PRINT) "html done."
 
 index.html: index.md meta.yaml
-	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license|^email|^disqus)' meta.yaml >> meta.yaml.tmp
-	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
 		--ascii \
@@ -55,14 +52,10 @@ index.html: index.md meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/toc.html \
-		-o $@ $< meta.yaml.tmp
-	rm -f meta.yaml.tmp
+		-o $@ $< meta.yaml
 
 # create html
 %.html: %.md mybib.bib meta.yaml
-	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license|^email|^disqus)' meta.yaml >> meta.yaml.tmp
-	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
 		--ascii \
@@ -74,14 +67,9 @@ index.html: index.md meta.yaml
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< meta.yaml.tmp
-	rm -f meta.yaml.tmp
+		-o $@ $< meta.yaml
 
 $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
-	echo $(MD_FILES)
-	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license)' meta.yaml >> meta.yaml.tmp
-	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
 		--ascii \
@@ -93,8 +81,7 @@ $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) meta.yaml.tmp
-	rm -f meta.yaml.tmp
+		-o $@ $(MD_FILES) meta.yaml
 
 # create pdf with metadata included in the md in yaml
 %.pdf: %.md mybib.bib meta.yaml
@@ -151,9 +138,6 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 
 # create html from mds
 %.htmls: %.mds
-	echo '---' >> meta.yaml.tmp
-	grep -E '(^title|^authorshort|^date|^license)' meta.yaml >> meta.yaml.tmp
-	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \
 		--ascii \
@@ -162,8 +146,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline.html \
-		-o $@ $< meta.yaml.tmp
-	rm -f meta.yaml.tmp
+		-o $@ $< meta.yaml
 
 # create tex with references replaced and bibliography created
 %.tex: %.md mybib.bib meta.yaml

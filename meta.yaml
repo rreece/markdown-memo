@@ -8,10 +8,10 @@ author:
         [^ReeceSCIPP]: University of California, Santa Cruz
 
     -   |
-        Coauthor Joe[^CoauthorJoe]
+        Joe Coauthor[^JoeCoauthor]
 
-        [^CoauthorJoe]: Joe University, Joeville
-authorshort: 'R. Reece and C. Joe'
+        [^JoeCoauthor]: Joe University, Joeville
+authorshort: 'R. Reece and J. Coauthor'
 date: 'August 1, 2015'
 license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
 ## ^ required meta-data ^ ---------------------------------
