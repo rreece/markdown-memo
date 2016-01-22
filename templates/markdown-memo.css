@@ -217,6 +217,10 @@ img.tallimg {
     max-height: none;
 }
 
+div.floatleft img, div.floatright img {
+    margin: 0;
+}
+
 /* table ---------------------------------------------------------- */
 table {
     margin-top: 24px;
@@ -365,6 +369,8 @@ a.footnoteRef sup {
 
 .caption
 {
+    margin-top: 4px;
+    margin-bottom: 4px;
     text-align: center;
     font-size: 12px;
     color: #444444;
