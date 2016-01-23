@@ -38,7 +38,7 @@ Getting started
         1.  two
         1.  three
 
--   Edit the metadata in meta.yaml. Example licenses are
+-   Edit the metadata in `meta.yaml`. Example licenses are
 
     license: '&copy; 2014-2015 Ryan Reece. All rights reserved.'
     license: 'Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>'
@@ -60,7 +60,7 @@ Disqus integration
 
 You can choose to append a comments section at the end of your html.
 Just register a user name and the site name with [disqus.com](disqus.com).
-Then in the meta.yaml, set disqus: true, and set your disqus_shortname.
+Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 
 
 See also
