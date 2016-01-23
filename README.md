@@ -69,6 +69,6 @@ See also
 -   [kprussing.github.io/writing-with-markdown](http://kprussing.github.io/writing-with-markdown/)
 -   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown/)
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
--   [commonmark.org)](http://commonmark.org/)
+-   [commonmark.org](http://commonmark.org/)
 
 
