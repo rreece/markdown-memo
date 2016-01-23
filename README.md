@@ -51,7 +51,7 @@ Please replace `img/my_email.png` with a screenshot of your
 email address instead of mine.
 
 If you want to put the html online, perhaps a solution for you,
-because its free and easy, would be to host the pages at github.
+because it's free and easy, would be to host the pages at github.
 See: [pages.github.com](https://pages.github.com/).
 
 
