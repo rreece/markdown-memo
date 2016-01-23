@@ -1,4 +1,9 @@
 
+v0.4    Ryan Reece  <ryan.reece@cern.ch>
+-   Jan 23, 2016
+-   Updates to markdown-memo.css
+-   Several fixes to html templates. Now validates.
+
 v0.3    Ryan Reece  <ryan.reece@cern.ch>
 -   August 7, 2015
 -   Forgot a commit before tagging.
