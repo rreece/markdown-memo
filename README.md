@@ -39,16 +39,16 @@ Getting started
         1.  three
 
 -   Edit the metadata in `meta.yaml`. Example licenses are
-
-    license: '&copy; 2014-2015 Ryan Reece. All rights reserved.'
-    license: 'Licensed for sharing under <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">CC-BY-4.0</a>'
-
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate pdf documents.
 
 I use an image of my email to hide it from text crawlers.
 Please replace `img/my_email.png` with a screenshot of your
-email address instead of mine.
+email address instead of mine,
+or remove the use of the image in `meta.yaml`.
+
+Customize the files in `templates/` to ajust the format
+of the output html and pdfs files to your needs.
 
 If you want to put the html online, perhaps a solution for you,
 because it's free and easy, would be to host the pages at github.
