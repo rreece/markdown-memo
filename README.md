@@ -25,6 +25,8 @@ Getting started
 -   Put some `*.md` files in that directory.
 -   In those files, just start writing the `h1` heading.
     There's no need for additional markup or html.
+    Examples of [Markdown](http://daringfireball.net/projects/markdown/)
+    syntax are
 
         Section 1
         =================================
@@ -38,14 +40,14 @@ Getting started
         1.  two
         1.  three
 
--   Edit the metadata in `meta.yaml`. Example licenses are
+-   Edit the metadata in `meta.yaml`.
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate pdf documents.
 
 I use an image of my email to hide it from text crawlers.
 Please replace `img/my_email.png` with a screenshot of your
 email address instead of mine,
-or remove the use of the image in `meta.yaml`.
+or just remove the use of the image in `meta.yaml`.
 
 Customize the files in `templates/` to ajust the format
 of the output html and pdfs files to your needs.
@@ -53,6 +55,28 @@ of the output html and pdfs files to your needs.
 If you want to put the html online, perhaps a solution for you,
 because it's free and easy, would be to host the pages at github.
 See: [pages.github.com](https://pages.github.com/).
+
+
+Features
+----------------------------------
+
+### html
+
+-   [disqus comments](disqus.com)
+-   mathjax LaTeX rendering
+-   google analytics tracking
+
+### pdf
+
+-   LaTeX
+-   fancyheader
+
+### both
+
+-   multiple authors
+-   footnotes
+-   appendicies
+-   bibliographies
 
 
 Disqus integration
