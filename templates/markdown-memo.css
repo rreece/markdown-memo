@@ -325,7 +325,8 @@ a.footnoteRef sup {
 {
     float: right;
     clear: right;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
+    border-bottom: 20px;
     border-left: 20px;
     border-style: solid;
     border-color: white;
@@ -337,7 +338,8 @@ a.footnoteRef sup {
 {
     float: left;
     clear: left;   
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
+    border-bottom: 20px;
     border-right: 20px;
     border-style: solid;
     border-color: white;
