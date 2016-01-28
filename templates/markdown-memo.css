@@ -17,7 +17,7 @@
 /* text defaults ------------------------------------------------- */
 * { margin: 0; border: 0; padding: 0; }
 
-body{
+body {
     background: white;
     margin-top: 0;
     margin-right: auto;
@@ -93,10 +93,11 @@ div#site_header {
     font-weight: bold;
     color: #444444;
     /* set same as .block class bellow */
-    display: block;
+    display:inline-block;
     clear: both;
+    width: 700px;  /* forces page width */
     margin-top: 36px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
     border-top: 2px solid #444444;
     border-bottom: 2px solid #444444;
     padding-top: 4px;
@@ -112,8 +113,9 @@ div#site_footer {
     font-size: 16px;
     color: #444444;
     /* set same as .block class bellow */
-    display: block;
+    display:inline-block;
     clear: both;
+    width: 700px;  /* forces page width */
     margin-top: 36px;
     margin-bottom: 36px;
     border-top: 2px solid #444444;
@@ -135,7 +137,11 @@ img.email {
 
 
 /* headers ------------------------------------------------------- */
-h1, h2, h3, h4, h5 {
+h2 {
+    margin-top: 36px;
+    margin-bottom: 24px;
+}
+h1, h3, h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }
@@ -191,7 +197,7 @@ blockquote {
 
 /* hr. ---------------------------------------------------------- */
 hr {
-    margin: 24px auto 24px 0;
+    margin: 36px auto 36px 0;
     border: 0;
     padding: 0;
     background-color: #444444;
@@ -349,8 +355,9 @@ a.footnoteRef sup {
 
 .block
 {
-    display: block;
+    display:inline-block;
     clear: both;
+    width: 700px;  /* forces page width */
     margin-top: 36px;
     margin-bottom: 36px;
     border-top: 2px solid #444444;
