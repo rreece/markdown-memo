@@ -52,7 +52,6 @@ index.html: index.md meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/toc.html \
-		--mathjax \
 		-o $@ $< meta.yaml
 
 # create html

@@ -31,7 +31,7 @@ email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #description: 'Write a description of this webpage.'
 #keywords: 'List, some, keywords, for, this, webpage'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
-#mathjax: true
+mathjax: true
 ## pdflatex options ---------------------------------------
 fontsize: '11pt'
 fontfamily: 'mathpazo'
