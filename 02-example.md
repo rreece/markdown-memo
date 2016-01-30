@@ -28,10 +28,7 @@ his, usu nusquam corrumpit ex, sea ex soluta option facilisis. Ne autem
 assentior consequuntur nam, constituto scripserit no eam. Eu laoreet
 fabellas postulant eos.
 
-\begin{equation}
-    e^{i\pi} + 1 = 0
-\end{equation}
-
+You can do latex in-line, $e^{i\pi} + 1 = 0$.
 You can also refer to labeled equations, such as eq.\ $\eqref{eq:1}$.
 
 Stokes' theorem is pretty cool:
