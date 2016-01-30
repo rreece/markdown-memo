@@ -94,5 +94,6 @@ See also
 -   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown/)
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
 -   [commonmark.org](http://commonmark.org/)
+-   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
 
 
