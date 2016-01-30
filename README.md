@@ -4,6 +4,8 @@ markdown-memo
 This package makes it very easy to compile notes taken in
 [Markdown](http://daringfireball.net/projects/markdown/)
 to valid xhtml or to a pdf via LaTeX.
+It can be used to make simple webpages quickly,
+for example, [rreece.github.io/sw](http://rreece.github.io/sw/).
 
 -   author:  Ryan Reece <ryan.reece@cern.ch>
 -   created: July 29, 2014
