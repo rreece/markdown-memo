@@ -90,6 +90,7 @@ Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 See also
 ----------------------------------
 
+-   [rreece.github.io/sw](http://rreece.github.io/sw/)
 -   [kprussing.github.io/writing-with-markdown](http://kprussing.github.io/writing-with-markdown/)
 -   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown/)
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
