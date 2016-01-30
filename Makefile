@@ -67,7 +67,7 @@ index.html: index.md meta.yaml
 	grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
 	echo "# ---------------------------------------------------" >> meta.yaml.tmp
 	echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
-	echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
+	echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
 	echo '...\n' >> meta.yaml.tmp
 	pandoc \
 		-t html \

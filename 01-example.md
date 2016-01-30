@@ -89,7 +89,3 @@ dolor, per ne denique lobortis. Recusabo tractatos per cu. Apeirian
 voluptaria constituam eam no. Scripta vivendum mel ne.
 
 
-References
--------------------------------------------------------------------------------
-
-
