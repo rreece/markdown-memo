@@ -64,14 +64,22 @@ $endif$
 <body>
 
 <div id="site_header">
-    <a href="./">$title$</a>
 </div>
 
+<!-- NOTE: h1 already included. Start writing index.md with an h2 -->
+<h1>$title$</h1>
+
+$for(author)$
+<p>$author$</p>
+$endfor$
+
+<!--
 <div id="beforebody">
 $for(include-before)$
 $include-before$
 $endfor$
 </div>
+-->
 
 <div id="mainbody">
 
@@ -79,23 +87,25 @@ $body$
 
 </div> <!-- end mainbody -->
 
+<!--
 <div id="afterbody">
 $for(include-after)$
 $include-after$
 $endfor$
 </div>
+-->
 
 <div id="site_footer">
   <div class="signature">
-    <i>$authorshort$</i> <br/>
+    <i>$authorshort$</i><br/>
 $if(email)$
-    $email$ <br/>
+    $email$<br/>
 $endif$
     $date-meta$
   </div>
   <div class="license">
-    $if(license)$ $license$ <br/> $endif$
-    Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.
+    $if(license)$ $license$<br/> $endif$
+    Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>
   </div>
   <div style="clear:both;"></div>
 </div>

@@ -1,4 +1,4 @@
-#
+
 # pandoc Makefile
 #
 # author:  Ryan Reece  <ryan.reece@cern.ch>
@@ -43,6 +43,8 @@ default: html
 html: $(HTML_FILES)
 	$(PRINT) "html done."
 
+pdf: $(OUTNAME).pdf
+
 index.html: index.md meta.yaml
 	pandoc \
 		-t html \
@@ -51,7 +53,7 @@ index.html: index.md meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
-		--template=./templates/toc.html \
+		--template=./templates/index.html \
 		-o $@ $< meta.yaml
 
 # create html
@@ -121,7 +123,7 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
 		-o doc.pdf $(MD_FILES) meta.yaml
-	$(PRINT) "pdf done."
+	$(PRINT) "$(OUTNAME).pdf done."
 
 
 # output md with references replaced and bibliography created
