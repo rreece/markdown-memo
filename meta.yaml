@@ -1,6 +1,7 @@
 ---
 title: 'This is the title: it contains a colon'
 titleshort: 'This is the title'
+subtitle: 'This is the subtitle'
 author:
     -   |
         Ryan Reece[^ReeceSCIPP]

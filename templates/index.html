@@ -63,27 +63,33 @@ $endif$
 
 <body>
 
+<!---
 <div id="site_header">
 </div>
+-->
 
-<!-- NOTE: h1 already included. Start writing index.md with an h2 -->
+<hr/>
+
+<!--- NOTE: h1 already included. Start writing index.md with an h2 -->
 <h1>$title$</h1>
 
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
 
+$if(author)$
 <div class="authors">
 $for(author)$
 $author$
 $endfor$
 </div>
-
-<div class="abstract">
-$if(abstract)$
-$abstract$
 $endif$
+
+$if(abstract)$
+<div class="abstract">
+$abstract$
 </div>
+$endif$
 
 <!--
 <div id="beforebody">

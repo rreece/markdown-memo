@@ -171,6 +171,10 @@ p.subtitle {
     font-style: italic;
 }
 
+div.authors {
+    margin-top: 24px;
+    margin-top: 24px;
+}
 div.authors p {
     font-size: 20px;
 }
@@ -179,8 +183,8 @@ div.abstract {
     font-size: 16px;
     margin-top: 36px;
     margin-bottom: 36px;
-    padding-left:24px;
-    padding-right:24px;
+    padding-left:36px;
+    padding-right:36px;
 }
 
 
