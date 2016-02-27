@@ -69,9 +69,19 @@ $endif$
 <!-- NOTE: h1 already included. Start writing index.md with an h2 -->
 <h1>$title$</h1>
 
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+
 $for(author)$
-<p>$author$</p>
+<p class="author">$author$</p>
 $endfor$
+
+<div class="abstract">
+$if(abstract)$
+$abstract$
+$endif$
+</div>
 
 <!--
 <div id="beforebody">

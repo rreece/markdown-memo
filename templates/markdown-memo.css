@@ -97,7 +97,7 @@ div#site_header {
     clear: both;
     width: 700px;  /* forces page width */
     margin-top: 36px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     border-top: 2px solid #444444;
     border-bottom: 2px solid #444444;
     padding-top: 4px;
@@ -137,11 +137,7 @@ img.email {
 
 
 /* headers ------------------------------------------------------- */
-h2 {
-    margin-top: 36px;
-    margin-bottom: 24px;
-}
-h1, h3, h4, h5 {
+h1, h2, h3, h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }
@@ -169,6 +165,24 @@ h1, h2, h3 {
     color: #000000;
     font-weight: normal;
 }
+
+p.subtitle {
+    font-size: 28px;
+    font-style: italic;
+}
+
+p.author {
+    font-size: 20px;
+}
+
+div.abstract {
+    font-size: 16px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    padding-left:24px;
+    padding-right:24px;
+}
+
 
 /* blocks ---------------------------------------------------------- */
 pre {
