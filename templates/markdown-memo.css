@@ -171,7 +171,7 @@ p.subtitle {
     font-style: italic;
 }
 
-p.author {
+div.authors p {
     font-size: 20px;
 }
 
