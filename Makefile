@@ -57,7 +57,7 @@ index.html: index.md meta.yaml
 		-o $@ $< meta.yaml
 
 # create html
-%.html: %.md mybib.bib meta.yaml
+%.html: %.md templates/backmatter-sec.md mybib.bib meta.yaml
 	pandoc \
 		-t html \
 		--ascii \
@@ -82,10 +82,10 @@ index.html: index.md meta.yaml
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< meta.yaml.tmp
+		-o $@ $< templates/backmatter-sec.md meta.yaml.tmp
 	rm -f meta.yaml.tmp $@.tmp
 
-$(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
+$(OUTNAME).html: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 	pandoc \
 		-t html \
 		--ascii \
@@ -97,10 +97,10 @@ $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) meta.yaml
+		-o $@ $(MD_FILES) templates/backmatter.md meta.yaml
 
 # create pdf with metadata included in the md in yaml
-%.pdf: %.md mybib.bib meta.yaml
+%.pdf: %.md templates/backmatter-sec.md mybib.bib meta.yaml
 	pandoc \
 		--standalone \
 		--smart \
@@ -110,9 +110,9 @@ $(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< meta.yaml
+		-o $@ $< templates/backmatter-sec.md meta.yaml
 
-$(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
+$(OUTNAME).pdf: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 	pandoc \
 		--standalone \
 		--smart \
@@ -122,12 +122,12 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o doc.pdf $(MD_FILES) meta.yaml
+		-o doc.pdf $(MD_FILES) templates/backmatter.md meta.yaml
 	$(PRINT) "$(OUTNAME).pdf done."
 
 
 # output md with references replaced and bibliography created
-%.mds: %.md mybib.bib meta.yaml
+%.mds: %.md templates/backmatter-sec.md mybib.bib meta.yaml
 	pandoc \
 		-t markdown_github \
 		--standalone \
@@ -135,11 +135,11 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@.tmp $< meta.yaml
+		-o $@.tmp $< templates/backmatter-sec.md meta.yaml
 	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 	rm -f $@.tmp
 
-$(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
+$(OUTNAME).mds: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 	pandoc \
 		-t markdown_github \
 		--standalone \
@@ -147,7 +147,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@.tmp $(MD_FILES) meta.yaml
+		-o $@.tmp $(MD_FILES) templates/backmatter.md meta.yaml
 	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 	rm -f $@.tmp
 
@@ -165,7 +165,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		-o $@ $< meta.yaml
 
 # create tex with references replaced and bibliography created
-%.tex: %.md mybib.bib meta.yaml
+%.tex: %.md templates/backmatter-sec.md mybib.bib meta.yaml
 	pandoc \
 		-t latex \
 		--ascii \
@@ -175,10 +175,10 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< meta.yaml
+		-o $@ $< templates/backmatter-sec.md meta.yaml
 	pdflatex $@
 
-$(OUTNAME).tex: $(MD_FILES) mybib.bib meta.yaml
+$(OUTNAME).tex: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 	pandoc \
 		-t latex \
 		--ascii \
@@ -188,7 +188,7 @@ $(OUTNAME).tex: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) meta.yaml
+		-o $@ $(MD_FILES) templates/backmatter.md meta.yaml
 	pdflatex $@
 
 mybib.bib: $(MD_FILES)
