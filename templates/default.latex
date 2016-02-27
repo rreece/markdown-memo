@@ -184,20 +184,20 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(toc)$
-{
 %\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 \clearpage
-}
 $endif$
+
 $if(lot)$
 \listoftables
 \clearpage
 $endif$
+
 $if(lof)$
 \listoffigures
 \clearpage
@@ -206,7 +206,9 @@ $endif$
 $if(spacing)$
 \begin{spacing}{$spacing$}
 $endif$
+
 $body$
+
 $if(spacing)$
 \end{spacing}
 $endif$
