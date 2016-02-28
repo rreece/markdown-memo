@@ -137,7 +137,7 @@ img.email {
 
 
 /* headers ------------------------------------------------------- */
-h1, h2, h3, h4, h5 {
+h1, h3, h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }
@@ -146,6 +146,8 @@ h1 {
     font-size: 42px;
 }
 h2 {
+    margin-top: 36px;
+    margin-bottom: 24px;
     width: 700px;  /* forces page width */
     border-bottom: 2px solid #444444;
     font-size: 36px;
