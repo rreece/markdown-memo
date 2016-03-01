@@ -161,19 +161,30 @@ $endif$
 % caption settings:
 \usepackage{caption}
 %\captionsetup{belowskip=-8pt,aboveskip=-8pt,labelfont=bf,format=hang}
-\captionsetup{labelfont=bf,format=hang}
+\captionsetup{font=small,labelfont=bf,format=hang}
 
 % tightlist HACK
 \providecommand{\tightlist}{%
       \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% remove "Abstract" from the abstract
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+%%-----------------------------------------------------------------------------
 \begin{document}
 
-$if(title)$
-\maketitle
 $if(fancyhdr)$
 \noindent\rule{\textwidth}{2pt}
 $endif$
+
+$if(title)$
+{\let\newpage\relax\maketitle}
+$endif$
+
+$if(fancyhdr)$
+\noindent\rule{\textwidth}{2pt}
 $endif$
 
 $if(abstract)$
@@ -181,6 +192,8 @@ $if(abstract)$
 \noindent $abstract$
 \end{abstract}
 $endif$
+
+\begin{spacing}{0.5}
 
 $for(include-before)$
 $include-before$
@@ -203,6 +216,8 @@ $if(lof)$
 \clearpage
 $endif$
 
+\end{spacing}
+
 $if(spacing)$
 \begin{spacing}{$spacing$}
 $endif$
@@ -212,6 +227,8 @@ $body$
 $if(spacing)$
 \end{spacing}
 $endif$
+
+%\begin{spacing}{0.5}
 
 $if(natbib)$
 $if(biblio-files)$
@@ -233,5 +250,7 @@ $endif$
 $for(include-after)$
 $include-after$
 $endfor$
+
+%\end{spacing}
 
 \end{document}
