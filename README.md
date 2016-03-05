@@ -111,5 +111,6 @@ See also
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
 -   [commonmark.org](http://commonmark.org/)
 -   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
+-   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 
 
