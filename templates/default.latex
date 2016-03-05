@@ -187,11 +187,15 @@ $if(fancyhdr)$
 \noindent\rule{\textwidth}{2pt}
 $endif$
 
+\vspace{0.6cm}
+
 $if(abstract)$
 \begin{abstract}
 \noindent $abstract$
 \end{abstract}
 $endif$
+
+%\vspace{0.2cm}
 
 \begin{spacing}{0.5}
 

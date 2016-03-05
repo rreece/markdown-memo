@@ -1,4 +1,5 @@
 ---
+## required meta-data -------------------------------------
 title: 'This is the title: it contains a colon'
 titleshort: 'This is the title'
 subtitle: 'This is the subtitle'
@@ -13,11 +14,13 @@ author:
 
         [^JoeCoauthor]: Joe University, Joeville
 authorshort: 'R. Reece and J. Coauthor'
-date: 'August 1, 2015'
-#license: '&copy; 2014-2015 Ryan Reece. All rights reserved'
+date: 'August 1, 2016'
+#license: ''
+#license: '&copy; 2015-2016 Ryan Reece. All rights reserved'
 license: 'Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)'
-## ^ required meta-data ^ ---------------------------------
+## optional -----------------------------------------------
 abstract: |
+    This is the abstract. This is the abstract. This is the abstract.
     This is the abstract. This is the abstract. This is the abstract.
     This is the abstract. This is the abstract. This is the abstract.
     This is the abstract. This is the abstract. This is the abstract.
@@ -25,6 +28,11 @@ abstract: |
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
+figureTitle: "Figure"
+tableTitle: "Table"
+figPrefix: "Figure"
+eqnPrefix: "eq."
+tblPrefix: "Table"
 ## html options -------------------------------------------
 email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #disqus: true

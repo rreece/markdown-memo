@@ -38,7 +38,7 @@ PDF_FILES := $(MD_FILES:%.md=%.pdf)
 # targets
 #------------------------------------------------------------------------------
 
-default: html
+default: html pdf
 
 html: $(HTML_FILES)
 	$(PRINT) "html done."
@@ -81,6 +81,7 @@ index.html: index.md meta.yaml
 		--template=./templates/outline.html \
 		--mathjax \
 		--bibliography=mybib.bib \
+		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $< templates/backmatter-sec.md meta.yaml.tmp
 	rm -f meta.yaml.tmp $@.tmp
@@ -96,6 +97,7 @@ $(OUTNAME).html: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--template=./templates/outline.html \
 		--mathjax \
 		--bibliography=mybib.bib \
+		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) templates/backmatter.md meta.yaml
 
@@ -107,6 +109,7 @@ $(OUTNAME).html: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--template=templates/default.latex \
 		--toc \
+		--filter pandoc-crossref \
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
@@ -119,6 +122,7 @@ $(OUTNAME).pdf: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--template=templates/default.latex \
 		--toc \
+		--filter pandoc-crossref \
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
