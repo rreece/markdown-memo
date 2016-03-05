@@ -18,6 +18,13 @@ Requirements
 -   pandoc
 -   make
 
+I've also had to install `pandoc-crossref`, and I think I had to install `pandoc-citeproc`.
+In the case of [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref), you simply
+do this to install:
+
+    cabal update
+    cabal install pandoc-crossref
+
 
 Getting started
 ----------------------------------
