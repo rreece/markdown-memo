@@ -95,10 +95,10 @@ Features
 
 ### both
 
--   multiple authors
--   footnotes
 -   appendicies
--   bibliographies
+-   bibtex bibliographies
+-   footnotes
+-   multiple authors
 
 
 Disqus integration
