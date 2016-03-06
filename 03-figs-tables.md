@@ -40,12 +40,15 @@ ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
 omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
 sumo decore. Eirmod hendrerit an pri.
 
-![The observed (solid) local $p_{0}$ as a function of mH in the low mass range.
+![The observed (solid) local $p_{0}$ as a function of $m_{H}$ in the low mass range.
     The dashed curve shows the expected local $p_{0}$ under the hypothesis of a
     SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
     The horizontal dashed lines indicate the $p$-values corresponding to
     significances of 1 to 6$\sigma$&nbsp;[@ATLAS_2012_Higgs_discovery]\.
     ](img/ATLAS-local-p0-vs-mH.png) {#fig:ATLAS_local_p0_vs_mH}
+
+[@Fig:ATLAS_local_p0_vs_mH] shows the $p_{0}$ value as a function of the reconstructed Higgs mass
+from the ATLAS experiment.
 
 Amet magna voluptatum eam eu. Denique moderatius ad pri, an vix tale
 referrentur, atqui appetere et eos. Pri esse disputationi et. Te his

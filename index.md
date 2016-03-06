@@ -1,7 +1,9 @@
 Contents
 --------------------------------------------------------------------------------
 
-1.  [example](01-example.html)
-1.  [an other example](02-example.html)
+1.  [Basics](01-basics.html)
+1.  [Mathematical expressions](02-math.html)
+1.  [Floats, Figures, and Tables](03-figs-tables.html)
+
 
 
