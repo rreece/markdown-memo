@@ -55,7 +55,7 @@ index.html: index.md meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
-		--template=./templates/index.html \
+		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
 
 # create html
@@ -65,7 +65,7 @@ index.html: index.md meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
-		--template=./templates/outline.html \
+		--template=./templates/outline_template.html \
 		-o $@.tmp $< meta.yaml
 	rm -f meta.yaml.tmp
 	grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
@@ -80,7 +80,7 @@ index.html: index.md meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
-		--template=./templates/outline.html \
+		--template=./templates/outline_template.html \
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-crossref \
@@ -97,7 +97,7 @@ $(OUTNAME).html: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
-		--template=./templates/index.html \
+		--template=./templates/index_template.html \
 		--mathjax \
 		--bibliography=mybib.bib \
 		--filter pandoc-crossref \
@@ -111,7 +111,7 @@ $(OUTNAME).pdf: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
-		--template=templates/default.latex \
+		--template=templates/default_template.tex \
 		--toc \
 		--filter pandoc-crossref \
 		--filter pandoc-eqnos \
@@ -126,7 +126,7 @@ $(OUTNAME).pdf: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
-		--template=templates/default.latex \
+		--template=templates/default_template.tex \
 		--toc \
 		--filter pandoc-crossref \
 		--filter pandoc-eqnos \
@@ -171,7 +171,7 @@ $(OUTNAME).mds: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
-		--template=./templates/outline.html \
+		--template=./templates/outline_template.html \
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
@@ -182,7 +182,7 @@ $(OUTNAME).tex: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
-		--template=templates/default.latex \
+		--template=templates/default_template.tex \
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
@@ -196,7 +196,7 @@ $(OUTNAME).tex: $(MD_FILES) templates/backmatter.md mybib.bib meta.yaml
 		--ascii \
 		--standalone \
 		--smart \
-		--template=templates/default.latex \
+		--template=templates/default_template.tex \
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
