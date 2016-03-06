@@ -113,6 +113,7 @@ Wish list / TODOs
 ----------------------------------
 
 -   Find and replace the default figure environment to be `\begin{figure}[tph]` instead of `\begin{figure}[htbp]`.
+-   Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 -   Add conditionals to the `Makefile` such that `templates/refs.md` is only added for
     documents that have references.
