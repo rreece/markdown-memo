@@ -5,9 +5,10 @@ titleshort: 'This is the title'
 subtitle: 'This is the subtitle'
 author:
     -   |
-        Ryan Reece[^ReeceSCIPP]
+        [Ryan Reece](http://reece.scipp.ucsc.edu/)[^ReeceSCIPP]
 
-        [^ReeceSCIPP]: University of California, Santa Cruz
+        [^ReeceSCIPP]: University of California, Santa Cruz,
+        [reece.scipp.ucsc.edu](http://reece.scipp.ucsc.edu/)
 
     -   |
         Joe Coauthor[^JoeCoauthor]

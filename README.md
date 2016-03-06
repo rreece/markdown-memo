@@ -109,6 +109,15 @@ Just register a user name and the site name with [disqus.com](disqus.com).
 Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 
 
+Wish list / TOODs
+----------------------------------
+
+-   Find and replace the default figure environment to be `\begin{figure}[tph]` instead of `\begin{figure}[htbp]`.
+-   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
+-   Add conditionals to the `Makefile` such that `templates/refs.md` is only added for
+    documents that have references.
+
+
 See also
 ----------------------------------
 
