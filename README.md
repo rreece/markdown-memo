@@ -109,7 +109,7 @@ Just register a user name and the site name with [disqus.com](disqus.com).
 Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 
 
-Wish list / TOODs
+Wish list / TODOs
 ----------------------------------
 
 -   Find and replace the default figure environment to be `\begin{figure}[tph]` instead of `\begin{figure}[htbp]`.
