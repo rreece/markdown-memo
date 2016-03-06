@@ -1,5 +1,12 @@
 
-v0.6    Ryan Reece  <ryan.reece@cern.ch>
+v0.8   Ryan Reece  <ryan.reece@cern.ch>
+-   March 6, 2016
+-   Added use of pandoc-crossref
+-   Lots of polishing of templates
+-   Lot's of new syntax examples in the *.md
+
+v0.6/7   Ryan Reece  <ryan.reece@cern.ch>
+-   Feb 27, 2016
 -   Lots of updates including getting the abstract into the html.
 
 v0.5    Ryan Reece  <ryan.reece@cern.ch>
