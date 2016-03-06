@@ -55,7 +55,7 @@ geometry:
     -   'left=1.5in'
     -   'right=1.5in'
     -   'headheight=14pt'
-    -   'headsep=\baselineskip'
+    -   'headsep=14pt'
 fancyhdr: true
 classoption:
     -   'openany'
