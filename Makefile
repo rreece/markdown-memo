@@ -120,7 +120,7 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o doc.pdf $(MD_FILES) $(ops) meta.yaml
+		-o $(OUTNAME).pdf $(MD_FILES) $(ops) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf via pandoc to tex then pdflatex
