@@ -11,7 +11,7 @@
 
     font-family: Verdana, Helvetica, Arial, sans-serif;
     font-family: Georgia, Palatino, serif;
-    font-family: Consolas, Monaco, Andale Mono, monospace;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
 */
 
 /* text defaults ------------------------------------------------- */
@@ -200,7 +200,7 @@ pre {
     white-space: pre-wrap;
 }
 code {
-    font-family: Consolas, Monaco, Andale Mono, monospace;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
     line-height: 1.5;
     font-size: 13px;
     max-width: 700px;
@@ -223,7 +223,6 @@ hr {
     margin: 36px auto 36px 0;
     border: 0;
     padding: 0;
-    background-color: #444444;
     color: #444444;
     height: 2px; 
     max-width: 700px;
@@ -277,7 +276,7 @@ div#mainbody
 div.nav
 {
     float: right;
-    font-family: Consolas, Monaco, Andale Mono, monospace;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
     margin-top: 0;
     margin-bottom: 10px;
     margin-left: 0;
