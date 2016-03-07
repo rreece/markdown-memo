@@ -71,7 +71,7 @@ Please replace `img/my_email.png` with a screenshot of your
 email address instead of mine,
 or just remove the use of the image in `meta.yaml`.
 
-Customize the files in `templates/` to ajust the format
+Customize the files in `templates/` to adjust the format
 of the output html and pdfs files to your needs.
 
 If you want to put the html online, perhaps a solution for you,

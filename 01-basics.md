@@ -4,7 +4,7 @@ Basics
 Subsection
 -------------------------------------------------------------------------------
 
-Urls are done like this.
+URLs are done like the following.
 
 [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 dolor sit amet, duo ut putant verear, nam ut brute utroque.
