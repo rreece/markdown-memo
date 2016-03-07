@@ -45,7 +45,8 @@ p {
     text-align: justify;
 }
 ol, ul {
-    text-align: left;
+    /*text-align: left;*/
+    text-align: justify;
 }
 /*ol,ul > ol,ul {*/
 ol ol, ul ul, ol ul, ul ol {
