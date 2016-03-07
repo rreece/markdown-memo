@@ -349,6 +349,10 @@ a.footnoteRef sup {
     text-align: right;
 }
 
+/* Copyleft symbol done with <span class="copy-left">&copy;</span>
+   from: https://medium.com/@mmeida/how-to-insert-the-copyleft-symbol-f093113cc2cf  */
+.copy-left { display: inline-block; text-align: right; margin: 0px; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
+
 /* classes ---------------------------------------------------------- */
 .floatright
 {
