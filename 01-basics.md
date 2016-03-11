@@ -69,6 +69,8 @@ These will work in \LaTeX, but not in html:
 
 -   \textsf{This should be Sans.}
 -   \textsc{This Should BE SMALL caps.}
+-   $\textsf{This works though!}$
+-   $\textsc{This works though!}$
 
 
 
