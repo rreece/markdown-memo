@@ -25,7 +25,6 @@ body {
     margin-left: auto;
     padding: 20px;
     width: 700px;
-    /* font-family: Verdana, Helvetica, Arial, sans-serif; */
     font-family: Georgia, Palatino, serif;
     color: #444444;
     line-height: 1;
@@ -188,7 +187,7 @@ div.abstract {
     font-size: 16px;
     margin-top: 36px;
     margin-bottom: 36px;
-    margin-left: auto;
+    margin-left: */ auto;
     margin-right: auto;
     max-width: 600px;
 }
@@ -196,16 +195,21 @@ div.abstract {
 
 /* blocks ---------------------------------------------------------- */
 pre {
-    padding: 0px 24px;
+    border-top: 2px solid black;
+    border-right: 2px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+    border-left: 2px solid black;
+    padding: 10px 10px;
     max-width: 700px;
     white-space: pre-wrap;
+    background-color: #444444;
+    color: white;
 }
 code {
     font-family: Consolas, Monaco, "Andale Mono", monospace;
-    line-height: 1.5;
-    font-size: 13px;
+    line-height: 16px;
+    font-size: 12px;
     max-width: 700px;
-    color: black;
     text-align: left;
 }
 blockquote {
@@ -217,6 +221,10 @@ blockquote {
     max-width: 700px;
     color: black;
     text-align: justify;
+}
+blockquote p {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 /* hr. ---------------------------------------------------------- */

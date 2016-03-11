@@ -53,8 +53,8 @@ geometry:
     -   'paperheight=11in'
     -   'top=1in'
     -   'bottom=1in'
-    -   'left=1.5in'
-    -   'right=1.5in'
+    -   'left=1.25in'
+    -   'right=1.25in'
     -   'headheight=14pt'
     -   'headsep=14pt'
 fancyhdr: true

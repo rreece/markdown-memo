@@ -13,6 +13,8 @@ accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
 an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
 at falli feugiat est.
 
+### Blocks
+
 Unnumbered lists like this:
 
 -   Galileo Galilei
@@ -26,6 +28,48 @@ Numbered lists like this:
 1.  Constructive empiricists
 1.  Positivists
 1.  Relativists
+
+The following is a quote block. 
+
+>   It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.  
+
+-- Mark Twain
+
+The following is a code block.
+
+    def shortBubbleSort(alist):
+        exchanges = True
+        passnum = len(alist)-1
+        while passnum > 0 and exchanges:
+           exchanges = False
+           for i in range(passnum):
+               if alist[i]>alist[i+1]:
+                   exchanges = True
+                   temp = alist[i]
+                   alist[i] = alist[i+1]
+                   alist[i+1] = temp
+           passnum = passnum-1
+    
+    alist=[20,30,40,90,50,60,70,80,100,110]
+    shortBubbleSort(alist)
+    print(alist)
+
+Maybe you want to refer to code inline like this: `vec.push_back(3.14)`.
+
+
+### Fonts
+
+-   *This is emphasis.*
+-   **This is bold.**
+-   _This is also emphasis._
+-   __This is also bold.__
+-   ~~This is struck-out.~~
+
+These will work in \LaTeX, but not in html:
+
+-   \textsf{This should be Sans.}
+-   \textsc{This Should BE SMALL caps.}
+
 
 
 Footnotes

@@ -14,8 +14,8 @@
 export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
 
 OUTNAME := doc
-ops:=templates/refs.md templates/backmatter.md
-ops_subsection:=templates/refs_subsection.md templates/backmatter.md
+OPS_FULLDOC:=templates/refs.md templates/backmatter.md
+OPS_SECTION:=templates/refs_subsection.md templates/backmatter.md
 
 
 ##-----------------------------------------------------------------------------
@@ -62,6 +62,22 @@ index.html: index.md meta.yaml
 		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
 
+$(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
+	pandoc \
+		-t html \
+		--ascii \
+		--standalone \
+		--smart \
+		--variable=date-meta:"$(DATE)" \
+		--variable=css:templates/markdown-memo.css \
+		--template=./templates/index_template.html \
+		--mathjax \
+		--bibliography=mybib.bib \
+		--filter pandoc-crossref \
+		--filter pandoc-citeproc \
+		-o $@ $(MD_FILES) $(OPS_FULLDOC) meta.yaml
+	$(PRINT) "make $@ done."
+
 ## create html
 %.html: %.md mybib.bib meta.yaml
 	pandoc \
@@ -89,24 +105,8 @@ index.html: index.md meta.yaml
 		--bibliography=mybib.bib \
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
-		-o $@ $< $(ops_subsection) meta.yaml.tmp
+		-o $@ $< $(OPS_SECTION) meta.yaml.tmp
 	rm -f meta.yaml.tmp $@.tmp
-	$(PRINT) "make $@ done."
-
-$(OUTNAME).html: $(MD_FILES) mybib.bib meta.yaml
-	pandoc \
-		-t html \
-		--ascii \
-		--standalone \
-		--smart \
-		--variable=date-meta:"$(DATE)" \
-		--variable=css:templates/markdown-memo.css \
-		--template=./templates/index_template.html \
-		--mathjax \
-		--bibliography=mybib.bib \
-		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) $(ops) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
@@ -121,7 +121,7 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $(OUTNAME).pdf $(MD_FILES) $(ops) meta.yaml
+		-o $(OUTNAME).pdf $(MD_FILES) $(OPS_FULLDOC) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf via pandoc to tex then pdflatex
@@ -142,7 +142,7 @@ $(OUTNAME).pdf: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-eqnos \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< $(ops_subsection) meta.yaml
+		-o $@ $< $(OPS_SECTION) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create md with references replaced and bibliography created
@@ -154,7 +154,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@.tmp $(MD_FILES) $(ops) meta.yaml
+		-o $@.tmp $(MD_FILES) $(OPS_FULLDOC) meta.yaml
 	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 	rm -f $@.tmp
 	$(PRINT) "make $@ done."
@@ -167,7 +167,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--toc \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@.tmp $< $(ops_subsection) meta.yaml
+		-o $@.tmp $< $(OPS_SECTION) meta.yaml
 	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 	rm -f $@.tmp
 	$(PRINT) "make $@ done."
@@ -182,7 +182,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline_template.html \
-		-o $@ $< $(ops_subsection) meta.yaml
+		-o $@ $< $(OPS_SECTION) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
@@ -197,7 +197,7 @@ $(OUTNAME).tex: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-crossref \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) $(ops) meta.yaml
+		-o $@ $(MD_FILES) $(OPS_FULLDOC) meta.yaml
 	$(PRINT) "make $@ done."
 
 %.tex: %.md mybib.bib meta.yaml
@@ -211,7 +211,7 @@ $(OUTNAME).tex: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-crossref \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		-o $@ $< $(ops_subsection) meta.yaml
+		-o $@ $< $(OPS_SECTION) meta.yaml
 	$(PRINT) "make $@ done."
 
 mybib.bib: $(MD_FILES)
