@@ -61,7 +61,6 @@ fancyhdr: true
 classoption:
     -   'openany'
     -   'twoside'
-natbib: true
-biblio-style: 'chicago'
+citation-style: 'templates/apa-no-doi-no-issue.csl'
 ...
 
