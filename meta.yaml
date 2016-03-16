@@ -63,7 +63,5 @@ classoption:
     -   'openany'
     -   'twoside'
 citation-style: 'templates/apa-no-doi-no-issue.csl'
-#citation-style: 'templates/apa.csl'
-#citation-style: 'templates/apa-annotated-bibliography.csl'
 ...
 
