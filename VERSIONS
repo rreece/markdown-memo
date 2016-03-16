@@ -1,3 +1,10 @@
+v0.10  Ryan Reece  <ryan.reece@cern.ch>
+-   March 16, 2016
+-   Added templates/refs_tex.md and templates/*.csl
+-   Updated to use APA citation formats.
+-   Shrank the TOC and Refs spacing.
+-   Sans-serif quote blocks, etc., looking a lot more polished.
+
 v0.9   Ryan Reece  <ryan.reece@cern.ch>
 -   March 6, 2016
 -   Added templates/refs_subsection.md
