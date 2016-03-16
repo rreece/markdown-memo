@@ -191,19 +191,24 @@ $if(fancyhdr)$
 %\renewcommand\headrulewidth{0pt}
 $endif$
 
-% caption settings:
+%% caption settings:
 \usepackage{caption}
 %\captionsetup{belowskip=-8pt,aboveskip=-8pt,labelfont=bf,format=hang}
 \captionsetup{font=small,labelfont=bf,format=hang}
 
-% tightlist HACK
+%% tightlist HACK
 \providecommand{\tightlist}{%
       \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% remove "Abstract" from the abstract
+%% remove "Abstract" from the abstract
 \usepackage{abstract}
 \renewcommand{\abstractname}{}    % clear the title
 \renewcommand{\absnamepos}{empty} % originally center
+
+%% toc spacing
+\usepackage{tocloft}
+%\renewcommand\cftchapafterpnum{\vskip0pt}
+\renewcommand\cftsecafterpnum{\vskip0pt}
 
 %%-----------------------------------------------------------------------------
 \begin{document}
@@ -230,7 +235,7 @@ $endif$
 
 %\vspace{0.2cm}
 
-\begin{spacing}{0.5}
+%\begin{spacing}{0.5}
 
 $for(include-before)$
 $include-before$
@@ -253,7 +258,7 @@ $if(lof)$
 \clearpage
 $endif$
 
-\end{spacing}
+%\end{spacing}
 
 $if(spacing)$
 \begin{spacing}{$spacing$}
