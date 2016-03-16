@@ -2,8 +2,8 @@
 References
 ===============================================================================
 
-\setlength{\parindent}{-16pt}
-\setlength{\leftskip}{16pt}
+\setlength{\parindent}{-24pt}
+\setlength{\leftskip}{24pt}
 \setlength{\parskip}{0pt}
 \noindent
 
