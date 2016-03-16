@@ -182,7 +182,7 @@ $(OUTNAME).mds: $(MD_FILES) mybib.bib meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline_template.html \
-		-o $@ $< $(OPS_SECTION) meta.yaml
+		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created

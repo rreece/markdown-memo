@@ -59,16 +59,20 @@ ol p, ul p {
     text-align: left;
 }
 
+/* hang indents on references */
 /* bibliography from md -> html */
-div[id^="ref"] p {
+div.references p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
     text-align: left;
 }
 
 /* bibliography from md -> mds -> html */
-h1[id="bibliography"] ~ p {
-    text-align: left;
-}
-h2[id="bibliography"] ~ p {
+h1[id="bibliography"] ~ p, h2[id="bibliography"] ~ p, h1[id="references"] ~ p, h2[id="references"] ~ p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
     text-align: left;
 }
 
