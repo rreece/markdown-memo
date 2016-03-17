@@ -67,5 +67,6 @@ maketitle: true
 numbersections: true
 spacing: '1.2'
 toc: true
+toc-depth: 3
 ...
 

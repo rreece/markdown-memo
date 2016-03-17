@@ -197,12 +197,15 @@ $endif$
 \renewcommand{\abstractname}{}    % clear the title
 \renewcommand{\absnamepos}{empty} % originally center
 
-%% toc spacing
+%% toc settings
+%\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
 \usepackage{tocloft}
-\setlength\cftbeforetoctitleskip{14pt}    % change space before TOC title
-\setlength\cftaftertoctitleskip{8pt}     % change space after  TOC title
-\setlength\cftbeforesecskip{8pt}          % change space before sections
-\renewcommand\cftsecafterpnum{\vskip0pt}  % change space after subsections
+\setlength\cftbeforetoctitleskip{14pt}    % space before TOC title
+\setlength\cftaftertoctitleskip{8pt}      % space after  TOC title
+\setlength\cftbeforesecskip{4pt}          % space before sections
+\renewcommand\cftsecafterpnum{\vskip0pt}  % space after  sections
+%\setlength\cftparskip{2pt}               % space between paragraphs (subsections); default 0
 
 %% caption settings:
 \usepackage{caption}
@@ -239,8 +242,6 @@ $include-before$
 $endfor$
 
 $if(toc)$
-%\hypersetup{linkcolor=black}
-\setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 \clearpage
 $endif$
