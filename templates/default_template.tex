@@ -217,17 +217,12 @@ $endif$
 %%=============================================================================
 \begin{document}
 
-$if(fancyhdr)$
+$if(maketitle)$
 \noindent\rule{\textwidth}{2pt}
-$endif$
 
-$if(title)$
 {\let\newpage\relax\maketitle}
-$endif$
 
-$if(fancyhdr)$
 \noindent\rule{\textwidth}{2pt}
-$endif$
 
 \vspace{0.6cm}
 
@@ -236,6 +231,8 @@ $if(abstract)$
 \noindent $abstract$
 \end{abstract}
 $endif$
+
+$endif$ %% endif maketitle
 
 $for(include-before)$
 $include-before$
