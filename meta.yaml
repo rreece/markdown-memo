@@ -63,6 +63,7 @@ geometry:
 #linestretch: '0.9'
 lof: false
 lot: false
+maketitle: true
 numbersections: true
 spacing: '1.2'
 toc: true
