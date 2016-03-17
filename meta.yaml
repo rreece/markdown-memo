@@ -44,11 +44,13 @@ email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 ## pdflatex options ---------------------------------------
-fontsize: '11pt'
+classoption:
+    -   'openany'
+    -   'twoside'
+citation-style: 'templates/apa-no-doi-no-issue.csl'
+fancyhdr: true
 fontfamily: 'mathpazo'
-#linestretch: '0.9'
-numbersections: true
-spacing: '1.2'
+fontsize: '11pt'
 geometry: 
     -   'paperwidth=8.5in'
     -   'paperheight=11in'
@@ -58,10 +60,11 @@ geometry:
     -   'right=1.25in'
     -   'headheight=14pt'
     -   'headsep=14pt'
-fancyhdr: true
-classoption:
-    -   'openany'
-    -   'twoside'
-citation-style: 'templates/apa-no-doi-no-issue.csl'
+#linestretch: '0.9'
+lof: false
+lot: false
+numbersections: true
+spacing: '1.2'
+toc: true
 ...
 
