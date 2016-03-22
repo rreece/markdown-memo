@@ -56,12 +56,21 @@ li {
     margin-left: 36px;
 }
 ol p, ul p {
-    text-align: left;
+    /*text-align: left;*/
+    text-align: justify;
 }
 
 /* hang indents on references */
 /* bibliography from md -> html */
 div.references p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
+    text-align: left;
+}
+
+/* bibliography from md -> total doc.html */
+h1[id="references"] ~ div p {
     margin: 0;
     padding-left: 36px ;
     text-indent: -36px ;
@@ -191,7 +200,7 @@ div.abstract {
     font-size: 16px;
     margin-top: 36px;
     margin-bottom: 36px;
-    margin-left: */ auto;
+    margin-left:  auto;
     margin-right: auto;
     max-width: 600px;
 }

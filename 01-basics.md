@@ -65,7 +65,7 @@ Maybe you want to refer to code inline like this: `vec.push_back(3.14)`.
 -   __This is also bold.__
 -   ~~This is struck-out.~~
 
-These will work in LaTeX (\LaTeX) but not in html:
+These will work in LaTeX (\LaTeX) but may not in html:
 
 -   \textsf{This should be Sans.}
 -   \textsc{This Should BE SMALL caps.}

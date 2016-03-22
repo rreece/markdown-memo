@@ -29,7 +29,7 @@ abstract: |
     This is the second paragraph in the abstract.
     This is the second paragraph in the abstract.
 
-    \textsc{keywords}: Quantum field theory, QFT, quantization, second quantization, wave-particle duality
+    *Keywords:* quantum field theory, QFT, quantization, second quantization, wave-particle duality
 figureTitle: "Figure"
 tableTitle: "Table"
 figPrefix: "Figure"
