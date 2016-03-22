@@ -65,7 +65,7 @@ lof: false
 lot: false
 maketitle: true
 numbersections: true
-spacing: '1.1'
+spacing: '1.2'
 toc: true
 toc-depth: 3
 ...
