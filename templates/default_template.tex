@@ -146,8 +146,7 @@ $if(strikeout)$
 $endif$
 
 \setlength{\parindent}{0pt}
-%\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{6pt} % only for abstract, reset later
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
 $if(numbersections)$
@@ -258,7 +257,12 @@ $if(lof)$
 $endif$
 
 %%-----------------------------------------------------------------------------
+$if(parskip)$
+\setlength{\parskip}{$parskip$}
+$else$
 \setlength{\parskip}{11pt}
+$endif$
+
 $if(spacing)$
 \begin{spacing}{$spacing$}
 $endif$
