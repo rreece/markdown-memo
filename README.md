@@ -95,10 +95,24 @@ Features
 
 ### both
 
--   appendicies
+-   appendices
 -   bibtex bibliographies
 -   footnotes
 -   multiple authors
+
+If you add multiple appendices, perhaps you want to separate
+them from the main text with a part:
+
+    \clearpage
+    \appendix
+    \part*{Appendices}
+    \addcontentsline{toc}{part}{Appendices}
+
+    Example appendix
+    ===============================================================================
+
+    Start writing the appendix...
+    
 
 
 Disqus integration

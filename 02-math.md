@@ -19,7 +19,7 @@ Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
     \nabla \cdot  \vec{E} &= \rho \nonumber \\
     \nabla \cdot  \vec{B} &= 0    \nonumber \\
     \nabla \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} \label{eq:maxwell} \\
-    \nabla \times \vec{E} &= \vec{j} + \frac{\partial \vec{E}}{\partial t} \nonumber \,.
+    \nabla \times \vec{B} &= \vec{j} + \frac{\partial \vec{E}}{\partial t} \nonumber \,.
 \end{align}
 
 Note that we are using [MathJax](https://www.mathjax.org/) to render
