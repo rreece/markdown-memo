@@ -12,7 +12,7 @@
 
 export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
 
-OUTPUT := $(shell cat meta.yaml | grep output | awk '{split($$0,a,":"); print a[2]}')
+OUTPUT := $(shell cat meta.yaml | grep output | awk '{split($$0,a,":"); print a[2]}' | xargs)
 DOREFS := $(filter $(shell cat meta.yaml | grep ^dorefs | awk '{split($$0,a,":"); print a[2]}' | xargs),true)
 
 OPS_FULLPDF := $(if $(DOREFS), templates/refs_tex.md templates/backmatter.md, templates/backmatter.md)
