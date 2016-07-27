@@ -1,4 +1,7 @@
-References {.unnumbered}
+\appendix
+
+My appendix
 ===============================================================================
 
+This is an appendix.
 

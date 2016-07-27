@@ -53,6 +53,9 @@ html: $(HTML_FILES)
 
 pdf: $(OUTPUT).pdf
 
+#index.md: $(MD_FILES)
+#	python templates/make_index.py $(MD_FILES)
+
 index.html: index.md meta.yaml
 	pandoc \
 		-t html \
@@ -68,6 +71,7 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 	pandoc \
 		-t html \
 		--ascii \
+		--number-sections \
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \

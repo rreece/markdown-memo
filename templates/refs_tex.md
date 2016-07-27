@@ -1,5 +1,6 @@
 
 \section*{References}
+\addcontentsline{toc}{section}{References}
 
 \raggedright
 \setlength{\parindent}{-24pt}
