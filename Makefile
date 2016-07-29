@@ -57,7 +57,7 @@ index.md: $(MD_FILES)
 	then \
 		cp index.txt $@ ; \
 	else \
-		./templates/make_md_index.py --out=$@ $(MD_FILES) ; \
+		python templates/make_md_index.py --out=$@ $(MD_FILES) ; \
 	fi
 	$(PRINT) "make $@ done."
 
@@ -122,24 +122,24 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
-$(OUTPUT).pdf: $(MD_FILES) mybib.bib meta.yaml
-	pandoc \
-		--standalone \
-		--smart \
-		--variable=date-meta:"$(DATE)" \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--filter pandoc-eqnos \
-		--bibliography=mybib.bib \
-		--filter pandoc-citeproc \
-		-o $(OUTPUT).pdf $(MD_FILES) $(OPS_FULLPDF) meta.yaml
-	$(PRINT) "make $@ done."
-
-## create the full pdf via pandoc to tex then pdflatex
-#$(OUTPUT).pdf: $(OUTPUT).tex
-#	pdflatex -interaction=nonstopmode $< &> latex.log
-#	pdflatex -interaction=nonstopmode $< &> latex.log
+#$(OUTPUT).pdf: $(MD_FILES) mybib.bib meta.yaml
+#	pandoc \
+#		--standalone \
+#		--smart \
+#		--variable=date-meta:"$(DATE)" \
+#		--template=templates/default_template.tex \
+#		--filter pandoc-crossref \
+#		--filter pandoc-eqnos \
+#		--bibliography=mybib.bib \
+#		--filter pandoc-citeproc \
+#		-o $(OUTPUT).pdf $(MD_FILES) $(OPS_FULLPDF) meta.yaml
 #	$(PRINT) "make $@ done."
+
+# create the full pdf via pandoc to tex then pdflatex
+$(OUTPUT).pdf: $(OUTPUT).tex
+	pdflatex -interaction=nonstopmode $< &> latex.log
+	pdflatex -interaction=nonstopmode $< &> latex.log
+	$(PRINT) "make $@ done."
 
 ## create the pdf for a section
 %.pdf: %.md mybib.bib meta.yaml
@@ -204,7 +204,9 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-crossref \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
+		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
+	python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
 %.tex: %.md mybib.bib meta.yaml
@@ -218,6 +220,7 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml
+	python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
 mybib.bib: $(MD_FILES)

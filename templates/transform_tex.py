@@ -75,35 +75,46 @@ def main():
     infiles = ops.infiles
     out = ops.out
 
-    rep = r'<h([1-6])\s+[^>]*id="([\w\-]+)"[^>]*>([^<]+)<\/h[1-6]>'
-
-    f_out = open(out, 'w')
-    f_out.write('Contents\n')
-    f_out.write('---------------------------------------------------\n')
-    f_out.write('\n')
+    rep_begin_figure = r'^\\begin{figure}\[\w+\]\s*$'
+    rep_begin_table = r'^\\begin{longtable}\[\w\]{([\w\{\}@]+)}\s*$'
+    rep_end_table = r'^\\end{longtable}\s*$'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
+        
+        f_in = open(fn)
+        f_out = open('%s-tmp.tex' % root, 'w')
 
-        os.system('pandoc -t html --ascii --smart -o %s-tmp.html %s' % (root, fn))
-
-        f_in = open('%s-tmp.html' % root)
         for line in f_in:
-            reo = re.match(rep, line)
-            if reo:
-                level   = int(reo.group(1))
-                id      = reo.group(2)
-                name    = reo.group(3)
-                if level == 1:
-                    f_out.write('%s1.  **[%s](%s.html)**\n' % ('    '*(level-1), name, root) )
-                else:
-                    f_out.write('%s1.  [%s](%s.html#%s)\n' % ('    '*(level-1), name, root, id ) )
+
+            reo = None
+            newline = line
+
+            if not reo:
+                reo = re.match(rep_begin_figure, line)
+                if reo:
+                    newline = '\\begin{figure}[tp]\n'
+                    
+            if not reo:
+                reo = re.match(rep_begin_table, line)
+                if reo:
+                    # newline = '\\begin{table}[bph]\n'
+                    # newline = line.replace('longtable', 'supertabular')
+                    pass
+
+            if not reo:
+                reo = re.match(rep_end_table, line)
+                if reo:
+                    # newline = '\\end{table}\n'
+                    # newline = line.replace('longtable', 'supertabular')
+                    pass
+
+            f_out.write(newline)
+ 
         f_in.close()
+        f_out.close()
 
-        os.system('rm -f %s-tmp.html' % root)
-
-    f_out.write('\n')
-    f_out.close()
+        os.system('mv -f %s-tmp.tex %s' % (root, fn))
 
 
 #------------------------------------------------------------------------------
