@@ -53,7 +53,12 @@ html: $(HTML_FILES) index.html
 pdf: $(OUTPUT).pdf
 
 index.md: $(MD_FILES)
-	./templates/make_md_index.py --out=$@ $(MD_FILES)
+	if [ -f index.txt ]; \
+	then \
+		cp index.txt $@ ; \
+	else \
+		./templates/make_md_index.py --out=$@ $(MD_FILES) ; \
+	fi
 	$(PRINT) "make $@ done."
 
 index.html: index.md meta.yaml
