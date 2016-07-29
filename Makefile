@@ -228,8 +228,8 @@ mybib.bib: $(MD_FILES)
 	$(PRINT) "make $@ done."
 
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
-JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.bib *.tmp
-OUTS = *.html *.pdf index.md
+JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.bib *.tmp *-tmp.html index.md
+OUTS = *.html *.pdf
 
 clean:
 	rm -f $(JUNK)
