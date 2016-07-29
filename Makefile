@@ -43,7 +43,7 @@ MD_FILES_WITH_REFS := $(shell egrep -l '@' *.md)
 ## targets
 ##-----------------------------------------------------------------------------
 
-default: html
+default: pdf
 
 all: html pdf
 
