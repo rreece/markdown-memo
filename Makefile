@@ -53,7 +53,7 @@ html: $(HTML_FILES) index.html
 pdf: $(OUTPUT).pdf
 
 index.md: $(MD_FILES)
-	if [ -f index.txt ]; \
+	@if [ -f index.txt ]; \
 	then \
 		cp index.txt $@ ; \
 	else \
@@ -62,7 +62,7 @@ index.md: $(MD_FILES)
 	$(PRINT) "make $@ done."
 
 index.html: index.md meta.yaml
-	pandoc \
+	@pandoc \
 		-t html \
 		--ascii \
 		--standalone \
@@ -74,7 +74,7 @@ index.html: index.md meta.yaml
 	$(PRINT) "make $@ done."
 
 $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t html \
 		--ascii \
 		--number-sections \
@@ -92,20 +92,20 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 
 ## create html
 %.html: %.md mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t html \
 		--ascii \
 		--standalone \
 		--smart \
 		--template=./templates/outline_template.html \
 		-o $@.tmp $< meta.yaml
-	rm -f meta.yaml.tmp
-	grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
-	echo "# ---------------------------------------------------" >> meta.yaml.tmp
-	echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
-	echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
-	echo '...\n' >> meta.yaml.tmp
-	pandoc \
+	@rm -f meta.yaml.tmp
+	@grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
+	@echo "# ---------------------------------------------------" >> meta.yaml.tmp
+	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
+	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
+	@echo '...\n' >> meta.yaml.tmp
+	@pandoc \
 		-t html \
 		--ascii \
 		--standalone \
@@ -118,7 +118,7 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml.tmp
-	rm -f meta.yaml.tmp $@.tmp
+	@rm -f meta.yaml.tmp $@.tmp
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
@@ -137,13 +137,13 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 
 # create the full pdf via pandoc to tex then pdflatex
 $(OUTPUT).pdf: $(OUTPUT).tex
-	pdflatex -interaction=nonstopmode $< &> latex.log
-	pdflatex -interaction=nonstopmode $< &> latex.log
+	@pdflatex -interaction=nonstopmode $< &> latex.log
+	@pdflatex -interaction=nonstopmode $< &> latex.log
 	$(PRINT) "make $@ done."
 
 ## create the pdf for a section
 %.pdf: %.md mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
@@ -157,32 +157,32 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 
 ## create md with references replaced and bibliography created
 $(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t markdown_github \
 		--standalone \
 		--smart \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@.tmp $(MD_FILES) $(OPS_FULLHTML) meta.yaml
-	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-	rm -f $@.tmp
+	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
+	@rm -f $@.tmp
 	$(PRINT) "make $@ done."
 
 %.mds: %.md mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t markdown_github \
 		--standalone \
 		--smart \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@.tmp $< $(OPS_SECTION) meta.yaml
-	cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-	rm -f $@.tmp
+	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
+	@rm -f $@.tmp
 	$(PRINT) "make $@ done."
 
 ## create html from mds
 %.htmls: %.mds
-	pandoc \
+	@pandoc \
 		-t html \
 		--ascii \
 		--standalone \
@@ -195,7 +195,7 @@ $(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
 
 ## create tex with references replaced and bibliography created
 $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t latex \
 		--ascii \
 		--standalone \
@@ -206,11 +206,11 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-citeproc \
 		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
-	python templates/transform_tex.py $@
+	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
 %.tex: %.md mybib.bib meta.yaml
-	pandoc \
+	@pandoc \
 		-t latex \
 		--ascii \
 		--standalone \
@@ -220,11 +220,11 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml
-	python templates/transform_tex.py $@
+	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
 mybib.bib: $(MD_FILES)
-	cat bibs/*.bib > mybib.bib
+	@cat bibs/*.bib > mybib.bib
 	$(PRINT) "make $@ done."
 
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
@@ -232,11 +232,11 @@ JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.b
 OUTS = *.html *.pdf
 
 clean:
-	rm -f $(JUNK)
+	@rm -f $(JUNK)
 	$(PRINT) "make $@ done."
 
 realclean: clean
-	rm -f $(OUTS)
+	@rm -f $(OUTS)
 	$(PRINT) "make $@ done."
 
 over: realclean default
