@@ -204,7 +204,6 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--filter pandoc-crossref \
 		--bibliography=mybib.bib \
 		--filter pandoc-citeproc \
-		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
 	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
