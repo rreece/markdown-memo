@@ -87,6 +87,10 @@ Features
 -   [disqus comments](disqus.com)
 -   mathjax LaTeX rendering
 -   google analytics tracking
+-   automatically generates an `index.md`
+
+If you want to write your own `index.md`,
+then put the same markdown in `index.txt`.
 
 ### pdf
 
@@ -131,7 +135,7 @@ Wish list / TODOs
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 -   Add conditionals to the `Makefile` such that `templates/refs.md` is only added for
     documents that have references.
--   Optionally make a TOC automatically in the html.
+-   ~~Optionally make a TOC automatically in the html.~~
 
 
 See also
