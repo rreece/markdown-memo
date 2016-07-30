@@ -182,6 +182,8 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+\usepackage{xcolor}
+
 %% fancyhdr
 $if(fancyhdr)$
 \usepackage{fancyhdr}
@@ -206,6 +208,10 @@ $endif$ % endif license
     \fancyhead[RO]{\textit{$authorshort$}}
     \fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
     \fancyfoot[CO,CE]{\thepage}
+    $if(draft)$
+    \fancyhead[LO]{\color{gray} DRAFT: Please do not cite without permission.}
+    \fancyhead[RE]{\color{gray} DRAFT: \today}
+    $endif$ % endif draft
 }
 
 $endif$ % endif fancyhdr
