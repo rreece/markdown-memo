@@ -185,13 +185,30 @@ $endfor$
 %% fancyhdr
 $if(fancyhdr)$
 \usepackage{fancyhdr}
-\fancyhf{} % clear all header and footer fields
-\fancyhead[RO]{\textit{$authorshort$}}
-\fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
-\fancyfoot[CO,CE]{\thepage}
-\pagestyle{fancy}
-%\renewcommand\headrulewidth{0pt}
-$endif$
+%\fancyhf{} % clear all header and footer fields
+%\fancyhead[RO]{\textit{$authorshort$}}
+%\fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
+%\fancyfoot[CO,CE]{\thepage}
+%\pagestyle{fancy}
+%%\renewcommand\headrulewidth{0pt}
+
+$if(license)$
+%% overwrite the plain pagestyle which is used by maketitle for the titlepage
+\fancypagestyle{plain}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[LO]{$license$}
+    \renewcommand\headrulewidth{0pt}
+}
+$endif$ % endif license
+
+\fancypagestyle{mainstyle}{
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[RO]{\textit{$authorshort$}}
+    \fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
+    \fancyfoot[CO,CE]{\thepage}
+}
+
+$endif$ % endif fancyhdr
 
 %% remove "Abstract" from the abstract
 \usepackage{abstract}
@@ -224,6 +241,9 @@ $endif$
 \begin{document}
 
 $if(maketitle)$
+
+\thispagestyle{empty}
+
 \noindent\rule{\textwidth}{2pt}
 
 {\let\newpage\relax\maketitle}
@@ -249,6 +269,8 @@ $if(toc)$
 \clearpage
 %\cleardoublepage
 $endif$
+
+\pagestyle{mainstyle}
 
 $if(lot)$
 \listoftables
