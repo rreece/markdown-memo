@@ -199,7 +199,7 @@ $if(license)$
 \fancypagestyle{plain}{
     \fancyhf{} % clear all header and footer fields
     $if(draft)$
-    \fancyhead[LO]{\color{gray} DRAFT: \today{}. Please do not cite without permission.}
+    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: \today{}. Please do not cite without permission.}
     $endif$ % endif draft
     \fancyfoot[LO]{ {\footnotesize $license$} }
     \renewcommand\headrulewidth{0pt}
@@ -212,8 +212,8 @@ $endif$ % endif license
     \fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
     \fancyfoot[CO,CE]{\thepage}
     $if(draft)$
-    \fancyhead[LO]{\color{gray} DRAFT: Please do not cite without permission.}
-    \fancyhead[RE]{\color{gray} DRAFT: \today}
+    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: Please do not cite without permission.}
+    \fancyhead[RE]{\color{gray} \footnotesize DRAFT: \today}
     $endif$ % endif draft
 }
 
