@@ -212,7 +212,8 @@ $endif$ % endif license
     \fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
     \fancyfoot[CO,CE]{\thepage}
     $if(draft)$
-    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: Please do not cite without permission.}
+%    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: Please do not cite without permission.}
+    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: \today}
     \fancyhead[RE]{\color{gray} \footnotesize DRAFT: \today}
     $endif$ % endif draft
 }
