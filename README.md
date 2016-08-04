@@ -63,7 +63,7 @@ Getting started
 
 
 -   Edit the metadata in `meta.yaml`.
--   Call `make` to generate pdf documents.
+-   Call `make` to generate a pdf document.
 -   Call `make html` to generate valid xhtml.
 
 I use an image of my email to hide it from text crawlers.
@@ -143,10 +143,20 @@ See also
 
 -   [rreece.github.io/sw](http://rreece.github.io/sw/)
 -   [kprussing.github.io/writing-with-markdown](http://kprussing.github.io/writing-with-markdown/)
--   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown/)
+-   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
 -   [commonmark.org](http://commonmark.org/)
 -   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
 -   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
+
+
+Wordcount
+----------------------------------
+
+You might want to keep these around in the `README.md` for your document.
+
+![my pages](wordcount-pages.png)
+
+![my words](wordcount-words.png)
 
 

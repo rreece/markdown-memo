@@ -47,10 +47,10 @@ default: pdf
 
 all: html pdf
 
-html: $(HTML_FILES) index.html
+html: $(HTML_FILES) index.html wordcount.csv
 	$(PRINT) "html done."
 
-pdf: $(OUTPUT).pdf
+pdf: $(OUTPUT).pdf wordcount.csv
 
 index.md: $(MD_FILES)
 	@if [ -f index.txt ]; \
@@ -155,6 +155,51 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 		-o $@ $< $(OPS_SECTION) meta.yaml
 	$(PRINT) "make $@ done."
 
+## create tex with references replaced and bibliography created
+$(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
+	@pandoc \
+		-t latex \
+		--ascii \
+		--standalone \
+		--smart \
+		--template=templates/default_template.tex \
+		--filter pandoc-crossref \
+		--bibliography=mybib.bib \
+		--filter pandoc-citeproc \
+		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
+	@python templates/transform_tex.py $@
+	$(PRINT) "make $@ done."
+
+%.tex: %.md mybib.bib meta.yaml
+	@pandoc \
+		-t latex \
+		--ascii \
+		--standalone \
+		--smart \
+		--template=templates/default_template.tex \
+		--filter pandoc-crossref \
+		--bibliography=mybib.bib \
+		--filter pandoc-citeproc \
+		-o $@ $< $(OPS_SECTION) meta.yaml
+	@python templates/transform_tex.py $@
+	$(PRINT) "make $@ done."
+
+mybib.bib: $(MD_FILES)
+	@cat bibs/*.bib > mybib.bib
+	$(PRINT) "make $@ done."
+
+wordcount.csv: $(MD_FILES) $(OUTPUT).pdf
+	@if [ ! -f $@ ]; \
+	then \
+		printf "%s,%s,%s\n" "Date" "Words" "Pages" >> $@ ; \
+	fi
+#	@printf "%16s, %8i,  %5i\n" `date +"%Y-%m-%d-%H"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[1]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
+	@printf "%16s, %8i,  %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[1]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
+	@python templates/wordcount.py $@
+	$(PRINT) "make $@ done."
+
+
+##-----------------------------------------------------------------------------
 ## create md with references replaced and bibliography created
 $(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
 	@pandoc \
@@ -193,39 +238,8 @@ $(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
-## create tex with references replaced and bibliography created
-$(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
-	@pandoc \
-		-t latex \
-		--ascii \
-		--standalone \
-		--smart \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--bibliography=mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
-	@python templates/transform_tex.py $@
-	$(PRINT) "make $@ done."
 
-%.tex: %.md mybib.bib meta.yaml
-	@pandoc \
-		-t latex \
-		--ascii \
-		--standalone \
-		--smart \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--bibliography=mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@ $< $(OPS_SECTION) meta.yaml
-	@python templates/transform_tex.py $@
-	$(PRINT) "make $@ done."
-
-mybib.bib: $(MD_FILES)
-	@cat bibs/*.bib > mybib.bib
-	$(PRINT) "make $@ done."
-
+##-----------------------------------------------------------------------------
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
 JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.bib *.tmp *-tmp.html index.md
 OUTS = *.html *.pdf
@@ -239,4 +253,5 @@ realclean: clean
 	$(PRINT) "make $@ done."
 
 over: realclean default
+
 

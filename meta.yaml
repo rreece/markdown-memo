@@ -22,6 +22,9 @@ draft: true
 #license: '&copy; 2015-2016 Ryan Reece. All rights reserved.'
 license: '<span class="copy-left">&copy;</span> 2015-2016 Ryan Reece. Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
 dorefs: true
+submitted: ''
+#submitted: 'Submitted to My Favorite Journal'
+#submitted: 'Journal reference: *Phys. Rev. D 92*, 072001 (2015)'
 ## optional -----------------------------------------------
 abstract: |
     This is the abstract. This is the abstract. This is the abstract.
