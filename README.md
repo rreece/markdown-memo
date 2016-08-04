@@ -150,9 +150,10 @@ See also
 -   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 
 
-Wordcount
+Word count
 ----------------------------------
 
+Note that word-count and page-count plots are generated when you call make.
 You might want to keep these around in the `README.md` for your document.
 
 ![my pages](wordcount-pages.png)
