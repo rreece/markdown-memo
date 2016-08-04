@@ -103,6 +103,7 @@ then put the same markdown in `index.txt`.
 -   bibtex bibliographies
 -   footnotes
 -   multiple authors
+-   word- and page-count plots (see below)
 
 If you add multiple appendices, perhaps you want to separate
 them from the main text with a part:
