@@ -44,7 +44,7 @@ sumo decore. Eirmod hendrerit an pri.
     The dashed curve shows the expected local $p_{0}$ under the hypothesis of a
     SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
     The horizontal dashed lines indicate the $p$-values corresponding to
-    significances of 1 to 6$\sigma$&nbsp;[@ATLAS_2012_Higgs_discovery]\.
+    significances of 1 to 6$\sigma$&nbsp;[@ATLAS_2012_Observation_of_a_new_particle_in_the_search_for]\.
     ](img/ATLAS-local-p0-vs-mH.png) {#fig:ATLAS_local_p0_vs_mH}
 
 [@Fig:ATLAS_local_p0_vs_mH] shows the $p_{0}$ value as a function of the reconstructed Higgs mass
@@ -68,7 +68,7 @@ populo. Vix omittam lucilius inciderint ne, est cu civibus scribentur
 adversarium.
 
 
-Table: Approximate number of readout channels per sub-detector in ATLAS for the primary sub-detectors (ignoring the minbias trigger system, luminosity monitors, and DCS sensors) [@ATLAS_2008_detector]. {#tbl:atlas_channels}
+Table: Approximate number of readout channels per sub-detector in ATLAS for the primary sub-detectors (ignoring the minbias trigger system, luminosity monitors, and DCS sensors) [@ATLAS_2008_The_ATLAS_Experiment_at_the_CERN_Large_Hadron]. {#tbl:atlas_channels}
 
 | System                | Subsystem     |  Approx. channels |
 |:----------------------|:--------------|------------------:|

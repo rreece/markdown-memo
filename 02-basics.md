@@ -84,8 +84,8 @@ accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
 an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
 at falli feugiat est[^Feynman].
 
-[^Realism]: @Miller_2014_realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
-[^Feynman]: @Feynman_1963_feynman_lectures_vol1_ch3\.
+[^Realism]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
+[^Feynman]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
 
 Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
 urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
