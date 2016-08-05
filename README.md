@@ -157,8 +157,8 @@ Word count
 Note that word-count and page-count plots are generated when you call make.
 You might want to keep these around in the `README.md` for your document.
 
-![my pages](pages.png)
+![my pages](wordcount/pages.png)
 
-![my words](words.png)
+![my words](wordcount/words.png)
 
 
