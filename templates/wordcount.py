@@ -65,7 +65,7 @@ def options():
     parser = argparse.ArgumentParser()
     parser.add_argument('infile', type=str,
             help='A positional argument.')
-    parser.add_argument('-o', '--out',  default='wordcount.png', type=str,
+    parser.add_argument('-o', '--out',  default='wordcount', type=str,
             help="Some toggle option.")
     return parser.parse_args()
 
@@ -87,7 +87,7 @@ def main():
     ax.set_xlabel("Date")
     ax.set_ylabel("Pages")
     fig = ax.get_figure()
-    fig.savefig('wordcount-pages.png')
+    fig.savefig('pages.png')
 
     plt.close()
 
@@ -95,7 +95,7 @@ def main():
     ax.set_xlabel("Date")
     ax.set_ylabel("Words")
     fig = ax.get_figure()
-    fig.savefig('wordcount-words.png')
+    fig.savefig('words.png')
 
 
 

@@ -32,6 +32,7 @@ MD_FILES := $(filter-out index.md, $(MD_FILES))
 HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
 MD_FILES_WITH_REFS := $(shell egrep -l '@' *.md)
+BIB_TXT_FILES := $(wildcard bibs/*.txt)
 
 
 ## MD_FILES   =  chap1.md   chap2.md   ...
@@ -47,10 +48,10 @@ default: pdf
 
 all: html pdf
 
-html: $(HTML_FILES) index.html wordcount.csv
+html: $(HTML_FILES) index.html wordcount/wc.csv
 	$(PRINT) "html done."
 
-pdf: $(OUTPUT).pdf wordcount.csv
+pdf: $(OUTPUT).pdf wordcount/wc.csv
 
 index.md: $(MD_FILES)
 	@if [ -f index.txt ]; \
@@ -73,7 +74,7 @@ index.html: index.md meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
-$(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
+$(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -84,14 +85,14 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/index_template.html \
 		--mathjax \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLHTML) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create html
-%.html: %.md mybib.bib meta.yaml
+%.html: %.md bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -114,7 +115,7 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 		--variable=css:templates/markdown-memo.css \
 		--template=./templates/outline_template.html \
 		--mathjax \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml.tmp
@@ -122,7 +123,7 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
-#$(OUTPUT).pdf: $(MD_FILES) mybib.bib meta.yaml
+#$(OUTPUT).pdf: $(MD_FILES) bibs/mybib.bib meta.yaml
 #	pandoc \
 #		--standalone \
 #		--smart \
@@ -130,7 +131,7 @@ $(OUTPUT).html: $(MD_FILES) mybib.bib meta.yaml
 #		--template=templates/default_template.tex \
 #		--filter pandoc-crossref \
 #		--filter pandoc-eqnos \
-#		--bibliography=mybib.bib \
+#		--bibliography=bibs/mybib.bib \
 #		--filter pandoc-citeproc \
 #		-o $(OUTPUT).pdf $(MD_FILES) $(OPS_FULLPDF) meta.yaml
 #	$(PRINT) "make $@ done."
@@ -142,7 +143,7 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 	$(PRINT) "make $@ done."
 
 ## create the pdf for a section
-%.pdf: %.md mybib.bib meta.yaml
+%.pdf: %.md bibs/mybib.bib meta.yaml
 	@pandoc \
 		--standalone \
 		--smart \
@@ -150,13 +151,13 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 		--template=templates/default_template.tex \
 		--filter pandoc-crossref \
 		--filter pandoc-eqnos \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
-$(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
+$(OUTPUT).tex: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t latex \
 		--ascii \
@@ -164,13 +165,13 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--smart \
 		--template=templates/default_template.tex \
 		--filter pandoc-crossref \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
 	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
-%.tex: %.md mybib.bib meta.yaml
+%.tex: %.md bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t latex \
 		--ascii \
@@ -178,46 +179,46 @@ $(OUTPUT).tex: $(MD_FILES) mybib.bib meta.yaml
 		--smart \
 		--template=templates/default_template.tex \
 		--filter pandoc-crossref \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@ $< $(OPS_SECTION) meta.yaml
 	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
-mybib.bib: $(MD_FILES)
-	@cat bibs/*.bib > mybib.bib
+bibs/mybib.bib: $(BIB_TXT_FILES)
+	@python templates/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES)
 	$(PRINT) "make $@ done."
 
-wordcount.csv: $(MD_FILES) $(OUTPUT).pdf
+wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 	@if [ ! -f $@ ]; \
 	then \
 		printf "%s,%s,%s\n" "Date" "Words" "Pages" >> $@ ; \
 	fi
 	@printf "%16s, %8i, %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[1]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
-	@python templates/wordcount.py $@
+	@cd wordcount/ ; python ../templates/wordcount.py wc.csv ; cd ..
 	$(PRINT) "make $@ done."
 
 
 ##-----------------------------------------------------------------------------
 ## create md with references replaced and bibliography created
-$(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
+$(OUTPUT).mds: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t markdown_github \
 		--standalone \
 		--smart \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@.tmp $(MD_FILES) $(OPS_FULLHTML) meta.yaml
 	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 	@rm -f $@.tmp
 	$(PRINT) "make $@ done."
 
-%.mds: %.md mybib.bib meta.yaml
+%.mds: %.md bibs/mybib.bib meta.yaml
 	@pandoc \
 		-t markdown_github \
 		--standalone \
 		--smart \
-		--bibliography=mybib.bib \
+		--bibliography=bibs/mybib.bib \
 		--filter pandoc-citeproc \
 		-o $@.tmp $< $(OPS_SECTION) meta.yaml
 	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
@@ -240,8 +241,8 @@ $(OUTPUT).mds: $(MD_FILES) mybib.bib meta.yaml
 
 ##-----------------------------------------------------------------------------
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
-JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.bib *.tmp *-tmp.html index.md
-OUTS = *.html *.pdf
+JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md
+OUTS = *.html *.pdf bibs/*.bib
 
 clean:
 	@rm -f $(JUNK)

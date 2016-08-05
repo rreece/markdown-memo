@@ -1,0 +1,5 @@
+ATLAS Collaboration. (2008). The ATLAS Experiment at the CERN Large Hadron Collider. *JINST*, 3, S08003.
+ATLAS Collaboration. (2012). Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC. *Phys.Lett.*, B716, 1--29.
+Feynman, R. (1963). *The Feynman Lectures on Physics, Volume I* California Institute of Technology. http://www.feynmanlectures.caltech.edu/I_03.html
+Miller, A. (2014). Realism. *Stanford Encyclopedia of Philosophy*. http://plato.stanford.edu/entries/realism/
+
