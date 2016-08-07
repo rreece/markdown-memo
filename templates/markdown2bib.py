@@ -315,7 +315,10 @@ def make_book(reo):
     lines.append('@book{%s,' % citation)
     author = reo.group('author')
     author = clean_author(author)
-    lines.append('    author      = {%s},' % author)
+    if author.count('Collaboration') or author.count('Lab') or author.count('Corporation'):
+        lines.append('    author      = "{%s}",' % author)
+    else:
+        lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
     if reo.group('edition'):
@@ -367,7 +370,10 @@ def make_incollection(reo):
     lines.append('@incollection{%s,' % citation)
     author = reo.group('author')
     author = clean_author(author)
-    lines.append('    author      = {%s},' % author)
+    if author.count('Collaboration') or author.count('Lab') or author.count('Corporation'):
+        lines.append('    author      = "{%s}",' % author)
+    else:
+        lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
     if reo.group('edition'):
@@ -422,7 +428,10 @@ def make_article(reo):
     lines.append('@article{%s,' % citation)
     author = reo.group('author')
     author = clean_author(author)
-    lines.append('    author      = {%s},' % author)
+    if author.count('Collaboration') or author.count('Lab') or author.count('Corporation'):
+        lines.append('    author      = "{%s}",' % author)
+    else:
+        lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
     if reo.group('journal'):
@@ -470,7 +479,10 @@ def make_misc(reo):
     lines.append('@misc{%s,' % citation)
     author = reo.group('author')
     author = clean_author(author)
-    lines.append('    author      = {%s},' % author)
+    if author.count('Collaboration') or author.count('Lab') or author.count('Corporation'):
+        lines.append('    author      = "{%s}",' % author)
+    else:
+        lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
     if reo.group('howpublished'):

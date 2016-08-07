@@ -54,7 +54,7 @@ mathjax: true
 classoption:
     -   'openany'
     -   'twoside'
-citation-style: 'templates/apa-no-doi-no-issue.csl'
+citation-style: 'templates/apa-no-doi-no-issue-with-notes.csl'
 fancyhdr: true
 fontfamily: 'mathpazo'
 fontsize: '11pt'
