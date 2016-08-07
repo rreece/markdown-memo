@@ -124,7 +124,7 @@ $(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 
 ## create the full pdf 
 #$(OUTPUT).pdf: $(MD_FILES) bibs/mybib.bib meta.yaml
-#	pandoc \
+#	@pandoc \
 #		--standalone \
 #		--smart \
 #		--variable=date-meta:"$(DATE)" \
@@ -136,7 +136,7 @@ $(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 #		-o $(OUTPUT).pdf $(MD_FILES) $(OPS_FULLPDF) meta.yaml
 #	$(PRINT) "make $@ done."
 
-# create the full pdf via pandoc to tex then pdflatex
+## create the full pdf via pandoc to tex then pdflatex
 $(OUTPUT).pdf: $(OUTPUT).tex
 	@pdflatex -interaction=nonstopmode $< &> latex.log
 	@pdflatex -interaction=nonstopmode $< &> latex.log

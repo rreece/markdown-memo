@@ -54,8 +54,8 @@ def options():
     parser = argparse.ArgumentParser()
     parser.add_argument('infiles',  default=None, nargs='+',
             help='Input text files of APA references.')
-#    parser.add_argument('-x', '--option',  default=False,  action='store_true',
-#            help="Some toggle option.")
+    parser.add_argument('-v', '--verbose',  default=False,  action='store_true',
+            help="Some toggle option.")
 #    parser.add_argument('-i', '--input',  default=None,
 #            help="Path to directory of datasets")
     parser.add_argument('-o', '--output',  default='out.bib',
@@ -72,7 +72,7 @@ def main():
     results = dict()
 
     for infile in ops.infiles:
-        print '|  Parsing file: %s' % infile
+        print 'Parsing file: %s' % infile
         new_results = parse_file(infile) 
         results.update(new_results)
 
@@ -84,29 +84,38 @@ def main():
         incollections = []
         miscs = []
         errors = []
+        allcitations = []
 
         ## count the articles, books, ...
         for k in keys:
             ctype, citation, bibtex = results[k]
             if ctype == 'article':
                 articles.append(citation)
+                allcitations.append(citation)
             elif ctype == 'book':
                 books.append(citation)
+                allcitations.append(citation)
             elif ctype == 'incollection':
                 incollections.append(citation)
+                allcitations.append(citation)
             elif ctype == 'misc':
                 miscs.append(citation)
+                allcitations.append(citation)
             else:
                 errors.append(k)
 
-        print '|'
-        print '|  %i entries found.' % len(results)
-        print '|  - %3i articles' % len(articles)
-        print '|  - %3i incollections' % len(incollections)
-        print '|  - %3i books' % len(books)
-        print '|  - %3i miscs' % len(miscs)
-        print '|  - %3i errors' % len(errors)
-        print '|'
+        print ''
+        print '%i entries found.' % len(results)
+        print '- %3i articles' % len(articles)
+        print '- %3i incollections' % len(incollections)
+        print '- %3i books' % len(books)
+        print '- %3i miscs' % len(miscs)
+        print '- %3i errors' % len(errors)
+        print ''
+
+        allcitations.sort()
+        for a in allcitations:
+            print a
 
         ## write header
         timestamp = time.strftime('%Y-%m-%d-%Hh%M')
@@ -140,7 +149,7 @@ def main():
         f_out.write('\n')
 
         if errors:
-            f_out.write('ERRORS: %i\n' % len(books))
+            f_out.write('ERRORS: %i\n' % len(errors))
             for a in errors:
                 f_out.write('%s\n' % a)
             f_out.write('\n')
@@ -159,11 +168,14 @@ def main():
                 f_out.write('PARSING ERROR\n\n')
 
         f_out.close()
-        print '|  %s written.' % ops.output
 
-    print '|'
-    print '|  Done!  _______,,,^..^,,,_~_______'
-    print '|'
+        print ''
+        print '%s written.' % ops.output
+        print ''
+
+#    print '|'
+#    print '|  Done!  _______,,,^..^,,,_~_______'
+#    print '|'
 
 
 #------------------------------------------------------------------------------
@@ -188,17 +200,19 @@ def parse_line(line):
     Using the APA citation style.
     https://www.zotero.org/styles
     """
+    ops = options()
     # Weinberg, S. (1995). *Quantum Theory of Fields, Vol. 1*. Cambridge University Press.
-    rep_book = ''.join([r"(?P<author>[^()]+)",
+    rep_book = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
                         r"\s+\((?P<year>\d+)\)[,.]",
                         r"\s+\*(?P<title>[^*]+)\*[,.]?",
                         r"(\s+\((?P<edition>\d+)\S+\s+ed\.\)[,.]?)?",
+                        r"(\s+\(((?P<editor>[^()]+)\,\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+)\,\s+Trans\.)?\)[,.]?)?",
                         r"((?!\s+https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
                         r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
                         r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                         ])
     # Redhead, M. (1988). A Philosopher Looks at Quantum Field Theory. In H. Brown & R. Harr\'{e} (Eds.), Philosophical Foundations of Quantum Field Theory (pp. 9-23). Oxford: Clarendon Press.
-    rep_incollection = ''.join([r"(?P<author>[^()]+)",
+    rep_incollection = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
                         r"\s+\((?P<year>\d+)\)[,.]",
                         r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                         r"\s+In",
@@ -209,9 +223,9 @@ def parse_line(line):
                         r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
                         r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                         ])
-    # Baker, D. J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
+    # Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
     # Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
-    rep_article = ''.join([r"(?P<author>[^()]+)",
+    rep_article = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
                         r"\s+\((?P<year>\d+)\)[,.]",
                         r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                         r"(?!\s+https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
@@ -221,7 +235,7 @@ def parse_line(line):
                         r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                         ])
     # ATLAS Collaboration. (2011). Updated Luminosity Determination in pp Collisions at $\sqrt{s}=7 TeV using the ATLAS Detector. ATLAS-CONF-2010-011. http://cdsweb.cern.ch/record/1334563
-    rep_misc = ''.join([r"(?P<author>[^()]+)",
+    rep_misc = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
                         r"\s+\((?P<year>\d+)\)[,.]",
                         r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                         r"((?!\s+https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
@@ -232,7 +246,8 @@ def parse_line(line):
     reo = re.match(rep_book, line)
     if reo:
         ## parse book
-        print '|  Book: %s' % trim_string(line)
+        if ops.verbose:
+            print 'Book: %s' % trim_string(line)
         citation, bibtex = make_book(reo)
         return 'book', citation, bibtex
 
@@ -240,7 +255,8 @@ def parse_line(line):
         reo = re.match(rep_incollection, line)
         if reo:
             ## parse incollection
-            print '|  Incollection: %s' % trim_string(line)
+            if ops.verbose:
+                print 'Incollection: %s' % trim_string(line)
             citation, bibtex = make_incollection(reo)
             return 'incollection', citation, bibtex
 
@@ -248,7 +264,8 @@ def parse_line(line):
             reo = re.match(rep_article, line)
             if reo:
                 ## parse article
-                print '|  Article: %s' % trim_string(line)
+                if ops.verbose:
+                    print 'Article: %s' % trim_string(line)
                 citation, bibtex = make_article(reo)
                 return 'article', citation, bibtex
 
@@ -256,12 +273,13 @@ def parse_line(line):
                 reo = re.match(rep_misc, line)
                 if reo:
                     ## parse misc
-                    print '|  Misc: %s' % trim_string(line)
+                    if ops.verbose:
+                        print 'Misc: %s' % trim_string(line)
                     citation, bibtex = make_misc(reo)
                     return 'misc', citation, bibtex
 
                 else:
-                    print '|  NO MATCH: %s' % trim_string(line)
+                    print 'NO MATCH: %s' % trim_string(line)
 
     return None, None, None
 
@@ -274,41 +292,38 @@ def make_book(reo):
         year        = {2000},
         title       = {},
         edition     = {2},  # optional
+        editor      = {},   # optional
+        translator  = {},   # optional
         address     = {},   # optional
         publisher   = {},   # optional
         url         = {},   # optional
     }
     """
-#    mds = []
-#    mds.append("%s (%s). *%s*." % (reo.group('author'), reo.group('year'), reo.group('title')))
-#    if reo.group('address') and reo.group('publisher'):
-#        mds.append(" %s: %s." % (reo.group('address'), reo.group('publisher')))
-#    elif reo.group('publisher'):
-#        mds.append(" %s." % reo.group('publisher'))
-#    if reo.group('url'):
-#        mds.append(" %s." % reo.group('url'))
-#    if reo.group('note'):
-#        mds.append(" [%s]." % reo.group('note'))
-#    md = ''.join(mds)
-
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    has_von = False
+    if cite_author in ('von', 'van', 'De'):
+        cite_author += reo.group('author').split()[1].rstrip(',')
+        has_von = True
     cite_year = reo.group('year')
     cite_title = reo.group('title')
     max_title_len = 50
     if len(cite_title) > max_title_len:
         cite_title = textwrap.fill(cite_title, max_title_len).split('\n')[0]
-#    cite_title = clean_citation(cite_title)
     citation = '%s_%s_%s' % (cite_author, cite_year, cite_title)
     citation = clean_citation(citation)
     lines.append('@book{%s,' % citation)
     author = reo.group('author')
-    author = author.replace('&', 'and')
+    author = clean_author(author)
     lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
     if reo.group('edition'):
         lines.append('    edition     = {%s},' % reo.group('edition'))
+    if reo.group('editor'):
+        lines.append('    editor      = {%s},' % reo.group('editor'))
+    if reo.group('translator'):
+        lines.append('    translator  = {%s},' % reo.group('translator'))
     if reo.group('address'):
         lines.append('    address     = {%s},' % reo.group('address'))
     if reo.group('publisher'):
@@ -317,6 +332,8 @@ def make_book(reo):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
         lines.append('    note        = {%s},' % reo.group('note'))
+    if has_von:
+        lines.append('    options = {useprefix=true},')
     lines.append('}')
     s = '\n'.join(lines)
     return citation, s
@@ -345,12 +362,11 @@ def make_incollection(reo):
     max_title_len = 50
     if len(cite_title) > max_title_len:
         cite_title = textwrap.fill(cite_title, max_title_len).split('\n')[0]
-#    cite_title = clean_citation(cite_title)
     citation = '%s_%s_%s' % (cite_author, cite_year, cite_title)
     citation = clean_citation(citation)
     lines.append('@incollection{%s,' % citation)
     author = reo.group('author')
-    author = author.replace('&', 'and')
+    author = clean_author(author)
     lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
@@ -401,12 +417,11 @@ def make_article(reo):
     max_title_len = 50
     if len(cite_title) > max_title_len:
         cite_title = textwrap.fill(cite_title, max_title_len).split('\n')[0]
-#    cite_title = clean_citation(cite_title)
     citation = '%s_%s_%s' % (cite_author, cite_year, cite_title)
     citation = clean_citation(citation)
     lines.append('@article{%s,' % citation)
     author = reo.group('author')
-    author = author.replace('&', 'and')
+    author = clean_author(author)
     lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
@@ -450,12 +465,11 @@ def make_misc(reo):
     max_title_len = 50
     if len(cite_title) > max_title_len:
         cite_title = textwrap.fill(cite_title, max_title_len).split('\n')[0]
-#    cite_title = clean_citation(cite_title)
     citation = '%s_%s_%s' % (cite_author, cite_year, cite_title)
     citation = clean_citation(citation)
     lines.append('@misc{%s,' % citation)
     author = reo.group('author')
-    author = author.replace('&', 'and')
+    author = clean_author(author)
     lines.append('    author      = {%s},' % author)
     lines.append('    year        = {%s},' % reo.group('year'))
     lines.append('    title       = "{%s}",' % reo.group('title'))
@@ -540,6 +554,44 @@ def clean_citation(fn):
         new_fn = new_fn[:-4]
 
     return new_fn
+
+
+#______________________________________________________________________________
+def clean_author(s):
+    """
+    Ladyman, J., Ross, D., Spurrett, D., & Collier, J.
+
+    words = s.split()
+    for word in words:
+        pass
+
+    TODO: Put spaces between each initial.
+    TODO: Put and's between each author.
+    s = s.replace('&', 'and')
+    """
+    rep = r"(?P<a1>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(\,\s+(&\s+)?(?P<a2>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a3>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a4>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a5>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
+    reo = re.search(rep, s)
+    if reo:
+        authors = []
+        if reo.group('a1'):
+            authors.append(reo.group('a1'))
+        if reo.group('a2'):
+            authors.append(reo.group('a2'))
+        if reo.group('a3'):
+            authors.append(reo.group('a3'))
+        if reo.group('a4'):
+            authors.append(reo.group('a4'))
+        if reo.group('a5'):
+            authors.append(reo.group('a5'))
+        new_authors = []
+        for a in authors:
+            newa =    a.replace('.', '. ')
+            newa = newa.replace('  ', ' ')
+            newa = newa.strip()
+            new_authors.append(newa)
+        s = ' and '.join(new_authors)
+
+    return s
 
 
 #______________________________________________________________________________
