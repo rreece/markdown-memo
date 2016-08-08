@@ -106,19 +106,34 @@ $(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
 	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
 	@echo '...\n' >> meta.yaml.tmp
-	@pandoc \
-		-t html \
-		--ascii \
-		--standalone \
-		--smart \
-		--variable=date-meta:"$(DATE)" \
-		--variable=css:templates/markdown-memo.css \
-		--template=./templates/outline_template.html \
-		--mathjax \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
-		-o $@ $< $(OPS_SECTION) meta.yaml.tmp
+	@if grep --quiet @ $<; \
+	then \
+		pandoc \
+			-t html \
+			--ascii \
+			--standalone \
+			--smart \
+			--variable=date-meta:"$(DATE)" \
+			--variable=css:templates/markdown-memo.css \
+			--template=./templates/outline_template.html \
+			--mathjax \
+			--bibliography=bibs/mybib.bib \
+			--filter pandoc-crossref \
+			--filter pandoc-citeproc \
+			-o $@ $< $(OPS_SECTION) meta.yaml.tmp ; \
+	else \
+		pandoc \
+			-t html \
+			--ascii \
+			--standalone \
+			--smart \
+			--variable=date-meta:"$(DATE)" \
+			--variable=css:templates/markdown-memo.css \
+			--template=./templates/outline_template.html \
+			--mathjax \
+			--filter pandoc-crossref \
+			-o $@ $< templates/backmatter.md meta.yaml.tmp ; \
+	fi
 	@rm -f meta.yaml.tmp $@.tmp
 	$(PRINT) "make $@ done."
 
