@@ -15,9 +15,19 @@ export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
 OUTPUT := $(shell cat meta.yaml | grep output | awk '{split($$0,a,":"); print a[2]}' | xargs)
 DOREFS := $(filter $(shell cat meta.yaml | grep ^dorefs | awk '{split($$0,a,":"); print a[2]}' | xargs),true)
 
-OPS_FULLPDF := $(if $(DOREFS),templates/refs_tex.md templates/backmatter.md,templates/backmatter.md)
-OPS_FULLHTML := $(if $(DOREFS),templates/refs.md templates/backmatter.md,templates/backmatter.md)
-OPS_SECTION := $(if $(DOREFS),templates/refs_subsection.md templates/backmatter.md,templates/backmatter.md)
+ifeq ($(DOREFS), true)
+HTML_DEPS := bibs/mybib.bib
+PDF_DEPS := bibs/mybib.bib
+OPS_FULLPDF := templates/refs_tex.md templates/backmatter.md
+OPS_FULLHTML := templates/refs.md templates/backmatter.md
+OPS_SECTION := templates/refs_subsection.md templates/backmatter.md
+else
+HTML_DEPS := 
+PDF_DEPS := 
+OPS_FULLPDF := templates/backmatter.md
+OPS_FULLHTML := templates/backmatter.md
+OPS_SECTION := templates/backmatter.md
+endif
 
 
 ##-----------------------------------------------------------------------------
@@ -31,8 +41,8 @@ MD_FILES := $(filter-out README.md, $(wildcard *.md))
 MD_FILES := $(filter-out index.md, $(MD_FILES))
 HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
-MD_FILES_WITH_REFS := $(shell egrep -l '@' *.md)
 BIB_TXT_FILES := $(wildcard bibs/*.txt)
+#MD_FILES_WITH_REFS := $(shell egrep -l '@' *.md)
 
 
 ## MD_FILES   =  chap1.md   chap2.md   ...
@@ -48,7 +58,7 @@ default: pdf
 
 all: html pdf
 
-html: $(HTML_FILES) index.html wordcount/wc.csv
+html: $(HTML_FILES) index.html
 	$(PRINT) "html done."
 
 pdf: $(OUTPUT).pdf wordcount/wc.csv
@@ -74,7 +84,7 @@ index.html: index.md meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
-$(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
+$(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -92,7 +102,7 @@ $(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create html
-%.html: %.md bibs/mybib.bib meta.yaml
+%.html: %.md $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -106,7 +116,7 @@ $(OUTPUT).html: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
 	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
 	@echo '...\n' >> meta.yaml.tmp
-	@if grep --quiet @ $<; \
+	@if $(DOREFS) && grep --quiet @ $<; \
 	then \
 		pandoc \
 			-t html \
@@ -158,7 +168,7 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 	$(PRINT) "make $@ done."
 
 ## create the pdf for a section
-%.pdf: %.md bibs/mybib.bib meta.yaml
+%.pdf: %.md $(PDF_DEPS) meta.yaml
 	@pandoc \
 		--standalone \
 		--smart \
@@ -172,7 +182,7 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
-$(OUTPUT).tex: $(MD_FILES) bibs/mybib.bib meta.yaml
+$(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
 	@pandoc \
 		-t latex \
 		--ascii \
@@ -186,7 +196,7 @@ $(OUTPUT).tex: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
-%.tex: %.md bibs/mybib.bib meta.yaml
+%.tex: %.md $(PDF_DEPS) meta.yaml
 	@pandoc \
 		-t latex \
 		--ascii \
@@ -216,7 +226,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 
 ##-----------------------------------------------------------------------------
 ## create md with references replaced and bibliography created
-$(OUTPUT).mds: $(MD_FILES) bibs/mybib.bib meta.yaml
+$(OUTPUT).mds: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t markdown_github \
 		--standalone \
@@ -228,7 +238,7 @@ $(OUTPUT).mds: $(MD_FILES) bibs/mybib.bib meta.yaml
 	@rm -f $@.tmp
 	$(PRINT) "make $@ done."
 
-%.mds: %.md bibs/mybib.bib meta.yaml
+%.mds: %.md $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t markdown_github \
 		--standalone \
