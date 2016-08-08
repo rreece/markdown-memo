@@ -7,8 +7,19 @@ to valid xhtml or to a pdf via LaTeX.
 It can be used to make simple webpages quickly,
 for example, [rreece.github.io/sw](http://rreece.github.io/sw/).
 
--   author:  Ryan Reece <ryan.reece@cern.ch>
--   created: July 29, 2014
+
+Author
+----------------------------------
+
+Ryan Reece <ryan.reece@cern.ch>     
+Created: July 29, 2014
+
+
+License
+----------------------------------
+
+Copyleft 2016 Ryan Reece     
+License: GPL <http://www.gnu.org/licenses/gpl.html>
 
 
 Requirements
