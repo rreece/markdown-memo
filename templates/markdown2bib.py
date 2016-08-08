@@ -46,6 +46,58 @@ import unicodedata
 # globals
 #------------------------------------------------------------------------------
 
+# Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
+# Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
+rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,5})[,.]?",
+                    r"\s+\((?P<year>\d+)\)[,.]",
+                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
+                    r"(?!\s+https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
+                    r"(\s+\*?(?P<volume>\d+)\*?(\((?P<number>\d+)\))?[,.]?)?",
+                    r"(\s+(?P<pages>\d+-*\d*)[,.]?)?",
+                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
+                    ])
+rep_article = re.compile(rep_article_s)
+# Weinberg, S. (1995). *Quantum Theory of Fields, Vol. 1*. Cambridge University Press.
+rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,5})[,.]?",
+                    r"\s+\((?P<year>\d+)\)[,.]",
+                    r"\s+\*(?P<title>[^*]+)\*[,.]?",
+                    r"(\s+\((?P<edition>\d+)\S+\s+ed\.\)[,.]?)?",
+                    r"(\s+\(((?P<editor>[^()]+),\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+),\s+Trans\.)?\)[,.]?)?",
+                    r"((?!\s+https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
+                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
+                    ])
+rep_book = re.compile(rep_book_s)
+# Redhead, M. (1988). A Philosopher Looks at Quantum Field Theory. In H. Brown & R. Harr\'{e} (Eds.), Philosophical Foundations of Quantum Field Theory (pp. 9-23). Oxford: Clarendon Press.
+rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,5})[,.]?",
+                    r"\s+\((?P<year>\d+)\)[,.]",
+                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
+                    r"\s+In",
+                    r"(\s+(?P<editor>[^()]+)\s+\(Eds?\.\)[,.]?)?",
+                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^()]+)\*[,.]?)",
+                    r"(\s+\(((?P<edition>\d+)\S+\s+ed\.,?\s*)?p+\.\s+(?P<pages>\d+-*\d*)\)[,.]?)?",
+                    r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
+                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
+                    ])
+rep_incollection = re.compile(rep_incollection_s)
+# ATLAS Collaboration. (2011). Updated Luminosity Determination in pp Collisions at $\sqrt{s}=7 TeV using the ATLAS Detector. ATLAS-CONF-2010-011. http://cdsweb.cern.ch/record/1334563
+rep_misc_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,5})[,.]?",
+                    r"\s+\((?P<year>\d+)\)[,.]",
+                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
+                    r"((?!\s+https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
+                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
+                    ])
+rep_misc = re.compile(rep_misc_s)
+rep_author_s = r"(?P<a1>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(,\s+(&\s+)?(?P<a2>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a3>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a4>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a5>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
+rep_author = re.compile(rep_author_s)
+rep_url_s = r"(https?://\S+)"
+rep_url = re.compile(rep_url_s)
+rep_ascii_s = r'[a-zA-Z0-9_.\-]'
+rep_ascii = re.compile(rep_ascii_s)
+
 
 #------------------------------------------------------------------------------
 # options
@@ -201,76 +253,35 @@ def parse_line(line):
     https://www.zotero.org/styles
     """
     ops = options()
-    # Weinberg, S. (1995). *Quantum Theory of Fields, Vol. 1*. Cambridge University Press.
-    rep_book = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
-                        r"\s+\((?P<year>\d+)\)[,.]",
-                        r"\s+\*(?P<title>[^*]+)\*[,.]?",
-                        r"(\s+\((?P<edition>\d+)\S+\s+ed\.\)[,.]?)?",
-                        r"(\s+\(((?P<editor>[^()]+)\,\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+)\,\s+Trans\.)?\)[,.]?)?",
-                        r"((?!\s+https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
-                        r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
-                        r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
-                        ])
-    # Redhead, M. (1988). A Philosopher Looks at Quantum Field Theory. In H. Brown & R. Harr\'{e} (Eds.), Philosophical Foundations of Quantum Field Theory (pp. 9-23). Oxford: Clarendon Press.
-    rep_incollection = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
-                        r"\s+\((?P<year>\d+)\)[,.]",
-                        r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
-                        r"\s+In",
-                        r"(\s+(?P<editor>[^()]+)\s+\(Eds?\.\)[,.]?)?",
-                        r"(?!\s+https?://)(\s+\*(?P<booktitle>[^()]+)\*[,.]?)",
-                        r"(\s+\(((?P<edition>\d+)\S+\s+ed\.,?\s*)?p+\.\s+(?P<pages>\d+-*\d*)\)[,.]?)?",
-                        r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
-                        r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
-                        r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
-                        ])
-    # Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
-    # Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
-    rep_article = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
-                        r"\s+\((?P<year>\d+)\)[,.]",
-                        r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
-                        r"(?!\s+https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
-                        r"(\s+\*?(?P<volume>\d+)\*?(\((?P<number>\d+)\))?[,.]?)?",
-                        r"(\s+(?P<pages>\d+-*\d*)[,.]?)?",
-                        r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
-                        r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
-                        ])
-    # ATLAS Collaboration. (2011). Updated Luminosity Determination in pp Collisions at $\sqrt{s}=7 TeV using the ATLAS Detector. ATLAS-CONF-2010-011. http://cdsweb.cern.ch/record/1334563
-    rep_misc = ''.join([r"(?P<author>([\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(\,\s+(&\s+)?)?)+)[,.]?",
-                        r"\s+\((?P<year>\d+)\)[,.]",
-                        r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
-                        r"((?!\s+https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
-                        r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
-                        r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
-                        ])
 
-    reo = re.match(rep_book, line)
+    reo = rep_article.match(line)
     if reo:
-        ## parse book
+        ## parse article
         if ops.verbose:
-            print 'Book: %s' % trim_string(line)
-        citation, bibtex = make_book(reo)
-        return 'book', citation, bibtex
+            print 'Article: %s' % trim_string(line)
+        citation, bibtex = make_article(reo)
+        return 'article', citation, bibtex
 
     else:
-        reo = re.match(rep_incollection, line)
+        reo = rep_book.match(line)
         if reo:
-            ## parse incollection
+            ## parse book
             if ops.verbose:
-                print 'Incollection: %s' % trim_string(line)
-            citation, bibtex = make_incollection(reo)
-            return 'incollection', citation, bibtex
+                print 'Book: %s' % trim_string(line)
+            citation, bibtex = make_book(reo)
+            return 'book', citation, bibtex
 
         else:
-            reo = re.match(rep_article, line)
+            reo = rep_incollection.match(line)
             if reo:
-                ## parse article
+                ## parse incollection
                 if ops.verbose:
-                    print 'Article: %s' % trim_string(line)
-                citation, bibtex = make_article(reo)
-                return 'article', citation, bibtex
+                    print 'Incollection: %s' % trim_string(line)
+                citation, bibtex = make_incollection(reo)
+                return 'incollection', citation, bibtex
 
             else:
-                reo = re.match(rep_misc, line)
+                reo = rep_misc.match(line)
                 if reo:
                     ## parse misc
                     if ops.verbose:
@@ -302,7 +313,7 @@ def make_book(reo):
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
     has_von = False
-    if cite_author in ('von', 'van', 'De'):
+    if cite_author in ('von', 'van', 'De', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -360,6 +371,10 @@ def make_incollection(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    has_von = False
+    if cite_author in ('von', 'van', 'De', "'t"):
+        cite_author += reo.group('author').split()[1].rstrip(',')
+        has_von = True
     cite_year = reo.group('year')
     cite_title = reo.group('title')
     max_title_len = 50
@@ -397,6 +412,8 @@ def make_incollection(reo):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
         lines.append('    note        = {%s},' % reo.group('note'))
+    if has_von:
+        lines.append('    options = {useprefix=true},')
     lines.append('}')
     s = '\n'.join(lines)
     return citation, s
@@ -418,6 +435,10 @@ def make_article(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    has_von = False
+    if cite_author in ('von', 'van', 'De', "'t"):
+        cite_author += reo.group('author').split()[1].rstrip(',')
+        has_von = True
     cite_year = reo.group('year')
     cite_title = reo.group('title')
     max_title_len = 50
@@ -450,6 +471,8 @@ def make_article(reo):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
         lines.append('    note        = {%s},' % reo.group('note'))
+    if has_von:
+        lines.append('    options = {useprefix=true},')
     lines.append('}')
     s = '\n'.join(lines)
     return citation, s
@@ -469,6 +492,10 @@ def make_misc(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    has_von = False
+    if cite_author in ('von', 'van', 'De', "'t"):
+        cite_author += reo.group('author').split()[1].rstrip(',')
+        has_von = True
     cite_year = reo.group('year')
     cite_title = reo.group('title')
     max_title_len = 50
@@ -491,6 +518,8 @@ def make_misc(reo):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
         lines.append('    note        = {%s},' % reo.group('note'))
+    if has_von:
+        lines.append('    options = {useprefix=true},')
     lines.append('}')
     s = '\n'.join(lines)
     return citation, s
@@ -542,7 +571,7 @@ def clean_citation(fn):
     i = 0
     while i < len_fn:
         ch = new_fn[i]
-        if not re.match(r'[a-zA-Z0-9_.\-]', ch): # \w = [a-zA-Z0-9_]
+        if not rep_ascii.match(ch): # \w = [a-zA-Z0-9_]
             new_fn = new_fn.replace(ch, '_')
             len_fn = len(new_fn)
         i += 1
@@ -581,8 +610,7 @@ def clean_author(s):
     TODO: Put and's between each author.
     s = s.replace('&', 'and')
     """
-    rep = r"(?P<a1>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(\,\s+(&\s+)?(?P<a2>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a3>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a4>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(\,\s+(&\s+)?(?P<a5>[\w\s\-]+(\,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
-    reo = re.search(rep, s)
+    reo = rep_author.search(s)
     if reo:
         authors = []
         if reo.group('a1'):
@@ -608,8 +636,7 @@ def clean_author(s):
 
 #______________________________________________________________________________
 def check_for_url(s=''):
-    rep = r"(https?://\S+)"
-    reo = re.search(rep, s)
+    reo = rep_url.search(s)
     if reo:
         url = reo.group(1)
         before, after = s.split(url, 1)
