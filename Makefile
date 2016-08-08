@@ -54,7 +54,7 @@ BIB_TXT_FILES := $(wildcard bibs/*.txt)
 ## targets
 ##-----------------------------------------------------------------------------
 
-default: pdf
+default: html
 
 all: html pdf
 
@@ -116,7 +116,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
 	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
 	@echo '...\n' >> meta.yaml.tmp
-	@if $(DOREFS) && grep --quiet @ $<; \
+	@if [ "$(DOREFS)" = "true" ] && grep --quiet @ $< ; \
 	then \
 		pandoc \
 			-t html \
@@ -148,7 +148,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
-#$(OUTPUT).pdf: $(MD_FILES) bibs/mybib.bib meta.yaml
+#$(OUTPUT).pdf: $(MD_FILES) $(PDF_DEPS) meta.yaml
 #	@pandoc \
 #		--standalone \
 #		--smart \
@@ -215,6 +215,10 @@ bibs/mybib.bib: $(BIB_TXT_FILES)
 	$(PRINT) "make $@ done."
 
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
+	@if [ ! -d wordcount ]; \
+	then \
+		mkdir wordcount ; \
+	fi
 	@if [ ! -f $@ ]; \
 	then \
 		printf "%s,%s,%s\n" "Date" "Words" "Pages" >> $@ ; \
