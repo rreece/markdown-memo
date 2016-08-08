@@ -168,50 +168,69 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 	$(PRINT) "make $@ done."
 
 ## create the pdf for a section
-%.pdf: %.md $(PDF_DEPS) meta.yaml
-	@pandoc \
-		--standalone \
-		--smart \
-		--variable=date-meta:"$(DATE)" \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--filter pandoc-eqnos \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@ $< $(OPS_SECTION) meta.yaml
-	$(PRINT) "make $@ done."
+#%.pdf: %.md $(PDF_DEPS) meta.yaml
+#	@pandoc \
+#		--standalone \
+#		--smart \
+#		--variable=date-meta:"$(DATE)" \
+#		--template=templates/default_template.tex \
+#		--filter pandoc-crossref \
+#		--filter pandoc-eqnos \
+#		--bibliography=bibs/mybib.bib \
+#		--filter pandoc-citeproc \
+#		-o $@ $< $(OPS_SECTION) meta.yaml
+#	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
 $(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
-	@pandoc \
-		-t latex \
-		--ascii \
-		--standalone \
-		--smart \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml
+	@if [ "$(DOREFS)" = "true" ] ; \
+	then \
+		pandoc \
+			-t latex \
+			--ascii \
+			--standalone \
+			--smart \
+			--template=templates/default_template.tex \
+			--filter pandoc-crossref \
+			--bibliography=bibs/mybib.bib \
+			--filter pandoc-citeproc \
+			-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml ; \
+	else \
+		pandoc \
+			-t latex \
+			--ascii \
+			--standalone \
+			--smart \
+			--template=templates/default_template.tex \
+			--filter pandoc-crossref \
+			-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml ; \
+	fi
 	@python templates/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
-%.tex: %.md $(PDF_DEPS) meta.yaml
-	@pandoc \
-		-t latex \
-		--ascii \
-		--standalone \
-		--smart \
-		--template=templates/default_template.tex \
-		--filter pandoc-crossref \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@ $< $(OPS_SECTION) meta.yaml
-	@python templates/transform_tex.py $@
-	$(PRINT) "make $@ done."
+## create the tex for a section
+#%.tex: %.md $(PDF_DEPS) meta.yaml
+#	@pandoc \
+#		-t latex \
+#		--ascii \
+#		--standalone \
+#		--smart \
+#		--template=templates/default_template.tex \
+#		--filter pandoc-crossref \
+#		--bibliography=bibs/mybib.bib \
+#		--filter pandoc-citeproc \
+#		-o $@ $< $(OPS_SECTION) meta.yaml
+#	@python templates/transform_tex.py $@
+#	$(PRINT) "make $@ done."
 
 bibs/mybib.bib: $(BIB_TXT_FILES)
-	@python templates/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES)
+	@if [[ -z "$(BIB_TXT_FILES)" ]] ; \
+	then \
+		echo "==>   ERROR: No bibliography files found in bibs/. Set dorefs=false in meta.yaml." ; \
+		exit 1 ; \
+	else \
+		python templates/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES) ; \
+	fi
 	$(PRINT) "make $@ done."
 
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
@@ -230,42 +249,42 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 
 ##-----------------------------------------------------------------------------
 ## create md with references replaced and bibliography created
-$(OUTPUT).mds: $(MD_FILES) $(HTML_DEPS) meta.yaml
-	@pandoc \
-		-t markdown_github \
-		--standalone \
-		--smart \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@.tmp $(MD_FILES) $(OPS_FULLHTML) meta.yaml
-	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-	@rm -f $@.tmp
-	$(PRINT) "make $@ done."
-
-%.mds: %.md $(HTML_DEPS) meta.yaml
-	@pandoc \
-		-t markdown_github \
-		--standalone \
-		--smart \
-		--bibliography=bibs/mybib.bib \
-		--filter pandoc-citeproc \
-		-o $@.tmp $< $(OPS_SECTION) meta.yaml
-	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-	@rm -f $@.tmp
-	$(PRINT) "make $@ done."
-
-## create html from mds
-%.htmls: %.mds
-	@pandoc \
-		-t html \
-		--ascii \
-		--standalone \
-		--smart \
-		--variable=date-meta:"$(DATE)" \
-		--variable=css:templates/markdown-memo.css \
-		--template=./templates/outline_template.html \
-		-o $@ $< meta.yaml
-	$(PRINT) "make $@ done."
+#$(OUTPUT).mds: $(MD_FILES) $(HTML_DEPS) meta.yaml
+#	@pandoc \
+#		-t markdown_github \
+#		--standalone \
+#		--smart \
+#		--bibliography=bibs/mybib.bib \
+#		--filter pandoc-citeproc \
+#		-o $@.tmp $(MD_FILES) $(OPS_FULLHTML) meta.yaml
+#	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
+#	@rm -f $@.tmp
+#	$(PRINT) "make $@ done."
+#
+#%.mds: %.md $(HTML_DEPS) meta.yaml
+#	@pandoc \
+#		-t markdown_github \
+#		--standalone \
+#		--smart \
+#		--bibliography=bibs/mybib.bib \
+#		--filter pandoc-citeproc \
+#		-o $@.tmp $< $(OPS_SECTION) meta.yaml
+#	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
+#	@rm -f $@.tmp
+#	$(PRINT) "make $@ done."
+#
+### create html from mds
+#%.htmls: %.mds
+#	@pandoc \
+#		-t html \
+#		--ascii \
+#		--standalone \
+#		--smart \
+#		--variable=date-meta:"$(DATE)" \
+#		--variable=css:templates/markdown-memo.css \
+#		--template=./templates/outline_template.html \
+#		-o $@ $< meta.yaml
+#	$(PRINT) "make $@ done."
 
 
 ##-----------------------------------------------------------------------------
