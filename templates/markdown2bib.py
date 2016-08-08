@@ -254,13 +254,13 @@ def parse_line(line):
     """
     ops = options()
 
-    reo = rep_article.match(line)
+    reo = rep_incollection.match(line)
     if reo:
         ## parse article
         if ops.verbose:
-            print 'Article: %s' % trim_string(line)
-        citation, bibtex = make_article(reo)
-        return 'article', citation, bibtex
+            print 'Incollection: %s' % trim_string(line)
+        citation, bibtex = make_incollection(reo)
+        return 'incollection', citation, bibtex
 
     else:
         reo = rep_book.match(line)
@@ -272,13 +272,13 @@ def parse_line(line):
             return 'book', citation, bibtex
 
         else:
-            reo = rep_incollection.match(line)
+            reo = rep_article.match(line)
             if reo:
-                ## parse incollection
+                ## parse article
                 if ops.verbose:
-                    print 'Incollection: %s' % trim_string(line)
-                citation, bibtex = make_incollection(reo)
-                return 'incollection', citation, bibtex
+                    print 'Article: %s' % trim_string(line)
+                citation, bibtex = make_article(reo)
+                return 'article', citation, bibtex
 
             else:
                 reo = rep_misc.match(line)
