@@ -306,7 +306,7 @@ def make_book(reo):
         editor      = {},   # optional
         translator  = {},   # optional
         address     = {},   # optional
-        publisher   = {},   # optional
+        publisher   = "{}",   # optional
         url         = {},   # optional
     }
     """
@@ -341,7 +341,7 @@ def make_book(reo):
     if reo.group('address'):
         lines.append('    address     = {%s},' % reo.group('address'))
     if reo.group('publisher'):
-        lines.append('    publisher   = {%s},' % reo.group('publisher'))
+        lines.append('    publisher   = "{%s}",' % reo.group('publisher'))
     if reo.group('url'):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
@@ -363,7 +363,7 @@ def make_incollection(reo):
         editor      = {Brown, H. and R. Harr\'{e}},
         booktitle   = "{Philosophical Foundations of Quantum Field Theory}",
         edition     = {2},
-        publisher   = {Clarendon Press},
+        publisher   = "{Clarendon Press}",
         address     = {Oxford},
         pages       = {9--23},
         chapter     = {1},
@@ -407,7 +407,7 @@ def make_incollection(reo):
     if reo.group('address'):
         lines.append('    address     = {%s},' % reo.group('address'))
     if reo.group('publisher'):
-        lines.append('    publisher   = {%s},' % reo.group('publisher'))
+        lines.append('    publisher   = "{%s}",' % reo.group('publisher'))
     if reo.group('url'):
         lines.append('    url         = {%s},' % reo.group('url'))
     if reo.group('note'):
