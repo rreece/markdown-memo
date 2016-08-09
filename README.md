@@ -2,10 +2,10 @@ markdown-memo
 ===========================
 
 So you want to write a document.
-Maybe you'll share it on the web; maybe you want a polished pdf. 
-You don't want to think about the details,
-you just want to throw your ideas in some plain text files
-and call `make`.
+Maybe you'll share it on the web.
+Maybe you want a polished pdf. 
+You don't want to think about the details.
+You just want to throw your ideas in some plain text files and call `make`.
 
 This package makes it very easy to compile notes taken in
 [Markdown](http://daringfireball.net/projects/markdown/)
