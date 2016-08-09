@@ -167,7 +167,7 @@ Wish list / TODOs
 -   Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 
-See the version history: <VERSIONS.md>
+See the version history: [VERSIONS.md](VERSIONS.md)
 
 
 See also
