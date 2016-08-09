@@ -2,7 +2,7 @@ markdown-memo
 ===========================
 
 So you want to write a document.
-Maybe you'll share it on the web, maybe you want a polished pdf. 
+Maybe you'll share it on the web; maybe you want a polished pdf. 
 You don't want to think about the details,
 you just want to throw your ideas in some plain text files
 and call `make`.
