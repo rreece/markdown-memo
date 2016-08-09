@@ -53,7 +53,6 @@ Getting started
     There's no need for additional markup or html.
     Examples of [Markdown](http://daringfireball.net/projects/markdown/)
     syntax are
-
         Section 1
         =================================
 
@@ -77,7 +76,6 @@ Getting started
         \begin{equation}
             \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
         \end{equation}
-
 -   Edit the metadata in `meta.yaml`.
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate a pdf document.
