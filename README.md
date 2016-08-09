@@ -80,8 +80,8 @@ Getting started
 
 
 -   Edit the metadata in `meta.yaml`.
--   Call `make` to generate a pdf document.
--   Call `make html` to generate valid xhtml.
+-   Call `make [html]` to generate valid xhtml.
+-   Call `make pdf` to generate a pdf document.
 
 I use an image of my email to hide it from text crawlers.
 Please replace `img/my_email.png` with a screenshot of your
