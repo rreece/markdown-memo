@@ -78,7 +78,6 @@ Getting started
             \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
         \end{equation}
 
-
 -   Edit the metadata in `meta.yaml`.
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate a pdf document.
