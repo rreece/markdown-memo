@@ -106,9 +106,9 @@ div#site_header {
     font-weight: bold;
     color: #444444;
     /* set same as .block class bellow */
-    display:inline-block;
+    display:block;
     clear: both;
-    width: 700px;  /* forces page width */
+    width: auto;
     margin-top: 36px;
     margin-bottom: 24px;
     border-top: 2px solid #444444;
@@ -126,9 +126,9 @@ div#site_footer {
     font-size: 16px;
     color: #444444;
     /* set same as .block class bellow */
-    display:inline-block;
+    display:block;
     clear: both;
-    width: 700px;  /* forces page width */
+    width: auto;
     margin-top: 36px;
     margin-bottom: 36px;
     border-top: 2px solid #444444;
@@ -159,11 +159,9 @@ h3, h4, h5 {
     margin-bottom: 24px;
 }
 h1 {
-    width: 700px;  /* forces page width */
     font-size: 42px;
 }
 h2 {
-    width: 700px;  /* forces page width */
     border-bottom: 2px solid #444444;
     font-size: 36px;
 }
@@ -406,7 +404,7 @@ a.footnoteRef sup {
 {
     display:inline-block;
     clear: both;
-    width: 700px;  /* forces page width */
+    width: auto;
     margin-top: 36px;
     margin-bottom: 36px;
     border-top: 2px solid #444444;
