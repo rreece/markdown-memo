@@ -53,10 +53,10 @@ Getting started
     There's no need for additional markup or html.
     Examples of [Markdown](http://daringfireball.net/projects/markdown/)
     syntax are   
-        Section 1
+        Section 1    
         =================================
 
-        Sub-section 1
+        Sub-section 1    
         ---------------------------------
 
         [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
