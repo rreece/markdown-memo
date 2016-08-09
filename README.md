@@ -166,6 +166,7 @@ Wish list / TODOs
 -   Make links to previous and next sections (if they exist) in the navigation box in the html.
 -   Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
+-   Write script to generate md file with footnotes and citations defined given a bibliography.
 
 See the version history: [VERSIONS](VERSIONS)
 
