@@ -1,9 +1,12 @@
 v0.11  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   August 9, 2016
 -   A million fancy improvements
 -   references section only when needed in html
 -   wordcount
+
 v0.10  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   March 16, 2016
 -   Added templates/refs_tex.md and templates/*.csl
 -   Updated to use APA citation formats.
@@ -11,39 +14,48 @@ v0.10  Ryan Reece  <ryan.reece@cern.ch>
 -   Sans-serif quote blocks, etc., looking a lot more polished.
 
 v0.9   Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   March 6, 2016
 -   Added templates/refs_subsection.md
 
 v0.8   Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   March 6, 2016
 -   Added use of pandoc-crossref
 -   Lots of polishing of templates
 -   Lot's of new syntax examples in the *.md
 
 v0.6/7   Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   Feb 27, 2016
 -   Lots of updates including getting the abstract into the html.
 
 v0.5    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   Clean-up of example*.md
 -   Some updates to markdown-memo.css
 
 v0.4    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   Jan 23, 2016
 -   Updates to markdown-memo.css
 -   Several fixes to html templates. Now validates.
 
 v0.3    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   August 7, 2015
 -   Forgot a commit before tagging.
 
 v0.2    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   August 7, 2015
 -   Many major changes including bibliography and disqus integration.
 
 v0.1    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   added LICENSE option to the Makefile
 
 v0.0    Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
 -   first release
 
