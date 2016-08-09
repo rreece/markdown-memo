@@ -68,7 +68,7 @@ index.md: $(MD_FILES)
 	then \
 		cp index.txt $@ ; \
 	else \
-		python templates/make_md_index.py --out=$@ $(MD_FILES) ; \
+		python templates/make_index_md.py --out=$@ $(MD_FILES) ; \
 	fi
 	$(PRINT) "make $@ done."
 
@@ -231,6 +231,10 @@ bibs/mybib.bib: $(BIB_TXT_FILES)
 	else \
 		python templates/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES) ; \
 	fi
+	$(PRINT) "make $@ done."
+
+bib_index.md: bibs/mybib.bib
+	@python templates/make_bib_index_md.py --out=$@ $<
 	$(PRINT) "make $@ done."
 
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
