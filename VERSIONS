@@ -1,3 +1,8 @@
+v0.11  Ryan Reece  <ryan.reece@cern.ch>
+-   August 9, 2016
+-   A million fancy improvements
+-   references section only when needed in html
+-   wordcount
 v0.10  Ryan Reece  <ryan.reece@cern.ch>
 -   March 16, 2016
 -   Added templates/refs_tex.md and templates/*.csl
