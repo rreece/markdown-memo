@@ -68,7 +68,7 @@ index.md: $(MD_FILES)
 	then \
 		cp index.txt $@ ; \
 	else \
-		python templates/make_index_md.py --out=$@ $(MD_FILES) ; \
+		python scripts/make_index_md.py --out=$@ $(MD_FILES) ; \
 	fi
 	$(PRINT) "make $@ done."
 
@@ -205,7 +205,7 @@ $(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
 			--filter pandoc-crossref \
 			-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml ; \
 	fi
-	@python templates/transform_tex.py $@
+	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
 ## create the tex for a section
@@ -220,7 +220,7 @@ $(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
 #		--bibliography=bibs/mybib.bib \
 #		--filter pandoc-citeproc \
 #		-o $@ $< $(OPS_SECTION) meta.yaml
-#	@python templates/transform_tex.py $@
+#	@python scripts/transform_tex.py $@
 #	$(PRINT) "make $@ done."
 
 bibs/mybib.bib: $(BIB_TXT_FILES)
@@ -229,12 +229,12 @@ bibs/mybib.bib: $(BIB_TXT_FILES)
 		echo "==>   ERROR: No bibliography files found in bibs/. Set dorefs=false in meta.yaml." ; \
 		exit 1 ; \
 	else \
-		python templates/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES) ; \
+		python scripts/markdown2bib.py --out=bibs/mybib.bib $(BIB_TXT_FILES) ; \
 	fi
 	$(PRINT) "make $@ done."
 
 bib_index.md: bibs/mybib.bib
-	@python templates/make_bib_index_md.py --out=$@ $<
+	@python scripts/make_bib_index_md.py --out=$@ $<
 	$(PRINT) "make $@ done."
 
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
@@ -247,7 +247,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 		printf "%s,%s,%s\n" "Date" "Words" "Pages" >> $@ ; \
 	fi
 	@printf "%16s, %8i, %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[1]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
-	@cd wordcount/ ; python ../templates/wordcount.py wc.csv ; cd ..
+	@cd wordcount/ ; python ../scripts/wordcount.py wc.csv ; cd ..
 	$(PRINT) "make $@ done."
 
 
