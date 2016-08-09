@@ -52,7 +52,7 @@ Getting started
 -   In those files, just start writing the `h1` heading.
     There's no need for additional markup or html.
     Examples of [Markdown](http://daringfireball.net/projects/markdown/)
-    syntax are
+    syntax are   
         Section 1
         =================================
 
