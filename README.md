@@ -163,6 +163,7 @@ Wish list / TODOs
 -   ~~Find and replace the default figure environment to be `\begin{figure}[tph]` instead of `\begin{figure}[htbp]`.~~
 -   ~~Add conditionals to the `Makefile` such that `templates/refs.md` is only added for documents that have references.~~
 -   Optionally make a TOC automatically in the html.
+-   Make links to previous and next sections (if they exist) in the navigation box in the html.
 -   Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 
