@@ -74,31 +74,27 @@ These will work in LaTeX (\LaTeX) but may not in html:
 
 
 
-Footnotes
+Footnotes and citations.
 -------------------------------------------------------------------------------
 
-Here's how you do footnotes. Lorem ipsum[^Realism]
-dolor sit amet, duo ut putant verear, nam ut brute utroque.
-Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
-accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
-an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
-at falli feugiat est[^Feynman].
+Here's how you do footnotes.
+Let's get real[^Miller2014].
+Let's try citing various kinds of references.
+Feynman said some important things[^Feynman1963].
+But everything is a footnote to Plato[^Plato2000].
+Quine[^Quine1969] and Van[^vanFraassen1980] are cool cats too.
 
-[^Realism]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
-[^Feynman]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
+[^Feynman1963]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
 
-Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
-urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
-ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
-omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
-sumo decore. Eirmod hendrerit an pri.
+[^Feynman1965]: @Feynman_1965_The_Development_of_the_Space_Time_View_of_Quantum\.
 
+[^Miller2014]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
 
-Amet magna voluptatum eam eu. Denique moderatius ad pri, an vix tale
-referrentur, atqui appetere et eos. Pri esse disputationi et. Te his
-assum persius, in eam deterruisset consequuntur. Quando signiferumque no
-his, usu nusquam corrumpit ex, sea ex soluta option facilisis. Ne autem
-assentior consequuntur nam, constituto scripserit no eam. Eu laoreet
-fabellas postulant eos.
+[^Plato2000]: @Plato_2000_The_Republic\.
+
+[^Quine1969]: @Quine_1969_Natural_kinds\.
+
+[^vanFraassen1980]: @vanFraassen_1980_The_Scientific_Image\.
+
 
 

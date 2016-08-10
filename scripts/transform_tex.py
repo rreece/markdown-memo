@@ -78,6 +78,7 @@ def main():
     rep_begin_figure = r'^\\begin{figure}\[\w+\]\s*$'
     rep_begin_table = r'^\\begin{longtable}\[\w\]{([\w\{\}@]+)}\s*$'
     rep_end_table = r'^\\end{longtable}\s*$'
+    rep_includegraphics = r'^\\includegraphics{([\w/.\-]+)\.(png|PNG|jpg|jpeg|JPG)}\s*$'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
@@ -108,6 +109,17 @@ def main():
                     # newline = '\\end{table}\n'
                     # newline = line.replace('longtable', 'supertabular')
                     pass
+
+            if not reo:
+                reo = re.match(rep_includegraphics, line)
+                if reo:
+                    fpath = reo.group(1)
+                    suffix = reo.group(2)
+                    if os.path.isfile('%s.pdf' % fpath):
+                        newline = '\\includegraphics[width=0.9\linewidth,height=0.9\linewidth,keepaspectratio]{%s.pdf}\n' % fpath
+                    else:
+                        newline = '\\includegraphics[width=0.9\linewidth,height=0.9\linewidth,keepaspectratio]{%s.%s}\n' % (fpath, suffix)
+                        
 
             f_out.write(newline)
  
