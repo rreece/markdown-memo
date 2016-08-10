@@ -138,13 +138,28 @@ Here's some inline code: `vec.push_back(3.14)`.
 
 ### Fonts
 
+    -   *This is emphasis.*
+    -   **This is bold.**
+    -   _This is also emphasis._
+    -   __This is also bold.__
+    -   ~~This is struck-out.~~
+
+produces:
+
 -   *This is emphasis.*
 -   **This is bold.**
 -   _This is also emphasis._
 -   __This is also bold.__
 -   ~~This is struck-out.~~
 
-These will work in LaTeX (\LaTeX) but may not in html:
+Don't do this. These will work in LaTeX (\LaTeX) but may not in html.
+
+    -   \textsf{This should be Sans.}
+    -   \textsc{This Should BE SMALL caps.}
+    -   $\textsf{This works though!}$
+    -   $\textsc{But this does not!}$
+
+produces:
 
 -   \textsf{This should be Sans.}
 -   \textsc{This Should BE SMALL caps.}
@@ -152,9 +167,18 @@ These will work in LaTeX (\LaTeX) but may not in html:
 -   $\textsc{But this does not!}$
 
 
-
 Footnotes and citations
 -------------------------------------------------------------------------------
+
+    Here's how you do a footnote[^SomeSpecialNote].
+
+    [^SomeSpecialNote]: Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+        Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+        accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+        an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+        at falli feugiat est.
+
+produces:
 
 Here's how you do a footnote[^SomeSpecialNote].
 
@@ -164,11 +188,22 @@ Here's how you do a footnote[^SomeSpecialNote].
     an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
     at falli feugiat est.
 
-To refer to a reference inline, we can just note that
+References start with an `@`-sign, and can be used inline, like:
+
+    @Miller_2014_Realism argues that we should get real.
+
+which produces:
+
 @Miller_2014_Realism argues that we should get real.
 
 Inside a caption, you may want to end it with the citation in parentheses
-like this: blah blah blah [@Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I]\.
+like this:
+
+    Blah blah blah [@Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I]\.
+
+which produces:
+
+Blah blah blah [@Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I]\.
 
 Typically, I find it better to leave citations[^Quine1969] in footnotes to keep from
 cluttering the main text.
