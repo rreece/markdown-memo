@@ -4,14 +4,8 @@ Basics
 Subsection
 -------------------------------------------------------------------------------
 
-URLs are done like the following.
+URLs are done like this: [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum).
 
-[Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
-dolor sit amet, duo ut putant verear, nam ut brute utroque.
-Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
-accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
-an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
-at falli feugiat est.
 
 ### Blocks
 
@@ -77,12 +71,27 @@ These will work in LaTeX (\LaTeX) but may not in html:
 Footnotes and citations.
 -------------------------------------------------------------------------------
 
-Here's how you do footnotes.
-Let's get real[^Miller2014].
+Here's how you do a footnote[^SomeSpecialNote].
+
+[^SomeSpecialNote]: Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+    Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+    accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+    an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+    at falli feugiat est.
+
+To refer to a reference inline, we can just note that
+@Miller_2014_Realism argues that we should get real.
+
+Inside a caption, you may want to end it with the citation in parentheses
+like this: blah blah blah [@Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I]\.
+
+Typically, I find it better to leave citations[^Quine1969] in footnotes to keep from
+cluttering the main text.
 Let's try citing various kinds of references.
-Feynman said some important things[^Feynman1963].
+Feynman said some important things[^Feynman1965].
 But everything is a footnote to Plato[^Plato2000].
-Quine[^Quine1969] and Van[^vanFraassen1980] are cool cats too.
+Van[^vanFraassen1980] is a cool cat too.
+
 
 [^Feynman1963]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
 
