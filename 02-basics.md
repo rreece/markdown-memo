@@ -15,7 +15,7 @@ Starting a page or section
 Just open up or create a first `md` file in that directory like `01-introduction.md`,
 and start typing.
 Each file should probably correspond to a webpage or section in the document,
-and should begin with an `h1`-level heading (section), denoted with
+and in that case, it should begin with an `h1`-level heading (section), denoted with
 a double-rule of equal-signs, like:
 
     Section title
@@ -25,7 +25,7 @@ Or marked like this:
 
     # Section title
 
-Then you can have sub-sections as you wish, and just start typing the main text:
+Then you can have sub-sections as you wish, and/or just start typing the main text:
 
     Sub-section title
     -------------------------------------------------------------------------------
@@ -46,18 +46,32 @@ Or
 Basic typesetting
 -------------------------------------------------------------------------------
 
-URLs are done like this: [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum).
+URLs are done like this:
+
+    [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
+
+[Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 
 
 ### Lists
 
 Unnumbered lists like this:
 
+    -   Galileo Galilei
+    -   Robert G. Ingersoll
+    -   Jill Tarter
+
 -   Galileo Galilei
 -   Robert G. Ingersoll
 -   Jill Tarter
 
 Numbered lists like this:
+
+    1.  Na&iuml;ve realists
+    1.  Scientific realists
+    1.  Constructive empiricists
+    1.  Positivists
+    1.  Relativists
 
 1.  Na&iuml;ve realists
 1.  Scientific realists
@@ -69,11 +83,34 @@ Numbered lists like this:
 
 The following is a quote block. 
 
+    >   It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.  
+
+    -- Mark Twain
+
 >   It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.  
 
 -- Mark Twain
 
-The following is a code block.
+A code block is just indented with 4 spaces, like this:
+
+        def shortBubbleSort(alist):
+            exchanges = True
+            passnum = len(alist)-1
+            while passnum > 0 and exchanges:
+               exchanges = False
+               for i in range(passnum):
+                   if alist[i]>alist[i+1]:
+                       exchanges = True
+                       temp = alist[i]
+                       alist[i] = alist[i+1]
+                       alist[i+1] = temp
+               passnum = passnum-1
+    
+        alist=[20,30,40,90,50,60,70,80,100,110]
+        shortBubbleSort(alist)
+        print(alist)
+
+which makes:
 
     def shortBubbleSort(alist):
         exchanges = True
@@ -92,7 +129,11 @@ The following is a code block.
     shortBubbleSort(alist)
     print(alist)
 
-Maybe you want to refer to code inline like this: `vec.push_back(3.14)`.
+Maybe you want to refer to code inline like this with backticks:
+
+    Here's some inline code: `vec.push_back(3.14)`.
+
+Here's some inline code: `vec.push_back(3.14)`.
 
 
 ### Fonts
