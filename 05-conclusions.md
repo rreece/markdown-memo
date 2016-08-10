@@ -1,8 +1,8 @@
 Conclusions
 ===============================================================================
 
-Y'all come back now. You hear?
+This project is ment to make writing easier and more productive.
 
-markdown-memo is developed by [Ryan Reece](http://reece.scipp.ucsc.edu/).
+`markdown-memo` is developed by [Ryan Reece](http://reece.scipp.ucsc.edu/).
 
 
