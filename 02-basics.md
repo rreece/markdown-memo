@@ -91,7 +91,7 @@ The following is a quote block.
 
 -- Mark Twain
 
-A code block is just indented with 4 spaces, like this:
+A code block (used throughout these examples) is just indented with 4 spaces, like this:
 
         def shortBubbleSort(alist):
             exchanges = True
