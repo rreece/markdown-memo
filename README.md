@@ -122,20 +122,6 @@ then put the same markdown in `index.txt`.
 -   multiple authors
 -   word- and page-count plots (see below)
 
-If you add multiple appendices, perhaps you want to separate
-them from the main text with a part:
-
-    \clearpage
-    \appendix
-    \part*{Appendices}
-    \addcontentsline{toc}{part}{Appendices}
-
-    Example appendix
-    ===============================================================================
-
-    Start writing the appendix...
-    
-
 
 Disqus integration
 ----------------------------------
