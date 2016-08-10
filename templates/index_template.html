@@ -69,6 +69,15 @@ $endif$
 -->
 
 <hr/>
+<!--
+<div id="beforebody">
+$for(include-before)$
+$include-before$
+$endfor$
+</div>
+-->
+
+<div id="mainbody">
 
 <!--- NOTE: h1 already included. Start writing index.md with an h2 -->
 <h1>$title$</h1>
@@ -90,16 +99,6 @@ $if(abstract)$
 $abstract$
 </div>
 $endif$
-
-<!--
-<div id="beforebody">
-$for(include-before)$
-$include-before$
-$endfor$
-</div>
--->
-
-<div id="mainbody">
 
 $body$
 

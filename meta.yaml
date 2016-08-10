@@ -44,7 +44,9 @@ eqnPrefix: "eq."
 tblPrefix: "Table"
 ## html options -------------------------------------------
 css: 'templates/markdown-memo.css'
+#css: 'templates/markdown-memo-alt.css'
 email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
+#email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
 #disqus: true
 #disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this webpage.'

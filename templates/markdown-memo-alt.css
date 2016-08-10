@@ -327,10 +327,14 @@ div.nav ul li
 div.nav a
 {
     text-decoration: none;
+    color: #0099ff;
 }
-
+div.nav a:visited {
+    color: #0099ff;
+}
 div.nav a:hover {
     text-decoration: underline;
+    color: red;
 }
 
 /* footnotes -------------------------------------------------- */
