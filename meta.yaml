@@ -43,6 +43,7 @@ figPrefix: "Figure"
 eqnPrefix: "eq."
 tblPrefix: "Table"
 ## html options -------------------------------------------
+css: 'templates/markdown-memo.css'
 email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #disqus: true
 #disqus_shortname: 'my-sites-disqus-name'

@@ -67,13 +67,13 @@ $endif$
     <a href="./">$title$</a>
 </div>
 
+<!--
 <div id="beforebody">
 $for(include-before)$
 $include-before$
 $endfor$
 </div>
-
-<div id="mainbody">
+-->
 
 <div class="nav">
 <ul>
@@ -81,7 +81,11 @@ $endfor$
 </ul>
 </div>
 
+<div id="mainbody">
+
 $body$
+
+</div> <!-- end mainbody -->
 
 <div class="nav">
 <ul>
@@ -90,13 +94,13 @@ $body$
 </ul>
 </div>
 
-</div> <!-- end mainbody -->
-
+<!--
 <div id="afterbody">
 $for(include-after)$
 $include-after$
 $endfor$
 </div>
+-->
 
 <div id="site_footer">
   <div class="signature">

@@ -20,12 +20,14 @@
 * { margin: 0; border: 0; padding: 0; }
 
 body {
-    background: #cccccc;
+    background: #444444;
     margin-top: 0;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     margin-left: 0;
-    padding: 20px 0;
+    border-top: 40px solid #444444;
+    border-bottom: 80px solid #444444;
+    padding: 0;
     width: auto;
     font-family: Georgia, Palatino, serif;
     color: #444444;
@@ -106,37 +108,32 @@ a:hover {
 div#site_header {
     font-size: 24px;
     font-weight: bold;
-    color: #444444;
+    color: black;
     /* set same as .block class bellow */
     display:block;
     clear: both;
     width: auto;
-    margin-top: 0;
-    margin-bottom: 24px;
-    border-top: 2px solid #444444;
-    border-bottom: 2px solid #444444;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    margin: 0;
+    border: 0;
+    padding: 4px 10px;
 }
 
 div#site_header a {
     text-decoration: none;
-    color: #444444;
+    color: black;
 }
 
 div#site_footer {
     font-size: 16px;
-    color: #444444;
+    color: black;
     /* set same as .block class bellow */
     display:block;
     clear: both;
     width: auto;
-    margin-top: 36px;
+    margin-top: 24px;
     margin-bottom: 36px;
-    border-top: 2px solid #444444;
-    border-bottom: 2px solid #444444;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    border: 0;
+    padding: 4px 10px;
 }
 
 div#site_footer img {
@@ -291,6 +288,7 @@ td {
 /* mainbody ---------------------------------------------------------- */
 div#mainbody
 {
+    background: #cccccc;
 /*    float: left;*/
     padding: 10px;
 }
@@ -300,13 +298,11 @@ div.nav
 {
     display: block;
     /*float: right;*/
-    font-family: Consolas, Monaco, "Andale Mono", monospace;
-    margin-top: 0;
-    margin-bottom: 10px;
-    margin-left: 0;
-    margin-right: 0;
-    border: 2px solid #444444;
+    margin: 0;
+    border: 0;
     padding: 5px 10px;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    color: black;
 }
 
 div.nav ul

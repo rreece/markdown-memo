@@ -79,7 +79,6 @@ index.html: index.md meta.yaml
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
-		--variable=css:templates/markdown-memo.css \
 		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
@@ -92,7 +91,6 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
-		--variable=css:templates/markdown-memo.css \
 		--template=./templates/index_template.html \
 		--mathjax \
 		--bibliography=bibs/mybib.bib \
@@ -124,7 +122,6 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 			--standalone \
 			--smart \
 			--variable=date-meta:"$(DATE)" \
-			--variable=css:templates/markdown-memo.css \
 			--template=./templates/outline_template.html \
 			--mathjax \
 			--bibliography=bibs/mybib.bib \
@@ -138,7 +135,6 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 			--standalone \
 			--smart \
 			--variable=date-meta:"$(DATE)" \
-			--variable=css:templates/markdown-memo.css \
 			--template=./templates/outline_template.html \
 			--mathjax \
 			--filter pandoc-crossref \
@@ -285,7 +281,6 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 #		--standalone \
 #		--smart \
 #		--variable=date-meta:"$(DATE)" \
-#		--variable=css:templates/markdown-memo.css \
 #		--template=./templates/outline_template.html \
 #		-o $@ $< meta.yaml
 #	$(PRINT) "make $@ done."
