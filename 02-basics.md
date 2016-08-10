@@ -68,7 +68,7 @@ These will work in LaTeX (\LaTeX) but may not in html:
 
 
 
-Footnotes and citations.
+Footnotes and citations
 -------------------------------------------------------------------------------
 
 Here's how you do a footnote[^SomeSpecialNote].
