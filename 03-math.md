@@ -1,7 +1,7 @@
 Mathematical expressions
 ===============================================================================
 
-Spam
+Typestting math
 -------------------------------------------------------------------------------
 
 You can do latex in-line, $e^{i\pi} + 1 = 0$.
@@ -22,8 +22,13 @@ Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
     \nabla \times \vec{B} &= \vec{j} + \frac{\partial \vec{E}}{\partial t} \nonumber \,.
 \end{align}
 
-Note that we are using [MathJax](https://www.mathjax.org/) to render
-the equations in html. Our html template includes the following code
+
+Mathjax to render the math on the web
+-------------------------------------------------------------------------------
+
+When doing md &rarr; tex &rarr; pdf, LaTeX takes care of the math,
+but to render the math in html, we use [MathJax](https://www.mathjax.org/).
+Our html template includes the following code
 to ask MathJax to render it and number the equations:
 
     <!--- MathJax stuff -->
@@ -32,12 +37,5 @@ to ask MathJax to render it and number the equations:
         MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
     </script>
 
-Eggs
--------------------------------------------------------------------------------
 
-Ei oratio mediocritatem sea, at choro mandamus disputando quo, id eius
-albucius deseruisse mei. Id eam verear disputando repudiandae. Per et
-clita reformidans. Ea his corpora ancillae fabellas, an eum facer tation
-populo. Vix omittam lucilius inciderint ne, est cu civibus scribentur
-adversarium.
 
