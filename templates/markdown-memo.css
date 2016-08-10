@@ -402,7 +402,7 @@ a.footnoteRef sup {
 
 .block
 {
-    display:inline-block;
+    display:block;
     clear: both;
     width: auto;
     margin-top: 36px;
