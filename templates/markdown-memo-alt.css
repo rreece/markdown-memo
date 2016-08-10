@@ -147,6 +147,10 @@ img.email {
     vertical-align: text-bottom;
 }
 
+div#disqus_stuff {
+    padding: 4px 10px;
+}
+
 
 /* headers ------------------------------------------------------- */
 h1, h2 {
