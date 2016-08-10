@@ -6,7 +6,8 @@ This project is ment to make writing easier and more productive.
 So you want to write a document.
 Maybe you'll share it on the web.
 Maybe you want a polished pdf. 
-You don't want to think about the details.
+Maybe it's a blog, research paper, book draft, or just a set of notes.
+You don't want to think about typesetting details.
 You just want to throw your ideas in some plain text files and call `make`.
 
 This package makes it very easy to compile notes taken in
