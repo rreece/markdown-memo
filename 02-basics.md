@@ -12,7 +12,7 @@ Checking out markdown-memo with a simple git command, like:
 Starting a page or section
 -------------------------------------------------------------------------------
 
-Just open up or create a first `md` file in that directory like `01-introduction.md`,
+Just open or create a first `md` file in that directory like `01-introduction.md`,
 and start typing.
 Each file should probably correspond to a webpage or section in the document,
 and in that case, it should begin with an `h1`-level heading (section), denoted with
