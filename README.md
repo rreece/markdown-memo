@@ -24,7 +24,7 @@ Created: July 29, 2014
 License
 ----------------------------------
 
-Copyleft 2016 Ryan Reece     
+Copyleft 2014-2016 Ryan Reece     
 License: GPL <http://www.gnu.org/licenses/gpl.html>
 
 
