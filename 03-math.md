@@ -4,16 +4,39 @@ Mathematical expressions
 Typestting math
 -------------------------------------------------------------------------------
 
-You can do latex in-line, $e^{i\pi} + 1 = 0$.
-You can also refer to labeled equations, such as eq.\ $\eqref{eq:stokes}$.
+You can do latex inline like this:
 
+    Euler's formula is remarkable: $e^{i\pi} + 1 = 0$.
+
+Euler's formula is remarkable: $e^{i\pi} + 1 = 0$.
+
+Just use the latex equation environment directly.
 Stokes' theorem is pretty cool:
+
+    \begin{equation} \label{eq:stokes}
+        \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
+    \end{equation}
 
 \begin{equation} \label{eq:stokes}
     \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
 \end{equation}
 
+You can also refer to labeled equations, such as eq.\ $\eqref{eq:stokes}$,
+with the syntax:
+
+    ... such as eq.\ $\eqref{eq:stokes}$,
+
+Note that `\ ` makes a non-breaking space.
+
+The `align` environment can also be used.
 Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
+
+    \begin{align}
+        \nabla \cdot  \vec{E} &= \rho \nonumber \\
+        \nabla \cdot  \vec{B} &= 0    \nonumber \\
+        \nabla \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} \label{eq:maxwell} \\
+        \nabla \times \vec{B} &= \vec{j} + \frac{\partial \vec{E}}{\partial t} \nonumber \,.
+    \end{align}
 
 \begin{align}
     \nabla \cdot  \vec{E} &= \rho \nonumber \\

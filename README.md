@@ -1,7 +1,7 @@
 markdown-memo
 ===========================
 
-This project is ment to make writing easier and more productive.
+This project is meant to make writing easier and more productive.
 
 So you want to write a document.
 Maybe you'll share it on the web.
