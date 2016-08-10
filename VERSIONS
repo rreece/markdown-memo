@@ -1,3 +1,10 @@
+v0.13  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   August 10, 2016
+-   Fixed image widths and heights
+-   When making a pdf, jpg/png figures automatically get replaced with pdf
+    figures if they exist.
+
 v0.12  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   August 9, 2016
