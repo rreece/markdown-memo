@@ -43,6 +43,33 @@ do this to install:
     cabal install pandoc-crossref
 
 
+Features
+----------------------------------
+
+### html
+
+-   [disqus comments](disqus.com)
+-   mathjax LaTeX rendering
+-   google analytics tracking
+-   automatically generates an `index.md`
+
+If you want to write your own `index.md`,
+then put the same markdown in `index.txt`.
+
+### pdf
+
+-   LaTeX
+-   fancyheader
+
+### both
+
+-   appendices
+-   bibtex bibliographies
+-   footnotes
+-   multiple authors
+-   word- and page-count plots (see below)
+
+
 Getting started
 ----------------------------------
 
@@ -94,33 +121,6 @@ of the output html and pdfs files to your needs.
 If you want to put the html online, perhaps a solution for you,
 because it's free and easy, would be to host the pages at github.
 See: [pages.github.com](https://pages.github.com/).
-
-
-Features
-----------------------------------
-
-### html
-
--   [disqus comments](disqus.com)
--   mathjax LaTeX rendering
--   google analytics tracking
--   automatically generates an `index.md`
-
-If you want to write your own `index.md`,
-then put the same markdown in `index.txt`.
-
-### pdf
-
--   LaTeX
--   fancyheader
-
-### both
-
--   appendices
--   bibtex bibliographies
--   footnotes
--   multiple authors
--   word- and page-count plots (see below)
 
 
 Disqus integration
