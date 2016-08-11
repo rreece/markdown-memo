@@ -108,7 +108,7 @@ a:hover {
 div#site_header {
     font-size: 24px;
     font-weight: bold;
-    color: black;
+    color: #cccccc;
     /* set same as .block class bellow */
     display:block;
     clear: both;
@@ -120,7 +120,7 @@ div#site_header {
 
 div#site_header a {
     text-decoration: none;
-    color: black;
+    color: #cccccc;
 }
 
 div#site_footer {
