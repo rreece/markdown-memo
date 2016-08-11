@@ -46,12 +46,6 @@ Or
 Basic typesetting
 -------------------------------------------------------------------------------
 
-URLs are done like this:
-
-    [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
-
-[Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
-
 
 ### Lists
 
@@ -165,6 +159,17 @@ produces:
 -   \textsc{This Should BE SMALL caps.}
 -   $\textsf{This works though!}$
 -   $\textsc{But this does not!}$
+
+
+### Links
+
+URLs are done like this:
+
+    [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
+
+[Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
+
+TODO: in-doc references to sections, equations, figures, and tables.
 
 
 Footnotes and citations
