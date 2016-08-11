@@ -150,8 +150,12 @@ div#site_footer img {
     padding: 0;
 }
 
-div#site_footer a {
+div#site_footer a:visited {
     color: #0099ff;
+}
+
+div#site_footer a:hover {
+    color: red;
 }
 
 img.email {
