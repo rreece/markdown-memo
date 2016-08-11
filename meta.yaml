@@ -53,6 +53,8 @@ email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #keywords: 'List, some, keywords, for, this, webpage'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
+navigation: true # TODO
+pagetoc: false # TODO
 ## pdflatex options ---------------------------------------
 classoption:
     -   'openany'

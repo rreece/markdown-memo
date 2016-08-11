@@ -125,7 +125,7 @@ div#site_header a {
 
 div#site_footer {
     font-size: 16px;
-    color: black;
+    color: #cccccc;
     /* set same as .block class bellow */
     display:block;
     clear: both;
@@ -306,7 +306,7 @@ div.nav
     border: 0;
     padding: 5px 10px;
     font-family: Consolas, Monaco, "Andale Mono", monospace;
-    color: black;
+    color: #cccccc;
 }
 
 div.nav ul
