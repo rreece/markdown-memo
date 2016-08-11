@@ -78,8 +78,8 @@ def main():
     rep = r'<h([1-6])\s+[^>]*id="([\w\-]+)"[^>]*>([^<]+)<\/h[1-6]>'
 
     f_out = open(out, 'w')
-    f_out.write('Contents\n')
-    f_out.write('---------------------------------------------------\n')
+    f_out.write('### Contents  {.unnumbered}\n')
+#    f_out.write('---------------------------------------------------\n')
     f_out.write('\n')
 
     for fn in infiles:
@@ -94,10 +94,13 @@ def main():
                 level   = int(reo.group(1))
                 id      = reo.group(2)
                 name    = reo.group(3)
+                alink   = fn
+                if root == 'index':
+                    alink = ''
                 if level == 1:
-                    f_out.write('%s1.  **[%s](%s.html)**\n' % ('    '*(level-1), name, root) )
+                    f_out.write('%s1.  **[%s](%s)**\n' % ('    '*(level-1), name, alink) )
                 else:
-                    f_out.write('%s1.  [%s](%s.html#%s)\n' % ('    '*(level-1), name, root, id ) )
+                    f_out.write('%s1.  [%s](%s#%s)\n' % ('    '*(level-1), name, alink, id ) )
         f_in.close()
 
         os.system('rm -f %s-tmp.html' % root)

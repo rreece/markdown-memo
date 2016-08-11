@@ -39,6 +39,7 @@ PRINT = @echo '==>  '
 DATE     := $(shell date +"%a %b %d, %Y")
 MD_FILES := $(filter-out README.md, $(wildcard *.md))
 MD_FILES := $(filter-out index.md, $(MD_FILES))
+MD_FILES := $(filter-out contents.md, $(MD_FILES))
 HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
 BIB_TXT_FILES := $(wildcard bibs/*.txt)
@@ -58,17 +59,26 @@ default: html
 
 all: html pdf
 
-html: $(HTML_FILES) index.html
-	$(PRINT) "html done."
+html: index.html
+	$(PRINT) "make $@ done."
+
+hsec: $(HTML_FILES) index.html
+	$(PRINT) "make $@ done."
 
 pdf: $(OUTPUT).pdf wordcount/wc.csv
 
-index.md: $(MD_FILES)
+contents.md: $(MD_FILES)
+	@cat $(MD_FILES) > index.tmp
+	@python scripts/make_index_md.py --out=$@ index.tmp
+	@rm -f index.tmp
+	$(PRINT) "make $@ done."
+
+index.md: contents.md $(MD_FILES)
 	@if [ -f index.txt ]; \
 	then \
 		cp index.txt $@ ; \
 	else \
-		python scripts/make_index_md.py --out=$@ $(MD_FILES) ; \
+		cat contents.md $(MD_FILES) > index.md ; \
 	fi
 	$(PRINT) "make $@ done."
 
@@ -76,6 +86,7 @@ index.html: index.md meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
+		--number-sections \
 		--standalone \
 		--smart \
 		--variable=date-meta:"$(DATE)" \
@@ -288,7 +299,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 
 ##-----------------------------------------------------------------------------
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
-JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md bib_index.md
+JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html contents.md index.md bib_index.md
 OUTS = *.html *.pdf bibs/*.bib
 
 clean:
