@@ -82,7 +82,7 @@ index.md: contents.md $(MD_FILES)
 	fi
 	$(PRINT) "make $@ done."
 
-index.html: index.md meta.yaml
+index.html: index.md $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -91,7 +91,11 @@ index.html: index.md meta.yaml
 		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
-		-o $@ $< meta.yaml
+		--mathjax \
+		--bibliography=bibs/mybib.bib \
+		--filter pandoc-crossref \
+		--filter pandoc-citeproc \
+		-o $@ $< $(OPS_FULLHTML) meta.yaml
 	$(PRINT) "make $@ done."
 
 $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
