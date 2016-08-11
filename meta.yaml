@@ -1,9 +1,9 @@
 ---
 ## required meta-data -------------------------------------
-output: doc
-title: 'This is the title: it contains a colon'
-titleshort: 'This is the title'
-subtitle: 'This is the subtitle'
+output: example
+title: 'markdown-memo example document'
+titleshort: 'markdown-memo example document'
+subtitle: 'make writing easier and more productive'
 author:
     -   |
         [Ryan Reece](http://reece.scipp.ucsc.edu/)[^ReeceSCIPP]

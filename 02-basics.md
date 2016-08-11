@@ -193,7 +193,7 @@ Here's how you do a footnote[^SomeSpecialNote].
     an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
     at falli feugiat est.
 
-References start with an `@`-sign, and can be used inline, like:
+Citations start with an `@`-sign, and can be used inline, like:
 
     @Miller_2014_Realism argues that we should get real.
 
