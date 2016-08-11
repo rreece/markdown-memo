@@ -75,11 +75,17 @@ $endfor$
 </div>
 -->
 
+$if(navigation)$
 <div class="nav">
 <ul>
-    <li> <a href="./">Go back to the Table of Contents</a> </li>
+    <li> <a href="./">&#8634;&nbsp;Contents</a> </li>
+    <li> <a href="#site_footer">&#8615;&nbsp;Bottom</a> </li>
+    <li> <a href="./">&#8612;&nbsp;Previous</a> </li>
+    <li> <a href="./">&#8614;&nbsp;Next</a> </li>
+    <!-- INSERT NAVIGATION HERE -->
 </ul>
 </div>
+$endif$
 
 <div id="mainbody">
 
@@ -87,12 +93,16 @@ $body$
 
 </div> <!-- end mainbody -->
 
+$if(navigation)$
 <div class="nav">
 <ul>
-    <li> <a href="#site_header">Go back to the top</a> </li>
-    <li> <a href="./">Go back to the Table of Contents</a> </li>
+    <li> <a href="./">&#8634;&nbsp;Contents</a> </li>
+    <li> <a href="#site_header">&#8613;&nbsp;Top</a> </li>
+    <li> <a href="./">&#8612;&nbsp;Previous</a> </li>
+    <li> <a href="./">&#8614;&nbsp;Next</a> </li>
 </ul>
 </div>
+$endif$
 
 <!--
 <div id="afterbody">
