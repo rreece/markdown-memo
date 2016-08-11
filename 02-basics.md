@@ -169,10 +169,19 @@ URLs are done like this:
 
 [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 
-TODO: in-doc references to sections, equations, figures, and tables.
+To reference
+
+-   equation: `eq.\ $\eqref{eq:stokes}$`    
+    eq.\ $\eqref{eq:stokes}$
+-   figure: `[@Fig:scientific_universe]`    
+    [@Fig:scientific_universe]
+-   table: `[@Tbl:atlas_channels]`    
+    [@Tbl:atlas_channels]
+-   section: `[@sec:footnotes-and-citations]`    
+    [@sec:footnotes-and-citations]
 
 
-Footnotes and citations
+Footnotes and citations {#sec:footnotes-and-citations}
 -------------------------------------------------------------------------------
 
     Here's how you do a footnote[^SomeSpecialNote].
