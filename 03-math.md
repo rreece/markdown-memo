@@ -46,7 +46,7 @@ Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
 \end{align}
 
 
-Mathjax to render the math on the web
+Mathjax
 -------------------------------------------------------------------------------
 
 When doing md &rarr; tex &rarr; pdf, LaTeX takes care of the math,
