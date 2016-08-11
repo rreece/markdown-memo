@@ -137,16 +137,28 @@ div#site_footer {
     padding-bottom: 4px;
 }
 
+div#site_footer p {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
 div#site_footer img {
     display: inline;
     margin: 0;
+    border: 0;
+    padding: 0;
 }
 
 img.email {
-    display: inline;
-    margin: 0;
-    vertical-align: text-bottom;
+    /*vertical-align: text-bottom;*/
 }
+
+/*
+div#disqus_stuff {
+    padding: 4px 10px;
+}
+*/
 
 
 /* headers ------------------------------------------------------- */

@@ -114,15 +114,13 @@ $endfor$
 
 <div id="site_footer">
   <div class="signature">
-    <i>$authorshort$</i><br/>
-$if(email)$
-    $email$<br/>
-$endif$
-    $date-meta$
+    <p><i>$authorshort$</i></p>
+    $if(email)$<p>$email$</p>$endif$
+    <p>$date-meta$</p>
   </div>
   <div class="license">
-    $if(license)$ $license$<br/> $endif$
-    Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.
+    $if(license)$<p>$license$</p>$endif$
+    <p>Made with <a href="https://github.com/rreece/markdown-memo">markdown-memo</a>.</p>
   </div>
   <div style="clear:both;"></div>
 </div>
