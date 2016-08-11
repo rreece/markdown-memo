@@ -149,6 +149,10 @@ div#site_footer img {
     padding: 0;
 }
 
+div#site_footer a {
+    color: #0099ff;
+}
+
 img.email {
     /*vertical-align: text-bottom;*/
 }
