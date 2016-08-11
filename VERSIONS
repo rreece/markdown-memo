@@ -1,3 +1,10 @@
+v0.15  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   August 11, 2016
+-   Added `markdown-memo-alt.css`
+-   css now configurable in `meta.yaml`
+-   Lots of fixes in templates/*.html
+
 v0.14  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   August 10, 2016
