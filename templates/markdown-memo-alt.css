@@ -298,8 +298,8 @@ td {
 /* mainbody ---------------------------------------------------------- */
 div#mainbody
 {
+/*    background: white;*/
     background: #cccccc;
-/*    float: left;*/
     padding: 10px;
 }
 
