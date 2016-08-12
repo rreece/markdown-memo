@@ -389,6 +389,9 @@ a.footnoteRef sup {
     position: relative;
     float: right;
     margin: 5px 0;
+}
+
+.license p{
     text-align: right;
 }
 
