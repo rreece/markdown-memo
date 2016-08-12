@@ -26,10 +26,7 @@ body {
     margin-bottom: 0;
     margin-left: 0;
     border: 0;
-            /*
-    border-top: 40px solid #444444;
     border-bottom: 80px solid #444444;
-    */
     padding: 0;
     width: auto;
     font-family: Georgia, Palatino, serif;
@@ -137,7 +134,7 @@ div#site_footer {
     margin-top: 10px;
     margin-bottom: 20px;
     border: 0;
-    border-bottom: 40px solid #444444;
+    border-bottom: 20px solid #444444;
     padding: 4px 10px;
 }
 
@@ -251,7 +248,7 @@ blockquote {
     padding:0;
     border-left:12px solid #cccccc;
     padding-left:24px;
-    max-width: 700px;
+    max-width: 664px; /* 700 - (12+24) */
     color: black;
     text-align: justify;
 }
