@@ -25,8 +25,11 @@ body {
     margin-right: auto;
     margin-bottom: 0;
     margin-left: 0;
+    border: 0;
+            /*
     border-top: 40px solid #444444;
     border-bottom: 80px solid #444444;
+    */
     padding: 0;
     width: auto;
     font-family: Georgia, Palatino, serif;
@@ -113,8 +116,9 @@ div#site_header {
     display:block;
     clear: both;
     width: auto;
-    margin: 0;
+    margin-: 0;
     border: 0;
+    border-top: 20px solid #444444;
     padding: 8px 10px;
 }
 
@@ -130,9 +134,10 @@ div#site_footer {
     display:block;
     clear: both;
     width: auto;
-    margin-top: 24px;
-    margin-bottom: 36px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     border: 0;
+    border-bottom: 40px solid #444444;
     padding: 4px 10px;
 }
 
@@ -306,8 +311,8 @@ td {
 /* mainbody ---------------------------------------------------------- */
 div#mainbody
 {
-/*    background: white;*/
-    background: #cccccc;
+    background: white;
+/*    background: #cccccc;*/
     padding: 10px;
 }
 

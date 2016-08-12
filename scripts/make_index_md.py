@@ -94,8 +94,8 @@ def main():
                 level   = int(reo.group(1))
                 id      = reo.group(2)
                 name    = reo.group(3)
-                alink   = fn
-                if root == 'index':
+                alink   = '%s.html' % root
+                if alink == 'index.html':
                     alink = ''
                 if level == 1:
                     f_out.write('%s1.  **[%s](%s)**\n' % ('    '*(level-1), name, alink) )
