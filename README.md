@@ -134,6 +134,7 @@ or are otherwise exceptional.
 
 -   `README.md`
 -   `index.[md,html,txt]`
+-   `meta.yaml`
 -   `order.txt`
 -   `bib_index.md`
 
