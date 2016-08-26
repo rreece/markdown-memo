@@ -1,6 +1,8 @@
 Basics
 ===============================================================================
 
+<!-- PAGETOC -->
+
 Checking-out the template
 -------------------------------------------------------------------------------
 
@@ -77,11 +79,13 @@ Numbered lists like this:
 
 The following is a quote block. 
 
-    >   It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.  
+    >   It ain't what you don't know that gets you into trouble.
+    >   It's what you know for sure that just ain't so.  
 
     -- Mark Twain
 
->   It ain't what you don't know that gets you into trouble. It's what you know for sure that just ain't so.  
+>   It ain't what you don't know that gets you into trouble.
+>   It's what you know for sure that just ain't so.  
 
 -- Mark Twain
 
@@ -128,6 +132,22 @@ Maybe you want to refer to code inline like this with backticks:
     Here's some inline code: `vec.push_back(3.14)`.
 
 Here's some inline code: `vec.push_back(3.14)`.
+
+For poems and the like where you want linebreaks taken literally,
+prepend lines with `|` and a single space.  Additional spaces
+can be used, but will indent the output.
+
+    | Art is long,
+    | Life is short,
+    | Opportunity fleeting,
+    | Experiment dangerous,
+    | Judgment difficult.
+
+| Art is long,
+| Life is short,
+| Opportunity fleeting,
+| Experiment dangerous,
+| Judgment difficult.
 
 
 ### Fonts

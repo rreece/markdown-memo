@@ -75,16 +75,13 @@ def main():
     infiles = ops.infiles
 #    out = ops.out
 
-    rep_begin_figure = r'^\\begin{figure}\[\w+\]\s*$'
-    rep_begin_table = r'^\\begin{longtable}\[\w\]{([\w\{\}@]+)}\s*$'
-    rep_end_table = r'^\\end{longtable}\s*$'
-    rep_includegraphics = r'^\\includegraphics{([\w/.\-]+)\.(png|PNG|jpg|jpeg|JPG)}\s*$'
+    rep_pagetoc = r'<!\-\-\s*PAGETOC\s*\-?\-\->'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
         
         f_in = open(fn)
-        f_out = open('%s-tmp.tex' % root, 'w')
+        f_out = open('%s-tmp.%s' % (root, ext), 'w')
 
         for line in f_in:
 
@@ -92,41 +89,27 @@ def main():
             newline = line
 
             if not reo:
-                reo = re.match(rep_begin_figure, line)
+                reo = re.match(rep_pagetoc, line)
                 if reo:
-                    newline = '\\begin{figure}[tp]\n'
-                    
-            if not reo:
-                reo = re.match(rep_begin_table, line)
-                if reo:
-                    # newline = '\\begin{table}[bph]\n'
-                    # newline = line.replace('longtable', 'supertabular')
-                    pass
+                    pagetoc_md = '%s-pagetoc.md' % root
+                    pagetoc_html = '%s-pagetoc.html' % root
+                    os.system('python scripts/make_index_md.py -c -1 -4 --out=%s %s' % (pagetoc_md, fn))
 
-            if not reo:
-                reo = re.match(rep_end_table, line)
-                if reo:
-                    # newline = '\\end{table}\n'
-                    # newline = line.replace('longtable', 'supertabular')
-                    pass
-
-            if not reo:
-                reo = re.match(rep_includegraphics, line)
-                if reo:
-                    fpath = reo.group(1)
-                    suffix = reo.group(2)
-                    if os.path.isfile('%s.pdf' % fpath):
-                        newline = '\\includegraphics[width=1.0\linewidth,height=0.75\linewidth,keepaspectratio]{%s.pdf}\n' % fpath
-                    else:
-                        newline = '\\includegraphics[width=1.0\linewidth,height=0.75\linewidth,keepaspectratio]{%s.%s}\n' % (fpath, suffix)
-                        
+                    if os.path.isfile(pagetoc_md):
+                        os.system('pandoc -t html --ascii --standalone --smart -o %s %s' % (pagetoc_html, pagetoc_md))
+                        if os.path.isfile(pagetoc_html):
+                            f_pagetoc = open(pagetoc_html)
+                            newline = ''.join(f_pagetoc.readlines())
+                            f_pagetoc.close()
+                            os.system('rm -f %s' % (pagetoc_html))
+                        os.system('rm -f %s' % (pagetoc_md))
 
             f_out.write(newline)
  
         f_in.close()
         f_out.close()
 
-        os.system('mv -f %s-tmp.tex %s' % (root, fn))
+        os.system('mv -f %s-tmp.%s %s' % (root, ext, fn))
 
 
 #------------------------------------------------------------------------------

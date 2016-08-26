@@ -61,6 +61,12 @@ def options():
     parser = argparse.ArgumentParser()
     parser.add_argument('infiles',  default=None, nargs='+',
             help='A positional argument.')
+    parser.add_argument('-1', '--ignoreone',  default=False,  action='store_true',
+            help="Some toggle option.")
+    parser.add_argument('-4', '--ignorefour',  default=False,  action='store_true',
+            help="Some toggle option.")
+    parser.add_argument('-c', '--contents',  default=False,  action='store_true',
+            help="Some toggle option.")
     parser.add_argument('-o', '--out',  default='index.md', type=str,
             help="Some toggle option.")
     return parser.parse_args()
@@ -75,12 +81,15 @@ def main():
     infiles = ops.infiles
     out = ops.out
 
-    rep = r'<h([1-6])\s+[^>]*id="([\w\-]+)"[^>]*>([^<]+)<\/h[1-6]>'
+#    rep = r'<h([1-6])\s+[^>]*id="([\w\.\-]+)"[^>]*>([^<]+)<\/h[1-6]>'
+    rep = r'<h([1-6])\s+[^>]*id="([\w\.\-]+)"[^>]*>(.+)<\/h[1-6]>'
 
     f_out = open(out, 'w')
-    f_out.write('### Contents  {.unnumbered}\n')
-#    f_out.write('---------------------------------------------------\n')
-    f_out.write('\n')
+
+    if ops.contents:
+        f_out.write('### Contents  {.unnumbered}\n')
+#       f_out.write('---------------------------------------------------\n')
+        f_out.write('\n')
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
@@ -97,10 +106,21 @@ def main():
                 alink   = '%s.html' % root
                 if alink == 'index.html':
                     alink = ''
+
+                if ops.ignoreone and level == 1:
+                    continue
+                if ops.ignorefour and level >= 4:
+                    continue
+
+                indent_level = level-1
+                if ops.ignoreone:
+                    indent_level -= 1
+
                 if level == 1:
-                    f_out.write('%s1.  **[%s](%s)**\n' % ('    '*(level-1), name, alink) )
+                    f_out.write('%s1.  **[%s](%s)**\n' % ('    '*indent_level, name, alink) )
                 else:
-                    f_out.write('%s1.  [%s](%s#%s)\n' % ('    '*(level-1), name, alink, id ) )
+                    f_out.write('%s1.  [%s](%s#%s)\n' % ('    '*indent_level, name, alink, id ) )
+
         f_in.close()
 
         os.system('rm -f %s-tmp.html' % root)

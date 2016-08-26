@@ -1,6 +1,8 @@
 Floats, Figures, and Tables
 ===============================================================================
 
+<!-- PAGETOC -->
+
 Figures
 -------------------------------------------------------------------------------
 
@@ -130,9 +132,16 @@ a   b   c
 1   2   3
 4   5   6
 
-
-
 </div>
 
+
+Table of contents per html page
+------------------------------------------------------
+
+To insert a table of contents for a single html page,
+add the following line to the markdown, probably near
+the top of the page as is done for this one.
+
+    <!-- PAGETOC -->
 
 

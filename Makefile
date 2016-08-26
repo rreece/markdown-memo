@@ -68,7 +68,7 @@ index.md: $(MD_FILES)
 	then \
 		cp index.txt $@ ; \
 	else \
-		python scripts/make_index_md.py --out=$@ $(MD_FILES) ; \
+		python scripts/make_index_md.py -c --out=$@ $(MD_FILES) ; \
 	fi
 	$(PRINT) "make $@ done."
 
@@ -97,6 +97,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
 		-o $@ $(MD_FILES) $(OPS_FULLHTML) meta.yaml
+	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create html
@@ -141,6 +142,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 			-o $@ $< templates/backmatter.md meta.yaml.tmp ; \
 	fi
 	@rm -f meta.yaml.tmp $@.tmp
+	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 

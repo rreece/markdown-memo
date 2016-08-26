@@ -54,7 +54,6 @@ email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 navigation: true
-pagetoc: false # TODO
 ## pdflatex options ---------------------------------------
 classoption:
     -   'openany'
