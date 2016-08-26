@@ -132,11 +132,13 @@ Special files
 There are a few special files that help steer the execution of `markdown-memo`
 or are otherwise exceptional.
 
--   `README.md`
--   `index.[md,html,txt]`
--   `meta.yaml`
--   `order.txt`
--   `bib_index.md`
+-   `README.md` - this file.
+-   `VERSIONS` - documents chronology of version of `markdown-memo`.  Feel free to delete or adapt to your project.
+-   `index.[md,html,txt]` - The top-level, root file of your project. By default, if `index.txt` is missing,
+    a table of contents is generated for `index.md`, otherwise `index.txt` is copied to be the `index.md`.
+-   `meta.yaml` - the main metadata file controlling the project in many ways.
+-   `order.txt` - TODO
+-   `bib_index.md` - TODO
 
 TODO: describe more.
 
