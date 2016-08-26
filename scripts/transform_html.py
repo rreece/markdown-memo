@@ -75,7 +75,8 @@ def main():
     infiles = ops.infiles
 #    out = ops.out
 
-    rep_pagetoc = r'<!\-\-\s*PAGETOC\s*\-?\-\->'
+    rep_pagetoc = r'\s*<!\-\-\s*PAGETOC\s*\-?\-\->\s*'
+    rep_navigation = r'\s*<!\-\-\s*NAVIGATION\s*\-?\-\->\s*'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
@@ -104,6 +105,12 @@ def main():
                             os.system('rm -f %s' % (pagetoc_html))
                         os.system('rm -f %s' % (pagetoc_md))
 
+
+            if not reo:
+                reo = re.match(rep_navigation, line)
+                if reo:
+                    newline = make_navigation()
+
             f_out.write(newline)
  
         f_in.close()
@@ -115,6 +122,11 @@ def main():
 #------------------------------------------------------------------------------
 # free functions
 #------------------------------------------------------------------------------
+
+#______________________________________________________________________________
+def make_navigation():
+    return '<!-- TODO insert navigation here -->\n'
+
 
 #______________________________________________________________________________
 def fatal(message=''):
