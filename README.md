@@ -164,6 +164,7 @@ See also
 ----------------------------------
 
 -   [rreece.github.io/sw](http://rreece.github.io/sw/)
+-   [rreece.github.io/sw/markdown-memo](http://rreece.github.io/sw/markdown-memo)
 -   [kprussing.github.io/writing-with-markdown](http://kprussing.github.io/writing-with-markdown/)
 -   [programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown](http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown)
 -   [pandoc.org/README.html](http://pandoc.org/README.html)
