@@ -51,7 +51,7 @@ Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
 Mathjax
 -------------------------------------------------------------------------------
 
-When doing md &rarr; tex &rarr; pdf, LaTeX takes care of the math,
+When doing md $\rightarrow$ tex $\rightarrow$ pdf, LaTeX takes care of the math,
 but to render the math in html, we use [MathJax](https://www.mathjax.org/).
 Our html template includes the following code
 to ask MathJax to render it and number the equations:
