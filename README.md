@@ -135,6 +135,7 @@ or are otherwise exceptional.
 -   `README.md`
 -   `index.[md,html,txt]`
 -   `order.txt`
+-   `bib_index.md`
 
 TODO: describe more.
 
