@@ -41,6 +41,7 @@ TO DO
 import argparse, sys, time
 import os
 import re
+import glob
 
 ## my modules
 
@@ -80,9 +81,11 @@ def main():
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
+        ext = ext.lstrip('.')
         
         f_in = open(fn)
-        f_out = open('%s-tmp.%s' % (root, ext), 'w')
+        fn_out = '%s.tmp.%s' % (root, ext)
+        f_out = open(fn_out, 'w')
 
         for line in f_in:
 
@@ -97,7 +100,7 @@ def main():
                     os.system('python scripts/make_index_md.py -c -1 -4 --out=%s %s' % (pagetoc_md, fn))
 
                     if os.path.isfile(pagetoc_md):
-                        os.system('pandoc -t html --ascii --standalone --smart -o %s %s' % (pagetoc_html, pagetoc_md))
+                        os.system('pandoc -t html --ascii --smart -o %s %s' % (pagetoc_html, pagetoc_md))
                         if os.path.isfile(pagetoc_html):
                             f_pagetoc = open(pagetoc_html)
                             newline = ''.join(f_pagetoc.readlines())
@@ -105,18 +108,18 @@ def main():
                             os.system('rm -f %s' % (pagetoc_html))
                         os.system('rm -f %s' % (pagetoc_md))
 
-
             if not reo:
                 reo = re.match(rep_navigation, line)
                 if reo:
-                    newline = make_navigation()
-
+                    newline = make_navigation(fn)
+            
             f_out.write(newline)
  
         f_in.close()
         f_out.close()
 
-        os.system('mv -f %s-tmp.%s %s' % (root, ext, fn))
+        assert os.path.isfile(fn_out), fn_out
+        os.system('mv -f %s %s' % (fn_out, fn))
 
 
 #------------------------------------------------------------------------------
@@ -124,9 +127,50 @@ def main():
 #------------------------------------------------------------------------------
 
 #______________________________________________________________________________
-def make_navigation():
-    return '<!-- TODO insert navigation here -->\n'
+def make_navigation(filename):
+    mds = list()
+    if os.path.isfile('order.txt'):
+        f_order = open('order.txt')
+        for line in f_order:
+            line = line.split('#')[0].strip() # remove comments
+            if line:
+                mds.append(line)
+        f_order.close()
+    else:
+        mds = glob.glob('*.md')
+        if 'index.md' in mds:
+            mds.remove('index.md')
+        if 'README.md' in mds:
+            mds.remove('README.md')
+        mds.sort()
 
+    prv = None
+    nxt = None
+    lst = None
+
+    for fn in mds:
+        root, ext = os.path.splitext(fn)
+        ext = ext.lstrip('.')
+
+        fn_html = '%s.html' % root
+        
+        if lst == filename:
+            nxt = fn_html
+            break
+        if fn_html == filename:
+            if lst:
+                prv = lst
+        lst = fn_html
+
+    s = ''
+
+    if prv:
+        s += '<li> <a href="./%s">&#8612;&nbsp;Previous</a> </li>\n' % prv
+        
+    if nxt:
+        s += '<li> <a href="./%s">&#8614;&nbsp;Next</a> </li>\n' % nxt
+
+    return s
 
 #______________________________________________________________________________
 def fatal(message=''):

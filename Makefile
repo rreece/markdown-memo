@@ -101,7 +101,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create html
-%.html: %.md $(HTML_DEPS) meta.yaml
+%.html: %.md order.txt $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -233,6 +233,10 @@ bibs/mybib.bib: $(BIB_TXT_FILES)
 
 bib_index.md: bibs/mybib.bib
 	@python scripts/make_bib_index_md.py --out=$@ $<
+	$(PRINT) "make $@ done."
+
+order.txt: $(MD_FILES)
+	@ls -1 $(MD_FILES) > $@
 	$(PRINT) "make $@ done."
 
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf

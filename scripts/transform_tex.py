@@ -82,9 +82,11 @@ def main():
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
+        ext = ext.lstrip('.')
         
         f_in = open(fn)
-        f_out = open('%s-tmp.tex' % root, 'w')
+        fn_out = '%s.tmp.%s' % (root, ext)
+        f_out = open(fn_out, 'w')
 
         for line in f_in:
 
@@ -126,7 +128,8 @@ def main():
         f_in.close()
         f_out.close()
 
-        os.system('mv -f %s-tmp.tex %s' % (root, fn))
+        if os.path.isfile(fn_out):
+            os.system('mv -f %s %s' % (fn_out, fn))
 
 
 #------------------------------------------------------------------------------

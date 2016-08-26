@@ -94,9 +94,9 @@ def main():
     for fn in infiles:
         root, ext = os.path.splitext(fn)
 
-        os.system('pandoc -t html --ascii --smart -o %s-tmp.html %s' % (root, fn))
+        os.system('pandoc -t html --ascii --smart -o %s.index-tmp.html %s' % (root, fn))
 
-        f_in = open('%s-tmp.html' % root)
+        f_in = open('%s.index-tmp.html' % root)
         for line in f_in:
             reo = re.match(rep, line)
             if reo:
@@ -123,7 +123,7 @@ def main():
 
         f_in.close()
 
-        os.system('rm -f %s-tmp.html' % root)
+        os.system('rm -f %s.index-tmp.html' % root)
 
     f_out.write('\n')
     f_out.close()
