@@ -154,7 +154,8 @@ Wish list / TODOs
 -   ~~Write a script to generate a md file with footnotes and citations defined given a bibliography (`make_bib_index.py`).~~ 
 -   ~~Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.~~
 -   ~~Optionally make a TOC automatically in the html.~~
--   Make links to previous and next sections (if they exist) in the navigation box in the html.
+-   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
+-   Update documentation including mentioning `meta.yaml`, `index.md`, `index.txt`, `order.txt`, `README.md`
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 
 See the version history: [VERSIONS](VERSIONS)
