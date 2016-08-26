@@ -126,6 +126,19 @@ because it's free and easy, would be to host the pages at github.
 See: [pages.github.com](https://pages.github.com/).
 
 
+Special files
+----------------------------------
+
+There are a few special files that help steer the execution of `markdown-memo`
+or are otherwise exceptional.
+
+-   `README.md`
+-   `index.[md,html,txt]`
+-   `order.txt`
+
+TODO: describe more.
+
+
 Disqus integration
 ----------------------------------
 
