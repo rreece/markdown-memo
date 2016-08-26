@@ -96,6 +96,30 @@ voluptaria constituam eam no. Scripta vivendum mel ne.
 
 [@Tbl:atlas_channels] shows some cool things too.
 
+
+clickmore
+-------------------------------------------------------------------------------
+
+You can hide parts of a document in a heading that needs to be clicked
+to show more by making a `div` of class `clickmore`.
+
+Like this:
+
+    <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
+    <div id="test1" class="more">
+
+    Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
+    urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
+    ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
+    omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
+    sumo decore. Eirmod hendrerit an pri.
+    
+    ...
+    
+    </div>
+
+For example:
+
 <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
 <div id="test1" class="more">
 
@@ -132,7 +156,7 @@ a   b   c
 1   2   3
 4   5   6
 
-</div>
+</div> <!-- end clickmore -->
 
 
 Table of contents per html page
