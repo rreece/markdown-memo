@@ -11,9 +11,9 @@ author:
         [^ReeceSCIPP]: University of California, Santa Cruz / <ryan.reece@cern.ch> / <http://reece.scipp.ucsc.edu>
 
     -   |
-        Joe Coauthor[^JoeCoauthor]
+        Jane Coauthor[^JaneCoauthor]
 
-        [^JoeCoauthor]: Joe University, Joeville
+        [^JaneCoauthor]: Joe University, Joeville
 authorshort: 'R. Reece and J. Coauthor'
 date: \today
 #date: 'August 1, 2016'
