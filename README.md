@@ -153,7 +153,7 @@ Optional files:
 -   `order.txt` - Optionally, the user can create this file, which should have a list of
     markdown files used in the document, one-per-line, in the order as to be used for the
     navigation buttons in the html template.  By default, building the html will generate this
-    file if it doesn't already exist, with the markdown files list in alphabetical order.
+    file if it doesn't already exist, with the markdown files listed in alphabetical order.
     If one names the markdown files something like `01-first-section.md`, `02-second-section.md`, etc.,
     then the order should be handled automatically.
 
@@ -187,7 +187,7 @@ Wish list / TODOs
 -   ~~Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.~~
 -   ~~Optionally make a TOC automatically in the html.~~
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
--   Update documentation including describing special files.
+-   Finish the documentation in the `markdown-memo` example document.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 
 See the version history: [VERSIONS](VERSIONS)

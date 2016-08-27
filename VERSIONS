@@ -1,3 +1,12 @@
+v0.16  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   August 27, 2016
+-   Added scripts/transform_html.py
+-   Wrote a script to generate a md file with footnotes and citations defined given a bibliography (`make_bib_index.py`).
+-   Find and replaces such that LaTeX figures use pdf figures while html uses raster png/jpg.
+-   Optionally makes a TOC automatically in the html. (transform_html.py)
+-   Makes links to previous and next sections (if they exist) in the navigation box in the html. (transform_html.py)
+
 v0.15  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   August 11, 2016
