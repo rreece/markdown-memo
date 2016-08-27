@@ -238,7 +238,7 @@ bib_index.md: bibs/mybib.bib
 	@python scripts/make_bib_index_md.py --out=$@ $<
 	$(PRINT) "make $@ done."
 
-order.txt: $(MD_FILES)
+order.txt:
 	@ls -1 $(MD_FILES) > $@
 	$(PRINT) "make $@ done."
 
