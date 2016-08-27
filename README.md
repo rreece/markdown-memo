@@ -132,15 +132,29 @@ Special files
 There are a few special files that help steer the execution of `markdown-memo`
 or are otherwise exceptional.
 
+Documentation:
+
 -   `README.md` - this file.
--   `VERSIONS` - documents chronology of version of `markdown-memo`.  Feel free to delete or adapt to your project.
+-   `VERSIONS` - documents the chronology `markdown-memo` versions.  Feel free to delete or adapt this to your project.
+
+Primary files edited by the user:
+
+-   `meta.yaml` - the main metadata file controlling the project in many ways.
+-   `*.md` - any other user-created markdown files, the mark-up of your document.
+
+Optional files:
+
 -   `index.[md,html,txt]` - The top-level, root file of your project. By default, if `index.txt` is missing,
     a table of contents is generated for `index.md`, otherwise `index.txt` is copied to be the `index.md`.
--   `meta.yaml` - the main metadata file controlling the project in many ways.
--   `order.txt` - TODO
--   `bib_index.md` - TODO
-
-TODO: describe more.
+-   `bib_index.[md,html]` - Call `make bib_index.md` to generate this file. It is to help incoorporate citations
+    into your document by being an automatically generated list of the references, with footnotes,
+    created from the available bibliography files in `bibs/`.
+-   `order.txt` - Optionally, the user can create this file, which should have a list of
+    markdown files used in the document, one-per-line, in the order as to be used for the
+    navigation buttons in the html template.  By default, building the html will generate this
+    file if it doesn't already exist, with the markdown files list in alphabetical order.
+    If one names the markdown files something like `01-first-section.md`, `02-second-section.md`, etc.,
+    then the order should be handled automatically.
 
 
 Disqus integration
