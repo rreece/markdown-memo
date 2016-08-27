@@ -118,9 +118,9 @@ def main():
                     fpath = reo.group(1)
                     suffix = reo.group(2)
                     if os.path.isfile('%s.pdf' % fpath):
-                        newline = '\\includegraphics[width=1.0\linewidth,height=0.75\linewidth,keepaspectratio]{%s.pdf}\n' % fpath
+                        newline = '\\includegraphics[width=1.0\\linewidth,height=0.75\\linewidth,keepaspectratio]{%s.pdf}\n' % fpath
                     else:
-                        newline = '\\includegraphics[width=1.0\linewidth,height=0.75\linewidth,keepaspectratio]{%s.%s}\n' % (fpath, suffix)
+                        newline = '\\includegraphics[width=1.0\\linewidth,height=0.75\\linewidth,keepaspectratio]{%s.%s}\n' % (fpath, suffix)
                         
 
             f_out.write(newline)
