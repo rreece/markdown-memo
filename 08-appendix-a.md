@@ -37,6 +37,3 @@ You might want to keep these around in the `README.md` for your document.
 ![my words](wordcount/words.png)
 
 
-Wish list / TODOs
-----------------------------------
-
