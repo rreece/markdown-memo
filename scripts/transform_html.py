@@ -97,7 +97,7 @@ def main():
                 if reo:
                     pagetoc_md = '%s-pagetoc.md' % root
                     pagetoc_html = '%s-pagetoc.html' % root
-                    os.system('python scripts/make_index_md.py -c -4 --out=%s %s' % (pagetoc_md, fn))
+                    os.system('python scripts/make_index_md.py -c -1 -4 --out=%s %s' % (pagetoc_md, fn))
 
                     if os.path.isfile(pagetoc_md):
                         os.system('pandoc -t html --ascii --smart -o %s %s' % (pagetoc_html, pagetoc_md))
