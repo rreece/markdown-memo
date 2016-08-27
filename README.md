@@ -144,10 +144,10 @@ Primary files edited by the user:
 
 Optional files:
 
--   `index.[md,html,txt]` - The top-level, root file of your project. By default, if `index.txt` is missing,
+-   `index.[md,txt]` - The top-level, root file of your project. By default, if `index.txt` is missing,
     a table of contents is generated for `index.md`, otherwise (the user-written) `index.txt`
     is copied to be the `index.md`.
--   `bib_index.[md,html]` - Call `make bib_index.md` to generate this file. It is to help incoorporate citations
+-   `bib_index.md` - Call `make bib_index.md` to generate this file. It is to help incoorporate citations
     into your document by being an automatically generated list of the references, with footnotes,
     created from the available bibliography files in `bibs/`.
 -   `order.txt` - Optionally, the user can create this file, which should have a list of
