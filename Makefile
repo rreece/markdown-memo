@@ -310,4 +310,8 @@ realclean: clean
 
 over: realclean default
 
+destroy: realclean
+	@rm -f *.md *.html *.txt
+	$(PRINT) "make $@ done."
+
 
