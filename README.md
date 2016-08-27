@@ -188,6 +188,7 @@ Wish list / TODOs
 -   ~~Optionally make a TOC automatically in the html.~~
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
 -   Finish the documentation in the `markdown-memo` example document.
+-   Fix TOC issues when calling `make ohtml`.
 -   Fix figure margins for word/page-counts.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 
