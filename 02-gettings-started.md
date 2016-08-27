@@ -66,9 +66,16 @@ syntax are
         \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
     \end{equation}
 
-Then:
 
--   Edit the metadata in `meta.yaml`.
+Building your document
+-------------------------------------------------------------------------------
+
+In addition to writing the basic `md` files for your project, you need to write
+a metadata file: `meta.yaml`.  See the example metadata there.
+
+Then you can build your document.
+A lot of the inner-workings of `markdown-memo` are done in the `Makefile`.
+
 -   Call `make` to generate valid xhtml.
 -   Call `make pdf` to generate a pdf document.
 -   Call `make clean` to delete temporary LaTeX files.
@@ -81,4 +88,5 @@ or just remove the use of the image in `meta.yaml`.
 
 Customize the files in `templates/` to adjust the format
 of the output html and pdfs files to your needs.
+
 
