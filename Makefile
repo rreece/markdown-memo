@@ -61,6 +61,9 @@ all: html pdf
 html: $(HTML_FILES) index.html
 	$(PRINT) "html done."
 
+ohtml: $(MD_FILES) $(OUTPUT).html
+	$(PRINT) "ohtml (document as one html file: $(OUTPUT).html) done."
+
 pdf: $(OUTPUT).pdf wordcount/wc.csv
 
 index.md: $(MD_FILES)
