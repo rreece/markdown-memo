@@ -1,48 +1,30 @@
-Basics
+Markdown basics
 ===============================================================================
 
 <!-- PAGETOC -->
 
-Checking-out the template
+
+Sections
 -------------------------------------------------------------------------------
 
-Checking out markdown-memo with a simple git command, like:
-
-    git clone https://github.com/rreece/markdown-memo.git
-
-
-Starting a page or section
--------------------------------------------------------------------------------
-
-Just open or create a first `md` file in that directory like `01-introduction.md`,
-and start typing.
-Each file should probably correspond to a webpage or section in the document,
-and in that case, it should begin with an `h1`-level heading (section), denoted with
-a double-rule of equal-signs, like:
+Are markded like this:
 
     Section title
     ===============================================================================
+
+    Sub-section title
+    -------------------------------------------------------------------------------
+
 
 Or marked like this:
 
     # Section title
 
-Then you can have sub-sections as you wish, and/or just start typing the main text:
-
-    Sub-section title
-    -------------------------------------------------------------------------------
-
-Or
-
-    # Section title
-
     ## Sub-section title
  
-    Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
-    Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
-    accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
-    an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
-    at falli feugiat est.
+    ### Sub-sub-section title
+
+    Main text here.
 
 
 Basic typesetting
