@@ -169,7 +169,7 @@ Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 Word count
 ----------------------------------
 
-Note that word-count and page-count plots are generated when you call make.
+Note that word-count and page-count plots are generated when you call `make pdf`.
 You might want to keep these around in the `README.md` for your document.
 
 ![my pages](wordcount/pages.png)
