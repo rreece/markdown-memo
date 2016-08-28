@@ -200,8 +200,9 @@ URLs are done like this:
 [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 
 When referring to labeled sections/figures/tables,
-you do not include the literal word "Section", "Figure", etc.,
-which will be included for you, but for equations you do.
+you do not include the literal word "Section", "Figure", or "Table",
+which will be included for you, *but for equations you do* (tell me otherwise?).
+These prefixes are configurable in the `meta.yaml` file.
 
 Refer to labeled things like this:
 
