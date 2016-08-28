@@ -22,7 +22,7 @@ How it works
 -------------------------------------------------------------------------------
 
 [Markdown](https://daringfireball.net/projects/markdown/)
-is a very simple markup language for writting documents
+is a very simple markup language for writing documents
 that basically looks as if you were to write your ideas in a plain-text
 email.  In this package, we aim to hide some of the boiler-plate issues
 of compiling a completely formatted document or webpage from Markdown,
