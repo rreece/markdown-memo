@@ -97,6 +97,16 @@ voluptaria constituam eam no. Scripta vivendum mel ne.
 [@Tbl:atlas_channels] shows some cool things too.
 
 
+Table of contents per html page
+------------------------------------------------------
+
+To insert a table of contents for a single html page,
+add the following line to the Markdown, probably near
+the top of the page as is done for this one.
+
+    <!-- PAGETOC -->
+
+
 Clickmore
 -------------------------------------------------------------------------------
 
@@ -156,15 +166,5 @@ a   b   c
 4   5   6
 
 </div> <!-- end clickmore -->
-
-
-Table of contents per html page
-------------------------------------------------------
-
-To insert a table of contents for a single html page,
-add the following line to the Markdown, probably near
-the top of the page as is done for this one.
-
-    <!-- PAGETOC -->
 
 
