@@ -29,7 +29,7 @@ of compiling a completely formatted document or webpage from Markdown,
 trying to make it as trivial as possible to get your ideas out.
 
 Most of the heavy-lifting work underneath markdown-memo is done
-by the [pandoc](http://pandoc.org/) program, which does that actual
+by the [pandoc](http://pandoc.org/) program, which does the actual
 compilation of markdown to html or pdf.
 
 Most of the magic in the implementation of markdown-memo

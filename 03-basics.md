@@ -1,7 +1,7 @@
 Markdown basics
 ===============================================================================
 
-Here we review the basics of `markdown`.
+Here we review the basics of Markdown.
 A further reference on `markdown` syntax by its creator is
 [here](http://daringfireball.net/projects/markdown/syntax).
 
