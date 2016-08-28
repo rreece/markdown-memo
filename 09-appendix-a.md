@@ -66,6 +66,12 @@ Just register a user name and the site name with [disqus.com](disqus.com).
 Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 
 
+Google analytics integration
+-------------------------------------------------------------------------------
+
+TODO: describe.
+
+
 Word count
 -------------------------------------------------------------------------------
 

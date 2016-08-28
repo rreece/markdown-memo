@@ -45,6 +45,11 @@ do this to install:
     cabal update
     cabal install pandoc-crossref
 
+If something doesn't work for you, please let me know!
+I'll do my best improve the documentation and make
+the software more robust as time allows.
+Contact me at: <ryan.reece@cern.ch>
+
 
 Features
 ----------------------------------
