@@ -135,7 +135,7 @@ or are otherwise exceptional.
 Documentation:
 
 -   `README.md` - This file.  Please empty this file and adapt it to your project.
--   `VERSIONS` - Documents the chronology `markdown-memo` versions.  Feel free to delete or adapt this to your project.
+-   `VERSIONS` - Documents the chronology of `markdown-memo` versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 
