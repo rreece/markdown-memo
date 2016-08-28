@@ -41,6 +41,7 @@ figureTitle: "Figure"
 tableTitle: "Table"
 figPrefix: "Figure"
 eqnPrefix: "eq."
+secPrefix: "Section"
 tblPrefix: "Table"
 ## html options -------------------------------------------
 css: 'templates/markdown-memo.css'

@@ -38,9 +38,9 @@ Going from there
 -------------------------------------------------------------------------------
 
 The following sections of this example document will show examples of
-Markdown syntax.
-For now, briefly, examples of [Markdown](http://daringfireball.net/projects/markdown/)
-syntax are
+Markdown syntax. For now, briefly, some examples of
+[Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
+are
 
     Section 1
     =================================
