@@ -27,16 +27,15 @@ submitted: ''
 #submitted: 'Journal reference: *Phys. Rev. D 92*, 072001 (2015)'
 ## optional -----------------------------------------------
 abstract: |
-    This is the abstract. This is the abstract. This is the abstract.
-    This is the abstract. This is the abstract. This is the abstract.
-    This is the abstract. This is the abstract. This is the abstract.
-    This is the abstract. This is the abstract. This is the abstract.
+    This is an example document discussing and demonstrating
+    how to use the markdown-memo package,
+    meant to aid quick development of quality html and pdf
+    documents from simple markdown markup.
+    markdown-memo is developed by Ryan Reece at
+    [https://github.com/rreece/markdown-memo](https://github.com/rreece/markdown-memo).
 
-    This is the second paragraph in the abstract.
-    This is the second paragraph in the abstract.
-    This is the second paragraph in the abstract.
-
-    *Keywords:* quantum field theory, QFT, quantization, second quantization, wave-particle duality
+    *Keywords:* academic writing, digital humanities, LaTeX,
+    open publishing, open science, productivity, technical writing, writing
 figureTitle: "Figure"
 tableTitle: "Table"
 figPrefix: "Figure"
