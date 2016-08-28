@@ -24,7 +24,7 @@ Requirements
 -   pandoc
 -   python
 
-On my Mac laptop, I installed any missing dependencies through
+On my Mac laptop (OS X, 10.8), I installed any missing dependencies through
 [macports](https://www.macports.org/).
 
 After installing [macports](https://www.macports.org/),
@@ -50,6 +50,9 @@ If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
 the software more robust as time allows.
 Contact me at: <ryan.reece@cern.ch>
+
+Please let me know if you have success or failure testing
+this on different systems.
 
 
 Starting a page or section
