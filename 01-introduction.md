@@ -45,7 +45,9 @@ and applies some hacks to the output using the tools in `scripts/`.
 The idea is that all user *content* should be in plainly written `*.md` files
 and one metadata file: `meta.yaml`.
 All *stylistic* issues should be implemented in the details of the files
-in `templates/` and configurable through `meta.yaml`
+in `templates/` and configurable through `meta.yaml`,
+and unless you want to,
+you shouldn't have to worry about them.
 
 For example, [see what changes](http://rreece.github.io/sw/markdown-memo-alt/01-introduction.html)
 when this document is created with

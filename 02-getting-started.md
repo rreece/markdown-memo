@@ -120,8 +120,8 @@ a metadata file: `meta.yaml`.  See the example metadata there.
 Then you can build your document.
 A lot of the inner-workings of `markdown-memo` are done in the `Makefile`.
 
--   Call `make` to generate valid xhtml.
--   Call `make pdf` to generate a pdf document.
+-   Call `make` or `make html` to generate valid xhtml. For example, [this document](http://rreece.github.io/sw/markdown-memo/).
+-   Call `make pdf` to generate a pdf document. For example, [this document](http://rreece.github.io/sw/markdown-memo/example.pdf).
 -   Call `make clean` to delete temporary LaTeX files.
 -   Call `make realclean` to additionally delete the output html and pdf files.
 
