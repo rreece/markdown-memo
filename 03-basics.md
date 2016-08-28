@@ -207,12 +207,9 @@ Refer to labeled things like this:
 
 -   for sections: `[@sec:footnotes]`    
     [@sec:footnotes]
--   for figures: `[@Fig:scientific_universe]`    
-    [@Fig:scientific_universe]
--   for tables: `[@Tbl:atlas_channels]`    
-    [@Tbl:atlas_channels]
+-   for figures: `[@fig:scientific_universe]`    
+-   for tables: `[@tbl:atlas_channels]`    
 -   for equations: `eq.\ $\eqref{eq:stokes}$`    
-    eq.\ $\eqref{eq:stokes}$
 
 
 Footnotes {#sec:footnotes}
