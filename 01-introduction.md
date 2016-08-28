@@ -17,6 +17,9 @@ This package makes it very easy to compile text taken in Markdown to valid
 xhtml or to a pdf via LaTeX. It can be used to make simple webpages quickly,
 for example: <http://rreece.github.io/sw/markdown-memo/>.
 
+The same document compiled to a pdf can be found here:
+<http://rreece.github.io/sw/markdown-memo/example.pdf>
+
 
 How it works
 -------------------------------------------------------------------------------
