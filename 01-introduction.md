@@ -56,5 +56,6 @@ when this document is created with
 
 set in `meta.yaml`, instead of the css file used in the
 [default version](http://rreece.github.io/sw/markdown-memo/01-introduction.html):
-`'templates/markdown-memo.css'`.
+
+    css: 'templates/markdown-memo.css'
 
