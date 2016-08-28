@@ -34,9 +34,25 @@ License: GPL <http://www.gnu.org/licenses/gpl.html>
 Requirements
 ----------------------------------
 
--   LaTeX
--   pandoc
 -   make
+-   LaTeX (texlive)
+-   cabal
+-   pandoc
+
+On my Mac laptop, I installed any missing dependencies through
+[macports](https://www.macports.org/).
+
+After installing [macports](https://www.macports.org/),
+maybe you need to do something like the following to install
+missing dependencies.
+
+    sudo port selfupdate
+    sudo port install python27
+    sudo port select python python27
+    sudo port install py27-matplotlib
+    sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra texlive-science
+    sudo port install hs-cabal-install
+    sudo port install pandoc
 
 I've also had to install `pandoc-crossref`, and I think I had to install `pandoc-citeproc`.
 In the case of [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref), you simply

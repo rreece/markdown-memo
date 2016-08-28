@@ -11,7 +11,44 @@ Checking out markdown-memo with a simple git command, like:
 
     git clone https://github.com/rreece/markdown-memo.git
 
-TODO: discuss the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
+Some basic instructions are given in the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
+They are expounded on here.
+
+
+Requirements
+-------------------------------------------------------------------------------
+
+-   make
+-   LaTeX (texlive)
+-   cabal
+-   pandoc
+
+On my Mac laptop, I installed any missing dependencies through
+[macports](https://www.macports.org/).
+
+After installing [macports](https://www.macports.org/),
+maybe you need to do something like the following to install
+missing dependencies.
+
+    sudo port selfupdate
+    sudo port install python27
+    sudo port select python python27
+    sudo port install py27-matplotlib
+    sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra texlive-science
+    sudo port install hs-cabal-install
+    sudo port install pandoc
+
+I've also had to install `pandoc-crossref`, and I think I had to install `pandoc-citeproc`.
+In the case of [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref), you simply
+do this to install:
+
+    cabal update
+    cabal install pandoc-crossref
+
+If something doesn't work for you, please let me know!
+I'll do my best improve the documentation and make
+the software more robust as time allows.
+Contact me at: <ryan.reece@cern.ch>
 
 
 Starting a page or section
@@ -32,6 +69,9 @@ Or marked like this:
 
 Then you can have sub-sections as you wish, and/or just start typing the main text.
 There's no need for additional markup or html.
+
+You can delete the example `*.md` files within this template
+when beginning your project.
 
 
 Going from there
