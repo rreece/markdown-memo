@@ -40,7 +40,7 @@ Documentation:
 Primary files edited by the user:
 
 -   `meta.yaml` - The main metadata file controlling the project in many ways.
--   `*.md` - Any other user-created markdown files, the mark-up of your document.
+-   `*.md` - Any other user-created Markdown files, the markup of your document.
 
 Optional files:
 
@@ -51,10 +51,10 @@ Optional files:
     into your document by being an automatically generated list of the references, with footnotes,
     created from the available bibliography files in `bibs/`.
 -   `order.txt` - Optionally, the user can create this file, which should have a list of
-    markdown files used in the document, one-per-line, in the order as to be used for the
+    Markdown files used in the document, one-per-line, in the order as to be used for the
     navigation buttons in the html template.  By default, building the html will generate this
-    file if it doesn't already exist, with the markdown files listed in alphabetical order.
-    If one names the markdown files something like `01-first-section.md`, `02-second-section.md`, etc.,
+    file if it doesn't already exist, with the Markdown files listed in alphabetical order.
+    If one names the Markdown files something like `01-first-section.md`, `02-second-section.md`, etc.,
     then the order should be handled automatically.
 
 

@@ -163,7 +163,7 @@ Table of contents per html page
 ------------------------------------------------------
 
 To insert a table of contents for a single html page,
-add the following line to the markdown, probably near
+add the following line to the Markdown, probably near
 the top of the page as is done for this one.
 
     <!-- PAGETOC -->

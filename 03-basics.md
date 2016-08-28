@@ -2,7 +2,7 @@ Markdown basics
 ===============================================================================
 
 Here we review the basics of Markdown.
-A further reference on `markdown` syntax by its creator is
+A further reference on Markdown syntax by its creator is
 [here](http://daringfireball.net/projects/markdown/syntax).
 
 <!-- PAGETOC -->
@@ -140,7 +140,7 @@ can be used, but will indent the output.
 | Experiment dangerous,
 | Judgment difficult.
 
-Otherwise, one can put two or more spaces at the end of a line of markdown
+Otherwise, one can put two or more spaces at the end of a line of Markdown
 for the linebreak to be taken literally  
 like  
 this.

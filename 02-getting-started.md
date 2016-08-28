@@ -7,7 +7,7 @@ Getting started
 Checking-out the template
 -------------------------------------------------------------------------------
 
-Checking out markdown-memo with a simple git command, like:
+Checking out `markdown-memo` with a simple git command, like:
 
     git clone https://github.com/rreece/markdown-memo.git
 

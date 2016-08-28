@@ -30,7 +30,7 @@ trying to make it as trivial as possible to get your ideas out.
 
 Most of the heavy-lifting work underneath markdown-memo is done
 by the [pandoc](http://pandoc.org/) program, which does the actual
-compilation of markdown to html or pdf.
+compilation of Markdown to html or pdf.
 
 Most of the magic in the implementation of markdown-memo
 is in its [Makefile](https://github.com/rreece/markdown-memo/blob/master/Makefile),
