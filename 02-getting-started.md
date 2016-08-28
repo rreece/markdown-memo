@@ -12,7 +12,7 @@ Checking out markdown-memo with a simple git command, like:
     git clone https://github.com/rreece/markdown-memo.git
 
 Some basic instructions are given in the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
-They are expounded on here.
+They are expanded on here.
 
 
 Requirements
