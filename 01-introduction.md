@@ -18,4 +18,11 @@ How it works
 -   Explain [markdown-memo](https://github.com/rreece/markdown-memo).
 
 
+**Keep content and style separated**
+
+The idea is that all user *content* should be in plainly written `*.md` files
+and one metadata file: `meta.yaml`.
+All *stylistic* issues should be implemented in the details of the files
+in `templates/` and configurable through `meta.yaml`
+
 
