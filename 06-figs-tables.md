@@ -97,13 +97,12 @@ voluptaria constituam eam no. Scripta vivendum mel ne.
 [@Tbl:atlas_channels] shows some cool things too.
 
 
-clickmore
+Clickmore
 -------------------------------------------------------------------------------
 
 You can hide parts of a document in a heading that needs to be clicked
-to show more by making a `div` of class `clickmore`.
-
-Like this:
+to show more by making a `div` of class `clickmore`
+and a `div` of class `more`, linked to eachother like this:
 
     <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
     <div id="test1" class="more">
