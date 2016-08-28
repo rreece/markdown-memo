@@ -22,6 +22,7 @@ Requirements
 -   LaTeX (texlive)
 -   cabal
 -   pandoc
+-   python
 
 On my Mac laptop, I installed any missing dependencies through
 [macports](https://www.macports.org/).
@@ -34,7 +35,7 @@ missing dependencies.
     sudo port install python27
     sudo port select python python27
     sudo port install py27-matplotlib
-    sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra texlive-science
+    sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra
     sudo port install hs-cabal-install
     sudo port install pandoc
 
