@@ -199,15 +199,40 @@ URLs are done like this:
 
 [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 
-To reference
+When referring to labeled sections/figures/tables,
+you do not include the literal word "Section", "Figure", etc.,
+which will be included for you, but for equations you do.
 
--   equation: `eq.\ $\eqref{eq:stokes}$`    
-    eq.\ $\eqref{eq:stokes}$
--   figure: `[@Fig:scientific_universe]`    
+Refer to labeled things like this:
+
+-   for sections: `[@sec:footnotes]`    
+    [@sec:footnotes]
+-   for figures: `[@Fig:scientific_universe]`    
     [@Fig:scientific_universe]
--   table: `[@Tbl:atlas_channels]`    
+-   for tables: `[@Tbl:atlas_channels]`    
     [@Tbl:atlas_channels]
--   section: `[@sec:footnotes-and-citations]`    
-    [@sec:footnotes-and-citations]
+-   for equations: `eq.\ $\eqref{eq:stokes}$`    
+    eq.\ $\eqref{eq:stokes}$
 
+
+Footnotes {#sec:footnotes}
+-------------------------------------------------------------------------------
+
+    Here's how you do a footnote[^SomeSpecialNote].
+
+    [^SomeSpecialNote]: Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+        Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+        accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+        an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+        at falli feugiat est.
+
+produces:
+
+Here's how you do a footnote[^SomeSpecialNote].
+
+[^SomeSpecialNote]: Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+    Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+    accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+    an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+    at falli feugiat est.
 
