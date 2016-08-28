@@ -4,7 +4,7 @@ Special features
 ===============================================================================
 
 This is an appendix.
-You start it like any other section, except put the follow command first, before the section heading.
+You start it like any other section, except put the following command first, before the section heading.
 
     \appendix
 

@@ -44,11 +44,12 @@ and one metadata file: `meta.yaml`.
 All *stylistic* issues should be implemented in the details of the files
 in `templates/` and configurable through `meta.yaml`
 
-For example, see what changes when this document is created with
+For example, [see what changes](http://rreece.github.io/sw/markdown-memo-alt/01-introduction.html)
+when this document is created with
 
     css: 'templates/markdown-memo-alt.css'
 
-set in `meta.yaml`, instead of the [default](http://rreece.github.io/sw/markdown-memo/01-introduction.html).
-`'templates/markdown-memo.css'`,
-as is [shown here](http://rreece.github.io/sw/markdown-memo-alt/01-introduction.html).
+set in `meta.yaml`, instead of the css file used in the
+[default version](http://rreece.github.io/sw/markdown-memo/01-introduction.html):
+`'templates/markdown-memo.css'`.
 
