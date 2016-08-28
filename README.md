@@ -134,13 +134,13 @@ or are otherwise exceptional.
 
 Documentation:
 
--   `README.md` - this file.
--   `VERSIONS` - documents the chronology `markdown-memo` versions.  Feel free to delete or adapt this to your project.
+-   `README.md` - This file.  Please empty this file and adapt it to your project.
+-   `VERSIONS` - Documents the chronology `markdown-memo` versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 
--   `meta.yaml` - the main metadata file controlling the project in many ways.
--   `*.md` - any other user-created markdown files, the mark-up of your document.
+-   `meta.yaml` - The main metadata file controlling the project in many ways.
+-   `*.md` - Any other user-created markdown files, the mark-up of your document.
 
 Optional files:
 
