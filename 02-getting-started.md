@@ -14,6 +14,10 @@ Checking out `markdown-memo` with a simple git command, like:
 Some basic instructions are given in the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
 They are expanded on here.
 
+Basically, once you have cloned `markdown-memo`, if you satisfy its requirements
+you should be able to call `make` and receive reasonable html output,
+and call `make pdf` and receive a reasonable pdf.
+
 
 Requirements
 -------------------------------------------------------------------------------
