@@ -15,9 +15,10 @@ You just want to throw your ideas in some plain text files and call make.
 
 This package makes it very easy to compile text taken in Markdown to valid
 xhtml or to a pdf via LaTeX. It can be used to make simple webpages quickly,
-for example: <http://rreece.github.io/sw/markdown-memo/>
+for example:   
+<http://rreece.github.io/sw/markdown-memo/>
 
-This same document compiled to a pdf can be found here:
+This same document compiled to a pdf can be found here:   
 <http://rreece.github.io/sw/markdown-memo/example.pdf>
 
 
@@ -40,7 +41,7 @@ is in its [Makefile](https://github.com/rreece/markdown-memo/blob/master/Makefil
 which basically calls pandoc in various useful configurations
 and applies some hacks to the output using the tools in `scripts/`.
 
-**Keep content and style separated**
+**Keep content and style separated.**
 
 The idea is that all user *content* should be in plainly written `*.md` files
 and one metadata file: `meta.yaml`.
