@@ -12,15 +12,15 @@ like:
 
     git clone https://github.com/rreece/markdown-memo.git
 
-Feel free to rename `markdown-memo` as whatever is suitable to your project,
-and delete the example `*.md` files.
-
 Some basic instructions are given in the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
 They are expanded on here.
 
 Basically, once you have cloned `markdown-memo`, if you satisfy its requirements
 you should be able to call `make` and receive reasonable html output,
 and call `make pdf` and receive a reasonable pdf.
+
+Feel free to rename `markdown-memo` as whatever is suitable to your project,
+and delete the example `*.md` files.
 
 
 Requirements
