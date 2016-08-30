@@ -10,11 +10,15 @@ Maybe it's a blog, research paper, book draft, or just a set of notes.
 You don't want to think about typesetting details.
 You just want to throw your ideas in some plain text files and call `make`.
 
-This package makes it very easy to compile notes taken in
+This package makes it very easy to compile text taken in
 [Markdown](http://daringfireball.net/projects/markdown/)
 to valid xhtml or to a pdf via LaTeX.
 It can be used to make simple webpages quickly,
-for example, [rreece.github.io/sw/markdown-memo](http://rreece.github.io/sw/markdown-memo).
+for example:   
+<http://rreece.github.io/sw/markdown-memo/>
+
+This same document compiled to a pdf can be found here:   
+<http://rreece.github.io/sw/markdown-memo/example.pdf>
 
 
 Author
