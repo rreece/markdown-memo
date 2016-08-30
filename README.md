@@ -210,7 +210,7 @@ Wish list / TODOs
 -   ~~Optionally make a TOC automatically in the html.~~
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
 -   Make the use of tmp files more robust.
--   Test and explain the installation and requirements better on diffent systems.
+-   Test and explain the installation and requirements better on different systems.
 -   Finish the basic documentation in the `markdown-memo` example document.
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
