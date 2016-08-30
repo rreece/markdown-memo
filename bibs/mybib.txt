@@ -3,7 +3,7 @@ ATLAS Collaboration. (2012). Observation of a new particle in the search for the
 Feynman, R. (1963). *The Feynman Lectures on Physics, Volume I*. California Institute of Technology. http://www.feynmanlectures.caltech.edu/I_03.html
 Feynman, R.P. (1965). The Development of the Space-Time View of Quantum Electrodynamics. Nobel Lecture, December 11, 1965. http://www.nobelprize.org/nobel_prizes/physics/laureates/1965/feynman-lecture.html
 Miller, A. (2014). Realism. *Stanford Encyclopedia of Philosophy*. http://plato.stanford.edu/entries/realism/
-Plato. (2000). *The Republic*. (G. Ferrari, Ed. & T. Griffith, Trans.). Cambridge: Cambridge University Press. [(Originally written ca. 360 BCE.)]
+Plato. (2000). *The Republic*. (G. Ferrari, Ed. & T. Griffith, Trans.). Cambridge: Cambridge University Press. [(Originally written ca. 380 BCE.)]
 Quine, W.V.O. (1969). Natural kinds. In *Ontological Relativity and Other Essays*. New York: Columbia University Press.
 van Fraassen, B. (1980). *The Scientific Image*. Oxford: Oxford University Press.
 
