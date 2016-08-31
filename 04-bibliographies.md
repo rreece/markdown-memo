@@ -41,9 +41,13 @@ add a special html comment near the end of your Markdown file for that page:
 
     <!-- REFERENCES -->
 
-Pages without such a comment will not get an autmoatic references section,
-but the complete pdf document will autmatically still have a complete References
-section at the end as long as `dorefs: true` is set in `meta.yaml`.
+Pages without such a comment will not get an automatic References section,
+but the complete pdf document will automatically still have a complete References
+section at the end as long as
+
+    dorefs: true
+
+is set in `meta.yaml`.
 
 
 
