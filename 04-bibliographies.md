@@ -36,7 +36,7 @@ Feynman said some important things[^Feynman1965].
 But everything is a footnote to Plato[^Plato2000].
 Van[^vanFraassen1980] is a cool cat too.
 
-In order for a References section to be generated per-html-page, you need to
+In order for a References section to be generated per html page, you need to
 add a special html comment near the end of your Markdown file for that page:
 
     <!-- REFERENCES -->
