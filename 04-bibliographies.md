@@ -10,7 +10,7 @@ Markdown-memo uses [bibtex](https://en.wikipedia.org/wiki/BibTeX)
 via [pandoc](http://pandoc.org/) to generate a bibliography for your document.
 We've made this even simpler by allowing the user to create a simple text
 file to generate the necessary bibtex `.bib` file using the
-`[markdown2bib](https://github.com/rreece/markdown2bib)` script.
+[`markdown2bib`](https://github.com/rreece/markdown2bib) script.
 
 TODO.
 
