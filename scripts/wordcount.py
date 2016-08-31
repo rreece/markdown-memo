@@ -85,6 +85,7 @@ def main():
     ## make plot
     ax = df['Pages'].plot(marker='o',markersize=8)
 #    ax.set_xlabel("Date")
+    ax.set_xlabel("")
     ax.set_ylabel("Pages")
     fig = ax.get_figure()
     fig.savefig('pages.png')
@@ -93,6 +94,7 @@ def main():
 
     ax = df['Words'].plot(marker='o',markersize=8)
 #    ax.set_xlabel("Date")
+    ax.set_xlabel("")
     ax.set_ylabel("Words")
     fig = ax.get_figure()
     fig.savefig('words.png')
