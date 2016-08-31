@@ -43,7 +43,7 @@ add a special html comment near the end of your Markdown file for that page:
 
 Pages without such a comment will not get an autmoatic references section,
 but the complete pdf document will autmatically still have a complete References
-section at the end as long as `dorefs: true` is true in `meta.yaml`.
+section at the end as long as `dorefs: true` is set in `meta.yaml`.
 
 
 
