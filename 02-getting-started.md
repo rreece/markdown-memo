@@ -34,8 +34,11 @@ Requirements
 
 On my Mac laptop (OS X, 10.8), I installed any missing dependencies through
 [macports](https://www.macports.org/).
+You can probably use [Fink](http://www.finkproject.org/),
+or [Homebrew](http://brew.sh/),
+or whatever as well.
 
-After installing [macports](https://www.macports.org/),
+After installing [macports](https://www.macports.org/) or whatever,
 maybe you need to do something like the following to install
 missing dependencies.
 
