@@ -118,7 +118,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
 	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
 	@echo '...\n' >> meta.yaml.tmp
-	@if [ "$(DOREFS)" = "true" ] && grep --quiet @ $< ; \
+	@if [ "$(DOREFS)" = "true" ] && grep --quiet REFERENCES $< ; \
 	then \
 		pandoc \
 			-t html \

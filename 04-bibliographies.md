@@ -36,6 +36,16 @@ Feynman said some important things[^Feynman1965].
 But everything is a footnote to Plato[^Plato2000].
 Van[^vanFraassen1980] is a cool cat too.
 
+In order for a References section to be generated per-html-page, you need to
+add a special html comment near the end of your Markdown file for that page:
+
+    <!-- REFERENCES -->
+
+Pages without such a comment will not get an autmoatic references section,
+but the complete pdf document will autmatically still have a complete References
+section at the end as long as `dorefs: true` is true in `meta.yaml`.
+
+
 
 [^Feynman1963]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
 
@@ -49,5 +59,7 @@ Van[^vanFraassen1980] is a cool cat too.
 
 [^vanFraassen1980]: @vanFraassen_1980_The_Scientific_Image\.
 
+
+<!-- REFERENCES -->
 
 
