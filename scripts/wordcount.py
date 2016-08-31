@@ -92,7 +92,7 @@ def main():
     plt.close()
 
     ax = df['Words'].plot(marker='o',markersize=8)
-    ax.set_xlabel("Date")
+#    ax.set_xlabel("Date")
     ax.set_ylabel("Words")
     fig = ax.get_figure()
     fig.savefig('words.png')
