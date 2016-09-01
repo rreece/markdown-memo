@@ -21,7 +21,7 @@ with each reference in a style that loosely follows the
 [American Psychological Association (APA)](http://www.library.arizona.edu/search/reference/citation-apa.html),
 which is commonly used in humanities.
 Currently four types of references are supported: article, book, incollection, and misc.
-The journal or book titles need to be in markdown-style bold, meaning *Set Within Asterixis*. 
+The journal or book titles need to be in markdown-style bold, meaning `*Set Within Asterixis*`. 
 
 For example, the `mybib.txt` file in this document is
 
