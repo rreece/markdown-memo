@@ -12,7 +12,13 @@ We've made this even simpler by allowing the user to create a simple text
 file to generate the necessary bibtex `.bib` file using the
 [`markdown2bib`](https://github.com/rreece/markdown2bib) script.
 
-TODO.
+TODO: explain `bibs/mybib.txt`.
+
+If you do not need a bibliography, set
+
+    dorefs: false
+
+in `meta.yaml`, and then these scripts and programs are not run.
 
 
 Doing citations
