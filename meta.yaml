@@ -50,12 +50,10 @@ email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
 #disqus: true
 #disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this page.'
-favicon: '/img/markdown-favicon-196x196.png'
 #keywords: 'List, some, keywords, for, this, webpage'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 navigation: true
-thumbnail: '/img/ATLAS-local-p0-vs-mH.png'
 ## pdflatex options ---------------------------------------
 classoption:
     -   'openany'
