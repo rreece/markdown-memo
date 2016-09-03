@@ -286,6 +286,10 @@ img.tallimg {
     max-height: none;
 }
 
+img.hidden {
+    display: none;
+}
+
 div.floatleft img, div.floatright img {
     margin: 0;
 }
