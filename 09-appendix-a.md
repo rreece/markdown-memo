@@ -63,9 +63,8 @@ Disqus integration
 
 You can choose to append a comments section at the end of your html.
 Just register a user name and the site name with [disqus.com](disqus.com).
-Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
+Then in the `meta.yaml`, set your `disqus_shortname`:
 
-    disqus: true
     disqus_shortname: 'my-sites-disqus-name'
 
 
@@ -75,7 +74,7 @@ Google analytics integration
 You can choose to add Google analytics 
 tracking to your site, by registering it with
 [Google analytics](https://analytics.google.com/)
-and add your tracking ID to the `meta.yaml`.
+and add your tracking ID to the `meta.yaml`:
 
     google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 
