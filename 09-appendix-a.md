@@ -69,7 +69,12 @@ Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 Google analytics integration
 -------------------------------------------------------------------------------
 
-TODO: describe.
+You can choose to add Google analytics 
+tracking to your site, by registering it with
+[Google analytics](https://analytics.google.com/)
+and add your tracking ID to the `meta.yaml`.
+
+    google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 
 
 Word count
