@@ -159,7 +159,9 @@ div#site_footer a:hover {
 }
 
 img.email {
-    /*vertical-align: text-bottom;*/
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
 }
 
 /*
