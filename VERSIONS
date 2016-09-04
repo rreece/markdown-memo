@@ -1,3 +1,10 @@
+v0.20  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   September 4, 2016
+-   apa-no-doi-no-issue-with-notes.csl now has
+    subsequent-author-substitute="&#8212;&#8212;&#8212;"
+    subsequent-author-substitute-rule="complete-all"
+
 v0.19  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   September 3, 2016
