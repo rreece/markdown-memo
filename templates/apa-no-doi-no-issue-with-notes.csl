@@ -526,7 +526,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2">
+  <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2" subsequent-author-substitute="&#8212;&#8212;&#8212;" subsequent-author-substitute-rule="complete-all">
     <sort>
       <key macro="author"/>
       <key macro="issued-sort" sort="ascending"/>
