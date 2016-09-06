@@ -22,6 +22,12 @@ with each reference in a style that loosely follows the
 which is commonly used in humanities.
 Currently four types of references are supported: `article`, `book`, `incollection`, and `misc`.
 The journal or book titles need to be in markdown-style emphasis, meaning `*Set Within Asterixis*`. 
+Also note that for works in a collection, you need to use the word "`In`"
+in the right place, like in the reference by Quine below.
+The rest of the syntax tries to be forgiving.
+If you want to add a `note` to appear at the end of the reference,
+put it at the end within [square brackets] like the work by
+Plato below.
 
 For example, the `mybib.txt` file in this document is
 
@@ -33,6 +39,11 @@ For example, the `mybib.txt` file in this document is
     Plato. (2000). *The Republic*. (G. Ferrari, Ed. & T. Griffith, Trans.). Cambridge: Cambridge University Press. [(Originally written ca. 380 BCE.)]
     Quine, W.V.O. (1969). Natural kinds. In *Ontological Relativity and Other Essays*. New York: Columbia University Press.
     van Fraassen, B. (1980). *The Scientific Image*. Oxford: Oxford University Press.
+
+If you do not want to use simplified txt files to generate bibtex,
+and you want to write your own bibtex,
+then simply remove any `bibs/*.txt` files
+and write a file called `bibs/mybib.bib`.
 
 If you do not need a bibliography, set
 
