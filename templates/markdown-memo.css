@@ -412,26 +412,22 @@ a.footnoteRef sup {
 {
     float: right;
     clear: right;
-    /*margin-bottom: 20px;*/
-    border-bottom: 20px;
-    border-left: 20px;
-    border-style: solid;
-    border-color: white;
-    background-color: #cccccc;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 0;
     padding: 4px;
+    background-color: #cccccc;
 }
 
 .floatleft
 {
     float: left;
     clear: left;   
-    /*margin-bottom: 20px;*/
-    border-bottom: 20px;
-    border-right: 20px;
-    border-style: solid;
-    border-color: white;
-    background-color: #cccccc;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 0;
     padding: 4px;
+    background-color: #cccccc;
 }
 
 .block

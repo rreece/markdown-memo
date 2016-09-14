@@ -113,7 +113,7 @@ div#site_header {
     display:block;
     clear: both;
     width: auto;
-    margin: 0;
+    margin-: 0;
     border: 0;
     border-top: 20px solid #444444;
     padding: 8px 10px;
@@ -160,9 +160,7 @@ div#site_footer a:hover {
 }
 
 img.email {
-    display: inline;
-    margin: 0;
-    vertical-align: middle;
+    /*vertical-align: text-bottom;*/
 }
 
 div#disqus_stuff {
@@ -171,6 +169,8 @@ div#disqus_stuff {
 
 
 /* headers ------------------------------------------------------- */
+h1, h2 {
+    margin-top: 36px;
 h1, h2 {
     margin-top: 36px;
     margin-bottom: 24px;
@@ -412,26 +412,22 @@ a.footnoteRef sup {
 {
     float: right;
     clear: right;
-    /*margin-bottom: 20px;*/
-    border-bottom: 20px;
-    border-left: 20px;
-    border-style: solid;
-    border-color: white;
-    background-color: #cccccc;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 0;
     padding: 4px;
+    background-color: #cccccc;
 }
 
 .floatleft
 {
     float: left;
     clear: left;   
-    /*margin-bottom: 20px;*/
-    border-bottom: 20px;
-    border-right: 20px;
-    border-style: solid;
-    border-color: white;
-    background-color: #cccccc;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 0;
     padding: 4px;
+    background-color: #cccccc;
 }
 
 .block
@@ -504,13 +500,3 @@ div.clickmore a.closed:before
     content: "[+] ";
 }
 div.more
-{
-    display: none;
-    clear: both;
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border-top: 2px #cccccc dashed;
-    border-bottom: 2px #cccccc dashed;
-}
-
-

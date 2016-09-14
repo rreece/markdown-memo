@@ -21,7 +21,7 @@ with each reference in a style that loosely follows the
 [American Psychological Association (APA)](http://www.library.arizona.edu/search/reference/citation-apa.html),
 which is commonly used in humanities.
 Currently four types of references are supported: `article`, `book`, `incollection`, and `misc`.
-The journal or book titles need to be in markdown-style emphasis, meaning `*Set Within Asterixis*`. 
+The journal or book titles need to be in markdown-style *emphasis*, meaning `*Set Within Asterixis*`. 
 Also note that for works in a collection, you need to use the word "`In`"
 in the right place, like in the reference by Quine below.
 The rest of the syntax tries to be forgiving.
