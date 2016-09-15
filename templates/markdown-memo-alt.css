@@ -113,7 +113,7 @@ div#site_header {
     display:block;
     clear: both;
     width: auto;
-    margin-: 0;
+    margin: 0;
     border: 0;
     border-top: 20px solid #444444;
     padding: 8px 10px;
@@ -169,8 +169,6 @@ div#disqus_stuff {
 
 
 /* headers ------------------------------------------------------- */
-h1, h2 {
-    margin-top: 36px;
 h1, h2 {
     margin-top: 36px;
     margin-bottom: 24px;
