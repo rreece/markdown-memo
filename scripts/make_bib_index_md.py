@@ -125,6 +125,8 @@ def write_results(results):
     for shortauthor, citation in footnotes.iteritems():
         f_out.write('[^%s]: @%s\\.\n' % (shortauthor, citation))
     f_out.write('\n')
+    f_out.write('<!-- REFERENCES -->\n')
+    f_out.write('\n')
     f_out.close()
     print ''
     print '%s written. %s items.' % (out, len(footnotes))
