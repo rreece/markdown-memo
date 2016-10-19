@@ -219,6 +219,7 @@ Wish list / TODOs
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
+-   Make a template that works with REVTeX.
 
 See the version history: [VERSIONS](VERSIONS)
 
