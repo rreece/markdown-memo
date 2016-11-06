@@ -57,9 +57,9 @@ missing dependencies.
     sudo port install pandoc
     sudo port install hs-cabal-install
 
-I've also had to install `pandoc-crossref` and
+I've also had to install
 [`pandoc-citeproc`](https://github.com/lierdakil/pandoc-crossref)
-by:
+and `pandoc-crossref` by:
 
     cabal update
     cabal install pandoc-citeproc pandoc-crossref
