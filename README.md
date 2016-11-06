@@ -44,27 +44,25 @@ Requirements
 -   pandoc
 -   python
 
-On my Mac laptop, I installed any missing dependencies through
+On my Mac with OS 10.11, I installed the missing dependencies through
 [macports](https://www.macports.org/).
 
-After installing [macports](https://www.macports.org/),
+After installing Xcode through the Apple app store and
+[macports](https://www.macports.org/) from their website,
 maybe you need to do something like the following to install
 missing dependencies.
 
     sudo port selfupdate
-    sudo port install python27
-    sudo port select python python27
-    sudo port install py27-matplotlib
     sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra
-    sudo port install hs-cabal-install
     sudo port install pandoc
+    sudo port install hs-cabal-install
 
-I've also had to install `pandoc-crossref`, and I think I had to install `pandoc-citeproc`.
-In the case of [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref), you simply
-do this to install:
+I've also had to install `pandoc-crossref` and
+[`pandoc-citeproc`](https://github.com/lierdakil/pandoc-crossref)
+by:
 
     cabal update
-    cabal install pandoc-crossref
+    cabal install pandoc-citeproc pandoc-crossref
 
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
