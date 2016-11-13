@@ -39,7 +39,7 @@ Requirements
 ----------------------------------
 
 -   make
--   LaTeX (texlive)
+-   LaTeX (texlive/mactex)
 -   python
 -   pandoc
 -   [pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref)
