@@ -40,29 +40,34 @@ Requirements
 
 -   make
 -   LaTeX (texlive)
--   cabal
--   pandoc
 -   python
+-   pandoc
+-   [pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref)
+-   pandoc-crossref
 
-On my Mac with OS 10.11, I installed the missing dependencies through
-[macports](https://www.macports.org/).
+On my Mac, I used to install the missing dependencies through
+[macports](https://www.macports.org/),
+but beginning with OS 10.11, I started using
+[homebrew](http://brew.sh/).
 
-After installing Xcode through the Apple app store and
-[macports](https://www.macports.org/) from their website,
-maybe you need to do something like the following to install
-missing dependencies.
+First, if you are on a Mac, you should install Xcode
+through the Apple app store to get `make` and basic build utilities.
+
+With *macports*, one does
 
     sudo port selfupdate
     sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra
     sudo port install pandoc
     sudo port install hs-cabal-install
-
-I've also had to install
-[`pandoc-citeproc`](https://github.com/lierdakil/pandoc-crossref)
-and `pandoc-crossref` by:
-
     cabal update
     cabal install pandoc-citeproc pandoc-crossref
+
+With *homebrew*, one does
+
+    brew cask install mactex
+    brew install pandoc
+    brew install pandoc-citeproc
+    brew install pandoc-crossref
 
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
