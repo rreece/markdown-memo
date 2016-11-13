@@ -38,7 +38,8 @@ On my Mac, I used to install the missing dependencies through
 but beginning with OS 10.11, I started using
 [homebrew](http://brew.sh/).
 
-First, if you are on a Mac, you should install Xcode
+First, if you are on a Mac, you should install
+[Xcode](https://developer.apple.com/xcode/)
 through the Apple app store to get `make` and basic build utilities.
 
 With *macports*, one does
