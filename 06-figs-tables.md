@@ -8,19 +8,19 @@ Figures
 
 To add a figure, use the following basic syntax:
 
-    ![caption](img/image-path.png) {#fig:scientific_universe}
+    ![caption](img/image-path.png){#fig:scientific_universe}
 
 For example,
 
     ![The scale of the universe mapped to the branches of science and the hierarchy
         of science. CC BY-SA 3.0 (2013) [Wikimedia Commons](https://en.wikipedia.org/wiki/Science#/media/File:The_Scientific_Universe.png).
-        ](img/1024px-the_scientific_universe.png) {#fig:scientific_universe}
+        ](img/1024px-the_scientific_universe.png){#fig:scientific_universe}
 
 produces:
 
 ![The scale of the universe mapped to the branches of science and the hierarchy of science. CC BY-SA 3.0 (2013)
     [Wikimedia Commons](https://en.wikipedia.org/wiki/Science#/media/File:The_Scientific_Universe.png).
-    ](img/1024px-the_scientific_universe.png) {#fig:scientific_universe}
+    ](img/1024px-the_scientific_universe.png){#fig:scientific_universe}
 
 [@Fig:scientific_universe] shows some cool things.
 
@@ -43,7 +43,7 @@ Another example:
         SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
         The horizontal dashed lines indicate the $p$-values corresponding to significances
         of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search_for]\.
-        ](img/ATLAS-local-p0-vs-mH.png) {#fig:ATLAS_local_p0_vs_mH}
+        ](img/ATLAS-local-p0-vs-mH.png){#fig:ATLAS_local_p0_vs_mH}
 
 produces:
 
@@ -52,7 +52,7 @@ produces:
     SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
     The horizontal dashed lines indicate the $p$-values corresponding to significances
     of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search_for]\.
-    ](img/ATLAS-local-p0-vs-mH.png) {#fig:ATLAS_local_p0_vs_mH}
+    ](img/ATLAS-local-p0-vs-mH.png){#fig:ATLAS_local_p0_vs_mH}
 
 
 You can refer to labeled figuers like this:
