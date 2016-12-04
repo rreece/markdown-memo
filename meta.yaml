@@ -43,26 +43,24 @@ eqnPrefix: "eq."
 secPrefix: "Section"
 tblPrefix: "Table"
 ## html options -------------------------------------------
-css: 'templates/markdown-memo.css'
-#css: 'templates/markdown-memo-alt.css'
-email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
-#email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
-#disqus_shortname: 'my-sites-disqus-name'
+#css: 'templates/markdown-memo.css'
+css: 'templates/markdown-memo-alt.css'
+#email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
+email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
+disqus_shortname: 'ryans-selected-software-projects'
 #description: 'Write a description of this page.'
 favicon: '/img/markdown-favicon-196x196.png'
-#google_analytics_tracking_id: 'UA-XXXXXXXX-X'
+google_analytics_tracking_id: 'UA-55199032-1'
 #keywords: 'List, some, keywords, for, this, webpage'
 mathjax: true
 navigation: true
 #thumbnail: 'http://rreece.github.io/sw/markdown-memo/img/ATLAS-local-p0-vs-mH.png'
 ## pdflatex options ---------------------------------------
-classoption:
-    -   'openany'
-    -   'twoside'
-citation-style: 'templates/apa-no-doi-no-issue-with-notes.csl'
-fancyhdr: true
-fontfamily: 'mathpazo'
 fontsize: '11pt'
+fontfamily: 'mathpazo'
+#linestretch: '1.1'
+numbersections: true
+spacing: '1.2'
 geometry: 
     -   'paperwidth=8.5in'
     -   'paperheight=11in'
@@ -72,14 +70,11 @@ geometry:
     -   'right=1.25in'
     -   'headheight=14pt'
     -   'headsep=14pt'
-#linestretch: '0.9'
-lof: false
-lot: false
-maketitle: true
-numbersections: true
-parskip: '11pt'
-spacing: '1.2'
-toc: true
-toc-depth: 3
+fancyhdr: true
+classoption:
+    -   'openany'
+    -   'twoside'
+natbib: true
+biblio-style: 'chicago'
 ...
 
