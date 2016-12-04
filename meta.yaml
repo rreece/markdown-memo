@@ -43,14 +43,14 @@ eqnPrefix: "eq."
 secPrefix: "Section"
 tblPrefix: "Table"
 ## html options -------------------------------------------
-#css: 'templates/markdown-memo.css'
-css: 'templates/markdown-memo-alt.css'
-#email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
-email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
-disqus_shortname: 'ryans-selected-software-projects'
+css: 'templates/markdown-memo.css'
+#css: 'templates/markdown-memo-alt.css'
+email: '<img class="email" src="img/my_email.png" alt="my email address"/>'
+#email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
+#disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this page.'
 favicon: '/img/markdown-favicon-196x196.png'
-google_analytics_tracking_id: 'UA-55199032-1'
+#google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 #keywords: 'List, some, keywords, for, this, webpage'
 mathjax: true
 navigation: true
