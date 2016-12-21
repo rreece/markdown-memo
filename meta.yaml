@@ -59,6 +59,7 @@ navigation: true
 fontsize: '11pt'
 fontfamily: 'mathpazo'
 #linestretch: '1.1'
+maketitle: true
 numbersections: true
 spacing: '1.2'
 geometry: 
