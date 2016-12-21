@@ -64,6 +64,17 @@ ol p, ul p {
     text-align: justify;
 }
 
+div.preline {
+    white-space: pre-line;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: 0;
+    padding: 0;
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
 /* hang indents on references */
 /* bibliography from md -> html */
 div.references p {

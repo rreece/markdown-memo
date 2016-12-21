@@ -78,6 +78,7 @@ def main():
 
     rep_pagetoc = r'\s*<!\-\-\s*PAGETOC\s*\-?\-\->\s*'
     rep_navigation = r'\s*<!\-\-\s*NAVIGATION\s*\-?\-\->\s*'
+    rep_preline = r'\s*<div\s*class="">\s*'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
@@ -112,6 +113,12 @@ def main():
                 reo = re.match(rep_navigation, line)
                 if reo:
                     newline = make_navigation(fn)
+
+            if not reo:
+                if line.startswith('<div style="white-space: pre-line;">'):
+                    newline = '<div class="preline">' + line[36:]
+                else:
+                    pass
             
             f_out.write(newline)
  
@@ -165,10 +172,10 @@ def make_navigation(filename):
     s = ''
 
     if prv:
-        s += '<li> <a href="./%s">&#8612;&nbsp;Previous</a> </li>\n' % prv
+        s += '    <li> <a href="./%s">&#8612;&nbsp;Previous</a> </li>\n' % prv
         
     if nxt:
-        s += '<li> <a href="./%s">&#8614;&nbsp;Next</a> </li>\n' % nxt
+        s += '    <li> <a href="./%s">&#8614;&nbsp;Next</a> </li>\n' % nxt
 
     return s
 
