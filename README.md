@@ -54,6 +54,23 @@ First, if you are on a Mac, you should install
 [Xcode](https://developer.apple.com/xcode/)
 through the Apple app store to get `make` and basic build utilities.
 
+With *homebrew*, one does
+
+    brew cask install mactex
+    brew install pandoc
+    brew install pandoc-citeproc
+    brew install pandoc-crossref
+
+Other missing requirements I had to install with *homebrew*
+were
+
+    brew install wget
+    brew install matplotlib
+    brew install numpy
+    brew install homebrew/python/scipy
+    brew cask install xquartz
+    brew install homebrew/x11/xpdf
+
 With *macports*, one does
 
     sudo port selfupdate
@@ -62,13 +79,6 @@ With *macports*, one does
     sudo port install hs-cabal-install
     cabal update
     cabal install pandoc-citeproc pandoc-crossref
-
-With *homebrew*, one does
-
-    brew cask install mactex
-    brew install pandoc
-    brew install pandoc-citeproc
-    brew install pandoc-crossref
 
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
