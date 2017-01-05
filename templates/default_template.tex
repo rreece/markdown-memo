@@ -3,7 +3,7 @@
 %% fonts
 $if(fontfamily)$
 \usepackage[sc]{$fontfamily$}
-$else$
+$utelse$
 \usepackage{lmodern}
 $endif$
 
@@ -15,7 +15,7 @@ $endif$
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
+%\usepackage{fixltx2e} % provides \textsubscript
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -169,23 +169,14 @@ $if(lang)$
 \fi
 $endif$
 
-%% set document metadata
-$if(title)$
-\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-\date{$date$}
-
-$for(header-includes)$
-$header-includes$
-$endfor$
-
 \usepackage{xcolor}
 
-%% fancyhdr
+% for(header-includes)
+% header-includes
+% endfor
+
 $if(fancyhdr)$
+%% fancyhdr
 \usepackage{fancyhdr}
 %\fancyhf{} % clear all header and footer fields
 %\fancyhead[RO]{\textit{$authorshort$}}
@@ -200,17 +191,17 @@ $if(license)$
     \fancyhf{} % clear all header and footer fields
     $if(draft)$
     \fancyhead[LO]{\color{gray} \footnotesize DRAFT: \today{}. Please do not cite without permission.}
-    $endif$ % endif draft
+    $endif$
     $if(license)$
         $if(submitted)$
         \fancyfoot[LO]{ {\footnotesize $license$ \\* $submitted$} }
         $else$
         \fancyfoot[LO]{ {\footnotesize $license$} }
-        $endif$ % endif submitted
-    $endif$ % endif license
+        $endif$
+    $endif$
     \renewcommand\headrulewidth{0pt}
 }
-$endif$ % endif license
+$endif$
 
 \fancypagestyle{mainstyle}{
     \fancyhf{} % clear all header and footer fields
@@ -218,13 +209,18 @@ $endif$ % endif license
     \fancyhead[LE]{\textit{$if(titleshort)$$titleshort$$else$$title$$endif$}}
     \fancyfoot[CO,CE]{\thepage}
     $if(draft)$
-%    \fancyhead[LO]{\color{gray} \footnotesize DRAFT: Please do not cite without permission.}
     \fancyhead[LO]{\color{gray} \footnotesize DRAFT: \today}
     \fancyhead[RE]{\color{gray} \footnotesize DRAFT: \today}
-    $endif$ % endif draft
+    $endif$
 }
 
-$endif$ % endif fancyhdr
+% endif fancyhdr
+$endif$
+
+$if(revtex)$
+%% revtex-only-options -------------------
+
+$else$
 
 %% remove "Abstract" from the abstract
 \usepackage{abstract}
@@ -248,6 +244,8 @@ $endif$ % endif fancyhdr
 %\captionsetup{belowskip=-8pt,aboveskip=-8pt,labelfont=bf,format=hang}
 \captionsetup{font=small,labelfont=bf,format=hang}
 
+$endif$
+
 %% tightlist hack
 \providecommand{\tightlist}{%
       \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -255,9 +253,58 @@ $endif$ % endif fancyhdr
 
 %%=============================================================================
 \begin{document}
+%%=============================================================================
 
+%% set document metadata
+
+$if(revtex)$
+%% title ----------------------------------------
+$if(title)$\title{$title$}$endif$
+
+%% authors --------------------------------------
+$if(author1)$\author{$author1$}$endif$
+$if(email1)$\email{$email1$}$endif$
+$if(homepage1)$\homepage{$homepage1$}$endif$
+$if(affiliation1)$\affiliation{$affiliation1$}$endif$
+
+$if(author2)$\author{$author2$}$endif$
+$if(email2)$\email{$email2$}$endif$
+$if(homepage2)$\homepage{$homepage2$}$endif$
+$if(affiliation2)$\affiliation{$affiliation2$}$endif$
+
+$if(author3)$\author{$author3$}$endif$
+$if(email3)$\email{$email3$}$endif$
+$if(homepage3)$\homepage{$homepage3$}$endif$
+$if(affiliation3)$\affiliation{$affiliation3$}$endif$
+
+%% date -----------------------------------------
+$if(date)$\date{$date$}$endif$
+
+%% abstract -------------------------------------
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+%% keywords -------------------------------------
+$if(keywords)$\keywords{$keywords$}$endif$
+
+%% maketitle ------------------------------------
+$if(maketitle)$\maketitle$endif$
+
+$else$
+%% title ----------------------------------------
+$if(title)$\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}$endif$
+
+%% authors --------------------------------------
+$if(author)$\author{$for(author)$$author$$sep$ \and $endfor$}$endif$
+
+%% date -----------------------------------------
+$if(date)$\date{$date$}$endif$
+
+%% maketitle ------------------------------------
 $if(maketitle)$
-
 \thispagestyle{empty}
 
 \noindent\rule{\textwidth}{2pt}
@@ -267,15 +314,22 @@ $if(maketitle)$
 \noindent\rule{\textwidth}{2pt}
 
 \vspace{0.6cm}
+$endif$
 
+%% abstract -------------------------------------
 $if(abstract)$
 \begin{abstract}
 \noindent $abstract$
+$if(keywords)$
+
+\emph{Keywords:} $keywords$
+$endif$
 \end{abstract}
 $endif$
 
-$endif$ %% endif maketitle
+$endif$
 
+%% ----------------------------------------------
 $for(include-before)$
 $include-before$
 $endfor$
@@ -340,3 +394,4 @@ $include-after$
 $endfor$
 
 \end{document}
+

@@ -218,12 +218,13 @@ Wish list / TODOs
 -   ~~Optionally make a TOC automatically in the html.~~
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
 -   ~~Finish the basic documentation in the `markdown-memo` example document.~~
+-   ~~Make a template that works with [REVTeX](https://journals.aps.org/revtex).~~
+-   Fix TOC spacing issues with REVTeX.
 -   Make the use of tmp files more robust.
 -   Test and explain the installation and requirements better on different systems.
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
--   Make a template that works with REVTeX.
 
 See the version history: [VERSIONS](VERSIONS)
 
