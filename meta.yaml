@@ -23,14 +23,18 @@ author:
 
         [^ReeceSCIPP]: University of California, Santa Cruz / <ryan.reece@cern.ch> / <http://reece.scipp.ucsc.edu>
     -   |
-        Jane Coauthor[^JaneCoauthor]
+        Jane Coauthor[^Jane]
 
-        [^JaneCoauthor]: Joe University, Joeville
+        [^Jane]: Joe University, Joeville / <jane@joe.edu> / <http://jane.joe.edu>
+    -   |
+        Joe Coauthor[^Joe]
+
+        [^Joe]: Joe University, Joeville / <joe@joe.edu> / <http://joe.joe.edu>
 date: \today
-#date: 'August 1, 2016'
+#date: 'January 1, 2017'
 draft: true
 #license: ''
-#license: '&copy; 2015-2016 Ryan Reece. All rights reserved.'
+#license: '&copy; 2015-2017 Ryan Reece. All rights reserved.'
 license: '<span class="copy-left">&copy;</span> 2015-2017 Ryan Reece. Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
 dorefs: true
 submitted: ''
@@ -100,7 +104,5 @@ revtex: false
 #spacing: '1.2'
 toc: true
 tocdepth: 3
-#natbib: true
-#biblio-style: 'chicago'
 ...
 
