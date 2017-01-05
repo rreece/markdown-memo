@@ -171,6 +171,7 @@ $endif$
 
 \usepackage{xcolor}
 
+%% HACK
 % for(header-includes)
 % header-includes
 % endfor
@@ -227,9 +228,10 @@ $else$
 \renewcommand{\abstractname}{}    % clear the title
 \renewcommand{\absnamepos}{empty} % originally center
 
+$if(toc)$
 %% toc settings
 %\hypersetup{linkcolor=black}
-\setcounter{tocdepth}{$toc-depth$}
+$if(tocdepth)$\setcounter{tocdepth}{$tocdepth$}$endif$
 \usepackage{tocloft}
 \setlength\cftbeforetoctitleskip{14pt}    % space before TOC title
 \setlength\cftaftertoctitleskip{8pt}      % space after  TOC title
@@ -238,6 +240,7 @@ $else$
 %\setlength\cftparskip{2pt}               % space between paragraphs (subsections); default 0
 \setlength\cftbeforepartskip{8pt}         % space before parts
 \renewcommand\cftpartafterpnum{\vskip0pt} % space after  parts
+$endif$
 
 %% caption settings:
 \usepackage{caption}
@@ -295,7 +298,7 @@ $if(maketitle)$\maketitle$endif$
 
 $else$
 %% title ----------------------------------------
-$if(title)$\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}$endif$
+$if(title)$\title{$title$$if(subtitle)$:\\\vspace{0.5em}{\large $subtitle$}$endif$}$endif$
 
 %% authors --------------------------------------
 $if(author)$\author{$for(author)$$author$$sep$ \and $endfor$}$endif$

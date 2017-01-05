@@ -65,6 +65,7 @@ navigation: true
 #thumbnail: 'http://rreece.github.io/sw/markdown-memo/img/ATLAS-local-p0-vs-mH.png'
 ## pdflatex options ---------------------------------------
 classoption:
+#    -   'a4paper'
     -   'letterpaper'
     -   'openany'
     -   'twoside'
@@ -98,6 +99,7 @@ numbersections: true
 revtex: false
 #spacing: '1.2'
 toc: true
+tocdepth: 3
 #natbib: true
 #biblio-style: 'chicago'
 ...
