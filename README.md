@@ -44,6 +44,8 @@ Requirements
 -   pandoc
 -   [pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref)
 -   pandoc-crossref
+-   matplotlib (for pagecount and wordcount plots)
+-	xpdf (pdfinfo command for pagecount)
 
 On my Mac, I used to install the missing dependencies through
 [macports](https://www.macports.org/),
