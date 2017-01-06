@@ -193,12 +193,15 @@ $if(license)$
     $if(draft)$
     \fancyhead[LO]{\color{gray} \footnotesize DRAFT: \today{}. Please do not cite without permission.}
     $endif$
+    $if(docid)$
+    \fancyhead[RO]{\footnotesize $docid$}
+    $endif$
     $if(license)$
-        $if(submitted)$
-        \fancyfoot[LO]{ {\footnotesize $license$ \\* $submitted$} }
-        $else$
-        \fancyfoot[LO]{ {\footnotesize $license$} }
-        $endif$
+    $if(submitted)$
+    \fancyfoot[LO]{ {\footnotesize $license$ \\* $submitted$} }
+    $else$
+    \fancyfoot[LO]{ {\footnotesize $license$} }
+    $endif$
     $endif$
     \renewcommand\headrulewidth{0pt}
 }

@@ -1,10 +1,10 @@
 ---
 ## required meta-data -------------------------------------
 output: example
-title: 'markdown-memo example document'
-titleshort: 'markdown-memo example document'
-subtitle: 'make writing easier and more productive'
-authorshort: 'R. Reece and J. Coauthor'
+title: markdown-memo example document
+titleshort: markdown-memo example document
+subtitle: make writing easier and more productive
+authorshort: R. Reece and J. Coauthor
 author1: Ryan Reece
 email1: ryan.reece@cern.ch
 homepage1: http://reece.scipp.ucsc.edu
@@ -13,10 +13,10 @@ author2: Jane Coauthor
 email2: jane.coauthor@blah.com
 homepage2: http://jane.blah.com
 affiliation2: Joe University
-author3: Joe Coauthor
-email3: joe.coauthor@blah.com
-homepage3: http://joe.blah.com
-affiliation3: Joe University
+#author3: Joe Coauthor
+#email3: joe.coauthor@blah.com
+#homepage3: http://joe.blah.com
+#affiliation3: Joe University
 author:
     -   |
         [Ryan Reece](http://reece.scipp.ucsc.edu/)[^ReeceSCIPP]
@@ -26,12 +26,13 @@ author:
         Jane Coauthor[^Jane]
 
         [^Jane]: Joe University, Joeville / <jane@joe.edu> / <http://jane.joe.edu>
-    -   |
-        Joe Coauthor[^Joe]
-
-        [^Joe]: Joe University, Joeville / <joe@joe.edu> / <http://joe.joe.edu>
+#    -   |
+#        Joe Coauthor[^Joe]
+#
+#        [^Joe]: Joe University, Joeville / <joe@joe.edu> / <http://joe.joe.edu>
 date: \today
 #date: 'January 1, 2017'
+docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
 draft: true
 #license: ''
 #license: '&copy; 2015-2017 Ryan Reece. All rights reserved.'
@@ -68,11 +69,15 @@ mathjax: true
 navigation: true
 #thumbnail: 'http://rreece.github.io/sw/markdown-memo/img/ATLAS-local-p0-vs-mH.png'
 ## pdflatex options ---------------------------------------
+documentclass: 'article'
+#documentclass: 'revtex4-1'
+revtex: false
 classoption:
 #    -   'a4paper'
     -   'letterpaper'
     -   'openany'
     -   'twoside'
+## revtex options ##
 #    -   'aps'
 #    -   'prl'
 ##    -   'aip'
@@ -83,8 +88,6 @@ classoption:
 #    -   'nofootinbib'
 #    -   'superscriptaddress'
 #    -   'showkeys'
-documentclass: 'article'
-#documentclass: 'revtex4-1'
 fancyhdr: true
 fontsize: '11pt'
 fontfamily: 'mathpazo'
@@ -100,7 +103,6 @@ geometry:
 #linestretch: '1.1'
 maketitle: true
 numbersections: true
-revtex: false
 #spacing: '1.2'
 toc: true
 tocdepth: 3
