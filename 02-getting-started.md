@@ -75,7 +75,7 @@ I'll do my best improve the documentation and make
 the software more robust as time allows.
 Contact me at:
 
-<img class="email" src="img/my_email.png" alt="my email address"/>
+<img class="email" src="img/my-email.png" alt="my email address"/>
 
 Please let me know if you have success or failure testing
 this on different systems.
@@ -152,7 +152,7 @@ A lot of the inner-workings of `markdown-memo` are done in the `Makefile`.
 -   Call `make realclean` to additionally delete the output html and pdf files.
 
 I use an image of my email to hide it from text crawlers.
-Please replace `img/my_email.png` with a screenshot of your
+Please replace `img/my-email.png` with a screenshot of your
 email address instead of mine,
 or just remove the use of the image in `meta.yaml`.
 
