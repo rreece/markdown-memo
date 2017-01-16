@@ -3,7 +3,7 @@ Mathematical expressions
 
 <!-- PAGETOC -->
 
-Typestting math
+Typesetting math
 -------------------------------------------------------------------------------
 
 You can do latex inline like this:
