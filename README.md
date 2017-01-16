@@ -208,6 +208,13 @@ Just register a user name and the site name with [disqus.com](disqus.com).
 Then in the `meta.yaml`, set `disqus: true`, and set your `disqus_shortname`.
 
 
+More info
+----------------------------------
+
+The documentation in this README is expanded on in the markdown-memo example:   
+[rreece.github.io/sw/markdown-memo](http://rreece.github.io/sw/markdown-memo)
+
+
 Word count
 ----------------------------------
 
@@ -252,5 +259,6 @@ See also
 -   [commonmark.org](http://commonmark.org/)
 -   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
 -   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
+
 
 
