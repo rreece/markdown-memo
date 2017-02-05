@@ -42,7 +42,8 @@ MD_FILES := $(filter-out index.md, $(MD_FILES))
 HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
 BIB_TXT_FILES := $(wildcard bibs/*.txt)
-#MD_FILES_WITH_REFS := $(shell egrep -l '@' *.md)
+#MD_FILES_WITH_REFS := 
+MD_FILES_ORDERED = $(shell cat order.txt | tr '\n' ' ')
 
 
 ## MD_FILES   =  chap1.md   chap2.md   ...
@@ -86,7 +87,7 @@ index.html: index.md meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
-$(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
+$(OUTPUT).html: order.txt $(MD_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -99,7 +100,7 @@ $(OUTPUT).html: $(MD_FILES) $(HTML_DEPS) meta.yaml
 		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES) $(OPS_FULLHTML) meta.yaml
+		-o $@ $(MD_FILES_ORDERED) $(OPS_FULLHTML) meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
@@ -183,7 +184,7 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 #	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
-$(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
+$(OUTPUT).tex: order.txt $(MD_FILES) $(PDF_DEPS) meta.yaml
 	@if [ "$(DOREFS)" = "true" ] ; \
 	then \
 		pandoc \
@@ -195,7 +196,7 @@ $(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
 			--filter pandoc-citeproc \
-			-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml ; \
+			-o $@ $(MD_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	else \
 		pandoc \
 			-t latex \
@@ -204,7 +205,7 @@ $(OUTPUT).tex: $(MD_FILES) $(PDF_DEPS) meta.yaml
 			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
-			-o $@ $(MD_FILES) $(OPS_FULLPDF) meta.yaml ; \
+			-o $@ $(MD_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	fi
 	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."

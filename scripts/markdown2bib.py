@@ -157,6 +157,12 @@ def main():
                 errors.append(k)
 
         print ''
+
+        allcitations.sort()
+        for a in allcitations:
+            print a
+
+        print ''
         print '%i entries found.' % len(results)
         print '- %3i articles' % len(articles)
         print '- %3i incollections' % len(incollections)
@@ -164,10 +170,6 @@ def main():
         print '- %3i miscs' % len(miscs)
         print '- %3i errors' % len(errors)
         print ''
-
-        allcitations.sort()
-        for a in allcitations:
-            print a
 
         ## write header
         timestamp = time.strftime('%Y-%m-%d-%Hh%M')
@@ -221,7 +223,6 @@ def main():
 
         f_out.close()
 
-        print ''
         print '%s written.' % ops.output
         print ''
 
