@@ -82,6 +82,22 @@ def main():
     ## parse data
     df = pd.read_csv(infile, parse_dates=['Date'], index_col='Date')
 
+    ## get the last day
+    t2 = df.last_valid_index()
+    d2 = t2.date()
+    last_words = df['Words'][t2]
+    last_pages = df['Pages'][t2]
+
+    ## find data from the previous day
+    prev_words = 0
+    prev_pages = 0
+    for t1 in reversed(df.index):
+        d1 = t1.date()
+        if d1 != d2:
+            prev_words = df['Words'][t2]
+            prev_pages = df['Pages'][t2]
+            break
+
     ## make words plot
     ax = df['Words'].plot(marker='o',markersize=8)
 #    ax.set_xlabel("Date")
@@ -91,10 +107,7 @@ def main():
     fig.savefig('words.png')
     plt.close()
 
-    df_today = df.last('1D')
-    start_words = df_today.last('1D')['Words'][0]
-    end_words = df_today.last('1D')['Words'][-1]
-    print '%i words, %i written today' % (end_words, end_words-start_words)
+    print '%i words, %i written today' % (last_words, last_words-prev_words)
 
     ## make pages plot
     ax = df['Pages'].plot(marker='o',markersize=8)
@@ -105,11 +118,7 @@ def main():
     fig.savefig('pages.png')
     plt.close()
 
-    start_pages = df_today.last('1D')['Pages'][0]
-    end_pages = df_today.last('1D')['Pages'][-1]
-    print '%i pages, %i written today' % (end_pages, end_pages-start_pages)
-
-
+    print '%i pages, %i written today' % (last_pages, last_pages-prev_pages)
 
 
 #------------------------------------------------------------------------------
