@@ -82,22 +82,33 @@ def main():
     ## parse data
     df = pd.read_csv(infile, parse_dates=['Date'], index_col='Date')
 
-    ## make plot
-    ax = df['Pages'].plot(marker='o',markersize=8)
-#    ax.set_xlabel("Date")
-    ax.set_xlabel("")
-    ax.set_ylabel("Pages")
-    fig = ax.get_figure()
-    fig.savefig('pages.png')
-
-    plt.close()
-
+    ## make words plot
     ax = df['Words'].plot(marker='o',markersize=8)
 #    ax.set_xlabel("Date")
     ax.set_xlabel("")
     ax.set_ylabel("Words")
     fig = ax.get_figure()
     fig.savefig('words.png')
+    plt.close()
+
+    df_today = df.last('1D')
+    start_words = df_today.last('1D')['Words'][0]
+    end_words = df_today.last('1D')['Words'][-1]
+    print '%i words, %i written today' % (end_words, end_words-start_words)
+
+    ## make pages plot
+    ax = df['Pages'].plot(marker='o',markersize=8)
+#    ax.set_xlabel("Date")
+    ax.set_xlabel("")
+    ax.set_ylabel("Pages")
+    fig = ax.get_figure()
+    fig.savefig('pages.png')
+    plt.close()
+
+    start_pages = df_today.last('1D')['Pages'][0]
+    end_pages = df_today.last('1D')['Pages'][-1]
+    print '%i pages, %i written today' % (end_pages, end_pages-start_pages)
+
 
 
 
