@@ -94,8 +94,8 @@ def main():
     for t1 in reversed(df.index):
         d1 = t1.date()
         if d1 != d2:
-            prev_words = df['Words'][t2]
-            prev_pages = df['Pages'][t2]
+            prev_words = df['Words'][t1]
+            prev_pages = df['Pages'][t1]
             break
 
     ## make words plot

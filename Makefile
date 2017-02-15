@@ -253,7 +253,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 	then \
 		printf "%s,%s,%s\n" "Date" "Words" "Pages" >> $@ ; \
 	fi
-	@printf "%16s, %8i, %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[1]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
+	@printf "%16s, %8i, %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[2]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
 	$(PRINT) "make $@ done."
 
 wordcount/words.png: wordcount/wc.csv
