@@ -29,13 +29,13 @@ If you add multiple appendices, perhaps you want to separate them from the main 
 Special files
 -------------------------------------------------------------------------------
 
-There are a few special files that help steer the execution of `markdown-memo`
+There are a few special files that help steer the execution of markdown-memo
 or are otherwise exceptional.
 
 Documentation:
 
 -   `README.md` - Please empty this file and adapt it to your project.
--   `VERSIONS.md` - Documents the chronology of `markdown-memo` versions.  Feel free to delete or adapt this to your project.
+-   `VERSIONS.md` - Documents the chronology of markdown-memo versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 

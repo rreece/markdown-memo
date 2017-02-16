@@ -171,13 +171,13 @@ See: [pages.github.com](https://pages.github.com/).
 Special files
 ----------------------------------
 
-There are a few special files that help steer the execution of `markdown-memo`
+There are a few special files that help steer the execution of markdown-memo
 or are otherwise exceptional.
 
 Documentation:
 
 -   `README.md` - This file.  Please empty this file and adapt it to your project.
--   `VERSIONS.md` - Documents the chronology of `markdown-memo` versions.  Feel free to delete or adapt this to your project.
+-   `VERSIONS.md` - Documents the chronology of markdown-memo versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 
@@ -236,7 +236,7 @@ Wish list / TODOs
 -   ~~Find and replace such that LaTeX figures use pdf figures while html uses raster png/jpg.~~
 -   ~~Optionally make a TOC automatically in the html.~~
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
--   ~~Finish the basic documentation in the `markdown-memo` example document.~~
+-   ~~Finish the basic documentation in the markdown-memo example document.~~
 -   ~~Make a template that works with [REVTeX](https://journals.aps.org/revtex).~~
 -   Fix TOC spacing issues with REVTeX.
 -   Make the use of tmp files more robust.
