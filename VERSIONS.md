@@ -1,3 +1,9 @@
+v0.22  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   February 16, 2017
+-   Fixed bugs in wordcount, was line count.
+-   Word-count and page-count now printed at the end of make pdf.
+
 v0.21  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   January 24, 2017
