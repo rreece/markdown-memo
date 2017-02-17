@@ -1,0 +1,113 @@
+---
+## required meta-data -------------------------------------
+output: example
+title: markdown-memo example document
+titleshort: markdown-memo example document
+subtitle: make writing easier and more productive
+authorshort: R. Reece and J. Coauthor
+author1: Ryan Reece
+email1: ryan.reece@cern.ch
+homepage1: http://reece.scipp.ucsc.edu
+affiliation1: University of California, Santa Cruz
+author2: Jane Coauthor
+email2: jane.coauthor@blah.com
+homepage2: http://jane.blah.com
+affiliation2: Joe University
+#author3: Joe Coauthor
+#email3: joe.coauthor@blah.com
+#homepage3: http://joe.blah.com
+#affiliation3: Joe University
+author:
+    -   |
+        [Ryan Reece](http://reece.scipp.ucsc.edu/)[^ReeceSCIPP]
+
+        [^ReeceSCIPP]: University of California, Santa Cruz / <ryan.reece@cern.ch> / <http://reece.scipp.ucsc.edu>
+    -   |
+        Jane Coauthor[^Jane]
+
+        [^Jane]: Joe University, Joeville / <jane@joe.edu> / <http://jane.joe.edu>
+#    -   |
+#        Joe Coauthor[^Joe]
+#
+#        [^Joe]: Joe University, Joeville / <joe@joe.edu> / <http://joe.joe.edu>
+date: \today
+#date: 'January 1, 2017'
+#docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
+#draft: true
+#license: ''
+#license: '&copy; 2015-2017 Ryan Reece. All rights reserved.'
+license: '<span class="copy-left">&copy;</span> 2015-2017 Ryan Reece. Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
+dorefs: true
+submitted: ''
+#submitted: 'Submitted to My Favorite Journal'
+#submitted: 'Journal reference: *Phys. Rev. D 92*, 072001 (2015)'
+## optional -----------------------------------------------
+abstract: |
+    This is an example document discussing and demonstrating
+    how to use the markdown-memo package,
+    meant to aid quick development of quality html and pdf
+    documents from simple Markdown markup.
+    Markdown-memo is developed by Ryan Reece at
+    [https://github.com/rreece/markdown-memo](https://github.com/rreece/markdown-memo).
+keywords: academic writing, blogging, digital humanities, LaTeX, Markdown, open publishing, open science, productivity, technical writing, typesetting, writing
+citation-style: templates/american-physics-society.csl
+figureTitle: "Figure"
+tableTitle: "Table"
+figPrefix: "Figure"
+eqnPrefix: "eq."
+secPrefix: "Section"
+tblPrefix: "Table"
+## html options -------------------------------------------
+css: 'templates/markdown-memo.css'
+#css: 'templates/markdown-memo-alt.css'
+email: '<img class="email" src="img/my-email.png" alt="my email address"/>'
+#email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
+#disqus_shortname: 'my-sites-disqus-name'
+#description: 'Write a description of this page.'
+favicon: '/img/markdown-favicon-196x196.png'
+#google_analytics_tracking_id: 'UA-XXXXXXXX-X'
+mathjax: true
+navigation: true
+#thumbnail: 'http://rreece.github.io/sw/markdown-memo/img/ATLAS-local-p0-vs-mH.png'
+## pdflatex options ---------------------------------------
+#documentclass: 'article'
+documentclass: 'revtex4-1'
+revtex: true
+classoption:
+#    -   'a4paper'
+    -   'letterpaper'
+    -   'openany'
+    -   'twoside'
+# revtex options ##
+    -   'aps'
+    -   'prl'
+#    -   'aip'
+#    -   'apl'
+#    -   'twocolumn'
+#    -   'preprint'
+    -   'reprint'
+    -   'nofootinbib'
+    -   'superscriptaddress'
+    -   'showkeys'
+#fancyhdr: true
+fontsize: '11pt'
+fontfamily: 'mathpazo'
+#geometry: 
+#    -   'paperwidth=8.5in'
+#    -   'paperheight=11in'
+#    -   'top=1in'
+#    -   'bottom=1in'
+#    -   'left=1.25in'
+#    -   'right=1.25in'
+#    -   'headheight=14pt'
+#    -   'headsep=14pt'
+#linestretch: '1.1'
+maketitle: true
+numbersections: true
+#spacing: '1.2'
+toc: false
+tocdepth: 3
+lof: false
+lot: false
+...
+
