@@ -1,0 +1,517 @@
+/*** Ryan's CSS style for markdown notes ***/
+
+/* colors used -------------------------------------------------
+-   #4ABDAC - fresh green - background
+-   #444444 - gray - main text
+-   #000000 - black - headers
+-   #0099ff - link
+-   red - link hover
+-   purple  - link visited
+-   #cccccc - light gray - quote block, caption
+-   white   - ...
+
+-   #cccccc
+
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-family: Georgia, Palatino, serif;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+*/
+
+/* text defaults ------------------------------------------------- */
+* { margin: 0; border: 0; padding: 0; }
+
+body {
+    background: #4ABDAC;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0;
+    border: 0;
+    border-bottom: 80px solid #4ABDAC;
+    padding: 0;
+    width: auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+}
+
+/* pargarphs and lists --------------------------------------------- */
+p, ol, ul {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: 0;
+    padding: 0;
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 22px;
+}
+p {
+    text-align: justify;
+}
+ol, ul {
+    /*text-align: left;*/
+    text-align: justify;
+}
+/*ol,ul > ol,ul {*/
+ol ol, ul ul, ol ul, ul ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+li {
+    margin-left: 36px;
+}
+ol p, ul p {
+    /*text-align: left;*/
+    text-align: justify;
+}
+
+div.preline {
+    white-space: pre-line;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: 0;
+    padding: 0;
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* hang indents on references */
+/* bibliography from md -> html */
+div.references p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
+    text-align: left;
+}
+
+/* bibliography from md -> total doc.html */
+h1[id="references"] ~ div p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
+    text-align: left;
+}
+
+/* bibliography from md -> mds -> html */
+h1[id="bibliography"] ~ p, h2[id="bibliography"] ~ p, h1[id="references"] ~ p, h2[id="references"] ~ p {
+    margin: 0;
+    padding-left: 36px ;
+    text-indent: -36px ;
+    text-align: left;
+}
+
+/* links ---------------------------------------------------------- */
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+/* site header / footer ---------------------------------------------- */
+div#site_header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #444444;
+    /* set same as .block class bellow */
+    display:block;
+    clear: both;
+    width: auto;
+    margin: 0;
+    border: 0;
+    border-top: 20px solid #4ABDAC;
+    padding: 8px 10px;
+}
+
+div#site_header a {
+    text-decoration: none;
+    color: #444444;
+}
+
+div#site_footer {
+    font-size: 16px;
+    color: #444444;
+    /* set same as .block class bellow */
+    display:block;
+    clear: both;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 20px solid #4ABDAC;
+    padding: 4px 10px;
+}
+
+div#site_footer p {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+div#site_footer img {
+    display: inline;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+div#site_footer a:visited {
+    color: #0099ff;
+}
+
+div#site_footer a:hover {
+    color: red;
+}
+
+img.email {
+    /*vertical-align: text-bottom;*/
+}
+
+div#disqus_stuff {
+    padding: 4px 10px;
+}
+
+
+/* headers ------------------------------------------------------- */
+h1, h2 {
+    margin-top: 36px;
+    margin-bottom: 24px;
+}
+h3, h4, h5 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+h1 {
+    font-size: 42px;
+}
+h2 {
+    border-bottom: 2px solid #444444;
+    font-size: 36px;
+}
+h3 {
+    font-size: 28px;
+}
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+h5 {
+    font-size: 18px;
+    font-style: italic;
+}
+h1, h2, h3 {
+    color: #000000;
+    font-weight: normal;
+}
+
+p.subtitle {
+    font-size: 28px;
+    font-style: italic;
+}
+
+div.authors {
+    margin-top: 24px;
+    margin-top: 24px;
+}
+div.authors p {
+    font-size: 20px;
+}
+
+div.abstract {
+    font-size: 16px;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    margin-left:  auto;
+    margin-right: auto;
+    max-width: 600px;
+}
+
+
+/* blocks ---------------------------------------------------------- */
+pre {
+    border-top: 2px solid black;
+    border-right: 2px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+    border-left: 2px solid black;
+    padding: 10px 10px;
+    max-width: 700px;
+    white-space: pre-wrap;
+    background-color: #444444;
+    color: white;
+}
+code {
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    line-height: 16px;
+    font-size: 12px;
+    max-width: 700px;
+    text-align: left;
+}
+blockquote {
+    margin:0;
+    border:0;
+    padding:0;
+    border-left:12px solid #cccccc;
+    padding-left:24px;
+    max-width: 664px; /* 700 - (12+24) */
+    color: black;
+    text-align: justify;
+}
+blockquote p {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* hr. ---------------------------------------------------------- */
+hr {
+    margin: 36px auto 36px 0;
+    border: 0;
+    padding: 0;
+    color: #4ABDAC;
+    background-color: #4ABDAC;
+    height: 2px; 
+    text-align: left;
+}
+
+div#mainbody hr {
+    color: #444444;
+    background-color: #444444;
+    height: 2px; 
+}
+
+/* img ---------------------------------------------------------- */
+img {
+    display: block;
+    max-width:  700px;
+    max-height: 500px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+img.tallimg {
+    max-height: none;
+}
+
+img.hidden {
+    display: none;
+}
+
+div.floatleft img, div.floatright img {
+    margin: 0;
+}
+
+/* table ---------------------------------------------------------- */
+table {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+}
+th {
+    padding: 4px 12px 4px 12px;
+}
+td {
+    padding: 2px 12px 2px 12px;
+    vertical-align: top;
+}
+
+/* mainbody ---------------------------------------------------------- */
+div#mainbody
+{
+    background: white;
+/*    background: #cccccc;*/
+    padding: 10px;
+}
+
+/* nav ---------------------------------------------------------- */
+div.nav
+{
+    display: block;
+    /*float: right;*/
+    margin: 0;
+    border: 0;
+    padding: 5px 10px;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    color: #cccccc;
+}
+
+div.nav ul
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    list-style-type: square;
+}
+
+div.nav ul li
+{
+    display: inline;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 16px;
+    margin-right: 5px;
+    padding: 0;
+    text-transform: lowercase;
+}
+
+div.nav a
+{
+    text-decoration: none;
+    color: #0099ff;
+}
+div.nav a:visited {
+    color: #0099ff;
+}
+div.nav a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+/* footnotes -------------------------------------------------- */
+a.footnoteRef {
+    position:relative;
+    font-size: 16px;
+    text-decoration: none;
+}
+a.footnoteRef:before {
+    content: "\00a0[";
+}
+a.footnoteRef:after {
+    content: "]";
+}
+a.footnoteRef sup {
+    vertical-align: baseline;
+}
+
+.footnotes ol li p
+{
+    margin: 0;
+}
+
+/* footer -------------------------------------------------- */
+.signature {
+    position: relative;
+    float: left;
+    margin: 5px 0;
+}
+
+.license {
+    position: relative;
+    float: right;
+    margin: 5px 0;
+}
+
+.license p{
+    text-align: right;
+}
+
+/* Copyleft symbol done with <span class="copy-left">&copy;</span>
+   from: https://medium.com/@mmeida/how-to-insert-the-copyleft-symbol-f093113cc2cf  */
+.copy-left { display: inline-block; text-align: right; margin: 0px; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
+
+/* classes ---------------------------------------------------------- */
+.floatright
+{
+    float: right;
+    clear: right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border: 0;
+    padding: 4px;
+    background-color: #cccccc;
+}
+
+.floatleft
+{
+    float: left;
+    clear: left;   
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 0;
+    padding: 4px;
+    background-color: #cccccc;
+}
+
+.block
+{
+    display: block;
+    clear: both;
+    width: auto;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    border-top: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.clearblock
+{
+    display: block;
+    clear: both;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.caption, table caption
+{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    text-align: justify;
+    font-size: 14px;
+    color: #444444;
+    line-height: 15px;
+}
+
+
+/* click for more ---------------------------------------------------- */
+/* To use, in your md, do 
+
+<div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
+<div id="test1" class="more">
+
+Put the paragraph you want to hide here.
+
+</div>
+*/
+div.clickmore a
+{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    color: #444444;
+}
+div.clickmore a:hover {
+    color: red;
+}
+div.clickmore a.open:before
+{
+    font-family: monospace;
+    content: "[-] ";
+}
+div.clickmore a.closed:before
+{
+    font-family: monospace;
+    content: "[+] ";
+}
+div.more
