@@ -70,9 +70,11 @@ $endif$
 
 <body>
 
+<hr/>
+<!--
 <div id="site_header">
-&nbsp;
 </div>
+-->
 
 <!--
 <div id="beforebody">
@@ -85,7 +87,9 @@ $endfor$
 <div id="mainbody">
 
 <!--- NOTE: h1 already included. Start writing index.md with an h2 -->
+$if(title)$
 <h1>$title$</h1>
+$endif$
 
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
