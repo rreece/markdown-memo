@@ -428,8 +428,9 @@ a.footnoteRef sup {
     float: right;
     clear: right;
     margin-bottom: 20px;
-    margin-left: 20px;
+ /*   margin-left: 20px; */
     border: 0;
+    border-left: 20px solid white;
     padding: 4px;
     background-color: #cccccc;
 }
@@ -439,8 +440,9 @@ a.footnoteRef sup {
     float: left;
     clear: left;   
     margin-bottom: 20px;
-    margin-right: 20px;
+/*    margin-right: 20px; */
     border: 0;
+    border-right: 20px solid white;
     padding: 4px;
     background-color: #cccccc;
 }
