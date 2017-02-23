@@ -35,8 +35,8 @@ date: \today
 docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
 draft: true
 #license: ''
-#license: '&copy; 2015-2017 Ryan Reece. All rights reserved.'
-license: '<span class="copy-left">&copy;</span> 2015-2017 Ryan Reece. Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
+#license: '&copy; 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). All rights reserved.'
+license: '<span class="copy-left">&copy;</span> 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
 dorefs: true
 submitted: ''
 #submitted: 'Submitted to My Favorite Journal'
