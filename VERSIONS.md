@@ -1,3 +1,9 @@
+v0.24  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   February 24, 2017
+-   More css improvements.
+-   Shared on twitter.
+
 v0.23  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   February 24, 2017
