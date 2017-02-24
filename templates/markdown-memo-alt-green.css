@@ -1,7 +1,7 @@
 /*** Ryan's CSS style for markdown notes ***/
 
 /* colors used -------------------------------------------------
--   #4ABDAC - fresh green - background
+-   #566629 - green - background
 -   #444444 - gray - main text
 -   #000000 - black - headers
 -   #0099ff - link
@@ -21,13 +21,13 @@
 * { margin: 0; border: 0; padding: 0; }
 
 body {
-    background: #4ABDAC;
+    background: #566629;
     margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
     margin-left: 0;
     border: 0;
-    border-bottom: 80px solid #4ABDAC;
+    border-bottom: 80px solid #566629;
     padding: 0;
     width: auto;
     font-family: Georgia, Palatino, serif;
@@ -118,36 +118,36 @@ a:hover {
 
 /* site header / footer ---------------------------------------------- */
 div#site_header {
-    background: #4ABDAC;
+    background: #566629;
     font-size: 24px;
     font-weight: bold;
-    color: #444444;
+    color: #CCCCCC;
     /* set same as .block class bellow */
     display:block;
     clear: both;
     width: auto;
     margin: 0;
     border: 0;
-    border-top: 20px solid #4ABDAC;
+    border-top: 20px solid #566629;
     padding: 8px 10px;
 }
 
 div#site_header a {
     text-decoration: none;
-    color: #444444;
+    color: #CCCCCC;
 }
 
 div#site_footer {
-    background: #4ABDAC;
+    background: #566629;
     font-size: 16px;
-    color: #444444;
+    color: #CCCCCC;
     /* set same as .block class bellow */
     display:block;
     clear: both;
     width: auto;
     margin: 0;
     border: 0;
-    border-bottom: 20px solid #4ABDAC;
+    border-bottom: 20px solid #566629;
     padding: 4px 10px;
 }
 
@@ -178,7 +178,7 @@ img.email {
 
 div#disqus_stuff {
     padding: 4px 10px;
-    background: #4ABDAC;
+    background: #566629;
 }
 
 
@@ -276,8 +276,8 @@ hr {
     margin: 36px auto 36px 0;
     border: 0;
     padding: 0;
-    color: #4ABDAC;
-    background-color: #4ABDAC;
+    color: #566629;
+    background-color: #566629;
     height: 2px; 
     text-align: left;
 }
@@ -338,6 +338,8 @@ div#pagecontainer
 {
     padding: 20px 10px;
     max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* nav ---------------------------------------------------------- */
@@ -349,8 +351,8 @@ div.nav
     border: 0;
     padding: 5px 10px;
     font-family: Consolas, Monaco, "Andale Mono", monospace;
-    color: #444444;
-    background: #4ABDAC;
+    color: #CCCCCC;
+    background: #566629;
 }
 
 div.nav ul
