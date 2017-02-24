@@ -134,7 +134,6 @@ div#site_header a {
 }
 
 div#site_footer {
-    font-size: 16px;
     color: #444444;
     /* set same as .block class bellow */
     display:block;
@@ -149,6 +148,7 @@ div#site_footer {
 }
 
 div#site_footer p {
+    font-size: 14px;
     margin: 0;
     border: 0;
     padding: 0;

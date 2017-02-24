@@ -35,8 +35,8 @@ date: \today
 docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
 draft: true
 #license: ''
-#license: '&copy; 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). All rights reserved.'
-license: '<span class="copy-left">&copy;</span> 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
+#license: '&copy; 2015-2017 Ryan Reece. All rights reserved.'
+license: '<span class="copy-left">&copy;</span> 2015-2017 Ryan Reece. Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
 dorefs: true
 submitted: ''
 #submitted: 'Submitted to My Favorite Journal'
@@ -64,7 +64,7 @@ email: '<img class="email" src="img/my-email.png" alt="my email address"/>'
 #email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
 #disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this page.'
-favicon: '/img/markdown-favicon-196x196.png'
+favicon: 'img/markdown-favicon-196x196.png'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 navigation: true
@@ -102,12 +102,13 @@ geometry:
     -   'headheight=14pt'
     -   'headsep=14pt'
 #linestretch: '1.1'
+lof: false
+lot: false
 maketitle: true
 numbersections: true
+parskip: '11pt'
 #spacing: '1.2'
 toc: true
 tocdepth: 3
-lof: false
-lot: false
 ...
 
