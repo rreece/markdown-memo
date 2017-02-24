@@ -118,6 +118,7 @@ a:hover {
 
 /* site header / footer ---------------------------------------------- */
 div#site_header {
+    background: black;
     font-size: 24px;
     font-weight: bold;
     color: #CCCCCC;
@@ -137,14 +138,14 @@ div#site_header a {
 }
 
 div#site_footer {
+    background: black;
     font-size: 16px;
     color: #CCCCCC;
     /* set same as .block class bellow */
     display:block;
     clear: both;
     width: auto;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 0;
     border: 0;
     border-bottom: 20px solid black;
     padding: 4px 10px;
@@ -177,12 +178,13 @@ img.email {
 
 div#disqus_stuff {
     padding: 4px 10px;
+    background: black;
 }
 
 
 /* headers ------------------------------------------------------- */
 h1, h2 {
-    margin-top: 36px;
+    margin-top: 24px;
     margin-bottom: 24px;
 }
 h3, h4, h5 {
@@ -330,8 +332,12 @@ td {
 div#mainbody
 {
     background: white;
-/*    background: #cccccc;*/
-    padding: 10px;
+}
+
+div#pagecontainer
+{
+    padding: 20px 10px;
+    max-width: 700px;
 }
 
 /* nav ---------------------------------------------------------- */
@@ -344,6 +350,7 @@ div.nav
     padding: 5px 10px;
     font-family: Consolas, Monaco, "Andale Mono", monospace;
     color: #cccccc;
+    background: black;
 }
 
 div.nav ul
@@ -517,3 +524,13 @@ div.clickmore a.closed:before
     content: "[+] ";
 }
 div.more
+{
+    display: none;
+    clear: both;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-top: 2px #cccccc dashed;
+    border-bottom: 2px #cccccc dashed;
+}
+
+

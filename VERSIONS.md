@@ -1,3 +1,8 @@
+v0.23  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   February 24, 2017
+-   Some css and html template cleanup.
+
 v0.22  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   February 16, 2017
