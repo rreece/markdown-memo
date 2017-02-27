@@ -172,7 +172,7 @@ div#site_footer a:hover {
 img.email {
     display: inline;
     margin: 0;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
 
 /*
