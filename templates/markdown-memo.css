@@ -402,6 +402,7 @@ a.footnoteRef sup {
 .footnotes ol li p
 {
     margin: 0;
+    font-size: 14px;
 }
 
 /* footer -------------------------------------------------- */
