@@ -1,3 +1,9 @@
+v0.26  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   February 28, 2017
+-   bugfix in markdown2bib.py
+-   links now underline only on hover
+
 v0.25  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   February 28, 2017
