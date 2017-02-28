@@ -107,13 +107,13 @@ a {
     margin: 0;
     padding: 0;
     vertical-align: baseline;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 a:visited {
     color: purple;
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: red;
 }
 
