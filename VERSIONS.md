@@ -1,3 +1,10 @@
+v0.25  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   February 28, 2017
+-   Conclusions -> Conclusion
+-   Shrinked footnote size to 14px
+-   markdown2bib.py fixes for et al.
+
 v0.24  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   February 24, 2017
