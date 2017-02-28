@@ -50,13 +50,13 @@ in `templates/` and configurable through `meta.yaml`,
 and unless you want to,
 you shouldn't have to worry about them.
 
-For example, [see what changes](http://rreece.github.io/sw/markdown-memo-alt/01-introduction.html)
+For example, [**see what changes**](http://rreece.github.io/sw/markdown-memo-alt/01-introduction.html)
 when this document is created with
 
     css: 'templates/markdown-memo-alt.css'
 
 set in `meta.yaml`, instead of the css file used in the
-[default version](http://rreece.github.io/sw/markdown-memo/01-introduction.html):
+[**default version**](http://rreece.github.io/sw/markdown-memo/01-introduction.html):
 
     css: 'templates/markdown-memo.css'
 
