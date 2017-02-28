@@ -102,13 +102,14 @@ a {
     margin: 0;
     padding: 0;
     vertical-align: baseline;
+    text-decoration: none;
 }
 a:visited {
     color: purple;
 }
 a:hover {
-    text-decoration: none;
     color: red;
+    text-decoration: underline;
 }
 
 /* site header / footer ---------------------------------------------- */
