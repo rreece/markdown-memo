@@ -7,7 +7,7 @@ Getting started
 Checking-out the template
 -------------------------------------------------------------------------------
 
-Check out `markdown-memo` with a [simple git command](http://rogerdudler.github.io/git-guide/),
+Check out markdown-memo with a [simple git command](http://rogerdudler.github.io/git-guide/),
 like:
 
     git clone https://github.com/rreece/markdown-memo.git
@@ -15,11 +15,11 @@ like:
 Some basic instructions are given in the [README.md](https://github.com/rreece/markdown-memo/blob/master/README.md).
 They are expanded on here.
 
-Basically, once you have cloned `markdown-memo`, if you satisfy its requirements
+Basically, once you have cloned markdown-memo, if you satisfy its requirements
 you should be able to call `make` and receive reasonable html output,
 and call `make pdf` and receive a reasonable pdf.
 
-Feel free to rename `markdown-memo` as whatever is suitable to your project,
+Feel free to rename markdown-memo as whatever is suitable to your project,
 and delete the example `*.md` files.
 
 
@@ -144,7 +144,7 @@ In addition to writing the basic `md` files for your project, you need to write
 a metadata file: `meta.yaml`.  See the example metadata there.
 
 Then you can build your document.
-A lot of the inner-workings of `markdown-memo` are done in the `Makefile`.
+A lot of the inner-workings of markdown-memo are done in the `Makefile`.
 
 -   Call `make` or `make html` to generate valid xhtml. For example, [this document](http://rreece.github.io/sw/markdown-memo/).
 -   Call `make pdf` to generate a pdf document. For example, [this document](http://rreece.github.io/sw/markdown-memo/example.pdf).
