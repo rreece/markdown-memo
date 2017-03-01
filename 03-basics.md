@@ -82,7 +82,7 @@ The following is a **quote block**.
 
 A **code block** (used throughout these examples) is just indented with 4 spaces, like this:
 
-        def shortBubbleSort(alist):
+        def bubble_sort(alist):
             exchanges = True
             passnum = len(alist)-1
             while passnum > 0 and exchanges:
@@ -96,12 +96,12 @@ A **code block** (used throughout these examples) is just indented with 4 spaces
                passnum = passnum-1
     
         alist=[20,30,40,90,50,60,70,80,100,110]
-        shortBubbleSort(alist)
+        bubble_sort(alist)
         print(alist)
 
 which makes:
 
-    def shortBubbleSort(alist):
+    def bubble_sort(alist):
         exchanges = True
         passnum = len(alist)-1
         while passnum > 0 and exchanges:
@@ -115,7 +115,7 @@ which makes:
            passnum = passnum-1
     
     alist=[20,30,40,90,50,60,70,80,100,110]
-    shortBubbleSort(alist)
+    bubble_sort(alist)
     print(alist)
 
 Maybe you want to refer to **code inline** like this with backticks:
