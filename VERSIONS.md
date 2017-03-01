@@ -1,3 +1,8 @@
+v0.27  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   March 1, 2017
+-   color fixes in email images
+-   This version is finally looking pretty polished.
 v0.26  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   February 28, 2017
