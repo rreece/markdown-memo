@@ -1,3 +1,8 @@
+v0.28  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   March 1, 2017
+-   fixes in make_bib_index.py
+
 v0.27  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   March 1, 2017
