@@ -118,16 +118,37 @@ def write_results(results):
     for citation in citations:
         ref = results[citation]
         shortauthor = citation.split('_')[0] + citation.split('_')[1] # author + year
-#        f_out.write('1.  %s[^%s]\n' % (ref, shortauthor))
+        sa = shortauthor
+        if footnotes.has_key(shortauthor):
+            ch = shortauthor[-1]
+            if ord(ch) >= 97:
+                sa = shortauthor[:-1] + chr(ord(ch)+1)
+            else:
+                ch = 'a'
+                old_citation = footnotes.pop(shortauthor, None)
+                old_shortauthor = shortauthor + ch
+                footnotes[old_shortauthor] = old_citation
+                sa = shortauthor + chr(ord(ch)+1)
+        footnotes[sa] = citation
+
+    footkeys = footnotes.keys()
+    footkeys.sort()
+
+    for shortauthor in footkeys:
+        citation = footnotes[shortauthor]
         f_out.write('1.  `%s`[^%s]\n' % (citation, shortauthor))
-        footnotes[shortauthor] = citation
+
     f_out.write('\n')
-    for shortauthor, citation in footnotes.iteritems():
+
+    for shortauthor in footkeys:
+        citation = footnotes[shortauthor]
         f_out.write('[^%s]: @%s\\.\n' % (shortauthor, citation))
+
     f_out.write('\n')
     f_out.write('<!-- REFERENCES -->\n')
     f_out.write('\n')
     f_out.close()
+
     print ''
     print '%s written. %s items.' % (out, len(footnotes))
     print ''
