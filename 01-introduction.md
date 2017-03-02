@@ -16,7 +16,7 @@ You just want to throw your ideas in some plain text files and call `make`.
 This package makes it very easy to compile text taken in
 [Markdown](https://daringfireball.net/projects/markdown/)
 to valid xhtml or to a pdf via LaTeX. It can be used to make simple webpages quickly,
-for example:   
+for example (this site):   
 <http://rreece.github.io/sw/markdown-memo/>
 
 This same document compiled to a pdf can be found here:   

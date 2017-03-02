@@ -78,6 +78,8 @@ Let's try citing various kinds of references.
 Feynman said some important things[^Feynman1965].
 But everything is a footnote to Plato[^Plato2000].
 Van[^vanFraassen1980] is a cool cat too.
+A reference with more than 5 authors should be automatically shortened with
+*et al.*[^Guest2016]
 
 In order for a References section to be generated per html page, you need to
 add a special html comment near the end of your Markdown file for that page:
@@ -97,6 +99,8 @@ is set in `meta.yaml`.
 [^Feynman1963]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
 
 [^Feynman1965]: @Feynman_1965_The_Development_of_the_Space_Time_View_of_Quantum\.
+
+[^Guest2016]: @Guest_2016_Jet_flavor_classification_in_high_energy_physics\.
 
 [^Miller2014]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
 
