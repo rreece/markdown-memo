@@ -621,6 +621,10 @@ def clean_author(s):
             assert reo.group('a1')
 #            s = '%s and others' % reo.group('a1')
             s = '%s \\emph{et al}.' % reo.group('a1')
+        elif reo.group('a5'):
+            assert reo.group('a1')
+#            s = '%s and others' % reo.group('a1')
+            s = '%s \\emph{et al}.' % reo.group('a1')
         else:
             authors = []
             if reo.group('a1'):

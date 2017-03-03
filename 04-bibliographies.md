@@ -78,7 +78,7 @@ Let's try citing various kinds of references.
 Feynman said some important things[^Feynman1965].
 But everything is a footnote to Plato[^Plato2000].
 Van[^vanFraassen1980] is a cool cat too.
-A reference with more than 5 authors should be automatically shortened with
+A reference with more than 4 authors should be automatically shortened with
 *et al.*[^Guest2016]
 
 In order for a References section to be generated per html page, you need to
