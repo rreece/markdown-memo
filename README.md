@@ -239,6 +239,7 @@ Wish list / TODOs
 -   ~~Finish the basic documentation in the markdown-memo example document.~~
 -   ~~Make a template that works with [REVTeX](https://journals.aps.org/revtex).~~
 -   Fix TOC spacing issues with REVTeX.
+-   Make a template that works with [JHEP](https://jhep.sissa.it/jhep/help/JHEP_TeXclass.jsp).
 -   Make the use of tmp files more robust.
 -   Test and explain the installation and requirements better on different systems.
 -   Fix TOC issues when calling `make ohtml`.
