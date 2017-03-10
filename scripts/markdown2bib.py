@@ -74,7 +74,7 @@ rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+In",
-                    r"(\s+(?P<editor>[^()]+)\s+\(Eds?\.\)[,.]?)?",
+                    r"(\s+(?P<editor>[^()*]+)(\s+\(Eds?\.\))?[,.]?)?",
                     r"(?!\s+https?://)(\s+\*(?P<booktitle>[^()]+)\*[,.]?)",
                     r"(\s+\(((?P<edition>\d+)\S+\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
                     r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
