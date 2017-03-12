@@ -10,7 +10,7 @@
 ## user config
 ##-----------------------------------------------------------------------------
 
-export TEXINPUTS := .//:./style//:./tex//:${TEXINPUTS}
+export TEXINPUTS := .//:./templates//:./tex//:${TEXINPUTS}
 
 OUTPUT := $(shell cat meta.yaml | grep output | awk '{split($$0,a,":"); print a[2]}' | xargs)
 DOREFS := $(filter $(shell cat meta.yaml | grep ^dorefs | awk '{split($$0,a,":"); print a[2]}' | xargs),true)
