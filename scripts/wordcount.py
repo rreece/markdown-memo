@@ -87,6 +87,12 @@ def main():
     d2 = t2.date()
     last_words = df['Words'][t2]
     last_pages = df['Pages'][t2]
+    if isinstance(last_words, pd.core.series.Series):
+        last_words = last_words[0]
+    if isinstance(last_pages, pd.core.series.Series):
+        last_pages = last_pages[0]
+    last_words = int(last_words)
+    last_pages = int(last_pages)
 
     ## find data from the previous day
     prev_words = 0
@@ -96,6 +102,12 @@ def main():
         if d1 != d2:
             prev_words = df['Words'][t1]
             prev_pages = df['Pages'][t1]
+            if isinstance(prev_words, pd.core.series.Series):
+                prev_words = prev_words[0]
+            if isinstance(prev_pages, pd.core.series.Series):
+                prev_pages = prev_pages[0]
+            prev_words = int(prev_words)
+            prev_pages = int(prev_pages)
             break
 
     ## make words plot
