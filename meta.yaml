@@ -32,8 +32,8 @@ author:
 #        [^Joe]: Joe University, Joeville / <joe@joe.edu> / <http://joe.joe.edu>
 date: \today
 #date: 'January 1, 2017'
-#docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
-#draft: true
+docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
+draft: true
 #license: ''
 #license: '&copy; 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). All rights reserved.'
 license: '<span class="copy-left">&copy;</span> 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
@@ -50,7 +50,7 @@ abstract: |
     Markdown-memo is developed by Ryan Reece at
     [https://github.com/rreece/markdown-memo](https://github.com/rreece/markdown-memo).
 keywords: academic writing, blogging, digital humanities, LaTeX, Markdown, open publishing, open science, productivity, technical writing, typesetting, writing
-citation-style: templates/american-physics-society.csl
+citation-style: templates/apa-no-doi-no-issue-with-notes.csl
 figureTitle: "Figure"
 tableTitle: "Table"
 figPrefix: "Figure"
@@ -76,7 +76,7 @@ revtex: false
 classoption:
 #    -   'a4paper'
     -   'letterpaper'
-#    -   'openany'
+    -   'openany'
     -   'twoside'
 ## revtex options ##
 #    -   'aps'
@@ -84,33 +84,33 @@ classoption:
 ##    -   'aip'
 ##    -   'apl'
 ##    -   'twocolumn'
-##    -   'preprint'
-#    -   'reprint'
+#    -   'preprint'
+##    -   'reprint'
 #    -   'nofootinbib'
 #    -   'superscriptaddress'
 #    -   'showkeys'
-extrapackages:
-    -   'jheppub'
-fancyhdr: false
+#extrapackages:
+#    -   'jheppub'
+fancyhdr: true
 fontsize: '11pt'
-#fontfamily: 'mathpazo'
-#geometry: 
-#    -   'paperwidth=8.5in'
-#    -   'paperheight=11in'
-#    -   'top=1in'
-#    -   'bottom=1in'
-#    -   'left=1.25in'
-#    -   'right=1.25in'
-#    -   'headheight=14pt'
-#    -   'headsep=14pt'
-hyperref: false
-jhep: true
+fontfamily: 'mathpazo'
+geometry: 
+    -   'paperwidth=8.5in'
+    -   'paperheight=11in'
+    -   'top=1in'
+    -   'bottom=1in'
+    -   'left=1.25in'
+    -   'right=1.25in'
+    -   'headheight=14pt'
+    -   'headsep=14pt'
+hyperref: true
+jhep: false
 #linestretch: '1.1'
 lof: false
 lot: false
 maketitle: true
 numbersections: true
-#parskip: '11pt'
+parskip: '11pt'
 secnewpage: false
 #spacing: '1.2'
 toc: true
