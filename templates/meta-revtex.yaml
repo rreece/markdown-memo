@@ -64,7 +64,7 @@ email: '<img class="email" src="img/my-email.png" alt="my email address"/>'
 #email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
 #disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this page.'
-favicon: '/img/markdown-favicon-196x196.png'
+favicon: 'img/markdown-favicon-196x196.png'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 navigation: true
@@ -102,13 +102,14 @@ fontfamily: 'mathpazo'
 #    -   'headheight=14pt'
 #    -   'headsep=14pt'
 #linestretch: '1.1'
+lof: false
+lot: false
 maketitle: true
 numbersections: true
+parskip: '11pt'
 secnewpage: false
 #spacing: '1.2'
 toc: false
 tocdepth: 3
-lof: false
-lot: false
 ...
 

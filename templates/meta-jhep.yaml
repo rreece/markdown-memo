@@ -64,7 +64,7 @@ email: '<img class="email" src="img/my-email.png" alt="my email address"/>'
 #email: '<img class="email" src="img/my-email-alt.png" alt="my email address"/>'
 #disqus_shortname: 'my-sites-disqus-name'
 #description: 'Write a description of this page.'
-favicon: '/img/markdown-favicon-196x196.png'
+favicon: 'img/markdown-favicon-196x196.png'
 #google_analytics_tracking_id: 'UA-XXXXXXXX-X'
 mathjax: true
 navigation: true
@@ -76,7 +76,7 @@ revtex: false
 classoption:
 #    -   'a4paper'
     -   'letterpaper'
-    -   'openany'
+#    -   'openany'
     -   'twoside'
 ## revtex options ##
 #    -   'aps'
@@ -89,9 +89,11 @@ classoption:
 #    -   'nofootinbib'
 #    -   'superscriptaddress'
 #    -   'showkeys'
-#fancyhdr: true
+extrapackages:
+    -   'jheppub'
+fancyhdr: false
 fontsize: '11pt'
-fontfamily: 'mathpazo'
+#fontfamily: 'mathpazo'
 #geometry: 
 #    -   'paperwidth=8.5in'
 #    -   'paperheight=11in'
@@ -101,14 +103,17 @@ fontfamily: 'mathpazo'
 #    -   'right=1.25in'
 #    -   'headheight=14pt'
 #    -   'headsep=14pt'
+hyperref: false
+jhep: true
 #linestretch: '1.1'
-maketitle: true
-numbersections: true
-secnewpage: false
-#spacing: '1.2'
-toc: false
-tocdepth: 3
 lof: false
 lot: false
+maketitle: true
+numbersections: true
+#parskip: '11pt'
+secnewpage: false
+#spacing: '1.2'
+toc: true
+tocdepth: 3
 ...
 

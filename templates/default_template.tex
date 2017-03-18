@@ -119,6 +119,7 @@ $if(graphics)$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
 
+$if(hyperref)$
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -139,6 +140,7 @@ $endif$
             pdfborder={0 0 0}}
 %\urlstyle{same}  % don't use monospace font for urls
 \urlstyle{sf} % use sans-serif
+$endif$
 
 $if(links-as-notes)$
 % Make links footnotes instead of hotlinks:
@@ -148,12 +150,10 @@ $endif$
 $if(strikeout)$
 \usepackage[normalem]{ulem}
 % avoid problems with \sout in headers with hyperref:
+$if(hyperref)$
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
-
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt} % only for abstract, reset later
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+$endif$
 
 $if(numbersections)$
 \setcounter{secnumdepth}{3}
@@ -235,6 +235,15 @@ $if(revtex)$
 %% revtex-only-options -------------------
 
 $else$
+$if(jhep)$
+%% jhep-only-options -------------------
+
+$else$
+%% default-only-options -------------------
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt} % only for abstract, reset later
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
 
 %% remove "Abstract" from the abstract
 \usepackage{abstract}
@@ -261,6 +270,7 @@ $endif$
 \captionsetup{font=small,labelfont=bf,format=hang}
 
 $endif$
+$endif$
 
 %% tightlist hack
 \providecommand{\tightlist}{%
@@ -274,6 +284,7 @@ $endif$
 %% set document metadata
 
 $if(revtex)$
+%% using revtex ---------------------------------------------------------------
 %% title ----------------------------------------
 $if(title)$\title{$title$}$endif$
 
@@ -310,6 +321,55 @@ $if(keywords)$\keywords{$keywords$}$endif$
 $if(maketitle)$\maketitle$endif$
 
 $else$
+$if(jhep)$
+%% using jheppub --------------------------------------------------------------
+
+%% title ----------------------------------------
+$if(title)$\title{\boldmath $title$}$endif$
+
+%% authors --------------------------------------
+
+%% %simple case: 2 authors, same institution
+%% \author{A. Uthor}
+%% \author{and A. Nother Author}
+%% \affiliation{Institution,\\Address, Country}
+
+% more complex case: 4 authors, 3 institutions, 2 footnotes
+\author[a,b,1]{F. Irst,\note{Corresponding author.}}
+\author[c]{S. Econd,}
+\author[a,2]{T. Hird\note{Also at Some University.}}
+\author[a,2]{and Fourth}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation[a]{One University,\\some-street, Country}
+\affiliation[b]{Another University,\\different-address, Country}
+\affiliation[c]{A School for Advanced Studies,\\some-location, Country}
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{first@one.univ}
+\emailAdd{second@asas.edu}
+\emailAdd{third@one.univ}
+\emailAdd{fourth@one.univ}
+
+%% date -----------------------------------------
+$if(date)$\date{$date$}$endif$
+
+%% abstract -------------------------------------
+$if(abstract)$\abstract{$abstract$}$endif$
+
+%% keywords -------------------------------------
+$if(keywords)$\keywords{$keywords$}$endif$
+
+%% maketitle ------------------------------------
+$if(maketitle)$
+\maketitle
+\flushbottom
+$endif$
+
+$else$
+%% ----------------------------------------------------------------------------
 %% title ----------------------------------------
 $if(title)$\title{$title$$if(subtitle)$:\\\vspace{0.5em}{\large $subtitle$}$endif$}$endif$
 
@@ -343,6 +403,7 @@ $endif$
 \end{abstract}
 $endif$
 
+$endif$
 $endif$
 
 %% ----------------------------------------------
