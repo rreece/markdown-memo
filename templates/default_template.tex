@@ -176,6 +176,11 @@ $endif$
 
 \usepackage{xcolor}
 
+$if(secnewpage)$
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+$endif$
+
 %% HACK
 % for(header-includes)
 % header-includes

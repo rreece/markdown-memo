@@ -104,6 +104,7 @@ fontfamily: 'mathpazo'
 #linestretch: '1.1'
 maketitle: true
 numbersections: true
+secnewpage: false
 #spacing: '1.2'
 toc: false
 tocdepth: 3

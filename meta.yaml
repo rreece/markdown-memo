@@ -107,6 +107,7 @@ lot: false
 maketitle: true
 numbersections: true
 parskip: '11pt'
+secnewpage: false
 #spacing: '1.2'
 toc: true
 tocdepth: 3
