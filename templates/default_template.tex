@@ -328,30 +328,27 @@ $if(jhep)$
 $if(title)$\title{\boldmath $title$}$endif$
 
 %% authors --------------------------------------
+$if(author2)$
 
-%% %simple case: 2 authors, same institution
-%% \author{A. Uthor}
-%% \author{and A. Nother Author}
-%% \affiliation{Institution,\\Address, Country}
+$if(author1)$\author[a]{$author1$}$endif$
+$if(affiliation1)$\affiliation[a]{$affiliation1$}$endif$
+$if(email1)$\emailAdd{$email1$}$endif$
 
-% more complex case: 4 authors, 3 institutions, 2 footnotes
-\author[a,b,1]{F. Irst,\note{Corresponding author.}}
-\author[c]{S. Econd,}
-\author[a,2]{T. Hird\note{Also at Some University.}}
-\author[a,2]{and Fourth}
+$if(author2)$\author[b]{$author2$}$endif$
+$if(affiliation2)$\affiliation[b]{$affiliation2$}$endif$
+$if(email2)$\emailAdd{$email2$}$endif$
 
-% The "\note" macro will give a warning: "Ignoring empty anchor..."
-% you can safely ignore it.
+$if(author3)$\author[c]{$author3$}$endif$
+$if(affiliation3)$\affiliation[c]{$affiliation3$}$endif$
+$if(email3)$\emailAdd{$email3$}$endif$
 
-\affiliation[a]{One University,\\some-street, Country}
-\affiliation[b]{Another University,\\different-address, Country}
-\affiliation[c]{A School for Advanced Studies,\\some-location, Country}
+$else$
 
-% e-mail addresses: one for each author, in the same order as the authors
-\emailAdd{first@one.univ}
-\emailAdd{second@asas.edu}
-\emailAdd{third@one.univ}
-\emailAdd{fourth@one.univ}
+$if(author1)$\author{$author1$}$endif$
+$if(affiliation1)$\affiliation{$affiliation1$}$endif$
+$if(email1)$\emailAdd{$email1$}$endif$
+
+$endif$
 
 %% date -----------------------------------------
 $if(date)$\date{$date$}$endif$
@@ -361,6 +358,10 @@ $if(abstract)$\abstract{$abstract$}$endif$
 
 %% keywords -------------------------------------
 $if(keywords)$\keywords{$keywords$}$endif$
+
+$if(license)$
+\subheader{\scriptsize $license$}
+$endif$
 
 %% maketitle ------------------------------------
 $if(maketitle)$
