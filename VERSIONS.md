@@ -1,3 +1,8 @@
+v0.29  Ryan Reece  <ryan.reece@cern.ch>
+----------------------------------
+-   March 19, 2017
+-   new JHEP template
+
 v0.28  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   March 1, 2017
