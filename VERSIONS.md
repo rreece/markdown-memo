@@ -2,6 +2,7 @@ v0.29  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
 -   March 19, 2017
 -   new JHEP template
+-   fixed word-count bugs
 
 v0.28  Ryan Reece  <ryan.reece@cern.ch>
 ----------------------------------
