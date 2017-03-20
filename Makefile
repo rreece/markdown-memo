@@ -315,8 +315,39 @@ realclean: clean
 
 over: realclean default
 
+
+##-----------------------------------------------------------------------------
+## Be careful using these destructive targets
+
 destroy: realclean
 	@rm -f *.md *.html *.txt
 	$(PRINT) "make $@ done."
 
+destroygit: 
+	@rm -rf .git
+	@rm -rf */.git
+	$(PRINT) "make $@ done."
 
+newdoc: destroy destroygit
+	@echo "Introduction" > 01-introduction.md 
+	@echo "===============================================================================" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "First subsection" > 01-introduction.md 
+	@echo "-------------------------------------------------------------------------------" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "Start writing..." >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "Conclusion" > 01-introduction.md 
+	@echo "===============================================================================" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "Ain't it something?" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "Acknowledgements {.unnumbered}" >> 01-introduction.md 
+	@echo "===============================================================================" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "Thanks to everyone who helped with this manuscript." >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	@echo "" >> 01-introduction.md 
+	$(PRINT) "make $@ done."
