@@ -328,7 +328,11 @@ destroygit:
 	@rm -rf */.git
 	$(PRINT) "make $@ done."
 
-newdoc: destroy destroygit
+destroywc: 
+	@rm -f wordcount/wc.csv
+	$(PRINT) "make $@ done."
+
+newdoc: destroy destroygit destroywc
 	@echo "Introduction" > 01-introduction.md 
 	@echo "===============================================================================" >> 01-introduction.md 
 	@echo "" >> 01-introduction.md 
