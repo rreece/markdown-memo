@@ -336,7 +336,7 @@ newdoc: destroy destroygit destroywc
 	@echo "Introduction" > 01-introduction.md 
 	@echo "===============================================================================" >> 01-introduction.md 
 	@echo "" >> 01-introduction.md 
-	@echo "First subsection" > 01-introduction.md 
+	@echo "First subsection" >> 01-introduction.md 
 	@echo "-------------------------------------------------------------------------------" >> 01-introduction.md 
 	@echo "" >> 01-introduction.md 
 	@echo "Start writing..." >> 01-introduction.md 
