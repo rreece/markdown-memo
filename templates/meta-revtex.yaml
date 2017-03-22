@@ -89,6 +89,8 @@ classoption:
     -   'nofootinbib'
     -   'superscriptaddress'
     -   'showkeys'
+#extrapackages:
+#    -   'jheppub'
 #fancyhdr: true
 fontsize: '11pt'
 fontfamily: 'mathpazo'
@@ -101,6 +103,8 @@ fontfamily: 'mathpazo'
 #    -   'right=1.25in'
 #    -   'headheight=14pt'
 #    -   'headsep=14pt'
+hyperref: true
+jhep: false
 #linestretch: '1.1'
 lof: false
 lot: false
