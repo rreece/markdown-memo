@@ -259,6 +259,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 wordcount/words.png: wordcount/wc.csv
 	@echo ''
 	@cd wordcount/ ; python ../scripts/wordcount.py wc.csv ; cd ..
+	@echo ''
 
 
 ##-----------------------------------------------------------------------------
