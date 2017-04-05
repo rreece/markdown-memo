@@ -201,8 +201,8 @@ URLs are done like this:
 
 When referring to labeled sections/figures/tables,
 you do not include the literal word "Section", "Figure", or "Table",
-which will be included for you, *but for equations you do* (tell me otherwise?).
-These prefixes are configurable in the `meta.yaml` file.
+which will be included for you.
+These prefixes/words are configurable in the `meta.yaml` file.
 
 Refer to labeled things like this:
 
