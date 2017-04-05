@@ -190,7 +190,7 @@ produces:
 -   $\textsc{But this does not!}$
 
 
-Links
+Links and labels
 -------------------------------------------------------------------------------
 
 URLs are done like this:
@@ -206,11 +206,11 @@ These prefixes are configurable in the `meta.yaml` file.
 
 Refer to labeled things like this:
 
--   for sections: `[@sec:footnotes]`    
+-   for sections: `[@sec:footnotes]`     
     [@sec:footnotes]
--   for figures: `[@fig:scientific_universe]`    
--   for tables: `[@tbl:atlas_channels]`    
--   for equations: `eq.\ $\eqref{eq:stokes}$`    
+-   for figures: `[@fig:scientific_universe]`
+-   for tables: `[@tbl:atlas_channels]`
+-   for equations: `[@eq:stokes]`
 
 
 Footnotes {#sec:footnotes}

@@ -40,6 +40,8 @@ TO DO
 ## std
 import argparse, sys, time
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg") # suppress the python rocketship icon popup
 import matplotlib.pyplot as plt
 
 # print(plt.style.available) # [u'dark_background', u'bmh', u'grayscale', u'ggplot', u'fivethirtyeight']

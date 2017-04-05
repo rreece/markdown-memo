@@ -246,7 +246,6 @@ Wish list / TODOs
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
--   Hack equation references to be done the same as figure and table references.
 
 See the version history: [VERSIONS.md](VERSIONS.md)
 

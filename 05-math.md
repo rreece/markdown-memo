@@ -23,15 +23,13 @@ Stokes' theorem is pretty cool:
     \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
 \end{equation}
 
-You can also refer to labeled equations, such as eq.\ $\eqref{eq:stokes}$,
+You can also refer to labeled equations, such as [@eq:stokes],
 with the syntax:
 
-    ... such as eq.\ $\eqref{eq:stokes}$,
-
-Note that `\ ` makes a non-breaking space.
+    ... such as [@eq:stokes],
 
 The `align` environment can also be used.
-Maxwell's equations $\eqref{eq:maxwell}$ are also tough to beat:
+Maxwell's equations, [@eq:maxwell], are also tough to beat:
 
     \begin{align}
         \nabla \cdot  \vec{E} &= \rho \nonumber \\
