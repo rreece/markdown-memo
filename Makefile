@@ -43,7 +43,8 @@ PDF_FILES := $(MD_FILES:%.md=%.pdf)
 BIB_TXT_FILES := $(wildcard bibs/*.txt)
 #MD_FILES_WITH_REFS := 
 MD_FILES_ORDERED = $(shell cat order.txt | tr '\n' ' ')
-
+MDP_FILES := $(MD_FILES:%.md=%.mdp)
+MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 
 ## MD_FILES   =  chap1.md   chap2.md   ...
 ## HTML_FILES =  chap1.html chap2.html ...
@@ -68,6 +69,10 @@ pdf: $(OUTPUT).pdf wordcount
 
 wordcount: wordcount/words.png
 
+%.mdp: %.md
+	@python scripts/transform_md.py $<
+	$(PRINT) "make $@ done."
+
 index.md: $(MD_FILES)
 	@if [ -f index.txt ]; \
 	then \
@@ -77,7 +82,7 @@ index.md: $(MD_FILES)
 	fi
 	$(PRINT) "make $@ done."
 
-index.html: index.md meta.yaml
+index.html: index.mdp meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -88,7 +93,7 @@ index.html: index.md meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
-$(OUTPUT).html: order.txt $(MD_FILES) $(HTML_DEPS) meta.yaml
+$(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -101,12 +106,12 @@ $(OUTPUT).html: order.txt $(MD_FILES) $(HTML_DEPS) meta.yaml
 		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
 		--filter pandoc-citeproc \
-		-o $@ $(MD_FILES_ORDERED) $(OPS_FULLHTML) meta.yaml
+		-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLHTML) meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create html
-%.html: %.md order.txt $(HTML_DEPS) meta.yaml
+%.html: %.mdp order.txt $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
 		--ascii \
@@ -151,7 +156,7 @@ $(OUTPUT).html: order.txt $(MD_FILES) $(HTML_DEPS) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the full pdf 
-#$(OUTPUT).pdf: $(MD_FILES) $(PDF_DEPS) meta.yaml
+#$(OUTPUT).pdf: $(MDP_FILES) $(PDF_DEPS) meta.yaml
 #	@pandoc \
 #		--standalone \
 #		--smart \
@@ -161,7 +166,7 @@ $(OUTPUT).html: order.txt $(MD_FILES) $(HTML_DEPS) meta.yaml
 #		--filter pandoc-eqnos \
 #		--bibliography=bibs/mybib.bib \
 #		--filter pandoc-citeproc \
-#		-o $(OUTPUT).pdf $(MD_FILES) $(OPS_FULLPDF) meta.yaml
+#		-o $(OUTPUT).pdf $(MDP_FILES) $(OPS_FULLPDF) meta.yaml
 #	$(PRINT) "make $@ done."
 
 ## create the full pdf via pandoc to tex then pdflatex
@@ -185,7 +190,7 @@ $(OUTPUT).pdf: $(OUTPUT).tex
 #	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
-$(OUTPUT).tex: order.txt $(MD_FILES) $(PDF_DEPS) meta.yaml
+$(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	@if [ "$(DOREFS)" = "true" ] ; \
 	then \
 		pandoc \
@@ -197,7 +202,7 @@ $(OUTPUT).tex: order.txt $(MD_FILES) $(PDF_DEPS) meta.yaml
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
 			--filter pandoc-citeproc \
-			-o $@ $(MD_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
+			-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	else \
 		pandoc \
 			-t latex \
@@ -206,7 +211,7 @@ $(OUTPUT).tex: order.txt $(MD_FILES) $(PDF_DEPS) meta.yaml
 			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
-			-o $@ $(MD_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
+			-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	fi
 	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."
@@ -264,14 +269,14 @@ wordcount/words.png: wordcount/wc.csv
 
 ##-----------------------------------------------------------------------------
 ## create md with references replaced and bibliography created
-#$(OUTPUT).mds: $(MD_FILES) $(HTML_DEPS) meta.yaml
+#$(OUTPUT).mds: $(MDP_FILES) $(HTML_DEPS) meta.yaml
 #	@pandoc \
 #		-t markdown_github \
 #		--standalone \
 #		--smart \
 #		--bibliography=bibs/mybib.bib \
 #		--filter pandoc-citeproc \
-#		-o $@.tmp $(MD_FILES) $(OPS_FULLHTML) meta.yaml
+#		-o $@.tmp $(MDP_FILES) $(OPS_FULLHTML) meta.yaml
 #	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
 #	@rm -f $@.tmp
 #	$(PRINT) "make $@ done."
@@ -303,7 +308,7 @@ wordcount/words.png: wordcount/wc.csv
 
 ##-----------------------------------------------------------------------------
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
-JUNK = *.mds *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md bib_index.md
+JUNK = *.mds *.mdp *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md bib_index.md
 OUTS = *.html *.pdf bibs/*.bib
 
 clean:

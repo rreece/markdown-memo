@@ -41,6 +41,7 @@ TO DO
 import argparse, sys, time
 import os
 import re
+import glob
 
 ## my modules
 
@@ -61,7 +62,7 @@ def options():
     parser = argparse.ArgumentParser()
     parser.add_argument('infiles',  default=None, nargs='+',
             help='A positional argument.')
-#    parser.add_argument('-o', '--out',  default='index.md', type=str,
+#    parser.add_argument('-o', '--out',  default='default.mdp', type=str,
 #            help="Some toggle option.")
     return parser.parse_args()
 
@@ -75,17 +76,14 @@ def main():
     infiles = ops.infiles
 #    out = ops.out
 
-    rep_begin_figure = r'^\\begin{figure}\[\w+\]\s*$'
-    rep_begin_table = r'^\\begin{longtable}\[\w\]{([\w\{\}@]+)}\s*$'
-    rep_end_table = r'^\\end{longtable}\s*$'
-    rep_includegraphics = r'^\\includegraphics{([\w/.\-]+)\.(png|PNG|jpg|jpeg|JPG)}\s*$'
+    rep_eq = r'\[@eq:(\w+)\]'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
         ext = ext.lstrip('.')
         
         f_in = open(fn)
-        fn_out = '%s.tmp.%s' % (root, ext)
+        fn_out = '%s.mdp' % root
         f_out = open(fn_out, 'w')
 
         for line in f_in:
@@ -93,52 +91,73 @@ def main():
             reo = None
             newline = line
 
-            ## force figure float style to be [tp]
+            ## transform [@eq:maxwell] to eq.\ $\eqref{eq:maxwell}$
             if not reo:
-                reo = re.match(rep_begin_figure, line)
+                reo = re.search(rep_eq, line)
                 if reo:
-                    newline = '\\begin{figure}[tp]\n'
-                    
-            ## fix begin table?
-            if not reo:
-                reo = re.match(rep_begin_table, line)
-                if reo:
-                    # newline = '\\begin{table}[bph]\n'
-                    # newline = line.replace('longtable', 'supertabular')
-                    pass
-
-            ## fix end table?
-            if not reo:
-                reo = re.match(rep_end_table, line)
-                if reo:
-                    # newline = '\\end{table}\n'
-                    # newline = line.replace('longtable', 'supertabular')
-                    pass
-
-            ## force includegraphics width and height
-            if not reo:
-                reo = re.match(rep_includegraphics, line)
-                if reo:
-                    fpath = reo.group(1)
-                    suffix = reo.group(2)
-                    if os.path.isfile('%s.pdf' % fpath):
-                        newline = '\\includegraphics[width=1.0\\linewidth,height=0.75\\linewidth,keepaspectratio]{%s.pdf}\n' % fpath
-                    else:
-                        newline = '\\includegraphics[width=1.0\\linewidth,height=0.75\\linewidth,keepaspectratio]{%s.%s}\n' % (fpath, suffix)
-                        
+                    if line[:4] != '    ':  # not a code block
+                        eqlabel = reo.group(1)
+                        oldword = reo.group(0)
+                        newword = 'eq.\\ $\\eqref{eq:%s}$' % eqlabel
+                        newline = newline.replace(oldword, newword)
 
             f_out.write(newline)
  
         f_in.close()
         f_out.close()
 
-        if os.path.isfile(fn_out):
-            os.system('mv -f %s %s' % (fn_out, fn))
+        assert os.path.isfile(fn_out), fn_out
 
 
 #------------------------------------------------------------------------------
 # free functions
 #------------------------------------------------------------------------------
+
+#______________________________________________________________________________
+def make_navigation(filename):
+    mds = list()
+    if os.path.isfile('order.txt'):
+        f_order = open('order.txt')
+        for line in f_order:
+            line = line.split('#')[0].strip() # remove comments
+            if line:
+                mds.append(line)
+        f_order.close()
+    else:
+        mds = glob.glob('*.md')
+        if 'index.md' in mds:
+            mds.remove('index.md')
+        if 'README.md' in mds:
+            mds.remove('README.md')
+        mds.sort()
+
+    prv = None
+    nxt = None
+    lst = None
+
+    for fn in mds:
+        root, ext = os.path.splitext(fn)
+        ext = ext.lstrip('.')
+
+        fn_html = '%s.html' % root
+        
+        if lst == filename:
+            nxt = fn_html
+            break
+        if fn_html == filename:
+            if lst:
+                prv = lst
+        lst = fn_html
+
+    s = ''
+
+    if prv:
+        s += '    <li> <a href="./%s">&#8612;&nbsp;Previous</a> </li>\n' % prv
+        
+    if nxt:
+        s += '    <li> <a href="./%s">&#8614;&nbsp;Next</a> </li>\n' % nxt
+
+    return s
 
 #______________________________________________________________________________
 def fatal(message=''):

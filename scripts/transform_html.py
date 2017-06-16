@@ -93,6 +93,7 @@ def main():
             reo = None
             newline = line
 
+            ## generate and insert page table of contents
             if not reo:
                 reo = re.match(rep_pagetoc, line)
                 if reo:
@@ -109,11 +110,13 @@ def main():
                             os.system('rm -f %s' % (pagetoc_html))
                         os.system('rm -f %s' % (pagetoc_md))
 
+            ## generate and insert page navigation
             if not reo:
                 reo = re.match(rep_navigation, line)
                 if reo:
                     newline = make_navigation(fn)
 
+            ## fix preline formatting (literal line breaks for poems)
             if not reo:
                 if line.startswith('<div style="white-space: pre-line;">'):
                     newline = '<div class="preline">' + line[36:]

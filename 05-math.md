@@ -12,7 +12,13 @@ You can do latex inline like this:
 
 Euler's formula is remarkable: $e^{i\pi} + 1 = 0$.
 
-Just use the latex equation environment directly.
+You can use `$$` to make an equation block like this:
+
+    $$ \frac{\partial \rho}{\partial t} + \nabla \cdot \vec{j} = 0 \,. \label{eq:continuity} $$
+
+$$ \frac{\partial \rho}{\partial t} + \nabla \cdot \vec{j} = 0 \,. \label{eq:continuity} $$
+
+The latex equation environment can be used directly.
 Stokes' theorem is pretty cool:
 
     \begin{equation} \label{eq:stokes}
@@ -22,6 +28,7 @@ Stokes' theorem is pretty cool:
 \begin{equation} \label{eq:stokes}
     \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
 \end{equation}
+
 
 You can also refer to labeled equations, such as [@eq:stokes],
 with the syntax:
