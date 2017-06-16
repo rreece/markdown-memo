@@ -238,16 +238,15 @@ Wish list / TODOs
 -   ~~Make links to previous and next sections (if they exist) in the navigation box in the html.~~
 -   ~~Finish the basic documentation in the markdown-memo example document.~~
 -   ~~Make a template that works with [REVTeX](https://journals.aps.org/revtex).~~
--   Fix TOC spacing issues with REVTeX.
 -   ~~Make a template that works with [JHEP](https://jhep.sissa.it/jhep/help/JHEP_TeXclass.jsp).~~
+-   ~~Hack equation references to be done the same as figure and table references. `[@eq:stokes]` &rarr; `eq.\ $\eqref{eq:stokes}$`~~
+-   Fix TOC spacing issues with REVTeX.
 -   Fix Author issues with JHEP.
 -   Make the use of tmp files more robust.
 -   Test and explain the installation and requirements better on different systems.
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
--   Hack equation references to be done the same as figure and table references.    
-    `[@eq:stokes]` &rarr; `eq.\ $\eqref{eq:stokes}$`
 
 See the version history: [VERSIONS.md](VERSIONS.md)
 

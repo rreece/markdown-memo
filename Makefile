@@ -170,7 +170,8 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 #	$(PRINT) "make $@ done."
 
 ## create the full pdf via pandoc to tex then pdflatex
-$(OUTPUT).pdf: $(OUTPUT).tex
+#$(OUTPUT).pdf: $(OUTPUT).tex
+%.pdf: %.tex
 	@pdflatex -interaction=nonstopmode $< &> latex.log
 	@pdflatex -interaction=nonstopmode $< &> latex.log
 	$(PRINT) "make $@ done."
@@ -217,19 +218,31 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create the tex for a section
-#%.tex: %.md $(PDF_DEPS) meta.yaml
-#	@pandoc \
-#		-t latex \
-#		--ascii \
-#		--standalone \
-#		--smart \
-#		--template=templates/default_template.tex \
-#		--filter pandoc-crossref \
-#		--bibliography=bibs/mybib.bib \
-#		--filter pandoc-citeproc \
-#		-o $@ $< $(OPS_SECTION) meta.yaml
-#	@python scripts/transform_tex.py $@
-#	$(PRINT) "make $@ done."
+%.tex: %.md $(PDF_DEPS) meta.yaml
+	@if [ "$(DOREFS)" = "true" ] ; \
+	then \
+		pandoc \
+			-t latex \
+			--ascii \
+			--standalone \
+			--smart \
+			--template=templates/default_template.tex \
+			--filter pandoc-crossref \
+			--bibliography=bibs/mybib.bib \
+			--filter pandoc-citeproc \
+			-o $@ $< $(OPS_SECTION) meta.yaml ; \
+	else \
+		pandoc \
+			-t latex \
+			--ascii \
+			--standalone \
+			--smart \
+			--template=templates/default_template.tex \
+			--filter pandoc-crossref \
+			-o $@ $< $(OPS_SECTION) meta.yaml ; \
+	fi
+	@python scripts/transform_tex.py $@
+	$(PRINT) "make $@ done."
 
 bibs/mybib.bib: $(BIB_TXT_FILES)
 	@if [[ -z "$(BIB_TXT_FILES)" ]] ; \
