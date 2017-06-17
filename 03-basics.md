@@ -7,7 +7,7 @@ A further reference on Markdown syntax by its creator is
 
 <!-- PAGETOC -->
 
-Sections
+Sections {#sec:sections}
 -------------------------------------------------------------------------------
 
 Are markded like this:
@@ -65,7 +65,7 @@ Lists {#sec:lists}
 1.  Relativists
 
 
-Blocks
+Blocks {#sec:blocks}
 -------------------------------------------------------------------------------
 
 The following is a **quote block**. 
@@ -154,7 +154,7 @@ A **horizontal rule** can be made by just writing some number of dashes:
 Boom.
 
 
-Fonts
+Fonts {#sec:fonts}
 -------------------------------------------------------------------------------
 
     -   *This is emphasis.*
@@ -190,7 +190,7 @@ produces:
 -   $\textsc{But this does not!}$
 
 
-Links and labels
+Links and labels {#sec:links-and-labels}
 -------------------------------------------------------------------------------
 
 URLs are done like this:
@@ -212,6 +212,16 @@ Refer to labeled things like this:
 -   for tables: `[@tbl:atlas_channels]`
 -   for equations: `[@eq:stokes]`
 
+You can refer to multiple lables like [@sec:sections;@sec:lists;@sec:blocks] like this:
+
+    [@sec:sections;@sec:lists;@sec:blocks]
+
+Automatic grouping into a range doesn't seem to be working,
+so you can also refer to [Sections @sec:sections]--[-@sec:blocks]
+like this:
+
+    [Sections @sec:sections]--[-@sec:blocks]
+    
 
 Footnotes {#sec:footnotes}
 -------------------------------------------------------------------------------

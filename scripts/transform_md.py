@@ -95,7 +95,11 @@ def main():
             if not reo:
                 reo = re.search(rep_eq, line)
                 if reo:
-                    if line[:4] != '    ':  # not a code block
+                    if line[:4] == '    ':  # skip code block
+                        pass
+                    elif line.count('`[@eq:'): # skip inline `[@eq:
+                        pass
+                    else:
                         eqlabel = reo.group(1)
                         oldword = reo.group(0)
                         newword = 'eq.\\ $\\eqref{eq:%s}$' % eqlabel

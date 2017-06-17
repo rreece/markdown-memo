@@ -42,7 +42,7 @@ HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
 BIB_TXT_FILES := $(wildcard bibs/*.txt)
 #MD_FILES_WITH_REFS := 
-MD_FILES_ORDERED = $(shell cat order.txt | tr '\n' ' ')
+MD_FILES_ORDERED = $(shell if [ -f order.txt ]; then cat order.txt | tr '\n' ' '; fi)
 MDP_FILES := $(MD_FILES:%.md=%.mdp)
 MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 
@@ -55,7 +55,7 @@ MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 ## targets
 ##-----------------------------------------------------------------------------
 
-default: html
+default: html clean
 
 all: html pdf
 
