@@ -69,10 +69,12 @@ pdf: $(OUTPUT).pdf wordcount
 
 wordcount: wordcount/words.png
 
+## transform md to mdp (apply hacks with transform_md.py)
 %.mdp: %.md
 	@python scripts/transform_md.py $<
 	$(PRINT) "make $@ done."
 
+## if it exists, copy index.txt to index.md, otherwise make index.md
 index.md: $(MD_FILES)
 	@if [ -f index.txt ]; \
 	then \
@@ -82,6 +84,7 @@ index.md: $(MD_FILES)
 	fi
 	$(PRINT) "make $@ done."
 
+## create index.html
 index.html: index.mdp meta.yaml
 	@pandoc \
 		-t html \
@@ -93,6 +96,7 @@ index.html: index.mdp meta.yaml
 		-o $@ $< meta.yaml
 	$(PRINT) "make $@ done."
 
+## create the output html in one combined file
 $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-t html \
@@ -155,40 +159,11 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
-## create the full pdf 
-#$(OUTPUT).pdf: $(MDP_FILES) $(PDF_DEPS) meta.yaml
-#	@pandoc \
-#		--standalone \
-#		--smart \
-#		--variable=date-meta:"$(DATE)" \
-#		--template=templates/default_template.tex \
-#		--filter pandoc-crossref \
-#		--filter pandoc-eqnos \
-#		--bibliography=bibs/mybib.bib \
-#		--filter pandoc-citeproc \
-#		-o $(OUTPUT).pdf $(MDP_FILES) $(OPS_FULLPDF) meta.yaml
-#	$(PRINT) "make $@ done."
-
-## create the full pdf via pandoc to tex then pdflatex
-#$(OUTPUT).pdf: $(OUTPUT).tex
+## create the pdf from tex
 %.pdf: %.tex
 	@pdflatex -interaction=nonstopmode $< &> latex.log
 	@pdflatex -interaction=nonstopmode $< &> latex.log
 	$(PRINT) "make $@ done."
-
-## create the pdf for a section
-#%.pdf: %.md $(PDF_DEPS) meta.yaml
-#	@pandoc \
-#		--standalone \
-#		--smart \
-#		--variable=date-meta:"$(DATE)" \
-#		--template=templates/default_template.tex \
-#		--filter pandoc-crossref \
-#		--filter pandoc-eqnos \
-#		--bibliography=bibs/mybib.bib \
-#		--filter pandoc-citeproc \
-#		-o $@ $< $(OPS_SECTION) meta.yaml
-#	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
 $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
@@ -244,6 +219,7 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
+## create bibs/mybib.bib from bibs/*.txt
 bibs/mybib.bib: $(BIB_TXT_FILES)
 	@if [[ -z "$(BIB_TXT_FILES)" ]] ; \
 	then \
@@ -254,14 +230,17 @@ bibs/mybib.bib: $(BIB_TXT_FILES)
 	fi
 	$(PRINT) "make $@ done."
 
+## create bib_index from bibs/mybib.bib
 bib_index.md: bibs/mybib.bib
 	@python scripts/make_bib_index_md.py --out=$@ $<
 	$(PRINT) "make $@ done."
 
+## create default order of md files
 order.txt:
 	@ls -1 $(MD_FILES) > $@
 	$(PRINT) "make $@ done."
 
+## update wordcount/wc.csv
 wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 	@if [ ! -d wordcount ]; \
 	then \
@@ -274,6 +253,7 @@ wordcount/wc.csv: $(MD_FILES) $(OUTPUT).pdf
 	@printf "%16s, %8i, %5i\n" `date +"%Y-%m-%d-%Hh%M"` `cat $(MD_FILES) | wc | awk '{split($$0,a," "); print a[2]}'` `pdfinfo $(OUTPUT).pdf | grep Pages | tr -d "Pages: "` >> $@
 	$(PRINT) "make $@ done."
 
+## create wordcount figures
 wordcount/words.png: wordcount/wc.csv
 	@echo ''
 	@cd wordcount/ ; python ../scripts/wordcount.py wc.csv ; cd ..
@@ -281,57 +261,21 @@ wordcount/words.png: wordcount/wc.csv
 
 
 ##-----------------------------------------------------------------------------
-## create md with references replaced and bibliography created
-#$(OUTPUT).mds: $(MDP_FILES) $(HTML_DEPS) meta.yaml
-#	@pandoc \
-#		-t markdown_github \
-#		--standalone \
-#		--smart \
-#		--bibliography=bibs/mybib.bib \
-#		--filter pandoc-citeproc \
-#		-o $@.tmp $(MDP_FILES) $(OPS_FULLHTML) meta.yaml
-#	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-#	@rm -f $@.tmp
-#	$(PRINT) "make $@ done."
-#
-#%.mds: %.md $(HTML_DEPS) meta.yaml
-#	@pandoc \
-#		-t markdown_github \
-#		--standalone \
-#		--smart \
-#		--bibliography=bibs/mybib.bib \
-#		--filter pandoc-citeproc \
-#		-o $@.tmp $< $(OPS_SECTION) meta.yaml
-#	@cat $@.tmp | sed -E 's/\[([0-9][0-9]?[0-9]?)\]/\[\^\1\]/g' | sed -E 's/^\[\^([0-9][0-9]?[0-9]?)\]\ /\[\^\1\]:\ /' > $@
-#	@rm -f $@.tmp
-#	$(PRINT) "make $@ done."
-#
-### create html from mds
-#%.htmls: %.mds
-#	@pandoc \
-#		-t html \
-#		--ascii \
-#		--standalone \
-#		--smart \
-#		--variable=date-meta:"$(DATE)" \
-#		--template=./templates/outline_template.html \
-#		-o $@ $< meta.yaml
-#	$(PRINT) "make $@ done."
-
-
-##-----------------------------------------------------------------------------
 # JUNK = *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg *.inx *.dvi *.toc *.out *~ ~* spellTmp *.lot *.lof *.ps *.d
-JUNK = *.mds *.mdp *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md bib_index.md
+JUNK = *.mdp *.htmls *.tex *.aux *.dvi *.fdb_latexmk *.fls *.log *.out *.toc *.tmp *-tmp.html index.md bib_index.md
 OUTS = *.html *.pdf bibs/*.bib
 
+## clean up (do this)
 clean:
 	@rm -f $(JUNK)
 	$(PRINT) "make $@ done."
 
+## clean up everything including the output
 realclean: clean
 	@rm -f $(OUTS)
 	$(PRINT) "make $@ done."
 
+## make realclean and make default again
 over: realclean default
 
 
@@ -374,3 +318,4 @@ newdoc: destroy destroygit destroywc
 	@echo "" >> 01-introduction.md 
 	@echo "" >> 01-introduction.md 
 	$(PRINT) "make $@ done."
+
