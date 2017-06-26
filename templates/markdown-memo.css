@@ -186,9 +186,13 @@ div#disqus_stuff {
 /* headers ------------------------------------------------------- */
 h1 {
     margin-top: 12px;
+    margin-bottom: 48px;
+}
+h2 {
+    margin-top: 48px;
     margin-bottom: 24px;
 }
-h2, h3, h4, h5 {
+h3, h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }

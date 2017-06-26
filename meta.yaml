@@ -49,7 +49,7 @@ abstract: |
     documents from simple Markdown markup.
     Markdown-memo is developed by Ryan Reece at
     [https://github.com/rreece/markdown-memo](https://github.com/rreece/markdown-memo).
-keywords: academic writing, blogging, digital humanities, LaTeX, Markdown, open publishing, open science, productivity, technical writing, typesetting, web development, writing
+keywords: academic writing, blogging, digital humanities, LaTeX, Markdown, open publishing, open science, productivity, technical writing, typesetting, writing
 citation-style: templates/apa-no-doi-no-issue-with-notes.csl
 figureTitle: "Figure"
 tableTitle: "Table"
@@ -111,6 +111,7 @@ lot: false
 maketitle: true
 numbersections: true
 parskip: '11pt'
+secnewpage: false
 #spacing: '1.2'
 toc: true
 tocdepth: 3
