@@ -314,7 +314,7 @@ def make_book(reo):
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author in ('von', 'van', 'de', 'De', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
