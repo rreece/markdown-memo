@@ -75,7 +75,7 @@ rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+In",
                     r"(\s+(?P<editor>[^()*]+)(\s+\(Eds?\.\))?[,.]?)?",
-                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^()]+)\*[,.]?)",
+                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^*]+)\*[,.]?)",
                     r"(\s+\(((?P<edition>\d+)\S+\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
                     r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
                     r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
@@ -136,25 +136,33 @@ def main():
         incollections = []
         miscs = []
         errors = []
+        duplicates = []
         allcitations = []
+        lowallcitations = []
 
         ## count the articles, books, ...
         for k in keys:
             ctype, citation, bibtex = results[k]
-            if ctype == 'article':
-                articles.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'book':
-                books.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'incollection':
-                incollections.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'misc':
-                miscs.append(citation)
-                allcitations.append(citation)
+            low_citation = citation.lower()
+            if not low_citation in lowallcitations:
+                lowallcitations.append(low_citation)
+                if ctype == 'article':
+                    articles.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'book':
+                    books.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'incollection':
+                    incollections.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'misc':
+                    miscs.append(citation)
+                    allcitations.append(citation)
+                else:
+                    errors.append(k)
             else:
-                errors.append(k)
+                duplicates.append(k)
+                print 'Warning, duplicate: %s' % k
 
         print ''
 
@@ -169,6 +177,7 @@ def main():
         print '- %3i books' % len(books)
         print '- %3i miscs' % len(miscs)
         print '- %3i errors' % len(errors)
+        print '- %3i duplicates' % len(duplicates)
         print ''
 
         ## write header

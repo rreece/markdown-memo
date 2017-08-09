@@ -217,8 +217,8 @@ You can refer to multiple lables like [@sec:sections;@sec:lists;@sec:blocks] lik
     [@sec:sections;@sec:lists;@sec:blocks]
 
 Automatic grouping into a range doesn't seem to be working,
-so you can also refer to [Sections @sec:sections]--[-@sec:blocks]
-like this:
+so you can also try refer to [Sections @sec:sections]--[-@sec:blocks]
+in some versions like this:
 
     [Sections @sec:sections]--[-@sec:blocks]
     
