@@ -94,6 +94,7 @@ index.html: index.mdp meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
+	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create the output html in one combined file
