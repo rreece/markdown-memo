@@ -580,6 +580,9 @@ def clean_citation(fn):
     u_new_fn = u_new_fn.encode('ascii','ignore')
     new_fn = str(u_new_fn)
 
+    ## remove latex \emph
+    new_fn = new_fn.replace('\\emph', '')
+
     ## remove redundant space (' ' and '_' converted to '-')
     new_fn = new_fn.replace('     ', ' ')
     new_fn = new_fn.replace('    ', ' ')
@@ -617,14 +620,24 @@ def clean_citation(fn):
 
     ## chop-off article words
     new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_and'):
-        new_fn = new_fn[:-4]
     if new_fn_lower.endswith('_a'):
         new_fn = new_fn[:-2]
+        new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_an'):
         new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_the'):
         new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_and'):
+        new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_of'):
+        new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_to'):
+        new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
 
     return new_fn
 
