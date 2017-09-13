@@ -55,7 +55,7 @@ MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 ## targets
 ##-----------------------------------------------------------------------------
 
-default: html clean
+default: html # clean
 
 all: html pdf
 
