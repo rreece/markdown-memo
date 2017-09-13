@@ -630,6 +630,9 @@ def clean_citation(fn):
         new_fn = new_fn[:-4]
         new_fn_lower = new_fn.lower()
     ## chop-off prepositions
+    if new_fn_lower.endswith('_for'):
+        new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_in'):
         new_fn = new_fn[:-3]
         new_fn_lower = new_fn.lower()
