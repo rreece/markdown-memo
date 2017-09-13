@@ -618,7 +618,7 @@ def clean_citation(fn):
     ## convert all '-' to '_'
     new_fn = new_fn.replace('-', '_')
 
-    ## chop-off article words
+    ## chop-off articles
     new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_a'):
         new_fn = new_fn[:-2]
@@ -629,14 +629,19 @@ def clean_citation(fn):
     if new_fn_lower.endswith('_the'):
         new_fn = new_fn[:-4]
         new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_and'):
-        new_fn = new_fn[:-4]
+    ## chop-off prepositions
+    if new_fn_lower.endswith('_in'):
+        new_fn = new_fn[:-3]
         new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_of'):
         new_fn = new_fn[:-3]
         new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_to'):
         new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
+    ## chop-off conjuctions
+    if new_fn_lower.endswith('_and'):
+        new_fn = new_fn[:-4]
         new_fn_lower = new_fn.lower()
 
     return new_fn
