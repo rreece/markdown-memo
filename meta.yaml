@@ -7,7 +7,7 @@ subtitle: make writing easier and more productive
 authorshort: R. Reece and J. Coauthor
 author1: Ryan Reece
 email1: ryan.reece@cern.ch
-homepage1: http://reece.scipp.ucsc.edu
+homepage1: http://rreece.github.io
 affiliation1: University of California, Santa Cruz
 author2: Jane Coauthor
 email2: jane.coauthor@blah.com
@@ -19,9 +19,9 @@ affiliation2: Joe University
 #affiliation3: Joe University
 author:
     -   |
-        [Ryan Reece](http://reece.scipp.ucsc.edu/)[^ReeceSCIPP]
+        [Ryan Reece](http://rreece.github.io/)[^ReeceSCIPP]
 
-        [^ReeceSCIPP]: University of California, Santa Cruz / <ryan.reece@cern.ch> / <http://reece.scipp.ucsc.edu>
+        [^ReeceSCIPP]: University of California, Santa Cruz / <ryan.reece@cern.ch> / <http://rreece.github.io>
     -   |
         Jane Coauthor[^Jane]
 
@@ -35,8 +35,8 @@ date: \today
 docid: EXAMPLE-DOC-000 # arXiv:1606.09150 # ATLAS-COM-PHYS-2010-200
 draft: true
 #license: ''
-#license: '&copy; 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). All rights reserved.'
-license: '<span class="copy-left">&copy;</span> 2015-2017 [Ryan Reece](http://reece.scipp.ucsc.edu/). Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
+#license: '&copy; 2015-2017 [Ryan Reece](http://rreece.github.io/). All rights reserved.'
+license: '<span class="copy-left">&copy;</span> 2015-2017 [Ryan Reece](http://rreece.github.io/). Licensed for sharing under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/).'
 dorefs: true
 submitted: ''
 #submitted: 'Submitted to My Favorite Journal'
