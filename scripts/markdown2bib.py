@@ -344,8 +344,9 @@ def make_book(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'de', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -403,8 +404,9 @@ def make_incollection(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -467,8 +469,9 @@ def make_article(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -524,8 +527,9 @@ def make_misc(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
