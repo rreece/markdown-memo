@@ -44,24 +44,25 @@ First, if you are on a Mac, you should install
 [Xcode](https://developer.apple.com/xcode/)
 through the Apple app store to get `make` and basic build utilities.
 
-With *homebrew*, one does
+Some basic requirements I had to install with *homebrew*
+were the following, and I got [pip](https://pip.readthedocs.io/en/stable/installing/)
+and used it to install somethings:
+
+    brew install wget
+    brew install xpdf
+    sudo python get-pip.py 
+    sudo pip install scipy
+    sudo pip install matplotlib
+    sudo pip install pandas
+
+Then, with *homebrew*, the main packages to install are
 
     brew cask install mactex
     brew install pandoc
     brew install pandoc-citeproc
     brew install pandoc-crossref
 
-Other missing requirements I had to install with *homebrew*
-were
-
-    brew install wget
-    brew install matplotlib
-    brew install numpy
-    brew install homebrew/python/scipy
-    brew cask install xquartz
-    brew install homebrew/x11/xpdf
-
-With *macports*, one does
+Instead of homebrew, some years ago, with *macports* I installed
 
     sudo port selfupdate
     sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra

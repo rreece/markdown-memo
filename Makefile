@@ -55,7 +55,7 @@ MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 ## targets
 ##-----------------------------------------------------------------------------
 
-default: html clean
+default: html # clean
 
 all: html pdf
 
@@ -94,6 +94,7 @@ index.html: index.mdp meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
+	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create the output html in one combined file

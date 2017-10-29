@@ -33,6 +33,7 @@ COPYRIGHT
 
 ## std
 import argparse, sys, time
+import os
 import re
 import textwrap
 import unicodedata
@@ -48,9 +49,10 @@ import unicodedata
 
 # Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
 # Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
-rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
+rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
-                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
+#                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
+                    r"\s+(?P<title>[^*\[\]]+)[,.]?",
                     r"(?!\s+https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
                     r"(\s+\*?(?P<volume>\d+)\*?(\((?P<number>\d+)\))?[,.]?)?",
                     r"(\s+(?P<pages>(P|p)?\d+-*\d*)[,.]?)?",
@@ -59,10 +61,10 @@ rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,
                     ])
 rep_article = re.compile(rep_article_s)
 # Weinberg, S. (1995). *Quantum Theory of Fields, Vol. 1*. Cambridge University Press.
-rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
+rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+\*(?P<title>[^*]+)\*[,.]?",
-                    r"(\s+\((?P<edition>\d+)\S+\s+ed\.\)[,.]?)?",
+                    r"(\s+\((?P<edition>\d+)\w*\s+ed\.\)[,.]?)?",
                     r"(\s+\(((?P<editor>[^()]+),\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+),\s+Trans\.)?\)[,.]?)?",
                     r"((?!\s+https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
                     r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
@@ -70,20 +72,20 @@ rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+
                     ])
 rep_book = re.compile(rep_book_s)
 # Redhead, M. (1988). A Philosopher Looks at Quantum Field Theory. In H. Brown & R. Harr\'{e} (Eds.), Philosophical Foundations of Quantum Field Theory (pp. 9-23). Oxford: Clarendon Press.
-rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
+rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+In",
                     r"(\s+(?P<editor>[^()*]+)(\s+\(Eds?\.\))?[,.]?)?",
-                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^()]+)\*[,.]?)",
-                    r"(\s+\(((?P<edition>\d+)\S+\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
+                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^*]+)\*[,.]?)",
+                    r"(\s+\(((?P<edition>\d+)\w*\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
                     r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
                     r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_incollection = re.compile(rep_incollection_s)
 # ATLAS Collaboration. (2011). Updated Luminosity Determination in pp Collisions at $\sqrt{s}=7 TeV using the ATLAS Detector. ATLAS-CONF-2010-011. http://cdsweb.cern.ch/record/1334563
-rep_misc_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
+rep_misc_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"((?!\s+https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
@@ -91,7 +93,7 @@ rep_misc_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,\s+
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_misc = re.compile(rep_misc_s)
-rep_author_s = r"(?P<a1>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(?P<etal>\s+et\s+al)?(,\s+(&\s+)?(?P<a2>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a3>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a4>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a5>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,\s+(&\s+)?(?P<a6>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
+rep_author_s = r"(?P<a1>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(?P<etal>\s+et\s+al)?(,?\s+(&\s+)?(?P<a2>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a3>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a4>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a5>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a6>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
 rep_author = re.compile(rep_author_s)
 rep_url_s = r"(https?://\S+)"
 rep_url = re.compile(rep_url_s)
@@ -136,25 +138,33 @@ def main():
         incollections = []
         miscs = []
         errors = []
+        duplicates = []
         allcitations = []
+        lowallcitations = []
 
         ## count the articles, books, ...
         for k in keys:
             ctype, citation, bibtex = results[k]
-            if ctype == 'article':
-                articles.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'book':
-                books.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'incollection':
-                incollections.append(citation)
-                allcitations.append(citation)
-            elif ctype == 'misc':
-                miscs.append(citation)
-                allcitations.append(citation)
+            low_citation = citation.lower()
+            if not low_citation in lowallcitations:
+                lowallcitations.append(low_citation)
+                if ctype == 'article':
+                    articles.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'book':
+                    books.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'incollection':
+                    incollections.append(citation)
+                    allcitations.append(citation)
+                elif ctype == 'misc':
+                    miscs.append(citation)
+                    allcitations.append(citation)
+                else:
+                    errors.append(k)
             else:
-                errors.append(k)
+                duplicates.append(k)
+                print 'Warning, duplicate: %s' % k
 
         print ''
 
@@ -163,15 +173,19 @@ def main():
             print a
 
         print ''
-        print '%i entries found.' % len(results)
-        print '- %3i articles' % len(articles)
-        print '- %3i incollections' % len(incollections)
-        print '- %3i books' % len(books)
-        print '- %3i miscs' % len(miscs)
-        print '- %3i errors' % len(errors)
+        print ' %3i entries found' % len(results)
+        print ' %3i articles' % len(articles)
+        print ' %3i incollections' % len(incollections)
+        print ' %3i books' % len(books)
+        print ' %3i miscs' % len(miscs)
+        print ' %3i errors' % len(errors)
+        print ' %3i duplicates' % len(duplicates)
         print ''
 
-        ## write header
+        output_log = '%s.log' % os.path.splitext(os.path.basename(ops.output))[0]
+        f_out_log = open(output_log, 'w')
+
+        ## write output file, header
         timestamp = time.strftime('%Y-%m-%d-%Hh%M')
         f_out = open(ops.output, 'w')
         f_out.write('## bibtex references file\n')
@@ -181,32 +195,48 @@ def main():
 
         ## write lists of the markdown citations to use
         f_out.write('Total Entries: %i\n\n' % len(results))
+        f_out_log.write('Total Entries: %i\n\n' % len(results))
         
         f_out.write('Articles: %i\n' % len(articles))
+        f_out_log.write('Articles: %i\n' % len(articles))
         for a in articles:
             f_out.write('%s\n' % a)
+            f_out_log.write('%s\n' % a)
         f_out.write('\n')
+        f_out_log.write('\n')
 
         f_out.write('Incollections: %i\n' % len(incollections))
+        f_out_log.write('Incollections: %i\n' % len(incollections))
         for a in incollections:
             f_out.write('%s\n' % a)
+            f_out_log.write('%s\n' % a)
         f_out.write('\n')
+        f_out_log.write('\n')
 
         f_out.write('Books: %i\n' % len(books))
+        f_out_log.write('Books: %i\n' % len(books))
         for a in books:
             f_out.write('%s\n' % a)
+            f_out_log.write('%s\n' % a)
         f_out.write('\n')
+        f_out_log.write('\n')
 
         f_out.write('Miscs: %i\n' % len(miscs))
+        f_out_log.write('Miscs: %i\n' % len(miscs))
         for a in miscs:
             f_out.write('%s\n' % a)
+            f_out_log.write('%s\n' % a)
         f_out.write('\n')
+        f_out_log.write('\n')
 
         if errors:
             f_out.write('ERRORS: %i\n' % len(errors))
+            f_out_log.write('ERRORS: %i\n' % len(errors))
             for a in errors:
                 f_out.write('%s\n' % a)
+                f_out_log.write('%s\n' % a)
             f_out.write('\n')
+            f_out_log.write('\n')
 
         f_out.write('###############################################################################\n\n')
 
@@ -222,8 +252,9 @@ def main():
                 f_out.write('PARSING ERROR\n\n')
 
         f_out.close()
+        f_out_log.close()
 
-        print '%s written.' % ops.output
+        print '%s and %s written.' % (ops.output, output_log)
         print ''
 
 #    print '|'
@@ -313,8 +344,9 @@ def make_book(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -372,8 +404,9 @@ def make_incollection(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -436,8 +469,9 @@ def make_article(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -493,8 +527,9 @@ def make_misc(reo):
     """
     lines = []
     cite_author = reo.group('author').split()[0].rstrip(',')
+    cite_author_lower = cite_author.lower()
     has_von = False
-    if cite_author in ('von', 'van', 'De', "'t"):
+    if cite_author_lower in ('van', 'von', 'da', 'de', 'di', "'t"):
         cite_author += reo.group('author').split()[1].rstrip(',')
         has_von = True
     cite_year = reo.group('year')
@@ -549,6 +584,9 @@ def clean_citation(fn):
     u_new_fn = u_new_fn.encode('ascii','ignore')
     new_fn = str(u_new_fn)
 
+    ## remove latex \emph
+    new_fn = new_fn.replace('\\emph', '')
+
     ## remove redundant space (' ' and '_' converted to '-')
     new_fn = new_fn.replace('     ', ' ')
     new_fn = new_fn.replace('    ', ' ')
@@ -584,16 +622,34 @@ def clean_citation(fn):
     ## convert all '-' to '_'
     new_fn = new_fn.replace('-', '_')
 
-    ## chop-off article words
+    ## chop-off articles
     new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_and'):
-        new_fn = new_fn[:-4]
     if new_fn_lower.endswith('_a'):
         new_fn = new_fn[:-2]
+        new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_an'):
         new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
     if new_fn_lower.endswith('_the'):
         new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
+    ## chop-off prepositions
+    if new_fn_lower.endswith('_for'):
+        new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_in'):
+        new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_of'):
+        new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
+    if new_fn_lower.endswith('_to'):
+        new_fn = new_fn[:-3]
+        new_fn_lower = new_fn.lower()
+    ## chop-off conjuctions
+    if new_fn_lower.endswith('_and'):
+        new_fn = new_fn[:-4]
+        new_fn_lower = new_fn.lower()
 
     return new_fn
 
