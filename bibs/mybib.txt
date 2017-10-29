@@ -1,4 +1,4 @@
-ATLAS Collaboration. (2008). The ATLAS Experiment at the CERN Large Hadron Collider. *Journal of Instrumentation*, 3, 08003. http://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08003
+ATLAS Collaboration. (2008). The ATLAS Experiment at the CERN Large Hadron Collider. *Journal of Instrumentation*, 3, 08003. https://cds.cern.ch/record/1129811
 ATLAS Collaboration. (2012). Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC. *Physics Letters B*, 716, 1--29. https://arxiv.org/abs/1207.7214
 Feynman, R.P. (1963). *The Feynman Lectures on Physics, Volume I*. California Institute of Technology. http://www.feynmanlectures.caltech.edu/I_03.html
 Feynman, R.P. (1965). The Development of the Space-Time View of Quantum Electrodynamics. Nobel Lecture, December 11, 1965. http://www.nobelprize.org/nobel_prizes/physics/laureates/1965/feynman-lecture.html
@@ -7,5 +7,3 @@ Miller, A. (2014). Realism. *Stanford Encyclopedia of Philosophy*. http://plato.
 Plato. (2000). *The Republic*. (G. Ferrari, Ed. & T. Griffith, Trans.). Cambridge University Press. [(Originally written ca. 380 BCE)]
 Quine, W.V.O. (1969). Natural kinds. In *Ontological Relativity and Other Essays* (pp. 114--138). Columbia University Press.
 van Fraassen, B. (1980). *The Scientific Image*. Oxford University Press.
-
-

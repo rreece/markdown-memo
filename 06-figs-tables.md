@@ -42,7 +42,7 @@ Another example:
         The dashed curve shows the expected local $p_{0}$ under the hypothesis of a
         SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
         The horizontal dashed lines indicate the $p$-values corresponding to significances
-        of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search_for]\.
+        of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search]\.
         ](img/ATLAS-local-p0-vs-mH.png){#fig:ATLAS_local_p0_vs_mH}
 
 produces:
@@ -51,7 +51,7 @@ produces:
     The dashed curve shows the expected local $p_{0}$ under the hypothesis of a
     SM Higgs boson signal at that mass with its $\pm{}1\sigma$ band.
     The horizontal dashed lines indicate the $p$-values corresponding to significances
-    of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search_for]\.
+    of 1 to 6$\sigma$\ [@ATLAS_2012_Observation_of_a_new_particle_in_the_search]\.
     ](img/ATLAS-local-p0-vs-mH.png){#fig:ATLAS_local_p0_vs_mH}
 
 
