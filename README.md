@@ -240,6 +240,8 @@ Wish list / TODOs
 -   ~~Make a template that works with [REVTeX](https://journals.aps.org/revtex).~~
 -   ~~Make a template that works with [JHEP](https://jhep.sissa.it/jhep/help/JHEP_TeXclass.jsp).~~
 -   ~~Hack equation references to be done the same as figure and table references. `[@eq:stokes]` &rarr; `eq.\ $\eqref{eq:stokes}$`~~
+-   ~~PlotTable float~~
+-   Allow tables to be given as csv files.
 -   Fix TOC spacing issues with REVTeX.
 -   Fix Author issues with JHEP.
 -   Make the use of tmp files more robust.

@@ -149,38 +149,40 @@ For example:
 <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
 <div id="test1" class="more">
 
-Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
-urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
-ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
-omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
-sumo decore. Eirmod hendrerit an pri.
+Here, we show a `PlotTable` float, where the user can specify
+a table, and a corresponding figure plotting the data in the table
+is automatically generated.
 
-Amet magna voluptatum eam eu. Denique moderatius ad pri, an vix tale
-referrentur, atqui appetere et eos. Pri esse disputationi et. Te his
-assum persius, in eam deterruisset consequuntur. Quando signiferumque no
-his, usu nusquam corrumpit ex, sea ex soluta option facilisis. Ne autem
-assentior consequuntur nam, constituto scripserit no eam. Eu laoreet
-fabellas postulant eos.
+For example:
 
-Ei oratio mediocritatem sea, at choro mandamus disputando quo, id eius
-albucius deseruisse mei. Id eam verear disputando repudiandae. Per et
-clita reformidans. Ea his corpora ancillae fabellas, an eum facer tation
-populo. Vix omittam lucilius inciderint ne, est cu civibus scribentur
-adversarium.
+    PlotTable: My caption {#tbl:plot_table}
+    
+    |    X |  Apple |  Banana | Pistachio |
+    |-----:|-------:|--------:|----------:|
+    |    1 |      2 |       2 |         3 |
+    |    2 |      3 |       1 |         5 |
+    |    3 |      5 |       0 |         5 |
+    |    4 |      4 |       1 |         7 |
+    |    5 |      7 |       2 |         8 |
+    |    6 |      8 |       3 |         9 |
+    |    8 |      9 |       4 |         8 |
+    |   11 |      9 |       3 |         9 |
 
-Pro solet accumsan at. Id has dicunt corrumpit, vel in mundi vitae
-definiebas, eos in dicunt aliquando. His falli qualisque eu, ad vim movet
-dolor, per ne denique lobortis. Recusabo tractatos per cu. Apeirian
-voluptaria constituam eam no. Scripta vivendum mel ne.
+makes [@tbl:plot_table]
+and [@fig:plot_table].
 
-I wonder if [@Tbl:label] works.
+PlotTable: My caption {#tbl:plot_table}
 
-Table: Caption {#tbl:label}
-
-a   b   c
---- --- ---
-1   2   3
-4   5   6
+|    X |  Apple |  Banana | Pistachio |
+|-----:|-------:|--------:|----------:|
+|    1 |      2 |       2 |         3 |
+|    2 |      3 |       1 |         5 |
+|    3 |      5 |       0 |         5 |
+|    4 |      4 |       1 |         7 |
+|    5 |      7 |       2 |         8 |
+|    6 |      8 |       3 |         9 |
+|    8 |      9 |       4 |         8 |
+|   11 |      9 |       3 |         9 |
 
 </div> <!-- end clickmore -->
 
