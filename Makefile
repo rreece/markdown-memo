@@ -90,7 +90,6 @@ index.html: index.mdp meta.yaml
 		-t html \
 		--ascii \
 		--standalone \
-		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		-o $@ $< meta.yaml
@@ -104,7 +103,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--ascii \
 		--number-sections \
 		--standalone \
-		--smart \
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		--mathjax \
@@ -121,7 +119,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		-t html \
 		--ascii \
 		--standalone \
-		--smart \
 		--template=./templates/outline_template.html \
 		-o $@.tmp $< meta.yaml
 	@rm -f meta.yaml.tmp
@@ -136,7 +133,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 			-t html \
 			--ascii \
 			--standalone \
-			--smart \
 			--variable=date-meta:"$(DATE)" \
 			--template=./templates/outline_template.html \
 			--mathjax \
@@ -149,7 +145,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 			-t html \
 			--ascii \
 			--standalone \
-			--smart \
 			--variable=date-meta:"$(DATE)" \
 			--template=./templates/outline_template.html \
 			--mathjax \
@@ -174,7 +169,6 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			-t latex \
 			--ascii \
 			--standalone \
-			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
@@ -185,7 +179,6 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			-t latex \
 			--ascii \
 			--standalone \
-			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
@@ -201,7 +194,6 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			-t latex \
 			--ascii \
 			--standalone \
-			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
@@ -212,7 +204,6 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			-t latex \
 			--ascii \
 			--standalone \
-			--smart \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			-o $@ $< $(OPS_SECTION) meta.yaml ; \

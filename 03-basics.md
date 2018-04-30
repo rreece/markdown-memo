@@ -182,13 +182,6 @@ Don't do this. These will work in LaTeX (\LaTeX) but may not in html.
     -   $\textsf{This works though!}$
     -   $\textsc{But this does not!}$
 
-produces:
-
--   \textsf{This should be Sans.}
--   \textsc{This Should BE SMALL caps.}
--   $\textsf{This works though!}$
--   $\textsc{But this does not!}$
-
 
 Links and labels {#sec:links-and-labels}
 -------------------------------------------------------------------------------

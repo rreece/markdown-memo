@@ -233,12 +233,13 @@ div.authors p {
 }
 
 div.abstract {
-    font-size: 16px;
     margin-top: 36px;
     margin-bottom: 36px;
     margin-left:  auto;
     margin-right: auto;
     max-width: 600px;
+    font-size: 16px;
+    text-align: justify;
 }
 
 

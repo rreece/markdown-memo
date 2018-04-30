@@ -102,7 +102,7 @@ def main():
                     os.system('python scripts/make_index_md.py -c -1 -4 --out=%s %s' % (pagetoc_md, fn))
 
                     if os.path.isfile(pagetoc_md):
-                        os.system('pandoc -t html --ascii --smart -o %s %s' % (pagetoc_html, pagetoc_md))
+                        os.system('pandoc -t html --ascii -o %s %s' % (pagetoc_html, pagetoc_md))
                         if os.path.isfile(pagetoc_html):
                             f_pagetoc = open(pagetoc_html)
                             newline = ''.join(f_pagetoc.readlines())
