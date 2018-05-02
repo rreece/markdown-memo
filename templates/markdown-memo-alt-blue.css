@@ -248,6 +248,8 @@ div.abstract {
 
 /* blocks ---------------------------------------------------------- */
 pre {
+    margin-top: 16px;
+    margin-bottom: 16px;
     border-top: 2px solid black;
     border-right: 2px solid #cccccc;
     border-bottom: 2px solid #cccccc;
@@ -266,7 +268,8 @@ code {
     text-align: left;
 }
 blockquote {
-    margin:0;
+    margin-top: 16px;
+    margin-bottom: 16px;
     border:0;
     padding:0;
     border-left:12px solid #cccccc;
@@ -278,6 +281,11 @@ blockquote {
 blockquote p {
     font-family: Verdana, Helvetica, Arial, sans-serif;
     font-size: 14px;
+}
+div.line-block {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    line-height: 22px;
 }
 
 /* hr. ---------------------------------------------------------- */

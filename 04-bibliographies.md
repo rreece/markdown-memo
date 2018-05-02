@@ -97,13 +97,15 @@ is set in `meta.yaml`.
 
 
 
+<!--
 [^Feynman1963]: @Feynman_1963_The_Feynman_Lectures_on_Physics_Volume_I\, ch. 3.
+[^Miller2014]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
+-->
 
 [^Feynman1965]: @Feynman_1965_The_Development_of_the_Space_Time_View_of_Quantum\.
 
 [^Guest2016]: @Guest_2016_Jet_flavor_classification_in_high_energy_physics\.
 
-[^Miller2014]: @Miller_2014_Realism\. See also "[Philosophical realism](https://en.wikipedia.org/wiki/Philosophical_realism)" - Wikipedia.
 
 [^Plato2000]: @Plato_2000_The_Republic\.
 
