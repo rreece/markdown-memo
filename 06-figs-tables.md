@@ -134,11 +134,11 @@ and a `div` of class `more`, linked to eachother like this:
     <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
     <div id="test1" class="more">
 
-    Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
-    urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
-    ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
-    omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
-    sumo decore. Eirmod hendrerit an pri.
+    Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+    Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+    accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+    an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+    at falli feugiat est.
     
     ...
     
@@ -149,7 +149,25 @@ For example:
 <div class="clickmore"><a id="link:test1" class="closed" onclick="toggle_more('test1')">Click for more details</a></div>
 <div id="test1" class="more">
 
-Here, we show a `PlotTable` float, where the user can specify
+Lorem ipsum dolor sit amet, duo ut putant verear, nam ut brute utroque.
+Officiis qualisque conceptam te duo, eu vim soluta numquam, has ut aliquip
+accusamus. Probo aliquam pri id. Mutat singulis ad vis, eam euismod pertinax
+an, ea tale volumus vel. At porro soleat est. Debet facilis admodum an sed,
+at falli feugiat est.
+
+Ne nonumy quodsi petentium vix, mel ad errem accusata periculis. Porro
+urbanitas consetetur mei eu, his nisl officiis ei. Ei cum fugit graece,
+ne qui tantas qualisque voluptaria. Vis ut laoreet euripidis, vix aeque
+omittam at, vix no cetero volumus. Per te omnium volutpat torquatos, cu vis
+sumo decore. Eirmod hendrerit an pri.
+
+</div> <!-- end clickmore -->
+
+
+PlotTable
+-------------------------------------------------------------------------------
+
+Here, we show a `PlotTable`, where the user can specify
 a table, and a corresponding figure plotting the data in the table
 is automatically generated.
 
@@ -183,8 +201,6 @@ PlotTable: My caption {#tbl:plot_table}
 |    6 |      8 |       3 |         9 |
 |    8 |      9 |       4 |         8 |
 |   11 |      9 |       3 |         9 |
-
-</div> <!-- end clickmore -->
 
 
 <!-- REFERENCES -->
