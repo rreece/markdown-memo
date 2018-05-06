@@ -175,7 +175,7 @@ produces:
 -   __This is bold *and* emphasis.__
 -   ~~This is struck-out.~~
 
-Don't do this. These will work in LaTeX (\LaTeX) but may not in html.
+Don't do these. These will work in LaTeX (\LaTeX) but may not in html.
 
     -   \textsf{This should be Sans.}
     -   \textsc{This Should BE SMALL caps.}

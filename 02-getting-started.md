@@ -35,16 +35,17 @@ Requirements
 -   matplotlib (for pagecount and wordcount plots)
 -	xpdf (pdfinfo command for pagecount)
 
-On my Mac, I used to install the missing dependencies through
-[macports](https://www.macports.org/),
-but beginning with OS 10.11, I started using
-[homebrew](http://brew.sh/).
-
 First, if you are on a Mac, you should install
 [Xcode](https://developer.apple.com/xcode/)
 through the Apple app store to get `make` and basic build utilities.
+Then you should install [homebrew](http://brew.sh/)
+for package management[^MacPackageManagers].
 
-Some basic requirements I had to install with *homebrew*
+[^MacPackageManagers]:  On my Mac, I used to install the missing dependencies
+    through [macports](https://www.macports.org/),
+    but beginning with OS 10.11, I started using [homebrew](http://brew.sh/).
+
+Some basic requirements I had to install with homebrew
 were the following, and I got [pip](https://pip.readthedocs.io/en/stable/installing/)
 and used it to install somethings:
 
@@ -55,14 +56,19 @@ and used it to install somethings:
     sudo pip install matplotlib
     sudo pip install pandas
 
-Then, with *homebrew*, the main packages to install are
+Then, with homebrew, the main packages to install are
 
     brew cask install mactex
     brew install pandoc
     brew install pandoc-citeproc
     brew install pandoc-crossref
 
-Instead of homebrew, some years ago, with *macports* I installed
+Instead of homebrew, some years ago, I was using *[macports](https://www.macports.org/)*.
+
+<div class="clickmore"><a id="link:macports1" class="closed" onclick="toggle_more('macports1')">Click for details on using macports</a></div>
+<div id="macports1" class="more">
+
+Using macports, I installed
 
     sudo port selfupdate
     sudo port install texlive-latex texlive-latex-recommended texlive-latex-extra texlive-math-extra
@@ -70,6 +76,8 @@ Instead of homebrew, some years ago, with *macports* I installed
     sudo port install hs-cabal-install
     cabal update
     cabal install pandoc-citeproc pandoc-crossref
+
+</div> <!-- end clickmore -->
 
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
