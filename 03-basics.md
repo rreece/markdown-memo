@@ -208,11 +208,14 @@ Refer to labeled things like this:
 -   **for equations:** `The generalized Stokes' theorem, [@eq:stokes], is rad.`          
     The generalized Stokes' theorem, [@eq:stokes], is rad.
 
+TODO: The above references to labels on other pages unfortunately don't work in html,
+but they work in latex/pdf.
+
 You can refer to multiple lables like [@sec:sections;@sec:lists;@sec:blocks] like this:
 
     [@sec:sections;@sec:lists;@sec:blocks]
 
-Automatic grouping into a range doesn't seem to be working,
+Automatic grouping into a range doesn't seem to be working (for latex, but does for html),
 so you can also try refer to [Sections @sec:sections]--[-@sec:blocks]
 in some versions like this:
 
