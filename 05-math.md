@@ -29,7 +29,6 @@ Stokes' theorem is pretty cool:
     \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
 \end{equation}
 
-
 You can also refer to labeled equations, such as [@eq:stokes],
 with the syntax:
 

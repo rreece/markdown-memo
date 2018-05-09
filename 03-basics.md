@@ -12,18 +12,18 @@ Sections {#sec:sections}
 
 Are markded like this:
 
-    Section title {#sec:put-section-label-here}
+    Section title {#sec:put-optional-section-label-here}
     ===============================================================================
 
-    Sub-section title
+    Sub-section title {#sec:put-optional-sub-section-label-here}
     -------------------------------------------------------------------------------
 
 
 Or marked like this:
 
-    # Section title {#sec:put-section-label-here}
+    # Section title {#sec:put-optional-section-label-here}
 
-    ## Sub-section title
+    ## Sub-section title {#sec:put-optional-sub-section-label-here}
  
     ### Sub-sub-section title
 
@@ -199,11 +199,14 @@ These prefixes/words are configurable in the `meta.yaml` file.
 
 Refer to labeled things like this:
 
--   for sections: `[@sec:footnotes]`     
-    [@sec:footnotes]
--   for figures: `[@fig:scientific_universe]`
--   for tables: `[@tbl:atlas_channels]`
--   for equations: `[@eq:stokes]`
+-   **for sections:** `See [@sec:footnotes] on footnotes.`     
+    See [@sec:footnotes] on footnotes.
+-   **for figures:** `[@fig:scientific_universe] motivates the unity of science.`         
+    [@fig:scientific_universe] motivates the unity of science.
+-   **for tables:** `Numbers are in [@tbl:atlas_channels].`        
+    Numbers are in [@tbl:atlas_channels].
+-   **for equations:** `The generalized Stokes' theorem, [@eq:stokes], is rad.`          
+    The generalized Stokes' theorem, [@eq:stokes], is rad.
 
 You can refer to multiple lables like [@sec:sections;@sec:lists;@sec:blocks] like this:
 
