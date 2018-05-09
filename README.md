@@ -250,6 +250,7 @@ Wish list / TODOs
 -   Fix TOC issues when calling `make ohtml`.
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
+-   References to labels on other pages unfortunately don't work in html.
 
 See the version history: [VERSIONS.md](VERSIONS.md)
 
@@ -265,6 +266,4 @@ See also
 -   [commonmark.org](http://commonmark.org/)
 -   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
 -   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
-
-
 
