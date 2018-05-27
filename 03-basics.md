@@ -186,11 +186,17 @@ Don't do these. These will work in LaTeX (\LaTeX) but may not in html.
 Links and labels {#sec:links-and-labels}
 -------------------------------------------------------------------------------
 
-URLs are done like this:
+Links to URLs are done like this:
 
     [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
 
 [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum)
+
+or used directly like this:
+
+    <https://www.google.com>
+
+<https://www.google.com>
 
 When referring to labeled sections/figures/tables,
 you do not include the literal word "Section", "Figure", or "Table",
