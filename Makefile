@@ -288,6 +288,12 @@ realclean: clean
 ## make realclean and make default again
 over: realclean default
 
+## cleanwc (clean wordcount)
+cleanwc:
+	@rm -rf wordcount
+	@git checkout -- wordcount
+	$(PRINT) "make $@ done."
+
 
 ##-----------------------------------------------------------------------------
 ## Be careful using these destructive targets
