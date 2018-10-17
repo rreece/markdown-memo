@@ -43,18 +43,6 @@ import os
 import re
 import glob
 
-import pandas as pd
-import matplotlib
-matplotlib.use("Agg") # suppress the python rocketship icon popup
-import matplotlib.pyplot as plt
-
-# print(plt.style.available) # [u'dark_background', u'bmh', u'grayscale', u'ggplot', u'fivethirtyeight']
-plt.style.use('seaborn-deep')
-plt.rcParams['legend.numpoints'] = 1
-#plt.rcParams['axes.xmargin'] = 0.1
-#plt.rcParams['axes.ymargin'] = 0.1
-#plt.rcParams['figure.figsize'] = (15, 5)
-
 ## my modules
 
 ## local modules
@@ -261,6 +249,25 @@ def transform_PlotTable(lines):
                 table_data[columns[ix]].append( float(x) )
             else:
                 table_data[columns[ix]].append( x )
+
+    out_lines = make_PlotTable(columns, table_data)
+    return out_lines
+
+
+#______________________________________________________________________________
+def make_PlotTable(columns, table_data):
+
+    import pandas as pd
+    import matplotlib
+    matplotlib.use("Agg") # suppress the python rocketship icon popup
+    import matplotlib.pyplot as plt
+    
+    # print(plt.style.available) # [u'dark_background', u'bmh', u'grayscale', u'ggplot', u'fivethirtyeight']
+    plt.style.use('seaborn-deep')
+    plt.rcParams['legend.numpoints'] = 1
+    #plt.rcParams['axes.xmargin'] = 0.1
+    #plt.rcParams['axes.ymargin'] = 0.1
+    #plt.rcParams['figure.figsize'] = (15, 5)
 
     out_lines = list()
 

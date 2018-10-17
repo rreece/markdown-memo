@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 """
 NAME
     markdown2bib.py - Converts simple markdown-formatted APA bibliographies to bibtex
@@ -18,7 +18,7 @@ OPTIONS
         Specifies the output filename (out.bib by default).
 
 AUTHOR
-    Ryan Reece  <ryan.reece@cern.ch>
+    Ryan Reece  <ryan.reece@gmail.com>
 
 COPYRIGHT
     Copyleft 2016 Ryan Reece
@@ -42,10 +42,11 @@ import unicodedata
 
 ## local modules
 
-
 #------------------------------------------------------------------------------
 # globals
 #------------------------------------------------------------------------------
+
+# Note: \w = [a-zA-Z0-9_], \S = [^ \t\n\r\f\v]
 
 # Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
 # Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
@@ -53,10 +54,10 @@ rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,
                     r"\s+\((?P<year>\d+)\)[,.]",
 #                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+(?P<title>[^*\[\]]+)[,.]?",
-                    r"(?!\s+https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
+                    r"(?!\s+<?https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
                     r"(\s+\*?(?P<volume>\d+)\*?(\((?P<number>\d+)\))?[,.]?)?",
                     r"(\s+(?P<pages>(P|p)?\d+-*\d*)[,.]?)?",
-                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_article = re.compile(rep_article_s)
@@ -66,8 +67,8 @@ rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s
                     r"\s+\*(?P<title>[^*]+)\*[,.]?",
                     r"(\s+\((?P<edition>\d+)\w*\s+ed\.\)[,.]?)?",
                     r"(\s+\(((?P<editor>[^()]+),\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+),\s+Trans\.)?\)[,.]?)?",
-                    r"((?!\s+https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
-                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"((?!\s+<?https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
+                    r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_book = re.compile(rep_book_s)
@@ -77,10 +78,10 @@ rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+In",
                     r"(\s+(?P<editor>[^()*]+)(\s+\(Eds?\.\))?[,.]?)?",
-                    r"(?!\s+https?://)(\s+\*(?P<booktitle>[^*]+)\*[,.]?)",
+                    r"(?!\s+<?https?://)(\s+\*(?P<booktitle>[^*]+)\*[,.]?)",
                     r"(\s+\(((?P<edition>\d+)\w*\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
-                    r"(?!\s+https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
-                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"(?!\s+<?https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
+                    r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_incollection = re.compile(rep_incollection_s)
@@ -88,14 +89,14 @@ rep_incollection = re.compile(rep_incollection_s)
 rep_misc_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
-                    r"((?!\s+https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
-                    r"(\s+(Retrieved\s+from\s+)?(?P<url>https?://\S+)[,.]?)?",
+                    r"((?!\s+<?https?://)\s+(?P<howpublished>[^.\[\]]+)[,.]?)?",
+                    r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
 rep_misc = re.compile(rep_misc_s)
 rep_author_s = r"(?P<a1>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?)(?P<etal>\s+et\s+al)?(,?\s+(&\s+)?(?P<a2>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a3>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a4>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a5>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?(,?\s+(&\s+)?(?P<a6>[^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?))?"
 rep_author = re.compile(rep_author_s)
-rep_url_s = r"(https?://\S+)"
+rep_url_s = r"<?(https?://[^ \t\n\r\f\v<>]+)>?"
 rep_url = re.compile(rep_url_s)
 rep_ascii_s = r'[a-zA-Z0-9_.\-]'
 rep_ascii = re.compile(rep_ascii_s)
@@ -672,15 +673,18 @@ def clean_author(s):
         if reo.group('etal'):
             assert reo.group('a1')
 #            s = '%s and others' % reo.group('a1')
-            s = '%s \\emph{et al}.' % reo.group('a1')
+#            s = '%s \\emph{et al}.' % reo.group('a1')
+            s = '%s et al.' % reo.group('a1')
         elif reo.group('a6'):
             assert reo.group('a1')
 #            s = '%s and others' % reo.group('a1')
-            s = '%s \\emph{et al}.' % reo.group('a1')
+#            s = '%s \\emph{et al}.' % reo.group('a1')
+            s = '%s et al.' % reo.group('a1')
         elif reo.group('a5'):
             assert reo.group('a1')
 #            s = '%s and others' % reo.group('a1')
-            s = '%s \\emph{et al}.' % reo.group('a1')
+#            s = '%s \\emph{et al}.' % reo.group('a1')
+            s = '%s et al.' % reo.group('a1')
         else:
             authors = []
             if reo.group('a1'):
