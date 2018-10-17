@@ -62,7 +62,7 @@ Disqus integration
 -------------------------------------------------------------------------------
 
 You can choose to append a comments section at the end of your html.
-Just register a user name and the site name with [disqus.com](disqus.com).
+Just register a user name and the site name with [disqus.com](https://disqus.com/).
 Then in the `meta.yaml`, set your `disqus_shortname`:
 
     disqus_shortname: 'my-sites-disqus-name'
