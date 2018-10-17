@@ -250,12 +250,14 @@ def transform_PlotTable(lines):
             else:
                 table_data[columns[ix]].append( x )
 
-    out_lines = make_PlotTable(columns, table_data)
+    out_lines = make_PlotTable(columns, table_data, label)
+    out_lines.extend(caption_lines)
+    out_lines.extend(table_lines)
     return out_lines
 
 
 #______________________________________________________________________________
-def make_PlotTable(columns, table_data):
+def make_PlotTable(columns, table_data, label):
 
     import pandas as pd
     import matplotlib
@@ -282,9 +284,6 @@ def make_PlotTable(columns, table_data):
         plt.close()
         cap = 'A plot of [@tbl:%s].' % label
         out_lines.append('![%s](img/%s.png){#fig:%s}\n\n' % (cap, label, label))
-
-    out_lines.extend(caption_lines)
-    out_lines.extend(table_lines)
 
     return out_lines
 

@@ -186,8 +186,7 @@ For example:
     |    8 |      9 |       4 |         8 |
     |   11 |      9 |       3 |         9 |
 
-makes [@tbl:plot_table]
-and [@fig:plot_table].
+makes [@fig:plot_table] and [@tbl:plot_table].
 
 PlotTable: My caption {#tbl:plot_table}
 
