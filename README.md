@@ -24,14 +24,14 @@ This same document compiled to a pdf can be found here:
 Author
 ----------------------------------
 
-Ryan Reece <ryan.reece@cern.ch>     
+Ryan Reece <ryan.reece@gmail.com>     
 Created: July 29, 2014
 
 
 License
 ----------------------------------
 
-Copyleft 2014-2017 Ryan Reece     
+Copyleft 2014-2019 Ryan Reece     
 License: GPL <http://www.gnu.org/licenses/gpl.html>
 
 
@@ -86,7 +86,7 @@ Instead of homebrew, some years ago, with *macports* I installed
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
 the software more robust as time allows.
-Contact me at: <ryan.reece@cern.ch>
+Contact me at: <ryan.reece@gmail.com>
 
 
 Features
