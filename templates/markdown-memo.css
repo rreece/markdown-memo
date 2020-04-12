@@ -275,8 +275,10 @@ blockquote {
     text-align: justify;
 }
 blockquote p {
+/*
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+*/
+    font-size: 15px;
 }
 div.line-block {
     margin-top: 16px;
