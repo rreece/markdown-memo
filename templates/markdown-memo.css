@@ -187,11 +187,11 @@ h1 {
     margin-top: 0;
     margin-bottom: 48px;
 }
-h2 {
+h2, h3 {
     margin-top: 48px;
     margin-bottom: 24px;
 }
-h3, h4, h5 {
+h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }
@@ -358,14 +358,10 @@ div#pagecontainer
 /* nav ---------------------------------------------------------- */
 div.nav
 {
-    /*float: right;*/
-    /*clear: both;*/
-    display: block;
-    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    clear: both;
+    display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 360px;
-    margin-right: 0;
     border: 2px solid #444444;
     padding: 5px 10px;
 }
@@ -375,14 +371,12 @@ div.nav ul
     margin: 0;
     border: 0;
     padding: 0;
-    font-size: 12px;
+    font-size: 14px;
     list-style: none;
-    /*list-style-type: square;*/
 }
 
 div.nav ul li
 {
-    display: inline;
     margin: 2px 4px;
     padding: 0;
     text-transform: lowercase;

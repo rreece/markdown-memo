@@ -107,6 +107,7 @@ a {
     padding: 0;
     vertical-align: baseline;
     /* text-decoration: none; */
+    text-decoration: underline;
 }
 a:visited {
     color: purple;
@@ -121,7 +122,7 @@ div#site_header {
     background: #062F4F;
     font-size: 24px;
     font-weight: bold;
-    color: #CCCCCC;
+    color: #cccccc;
     /* set same as .block class bellow */
     display:block;
     clear: both;
@@ -134,13 +135,13 @@ div#site_header {
 
 div#site_header a {
     text-decoration: none;
-    color: #CCCCCC;
+    color: #cccccc;
 }
 
 div#site_footer {
     background: #062F4F;
     font-size: 16px;
-    color: #CCCCCC;
+    color: #cccccc;
     /* set same as .block class bellow */
     display:block;
     clear: both;
@@ -190,11 +191,11 @@ h1 {
     margin-top: 0;
     margin-bottom: 24px;
 }
-h2 {
+h2, h3 {
     margin-top: 48px;
     margin-bottom: 24px;
 }
-h3, h4, h5 {
+h4, h5 {
     margin-top: 24px;
     margin-bottom: 24px;
 }
@@ -209,7 +210,7 @@ h3 {
     font-size: 28px;
 }
 h4 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 h5 {
@@ -217,7 +218,7 @@ h5 {
     font-style: italic;
 }
 h1, h2, h3 {
-    color: #000000;
+    color: black;
     font-weight: normal;
 }
 
@@ -278,8 +279,10 @@ blockquote {
     text-align: justify;
 }
 blockquote p {
+/*
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+*/
+    font-size: 15px;
 }
 div.line-block {
     margin-top: 16px;
