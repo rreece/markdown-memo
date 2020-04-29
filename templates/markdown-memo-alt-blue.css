@@ -532,7 +532,7 @@ div.clickmore a
 {
     margin-top: 16px;
     margin-bottom: 16px;
-    font-weight: bold;
+/*    font-weight: bold; */
     font-size: 24px;
     cursor: pointer;
     color: #444444;
@@ -559,5 +559,3 @@ div.more
     border-top: 2px #cccccc dashed;
     border-bottom: 2px #cccccc dashed;
 }
-
-
