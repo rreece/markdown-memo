@@ -81,14 +81,12 @@ def main():
     infiles = ops.infiles
     out = ops.out
 
-#    rep = r'<h([1-6])\s+[^>]*id="([\w\.\-]+)"[^>]*>([^<]+)<\/h[1-6]>'
-    rep = r'\s*<h([1-6])\s+[^>]*id="([\w\.:\-]+)"[^>]*>(.+)<\/h[1-6]>\s*'
+    rep = r'\s*<h([1-6])\s+[^>]*id="([^>]+)">(.+)<\/h[1-6]>\s*'
 
     f_out = open(out, 'w')
 
     if ops.contents:
         f_out.write('### Contents  {.unnumbered}\n')
-#       f_out.write('---------------------------------------------------\n')
         f_out.write('\n')
 
     for fn in infiles:

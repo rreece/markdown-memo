@@ -79,6 +79,7 @@ def main():
     rep_eq = r'\[@eq:(\w+)\]'
     rep_pt = r'PlotTable: (.+)$'
     rep_empty = r'\s*$'
+    rep_comment = r'//(.+)$'
 
     for fn in infiles:
         root, ext = os.path.splitext(fn)
@@ -130,6 +131,9 @@ def main():
                         oldword = reo.group(0)
                         newword = 'eq.\\ $\\eqref{eq:%s}$' % eqlabel
                         newline = newline.replace(oldword, newword)
+
+                if re.match(rep_comment, newline):
+                    continue
 
                 ## starting to parse PlotTable
                 if re.match(rep_pt, newline):
