@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 NAME
     name.py - short description
@@ -33,26 +33,10 @@ TO DO
 2011-06-15
 """
 
-#------------------------------------------------------------------------------
-# imports
-#------------------------------------------------------------------------------
-
-## std
 import argparse, sys, time
 import os
 import re
 import glob
-
-## my modules
-
-## local modules
-
-
-#------------------------------------------------------------------------------
-# globals
-#------------------------------------------------------------------------------
-timestamp = time.strftime('%Y-%m-%d-%Hh%M')
-GeV = 1000.
 
 
 #------------------------------------------------------------------------------
@@ -154,7 +138,7 @@ def make_navigation(filename):
             mds.remove('README.md')
         mds.sort()
 
-    prv = None
+    prv = 'index.html'
     nxt = None
     lst = None
 
@@ -190,7 +174,7 @@ def fatal(message=''):
 #______________________________________________________________________________
 def tprint(s, log=None):
     line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print line
+    print(line)
     if log:
         log.write(line + '\n')
         log.flush()
@@ -198,5 +182,3 @@ def tprint(s, log=None):
 
 #------------------------------------------------------------------------------
 if __name__ == '__main__': main()
-
-# EOF

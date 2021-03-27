@@ -70,30 +70,6 @@ div.preline {
     line-height: 22px;
 }
 
-/* hang indents on references */
-/* bibliography from md -> html */
-div.references p {
-    margin: 0;
-    padding-left: 36px ;
-    text-indent: -36px ;
-    text-align: left;
-}
-
-/* bibliography from md -> total doc.html */
-h1[id="references"] ~ div p {
-    margin: 0;
-    padding-left: 36px ;
-    text-indent: -36px ;
-    text-align: left;
-}
-
-/* bibliography from md -> mds -> html */
-h1[id="bibliography"] ~ p, h2[id="bibliography"] ~ p, h1[id="references"] ~ p, h2[id="references"] ~ p {
-    margin: 0;
-    padding-left: 36px ;
-    text-indent: -36px ;
-    text-align: left;
-}
 
 /* links ---------------------------------------------------------- */
 a {
@@ -398,18 +374,18 @@ div.nav a:hover {
 }
 
 /* footnotes -------------------------------------------------- */
-a.footnoteRef {
+a.footnote-ref {
     position:relative;
     font-size: 16px;
     text-decoration: none;
 }
-a.footnoteRef:before {
+a.footnote-ref:before {
     content: "\00a0[";
 }
-a.footnoteRef:after {
+a.footnote-ref:after {
     content: "]";
 }
-a.footnoteRef sup {
+a.footnote-ref sup {
     vertical-align: baseline;
 }
 
@@ -498,6 +474,13 @@ a.footnoteRef sup {
     font-size: 14px;
     color: #444444;
     line-height: 15px;
+}
+
+/* hang indents on references */
+.csl-entry
+{
+    padding-left: 36px;
+    text-indent: -36px;
 }
 
 

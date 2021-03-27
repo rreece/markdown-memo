@@ -1,4 +1,5 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
+
 """
 NAME
     markdown2bib.py - Converts simple markdown-formatted APA bibliographies to bibtex
@@ -27,20 +28,14 @@ COPYRIGHT
 2016-03-15
 """
 
-#------------------------------------------------------------------------------
-# imports
-#------------------------------------------------------------------------------
-
-## std
-import argparse, sys, time
+import argparse
 import os
 import re
+import sys
 import textwrap
+import time
 import unicodedata
 
-## my modules
-
-## local modules
 
 #------------------------------------------------------------------------------
 # globals
@@ -66,7 +61,7 @@ rep_book_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+\*(?P<title>[^*]+)\*[,.]?",
                     r"(\s+\((?P<edition>\d+)\w*\s+ed\.\)[,.]?)?",
-                    r"(\s+\(((?P<editor>[^()]+),\s+Eds?\.)?(\s+&\s+)?((?P<translator>[^()]+),\s+Trans\.)?\)[,.]?)?",
+                    r"(\s+\(((?P<editor>[^()]+),\s+[Ee]ds?\.)?(\s+&\s+)?((?P<translator>[^()]+),\s+[Tt]rans\.)?\)[,.]?)?",
                     r"((?!\s+<?https?://)\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
                     r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
@@ -77,7 +72,7 @@ rep_incollection_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)
                     r"\s+\((?P<year>\d+)\)[,.]",
                     r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+In",
-                    r"(\s+(?P<editor>[^()*]+)(\s+\(Eds?\.\))?[,.]?)?",
+                    r"(\s+(?P<editor>[^()*]+)(\s+\([Ee]ds?\.\))?[,.]?)?",
                     r"(?!\s+<?https?://)(\s+\*(?P<booktitle>[^*]+)\*[,.]?)",
                     r"(\s+\(((?P<edition>\d+)\w*\s+ed\.,?\s*)?p+\.\s+(?P<pages>(P|p)?\d+-*\d*)\)[,.]?)?",
                     r"(?!\s+<?https?://)(\s+((?P<address>[^.:\[\]]+):\s+)?(?P<publisher>[^.\[\]]+))?[,.]?",
@@ -127,12 +122,12 @@ def main():
     results = dict()
 
     for infile in ops.infiles:
-        print 'Parsing file: %s' % infile
+        print('Parsing file: %s' % infile)
         new_results = parse_file(infile) 
         results.update(new_results)
 
     if results:
-        keys = results.keys()
+        keys = list(results.keys())
         keys.sort()
         articles = []
         books = []
@@ -165,23 +160,23 @@ def main():
                     errors.append(k)
             else:
                 duplicates.append(k)
-                print 'Warning, duplicate: %s' % k
+                print('Warning, duplicate: %s' % k)
 
-        print ''
+        print('')
 
         allcitations.sort()
         for a in allcitations:
-            print a
+            print(a)
 
-        print ''
-        print ' %3i entries found' % len(results)
-        print ' %3i articles' % len(articles)
-        print ' %3i incollections' % len(incollections)
-        print ' %3i books' % len(books)
-        print ' %3i miscs' % len(miscs)
-        print ' %3i errors' % len(errors)
-        print ' %3i duplicates' % len(duplicates)
-        print ''
+        print('')
+        print(' %3i entries found' % len(results))
+        print(' %3i articles' % len(articles))
+        print(' %3i incollections' % len(incollections))
+        print(' %3i books' % len(books))
+        print(' %3i miscs' % len(miscs))
+        print(' %3i errors' % len(errors))
+        print(' %3i duplicates' % len(duplicates))
+        print('')
 
         output_log = '%s.log' % os.path.splitext(os.path.basename(ops.output))[0]
         f_out_log = open(output_log, 'w')
@@ -255,12 +250,12 @@ def main():
         f_out.close()
         f_out_log.close()
 
-        print '%s and %s written.' % (ops.output, output_log)
-        print ''
+        print('%s and %s written.' % (ops.output, output_log))
+        print('')
 
-#    print '|'
-#    print '|  Done!  _______,,,^..^,,,_~_______'
-#    print '|'
+#    print('|')
+#    print('|  Done!  _______,,,^..^,,,_~_______')
+#    print('|')
 
 
 #------------------------------------------------------------------------------
@@ -291,7 +286,7 @@ def parse_line(line):
     if reo:
         ## parse article
         if ops.verbose:
-            print 'Incollection: %s' % trim_string(line)
+            print('Incollection: %s' % trim_string(line))
         citation, bibtex = make_incollection(reo)
         return 'incollection', citation, bibtex
 
@@ -300,7 +295,7 @@ def parse_line(line):
         if reo:
             ## parse book
             if ops.verbose:
-                print 'Book: %s' % trim_string(line)
+                print('Book: %s' % trim_string(line))
             citation, bibtex = make_book(reo)
             return 'book', citation, bibtex
 
@@ -309,7 +304,7 @@ def parse_line(line):
             if reo:
                 ## parse article
                 if ops.verbose:
-                    print 'Article: %s' % trim_string(line)
+                    print('Article: %s' % trim_string(line))
                 citation, bibtex = make_article(reo)
                 return 'article', citation, bibtex
 
@@ -318,12 +313,12 @@ def parse_line(line):
                 if reo:
                     ## parse misc
                     if ops.verbose:
-                        print 'Misc: %s' % trim_string(line)
+                        print('Misc: %s' % trim_string(line))
                     citation, bibtex = make_misc(reo)
                     return 'misc', citation, bibtex
 
                 else:
-                    print 'NO MATCH: %s' % trim_string(line)
+                    print('NO MATCH: %s' % trim_string(line))
 
     return None, None, None
 
@@ -563,96 +558,91 @@ def make_misc(reo):
 
 
 #______________________________________________________________________________
-def clean_citation(fn):
-    new_fn = str(fn)
-
-    ## remove extra spaces and convert to '-'
-    new_fn = new_fn.strip()
-    u_new_fn = unicode(new_fn, 'utf-8')
+def clean_citation(s):
+    new_s = str(s).strip()
 
     ## change unicode-hyphen-like characters to ascii
-    u_new_fn = u_new_fn.replace(u'\u2010', '-')
-    u_new_fn = u_new_fn.replace(u'\u2011', '-')
-    u_new_fn = u_new_fn.replace(u'\u2012', '-')
-    u_new_fn = u_new_fn.replace(u'\u2013', '-')
-    u_new_fn = u_new_fn.replace(u'\u2014', '-')
-    u_new_fn = u_new_fn.replace(u'\u2015', '-')
+    new_s = new_s.replace(u'\u2010', '-')
+    new_s = new_s.replace(u'\u2011', '-')
+    new_s = new_s.replace(u'\u2012', '-')
+    new_s = new_s.replace(u'\u2013', '-')
+    new_s = new_s.replace(u'\u2014', '-')
+    new_s = new_s.replace(u'\u2015', '-')
 
     ## convert unicode to closest ascii for latin-like characters
     ## punctuation-like characters not switched to ascii above will be lost
     ## help from: http://stackoverflow.com/questions/1207457/convert-a-unicode-string-to-a-string-in-python-containing-extra-symbols
-    u_new_fn = unicodedata.normalize('NFKD', u_new_fn)
-    u_new_fn = u_new_fn.encode('ascii','ignore')
-    new_fn = str(u_new_fn)
+    new_s = unicodedata.normalize('NFKD', new_s)
+    new_s = new_s.encode('ascii','ignore').decode('utf-8')
 
     ## remove latex \emph
-    new_fn = new_fn.replace('\\emph', '')
+    new_s = new_s.replace('\\emph', '')
 
     ## remove redundant space (' ' and '_' converted to '-')
-    new_fn = new_fn.replace('     ', ' ')
-    new_fn = new_fn.replace('    ', ' ')
-    new_fn = new_fn.replace('   ', ' ')
-    new_fn = new_fn.replace('  ', ' ')
-    new_fn = new_fn.replace(' ', '-')
-    new_fn = new_fn.replace('_____', ' ')
-    new_fn = new_fn.replace('____', ' ')
-    new_fn = new_fn.replace('___', ' ')
-    new_fn = new_fn.replace('__', ' ')
-    new_fn = new_fn.replace('_', '-')
-    new_fn = new_fn.replace('-----', '-')
-    new_fn = new_fn.replace('----', '-')
-    new_fn = new_fn.replace('---', '-')
-    new_fn = new_fn.replace('--', '-')
-    new_fn = new_fn.replace('.-', '.')
-    new_fn = new_fn.replace('-.', '.')
+    new_s = new_s.replace('     ', ' ')
+    new_s = new_s.replace('    ', ' ')
+    new_s = new_s.replace('   ', ' ')
+    new_s = new_s.replace('  ', ' ')
+    new_s = new_s.replace(' ', '-')
+    new_s = new_s.replace('_____', ' ')
+    new_s = new_s.replace('____', ' ')
+    new_s = new_s.replace('___', ' ')
+    new_s = new_s.replace('__', ' ')
+    new_s = new_s.replace('_', '-')
+    new_s = new_s.replace('-----', '-')
+    new_s = new_s.replace('----', '-')
+    new_s = new_s.replace('---', '-')
+    new_s = new_s.replace('--', '-')
+    new_s = new_s.replace('.-', '.')
+    new_s = new_s.replace('-.', '.')
 
     ## remove strange characters
-    len_fn = len(new_fn)
+    len_fn = len(new_s)
     i = 0
     while i < len_fn:
-        ch = new_fn[i]
+        ch = new_s[i]
         if not rep_ascii.match(ch): # \w = [a-zA-Z0-9_]
-            new_fn = new_fn.replace(ch, '_')
-            len_fn = len(new_fn)
+            new_s = new_s.replace(ch, '_')
+            len_fn = len(new_s)
         i += 1
-    new_fn = new_fn.replace('_', '')
+    new_s = new_s.replace('_', '')
 
     ## remove '.'
-    new_fn = new_fn.replace('.', '')
+    new_s = new_s.replace('.', '')
 
     ## convert all '-' to '_'
-    new_fn = new_fn.replace('-', '_')
+    new_s = new_s.replace('-', '_')
 
     ## chop-off articles
-    new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_a'):
-        new_fn = new_fn[:-2]
-        new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_an'):
-        new_fn = new_fn[:-3]
-        new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_the'):
-        new_fn = new_fn[:-4]
-        new_fn_lower = new_fn.lower()
+    new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_a'):
+        new_s = new_s[:-2]
+        new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_an'):
+        new_s = new_s[:-3]
+        new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_the'):
+        new_s = new_s[:-4]
+        new_s_lower = new_s.lower()
     ## chop-off prepositions
-    if new_fn_lower.endswith('_for'):
-        new_fn = new_fn[:-4]
-        new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_in'):
-        new_fn = new_fn[:-3]
-        new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_of'):
-        new_fn = new_fn[:-3]
-        new_fn_lower = new_fn.lower()
-    if new_fn_lower.endswith('_to'):
-        new_fn = new_fn[:-3]
-        new_fn_lower = new_fn.lower()
+    if new_s_lower.endswith('_for'):
+        new_s = new_s[:-4]
+        new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_in'):
+        new_s = new_s[:-3]
+        new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_of'):
+        new_s = new_s[:-3]
+        new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_to'):
+        new_s = new_s[:-3]
+        new_s_lower = new_s.lower()
     ## chop-off conjuctions
-    if new_fn_lower.endswith('_and'):
-        new_fn = new_fn[:-4]
-        new_fn_lower = new_fn.lower()
+    if new_s_lower.endswith('_and'):
+        new_s = new_s[:-4]
+        new_s_lower = new_s.lower()
 
-    return new_fn
+    return new_s
 
 
 #______________________________________________________________________________
@@ -732,7 +722,7 @@ def fatal(message=''):
 #______________________________________________________________________________
 def tprint(s, log=None):
     line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print line
+    print(line)
     if log:
         log.write(line + '\n')
         log.flush()
@@ -776,7 +766,3 @@ if __name__ == '__main__': main()
 #     pages       = {9--23},
 #     chapter     = {1},
 # }
-#
-#------------------------------------------------------------------------------
-
-# EOF

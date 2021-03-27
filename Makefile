@@ -87,10 +87,9 @@ index.md: $(MD_FILES)
 ## create index.html
 index.html: index.mdp meta.yaml
 	@pandoc \
-		-f markdown \
+		-f markdown+smart \
 		-t html \
 		--ascii \
-		--smart \
 		--standalone \
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
@@ -101,10 +100,9 @@ index.html: index.mdp meta.yaml
 ## create the output html in one combined file
 $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@pandoc \
-		-f markdown \
+		-f markdown+smart \
 		-t html \
 		--ascii \
-		--smart \
 		--number-sections \
 		--standalone \
 		--variable=date-meta:"$(DATE)" \
@@ -112,7 +110,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--mathjax \
 		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
-		--filter pandoc-citeproc \
+		--citeproc \
 		-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLHTML) meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
@@ -120,10 +118,9 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 ## create html
 %.html: %.mdp order.txt $(HTML_DEPS) meta.yaml
 	@pandoc \
-		-f markdown \
+		-f markdown+smart \
 		-t html \
 		--ascii \
-		--smart \
 		--standalone \
 		--template=./templates/outline_template.html \
 		-o $@.tmp $< meta.yaml
@@ -136,24 +133,22 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@if [ "$(DOREFS)" = "true" ] && grep --quiet REFERENCES $< ; \
 	then \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t html \
 			--ascii \
-			--smart \
 			--standalone \
 			--variable=date-meta:"$(DATE)" \
 			--template=./templates/outline_template.html \
 			--mathjax \
 			--bibliography=bibs/mybib.bib \
 			--filter pandoc-crossref \
-			--filter pandoc-citeproc \
+			--citeproc \
 			-o $@ $< $(OPS_SECTION) meta.yaml.tmp ; \
 	else \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t html \
 			--ascii \
-			--smart \
 			--standalone \
 			--variable=date-meta:"$(DATE)" \
 			--template=./templates/outline_template.html \
@@ -176,22 +171,20 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	@if [ "$(DOREFS)" = "true" ] ; \
 	then \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t latex \
 			--ascii \
-			--smart \
 			--standalone \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
-			--filter pandoc-citeproc \
+			--citeproc \
 			-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	else \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t latex \
 			--ascii \
-			--smart \
 			--standalone \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
@@ -205,22 +198,20 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	@if [ "$(DOREFS)" = "true" ] ; \
 	then \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t latex \
 			--ascii \
-			--smart \
 			--standalone \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
 			--bibliography=bibs/mybib.bib \
-			--filter pandoc-citeproc \
+			--citeproc \
 			-o $@ $< $(OPS_SECTION) meta.yaml ; \
 	else \
 		pandoc \
-			-f markdown \
+			-f markdown+smart \
 			-t latex \
 			--ascii \
-			--smart \
 			--standalone \
 			--template=templates/default_template.tex \
 			--filter pandoc-crossref \
@@ -231,7 +222,7 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 
 ## create bibs/mybib.bib from bibs/*.txt
 bibs/mybib.bib: $(BIB_TXT_FILES)
-	@if [[ -z "$(BIB_TXT_FILES)" ]] ; \
+	@if [ -z "$(BIB_TXT_FILES)" ] ; \
 	then \
 		echo "==>   ERROR: No bibliography files found in bibs/. Set dorefs=false in meta.yaml." ; \
 		exit 1 ; \

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 NAME
     make_bib_index_md.py - short description
@@ -33,25 +33,9 @@ TO DO
 2011-06-15
 """
 
-#------------------------------------------------------------------------------
-# imports
-#------------------------------------------------------------------------------
-
-## std
 import argparse, sys, time
 import os
 import re
-
-## my modules
-
-## local modules
-
-
-#------------------------------------------------------------------------------
-# globals
-#------------------------------------------------------------------------------
-timestamp = time.strftime('%Y-%m-%d-%Hh%M')
-GeV = 1000.
 
 
 #------------------------------------------------------------------------------
@@ -149,9 +133,9 @@ def write_results(results):
     f_out.write('\n')
     f_out.close()
 
-    print ''
-    print '%s written. %s items.' % (out, len(footnotes))
-    print ''
+    print('')
+    print('%s written. %s items.' % (out, len(footnotes)))
+    print('')
 
 
 #______________________________________________________________________________
@@ -162,7 +146,7 @@ def fatal(message=''):
 #______________________________________________________________________________
 def tprint(s, log=None):
     line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print line
+    print(line)
     if log:
         log.write(line + '\n')
         log.flush()

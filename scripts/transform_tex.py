@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 NAME
     name.py - short description
@@ -148,7 +148,7 @@ def fatal(message=''):
 #______________________________________________________________________________
 def tprint(s, log=None):
     line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print line
+    print(line)
     if log:
         log.write(line + '\n')
         log.flush()

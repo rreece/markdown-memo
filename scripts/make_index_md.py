@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 NAME
     name.py - short description
@@ -33,25 +33,10 @@ TO DO
 2011-06-15
 """
 
-#------------------------------------------------------------------------------
-# imports
-#------------------------------------------------------------------------------
-
-## std
 import argparse, sys, time
 import os
 import re
-
-## my modules
-
-## local modules
-
-
-#------------------------------------------------------------------------------
-# globals
-#------------------------------------------------------------------------------
-timestamp = time.strftime('%Y-%m-%d-%Hh%M')
-GeV = 1000.
+import unicodedata
 
 
 #------------------------------------------------------------------------------
@@ -99,7 +84,7 @@ def main():
             reo = re.match(rep, line)
             if reo:
                 level   = int(reo.group(1))
-                id      = reo.group(2)
+                id      = clean_unicode(reo.group(2))
                 name    = reo.group(3)
                 alink   = '%s.html' % root
                 if alink == 'index.html':
@@ -131,6 +116,25 @@ def main():
 # free functions
 #------------------------------------------------------------------------------
 
+def clean_unicode(s):
+    new_s = str(s).strip()
+
+    ## change unicode-hyphen-like characters to ascii
+    new_s = new_s.replace(u'\u2010', '-')
+    new_s = new_s.replace(u'\u2011', '-')
+    new_s = new_s.replace(u'\u2012', '-')
+    new_s = new_s.replace(u'\u2013', '-')
+    new_s = new_s.replace(u'\u2014', '-')
+    new_s = new_s.replace(u'\u2015', '-')
+
+    ## convert unicode to closest ascii for latin-like characters
+    ## punctuation-like characters not switched to ascii above will be lost
+    ## help from: http://stackoverflow.com/questions/1207457/convert-a-unicode-string-to-a-string-in-python-containing-extra-symbols
+    new_s = unicodedata.normalize('NFKD', new_s)
+    new_s = new_s.encode('ascii','ignore').decode('utf-8')
+
+    return new_s
+
 #______________________________________________________________________________
 def fatal(message=''):
     sys.exit("Fatal error in %s: %s" % (__file__, message))
@@ -139,7 +143,7 @@ def fatal(message=''):
 #______________________________________________________________________________
 def tprint(s, log=None):
     line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print line
+    print(line)
     if log:
         log.write(line + '\n')
         log.flush()
