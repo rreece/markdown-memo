@@ -105,7 +105,7 @@ def main():
 
             if not newline[:4] == '    ':  # skip code block
 
-                ## transform [@eq:maxwell] to eq.\ $\eqref{eq:maxwell}$
+                ## transform [@eq:maxwell] to eq.\ \eqref{eq:maxwell}
                 reo = re.search(rep_eq, newline)
                 if reo:
                     if newline.count('`[@eq:'): # skip inline `[@eq:
@@ -113,7 +113,7 @@ def main():
                     else:
                         eqlabel = reo.group(1)
                         oldword = reo.group(0)
-                        newword = 'eq.\\ $\\eqref{eq:%s}$' % eqlabel
+                        newword = 'eq.\\ \\eqref{eq:%s}' % eqlabel
                         newline = newline.replace(oldword, newword)
 
                 if re.match(rep_comment, newline):
