@@ -21,12 +21,14 @@ $$ \frac{\partial \rho}{\partial t} + \nabla \cdot \vec{j} = 0 \,. \label{eq:con
 The latex equation environment can be used directly.
 Stokes' theorem is pretty cool:
 
-    \begin{equation} \label{eq:stokes}
+    \begin{equation}
         \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
+        \label{eq:stokes}
     \end{equation}
 
-\begin{equation} \label{eq:stokes}
+\begin{equation}
     \int_{\partial\Omega} \omega = \int_{\Omega} \mathrm{d}\omega \,.
+    \label{eq:stokes}
 \end{equation}
 
 You can also refer to labeled equations, such as [@eq:stokes],

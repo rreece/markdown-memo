@@ -113,7 +113,7 @@ def main():
                     else:
                         eqlabel = reo.group(1)
                         oldword = reo.group(0)
-                        newword = 'eq.\\ \\eqref{eq:%s}' % eqlabel
+                        newword = 'eq.\\ $\\eqref{eq:%s}$' % eqlabel
                         newline = newline.replace(oldword, newword)
 
                 if re.match(rep_comment, newline):
