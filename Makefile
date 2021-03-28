@@ -122,7 +122,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 
 ## create html
 %.html: %.mdp order.txt $(HTML_DEPS) meta.yaml
-	$(PRINT) "make $@ start"
 	@pandoc \
 		-f markdown+smart \
 		-t html \
