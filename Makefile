@@ -145,7 +145,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	@pdflatex -interaction=nonstopmode $< > latex.log 2>&1
 	$(PRINT) "make $@ done."
 
-## DEBUG
 ## create tex with references replaced and bibliography created
 $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 	@pandoc \
