@@ -8,8 +8,8 @@
 $for(authorshort)$
   <meta name="author" content="$authorshort$" />
 $endfor$
-$if(date-meta)$
-  <meta name="date" content="$date-meta$" />
+$if(date_meta)$
+  <meta name="date" content="$date_meta$" />
 $endif$
 $if(page_title)$
   <title>$page_title$ - $doc_title$</title>
@@ -137,7 +137,7 @@ $endfor$
   <div class="signature">
     <p><i>$authorshort$</i></p>
     $if(email)$<p>$email$</p>$endif$
-    <p>$date-meta$</p>
+    <p>$date_meta$</p>
   </div>
   <div class="license">
     $if(license)$<p>$license$</p>$endif$

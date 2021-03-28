@@ -40,7 +40,7 @@ endif
 
 PRINT = @echo '==>  '
 
-DATE     := $(shell date +"%a %b %d, %Y")
+DATE := $(shell date +"%a %b %d, %Y")
 MD_FILES := $(filter-out index.md README.md VERSIONS.md, $(wildcard *.md))
 HTML_FILES := $(MD_FILES:%.md=%.html)
 PDF_FILES := $(MD_FILES:%.md=%.pdf)
@@ -95,7 +95,7 @@ index.html: index.mdp meta.yaml
 		-t html \
 		--ascii \
 		--standalone \
-		--variable=date-meta:"$(DATE)" \
+		--variable=date_meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		--mathjax \
 		-o $@ $< meta.yaml > /dev/null 2>&1
@@ -110,7 +110,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--ascii \
 		--number-sections \
 		--standalone \
-		--variable=date-meta:"$(DATE)" \
+		--variable=date_meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		--mathjax \
 		--citeproc \
@@ -128,7 +128,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		-t html \
 		--ascii \
 		--standalone \
-		--variable=date-meta:"$(DATE)" \
+		--variable=date_meta:"$(DATE)" \
 		--variable=page_title:"$(page_title)" \
 		--variable=doc_title:"$(doc_title)" \
 		--template=./templates/outline_template.html \
