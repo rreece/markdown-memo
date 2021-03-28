@@ -203,5 +203,3 @@ PlotTable: My caption {#tbl:plot_table}
 
 
 <!-- REFERENCES -->
-
-

@@ -12,7 +12,9 @@
 
 export TEXINPUTS := .//:./templates//:./tex//:${TEXINPUTS}
 
-OUTPUT := $(shell cat meta.yaml | grep output | awk '{split($$0,a,":"); print a[2]}' | xargs)
+doc_title := $(shell grep '^title:' meta.yaml | head -n1 | awk '{ print $$2}')
+page_title = $(shell head -n10 $< | grep -v -e '^$$' | head -n1)
+OUTPUT := $(shell grep '^output:' meta.yaml | head -n1 | awk '{ print $$2}')
 DOREFS := $(filter $(shell cat meta.yaml | grep ^dorefs | awk '{split($$0,a,":"); print a[2]}' | xargs),true)
 
 ifeq ($(DOREFS), true)
@@ -93,6 +95,7 @@ index.html: index.mdp meta.yaml
 		--standalone \
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
+		--mathjax \
 		-o $@ $< meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
@@ -108,28 +111,15 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--variable=date-meta:"$(DATE)" \
 		--template=./templates/index_template.html \
 		--mathjax \
+		--citeproc \
 		--bibliography=bibs/mybib.bib \
 		--filter pandoc-crossref \
-		--citeproc \
 		-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLHTML) meta.yaml
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
 ## create html
 %.html: %.mdp order.txt $(HTML_DEPS) meta.yaml
-	@pandoc \
-		-f markdown+smart \
-		-t html \
-		--ascii \
-		--standalone \
-		--template=./templates/outline_template.html \
-		-o $@.tmp $< meta.yaml
-	@rm -f meta.yaml.tmp
-	@grep -E '(^\.\.\.)' -v meta.yaml | grep -v -e '^$$' >> meta.yaml.tmp
-	@echo "# ---------------------------------------------------" >> meta.yaml.tmp
-	@echo `cat $@.tmp | grep -E "<title.*>(.*?)</title>" | sed 's/<title.*>\(.*\)<\/title>/doc_title: "\1"/'` >> meta.yaml.tmp
-	@echo `cat $@.tmp | grep -E "<h1.*>(.*?)</h1>" | head -n1 | sed 's/<h1.*>\(.*\)<\/h1>/page_title: "\1"/'` >> meta.yaml.tmp
-	@echo '...\n' >> meta.yaml.tmp
 	@if [ "$(DOREFS)" = "true" ] && grep --quiet REFERENCES $< ; \
 	then \
 		pandoc \
@@ -138,12 +128,14 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 			--ascii \
 			--standalone \
 			--variable=date-meta:"$(DATE)" \
+			--variable=page_title:"$(page_title)" \
+			--variable=doc_title:"$(doc_title)" \
 			--template=./templates/outline_template.html \
 			--mathjax \
+			--citeproc \
 			--bibliography=bibs/mybib.bib \
 			--filter pandoc-crossref \
-			--citeproc \
-			-o $@ $< $(OPS_SECTION) meta.yaml.tmp ; \
+			-o $@ $< $(OPS_SECTION) meta.yaml ; \
 	else \
 		pandoc \
 			-f markdown+smart \
@@ -151,12 +143,13 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 			--ascii \
 			--standalone \
 			--variable=date-meta:"$(DATE)" \
+			--variable=page_title:"$(page_title)" \
+			--variable=doc_title:"$(doc_title)" \
 			--template=./templates/outline_template.html \
 			--mathjax \
 			--filter pandoc-crossref \
-			-o $@ $< templates/backmatter.md meta.yaml.tmp ; \
+			-o $@ $< templates/backmatter.md meta.yaml ; \
 	fi
-	@rm -f meta.yaml.tmp $@.tmp
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
@@ -176,9 +169,9 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			--ascii \
 			--standalone \
 			--template=templates/default_template.tex \
-			--filter pandoc-crossref \
-			--bibliography=bibs/mybib.bib \
 			--citeproc \
+			--bibliography=bibs/mybib.bib \
+			--filter pandoc-crossref \
 			-o $@ $(MDP_FILES_ORDERED) $(OPS_FULLPDF) meta.yaml ; \
 	else \
 		pandoc \
@@ -203,9 +196,9 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 			--ascii \
 			--standalone \
 			--template=templates/default_template.tex \
-			--filter pandoc-crossref \
-			--bibliography=bibs/mybib.bib \
 			--citeproc \
+			--bibliography=bibs/mybib.bib \
+			--filter pandoc-crossref \
 			-o $@ $< $(OPS_SECTION) meta.yaml ; \
 	else \
 		pandoc \

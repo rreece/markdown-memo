@@ -77,7 +77,7 @@ def main():
     for fn in infiles:
         root, ext = os.path.splitext(fn)
 
-        os.system('pandoc -t html --ascii -o %s.index-tmp.html %s' % (root, fn))
+        os.system('pandoc -t html --ascii --mathjax -o %s.index-tmp.html %s' % (root, fn))
 
         f_in = open('%s.index-tmp.html' % root)
         for line in f_in:

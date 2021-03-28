@@ -138,7 +138,7 @@ def make_navigation(filename):
             mds.remove('README.md')
         mds.sort()
 
-    prv = 'index.html'
+    prv = './'
     nxt = None
     lst = None
 
