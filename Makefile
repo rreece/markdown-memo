@@ -155,8 +155,9 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 
 ## create the pdf from tex
 %.pdf: %.tex
-	@pdflatex -interaction=nonstopmode $< &> latex.log
-	@pdflatex -interaction=nonstopmode $< &> latex.log
+	@pdflatex -interaction=nonstopmode $< > latex.log 2>&1
+	@pdflatex -interaction=nonstopmode $< > latex.log 2>&1
+	@pdflatex -interaction=nonstopmode $< > latex.log 2>&1
 	$(PRINT) "make $@ done."
 
 ## create tex with references replaced and bibliography created
