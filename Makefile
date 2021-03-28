@@ -79,12 +79,12 @@ wordcount: wordcount/words.png
 	$(PRINT) "make $@ done."
 
 ## if it exists, copy index.txt to index.md, otherwise make index.md
-index.md: $(MD_FILES)
+index.md: $(MD_FILES_ORDERED)
 	@if [ -f index.txt ]; \
 	then \
 		cp index.txt $@ ; \
 	else \
-		python scripts/make_index_md.py -c --out=$@ $(MD_FILES) ; \
+		python scripts/make_index_md.py -c --out=$@ $(MD_FILES_ORDERED) ; \
 	fi
 	$(PRINT) "make $@ done."
 
