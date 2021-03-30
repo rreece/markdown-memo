@@ -23,7 +23,7 @@ PDF_DEPS := bibs/mybib.bib
 BACKMATTER_PDF := templates/refs_tex.md templates/backmatter.md
 BACKMATTER_FULL_HTML := templates/refs.md templates/backmatter.md
 BACKMATTER_HTML := templates/refs_subsection.md templates/backmatter.md
-BIBLIO_OPTIONS := --filter pandoc-crossref --bibliography=bibs/mybib.bib --citeproc
+BIBLIO_OPTIONS := --bibliography=bibs/mybib.bib --citeproc
 else
 HTML_DEPS := 
 PDF_DEPS := 
