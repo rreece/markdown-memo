@@ -364,9 +364,13 @@ def make_book(reo):
     if reo.group('edition'):
         lines.append('    edition     = {%s},' % reo.group('edition'))
     if reo.group('editor'):
-        lines.append('    editor      = {%s},' % reo.group('editor'))
+        editor = reo.group('editor')
+        editor = editor.replace(' & ', ' and ')
+        lines.append('    editor      = {%s},' % editor)
     if reo.group('translator'):
-        lines.append('    translator  = {%s},' % reo.group('translator'))
+        translator = reo.group('translator')
+        translator = translator.replace(' & ', ' and ')
+        lines.append('    translator  = {%s},' % translator)
     if reo.group('address'):
         lines.append('    address     = {%s},' % reo.group('address'))
     if reo.group('publisher'):
@@ -425,7 +429,7 @@ def make_incollection(reo):
         lines.append('    edition     = {%s},' % reo.group('edition'))
     if reo.group('editor'):
         editor = reo.group('editor')
-        editor = editor.replace('&', 'and')
+        editor = editor.replace(' & ', ' and ')
         lines.append('    editor      = {%s},' % editor)
     lines.append('    booktitle   = "{%s}",' % reo.group('booktitle'))
     if reo.group('pages'):
