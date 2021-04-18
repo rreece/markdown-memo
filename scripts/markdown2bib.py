@@ -616,6 +616,7 @@ def clean_citation(s):
 
     ## convert all '-' to '_'
     new_s = new_s.replace('-', '_')
+    new_s = new_s.strip('_')
 
     ## chop-off articles
     new_s_lower = new_s.lower()
