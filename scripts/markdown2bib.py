@@ -642,6 +642,9 @@ def clean_citation(s):
     if new_s_lower.endswith('_to'):
         new_s = new_s[:-3]
         new_s_lower = new_s.lower()
+    if new_s_lower.endswith('_with'):
+        new_s = new_s[:-5]
+        new_s_lower = new_s.lower()
     ## chop-off conjuctions
     if new_s_lower.endswith('_and'):
         new_s = new_s[:-4]
