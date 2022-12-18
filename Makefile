@@ -95,7 +95,7 @@ install_for_linux:
     sudo chmod a+x /usr/local/bin/pandoc-crossref ; \
     sudo mkdir -p /usr/local/man/man1 ; \
     sudo mv pandoc-crossref.1  /usr/local/man/man1  ; \
-	fi \
+	fi ; \
     echo "" ; \
     echo "MY PATH is" ; \
     echo ${PATH} ; \
