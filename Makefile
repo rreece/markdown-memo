@@ -121,7 +121,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 	$(PRINT) "make $@ done."
 
 ## create html
-#		$(BIBLIO_OPTIONS)
 %.html: %.mdp order.txt $(HTML_DEPS) meta.yaml
 	@pandoc \
 		-f markdown+smart \
@@ -132,8 +131,6 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--variable=page_title:"$(page_title)" \
 		--variable=doc_title:"$(doc_title)" \
 		--template=./templates/outline_template.html \
-		--mathjax \
-		--filter pandoc-crossref \
 		-o $@ $< $(BACKMATTER_HTML) meta.yaml > pandoc.log 2>&1
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
