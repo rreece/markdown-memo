@@ -46,6 +46,14 @@ install_for_linux()
 #    pandoc-citeproc
 #    pandoc-crossref
 #    https://askubuntu.com/questions/1335772/using-pandoc-crossref-on-ubuntu-20-04
+
+    wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz
+    tar -xf pandoc-crossref-Linux.tar.xz
+    sudo mv pandoc-crossref /usr/local/bin/
+    sudo chmod a+x /usr/local/bin/pandoc-crossref
+    sudo mkdir -p /usr/local/man/man1
+    sudo mv pandoc-crossref.1  /usr/local/man/man1
+
 #    matplotlib
 #    xpdf
 }
