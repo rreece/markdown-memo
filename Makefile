@@ -111,7 +111,7 @@ install_for_mac:
 	echo "make $@ done."
 
 check:
-	@if [ ! -f index.html ]; then ; \
+	@if [ ! -f index.html ]; then \
 		echo "Error: index.html does not exist." ; \
 		exit 1 ; \
 	fi ; \
