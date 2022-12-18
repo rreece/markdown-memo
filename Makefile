@@ -84,36 +84,35 @@ install: install_for_linux
 
 install_for_linux:
 	$(PRINT) "Installing for linux..." \
-    sudo apt-get -y update \
-    sudo apt-get -y install texlive-latex-extra \
-    sudo apt-get -y install pandoc \
-	if [ ! -f /usr/local/bin/pandoc-crossref ]; \
-	then \
+    sudo apt-get -y update ; \
+    sudo apt-get -y install texlive-latex-extra ; \
+    sudo apt-get -y install pandoc ; \
+	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 	$(PRINT) "Installing pandoc-crossref..." \
-    wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz \
-    tar -xf pandoc-crossref-Linux.tar.xz \
-    sudo mv pandoc-crossref /usr/local/bin/ \
-    sudo chmod a+x /usr/local/bin/pandoc-crossref \
-    sudo mkdir -p /usr/local/man/man1 \
-    sudo mv pandoc-crossref.1  /usr/local/man/man1 \
-	fi \
-    echo "" \
-    echo "MY PATH is" \
-    echo $PATH \
-    echo "" \
-    echo `which pandoc-crossref` \
-    echo "" \
-    sudo apt-get -y install python3-pandas \
+    wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
+    tar -xf pandoc-crossref-Linux.tar.xz ; \
+    sudo mv pandoc-crossref /usr/local/bin/ ; \
+    sudo chmod a+x /usr/local/bin/pandoc-crossref ; \
+    sudo mkdir -p /usr/local/man/man1 ; \
+    sudo mv pandoc-crossref.1  /usr/local/man/man1  ; \
+	fi ; \
+    echo "" ; \
+    echo "MY PATH is" ; \
+    echo ${PATH} ; \
+    echo "" ; \
+    echo `which pandoc-crossref` ; \
+    echo "" ; \
+    sudo apt-get -y install python3-pandas ; \
 	$(PRINT) "make $@ done."
 
 install_for_mac:
-	$(PRINT) "Installing for mac..." \
+	$(PRINT) "Installing for mac..." ; \
 	$(PRINT) "make $@ done."
 
 check:
-	if [ ! -f index.html ]; \
-	then \
-	$(error index.html does not exist.)
+	if [ ! -f index.html ]; then \
+	$(error index.html does not exist.) \
+	fi
 
 ##-----------------------------------------------------------------------------
 ## file targets
