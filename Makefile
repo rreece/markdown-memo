@@ -82,42 +82,39 @@ wordcount: wordcount/words.png
 
 install: install_for_linux
 
-.ONESHELL:
 install_for_linux:
-	@echo "Installing for linux..."
-    sudo apt-get -y update
-    sudo apt-get -y install texlive-latex-extra
-    sudo apt-get -y install pandoc
-	if [ ! -f /usr/local/bin/pandoc-crossref ]; then
-		echo "Installing pandoc-crossref..."
+	@echo "Installing for linux..." ; \
+    sudo apt-get -y update ; \
+    sudo apt-get -y install texlive-latex-extra ; \
+    sudo apt-get -y install pandoc ; \
+	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
+		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
-    	tar -xf pandoc-crossref-Linux.tar.xz
-    	sudo mv pandoc-crossref /usr/local/bin/
-    	sudo chmod a+x /usr/local/bin/pandoc-crossref
-    	sudo mkdir -p /usr/local/man/man1
-    	sudo mv pandoc-crossref.1  /usr/local/man/man1
-	fi
-    echo ""
-    echo "MY PATH is"
-    echo ${PATH}
-    echo ""
-    echo `which pandoc-crossref`
-    echo ""
-    sudo apt-get -y install python3-pandas
+    	tar -xf pandoc-crossref-Linux.tar.xz ; \
+    	sudo mv pandoc-crossref /usr/local/bin/ ; \
+    	sudo chmod a+x /usr/local/bin/pandoc-crossref ; \
+    	sudo mkdir -p /usr/local/man/man1 ; \
+    	sudo mv pandoc-crossref.1  /usr/local/man/man1 ; \
+	fi ; \
+    echo "" ; \
+    echo "MY PATH is" ; \
+    echo ${PATH} ; \
+    echo "" ; \
+    echo `which pandoc-crossref` ; \
+    echo "" ; \
+    sudo apt-get -y install python3-pandas ; \
 	echo "make $@ done."
 
-.ONESHELL:
 install_for_mac:
-	@echo "Installing for mac..."
-	true
+	@echo "Installing for mac..." ; \
+	true ; \
 	echo "make $@ done."
 
-.ONESHELL:
 check:
-	@if [ ! -f index.html ]; then
-		echo "Error: index.html does not exist."
-		exit 1
-	fi
+	@if [ ! -f index.html ]; then ; \
+		echo "Error: index.html does not exist." ; \
+		exit 1 ; \
+	fi ; \
 	echo "make $@ done."
 
 ##-----------------------------------------------------------------------------
