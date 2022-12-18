@@ -107,12 +107,15 @@ install_for_linux:
 
 install_for_mac:
 	@echo "Installing for mac..." ; \
+	true
 	$(PRINT) "make $@ done."
 
 check:
-	if [ ! -f index.html ]; then \
-	$(error index.html does not exist.) \
+	@if [ ! -f index.html ]; then \
+	echo "Error: index.html does not exist." ; \
+	exit 1 ;
 	fi
+	$(PRINT) "make $@ done."
 
 ##-----------------------------------------------------------------------------
 ## file targets
