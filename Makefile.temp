@@ -1,0 +1,29 @@
+# markdown-memo Makefile
+#
+# See: https://github.com/rreece/markdown-memo
+#
+# author:  Ryan Reece  <http://rreece.github.io/>
+# created: 2022-12-18
+#
+###############################################################################
+
+SHELL := /bin/bash
+
+.PHONY: setup format check test
+
+venv: # setup a virtual environment
+    @python -m venv venv
+
+setup: # install dev dependencies
+    @pip install -e .[dev]
+    @echo -e "\nInstalling pre-commit hook..."
+    @pre-commit install
+
+format: # format code using black
+    @black .
+
+check: # check for formatting using black
+    @black --check --diff -v .
+
+test: # run pytest
+    @pytest -vvv
