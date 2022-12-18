@@ -15,7 +15,7 @@ OPTIONS
     -h, --help
         Prints this manual and exits.
         
-    -o OUTFILE
+e   -o OUTFILE
         Specifies the output filename (out.bib by default).
 
 AUTHOR
@@ -45,13 +45,14 @@ import unicodedata
 
 # Baker, D.J. (2009). Against field interpretations of quantum field theory. *The British Journal for the Philosophy of Science*, 60(3), 585--609.
 # Baker, D.J. (2015). The Philosophy of Quantum Field Theory. [Preprint]
-rep_article_s = ''.join([r"(?P<author>([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?)[,.]?",
+rep_article_s = ''.join([r"(?P<author>((\{[^}]+\})|([^(),.]+(,\s+\w\.(\s*\w\.)?(\s*\w\.)?)?(,?\s+(&\s+)?)?){1,6}(\s+et\s+al\.)?))[,.]?",
+#rep_article_s = ''.join([r"(?P<author>\{[^}]+\})[,.]?",
                     r"\s+\((?P<year>\d+)\)[,.]",
 #                    r"\s+(?P<title>[^.?!\[\]]+[?!]?)[,.]?",
                     r"\s+(?P<title>[^*\[\]]+)[,.]?",
                     r"(?!\s+<?https?://)(\s+\*(?P<journal>[^*]+)\*[,.]?)",
                     r"(\s+\*?(?P<volume>\d+)\*?(\((?P<number>\d+)\))?[,.]?)?",
-                    r"(\s+(?P<pages>(P|p)?\d+-*\d*)[,.]?)?",
+                    r"(\s+(?P<pages>(P|p)?\w?\d+-*\w?\d*)[,.]?)?",
                     r"(\s+(Retrieved\s+from\s+)?<?(?P<url>https?://[^ \t\n\r\f\v<>]+)>?[,.]?)?",
                     r"(\s+\[?(?P<note>[^\[\]]+)\]?\.?)?",
                     ])
@@ -630,6 +631,9 @@ def clean_citation(s):
         new_s = new_s[:-4]
         new_s_lower = new_s.lower()
     ## chop-off prepositions
+    if new_s_lower.endswith('_by'):
+        new_s = new_s[:-3]
+        new_s_lower = new_s.lower()
     if new_s_lower.endswith('_for'):
         new_s = new_s[:-4]
         new_s_lower = new_s.lower()
@@ -666,6 +670,8 @@ def clean_author(s):
     TODO: Put and's between each author.
     s = s.replace('&', 'and')
     """
+    if s.startswith('{'):
+        return s
     reo = rep_author.search(s)
     if reo:
         if reo.group('etal'):

@@ -1,6 +1,8 @@
 markdown-memo
 ===========================
 
+[![CI badge](https://github.com/rreece/markdown-memo/actions/workflows/ci.yml/badge.svg)](https://github.com/rreece/markdown-memo/actions)
+
 This project is meant to make writing easier and more productive.
 
 So you want to write a document.
