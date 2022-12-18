@@ -54,6 +54,14 @@ install_for_linux()
     sudo mkdir -p /usr/local/man/man1
     sudo mv pandoc-crossref.1  /usr/local/man/man1
 
+    echo ""
+    echo "MY PATH is"
+    echo $PATH
+    echo ""
+    echo `which pandoc-crossref`
+    echo ""
+
+    sudo apt-get -y install python3-pandas
 #    matplotlib
 #    xpdf
 }
