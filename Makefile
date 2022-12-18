@@ -82,7 +82,7 @@ wordcount: wordcount/words.png
 
 install: install_for_linux
 
-.ONESHELL
+.ONESHELL:
 install_for_linux:
 	@echo "Installing for linux..."
     sudo apt-get -y update
@@ -106,13 +106,13 @@ install_for_linux:
     sudo apt-get -y install python3-pandas
 	echo "make $@ done."
 
-.ONESHELL
+.ONESHELL:
 install_for_mac:
 	@echo "Installing for mac..."
 	true
 	echo "make $@ done."
 
-.ONESHELL
+.ONESHELL:
 check:
 	@if [ ! -f index.html ]; then
 		echo "Error: index.html does not exist."
