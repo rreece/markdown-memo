@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-#    - name: Install dependencies
-#      run: ./install.sh
+    - name: Install dependencies
+      run: ./install.sh
 
     - name: Make example document
       run: make
