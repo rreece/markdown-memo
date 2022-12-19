@@ -82,6 +82,7 @@ wordcount: wordcount/words.png
 
 ##-----------------------------------------------------------------------------
 ## install
+#	sudo apt-get -y install pandoc-citeproc ; \
 ##-----------------------------------------------------------------------------
 
 install: install_for_linux
@@ -93,9 +94,7 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Installing pandoc..." ; \
-	apt-cache madison pandoc ; \
-    sudo apt-get -y install pandoc ; \
-	sudo apt-get -y install pandoc-citeproc ; \
+    sudo apt-get -y install pandoc=2.17.1.1-1ubuntu2 ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
