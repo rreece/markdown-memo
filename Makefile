@@ -95,6 +95,8 @@ install_for_linux:
 	echo "Installing pandoc..." ; \
 	wget https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb ; \
 	sudo dpkg -i pandoc-2.13-1-amd64.deb ; \
+	pandoc --version ; \
+	echo `which pandoc` ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
@@ -106,7 +108,6 @@ install_for_linux:
 	fi ; \
 	echo "Installing other dependencies..." ; \
     sudo apt-get -y install python3-pandas ;
-	pandoc --version
 	$(PRINT) "make $@ done."
 
 install_for_mac:

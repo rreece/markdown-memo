@@ -42,10 +42,9 @@ Requirements
 
 -   make
 -   LaTeX (texlive/mactex)
--   python
--   pandoc
--   [pandoc-citeproc](https://github.com/lierdakil/pandoc-crossref)
--   pandoc-crossref
+-   python >= 3.8
+-   pandoc >= 2.13
+-   [pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 -   matplotlib (for pagecount and wordcount plots)
 -	xpdf (pdfinfo command for pagecount)
 
