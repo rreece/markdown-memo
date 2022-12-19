@@ -93,7 +93,7 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Checking pandoc path..." ; \
-	_pandoc_path=`which pandoc` ; \
+	_pandoc_path="`which pandoc`" ; \
 	echo ${_pandoc_path} ; \
 	if [ -z "${_pandoc_path}" ]; then \
 		echo "Installing pandoc..." ; \
@@ -102,7 +102,7 @@ install_for_linux:
 	fi ; \
 	pandoc --version ; \
 	echo "Checking pandoc-crossref path..." ; \
-	_crossref_path=`which pandoc-crossref` ; \
+	_crossref_path="`which pandoc-crossref`" ; \
 	echo ${_crossref_path} ; \
 	if [ -z ${_crossref_path} ]; then \
 		echo "Installing pandoc-crossref..." ; \
