@@ -35,7 +35,6 @@ or are otherwise exceptional.
 Documentation:
 
 -   `README.md` - Please empty this file and adapt it to your project.
--   `VERSIONS.md` - Documents the chronology of markdown-memo versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 

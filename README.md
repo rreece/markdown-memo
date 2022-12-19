@@ -180,7 +180,6 @@ or are otherwise exceptional.
 Documentation:
 
 -   `README.md` - This file.  Please empty this file and adapt it to your project.
--   `VERSIONS.md` - Documents the chronology of markdown-memo versions.  Feel free to delete or adapt this to your project.
 
 Primary files edited by the user:
 
@@ -253,8 +252,6 @@ Wish list / TODOs
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 -   References to labels on other pages unfortunately don't work in html.
-
-See the version history: [VERSIONS.md](VERSIONS.md)
 
 
 See also
