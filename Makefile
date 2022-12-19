@@ -93,18 +93,15 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Checking pandoc path..." ; \
-	_pandoc_path=`which pandoc` ; \
-	echo "${_pandoc_path}" ; \
-	if [ -z "${_pandoc_path}" ]; then \
+	if [ ! -f /usr/bin/pandoc ]; then \
 		echo "Installing pandoc..." ; \
 		wget https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb ; \
 		sudo dpkg -i pandoc-2.13-1-amd64.deb ; \
 	fi ; \
+	echo `which pandoc` ; \
 	pandoc --version ; \
 	echo "Checking pandoc-crossref path..." ; \
-	_crossref_path=`which pandoc-crossref` ; \
-	echo "${_crossref_path}" ; \
-	if [ -z ${_crossref_path} ]; then \
+	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
     	tar -xf pandoc-crossref-Linux.tar.xz ; \
@@ -113,6 +110,7 @@ install_for_linux:
     	sudo mkdir -p /usr/local/man/man1 ; \
     	sudo mv pandoc-crossref.1  /usr/local/man/man1 ; \
 	fi ; \
+	echo `which pandoc-crossref` ; \
 	echo "Installing other dependencies..." ; \
     sudo apt-get -y install python3-pandas ;
 	$(PRINT) "make $@ done."
