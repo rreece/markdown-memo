@@ -82,6 +82,8 @@ wordcount: wordcount/words.png
 
 ##-----------------------------------------------------------------------------
 ## install
+#    https://askubuntu.com/questions/1335772/using-pandoc-crossref-on-ubuntu-20-04
+#	 wget https://github.com/jgm/pandoc/releases/download/2.19.1/pandoc-2.19.1-1-amd64.deb ; \
 ##-----------------------------------------------------------------------------
 
 install: install_for_linux
@@ -93,8 +95,8 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Installing pandoc..." ; \
-	wget https://github.com/jgm/pandoc/releases/download/2.19.1/pandoc-2.19.1-1-amd64.deb ; \
-	sudo dpkg -i pandoc-2.19.1-1-amd64.deb ; \
+	wget https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb ; \
+	sudo dpkg -i pandoc-2.13-1-amd64.deb ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
