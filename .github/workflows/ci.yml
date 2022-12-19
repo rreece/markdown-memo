@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-kinetic
+    runs-on: ubuntu-22.10
 
     steps:
     - uses: actions/checkout@v3
