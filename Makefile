@@ -184,6 +184,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--variable=doc_title:"$(doc_title)" \
 		--template=./templates/outline_template.html \
 		--mathjax \
+		--filter pandoc-crossref \
 		$(BIBLIO_OPTIONS) \
 		-o $@ $< $(BACKMATTER_HTML) meta.yaml
 	@python scripts/transform_html.py $@
