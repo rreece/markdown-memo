@@ -94,6 +94,7 @@ install_for_linux:
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Installing pandoc..." ; \
     sudo apt-get -y install pandoc ; \
+	sudo apt-get -y install pandoc-citeproc ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
