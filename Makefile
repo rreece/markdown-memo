@@ -63,7 +63,7 @@ MDP_FILES_ORDERED := $(MD_FILES_ORDERED:%.md=%.mdp)
 ## main targets
 ##-----------------------------------------------------------------------------
 
-.PHONY: all default html ohtml pdf wordcount install install_for_linux install_for_mac check clean realclean over cleanwc destroy destroygit destroywc newdoc
+.PHONY: all default html ohtml pdf wordcount install install_for_linux install_for_mac check check_pdf clean realclean over cleanwc destroy destroygit destroywc newdoc
 
 default: html # clean
 
@@ -120,6 +120,14 @@ check:
 		exit 1 ; \
 	fi
 	$(PRINT) "make $@ done."
+
+check_pdf:
+	@if [ ! -f $(OUTPUT).pdf ]; then \
+		echo "Error: $(OUTPUT).pdf does not exist." ; \
+		exit 1 ; \
+	fi
+	$(PRINT) "make $@ done."
+
 
 ##-----------------------------------------------------------------------------
 ## file targets

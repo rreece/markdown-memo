@@ -17,8 +17,14 @@ jobs:
     - name: Install dependencies
       run: make install
 
-    - name: Make example document
-      run: make
+    - name: Make example html document
+      run: make html
 
     - name: Run check
       run: make check
+
+    - name: Make example pdf document
+      run: make pdf
+
+    - name: Run check_pdf
+      run: make check_pdf
