@@ -92,6 +92,7 @@ install_for_linux:
     sudo apt-get -y update ; \
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
+	echo "Checking pandoc path..."
 	_pandoc_path=`which pandoc` ; \
 	echo ${_pandoc_path} ; \
 	if [ -z "${_pandoc_path}" ]; then \
