@@ -1,4 +1,4 @@
-# pandoc Makefile
+# markdown-memo Makefile
 #
 # author:  Ryan Reece  <ryan.reece@cern.ch>
 # created: 2014-07-28
@@ -6,7 +6,6 @@
 ###############################################################################
 
 SHELL := /bin/bash
-
 .SHELLFLAGS := -eu -o pipefail -c
 
 
@@ -82,8 +81,7 @@ wordcount: wordcount/words.png
 
 ##-----------------------------------------------------------------------------
 ## install
-#    https://askubuntu.com/questions/1335772/using-pandoc-crossref-on-ubuntu-20-04
-#	 wget https://github.com/jgm/pandoc/releases/download/2.19.1/pandoc-2.19.1-1-amd64.deb ; \
+## See: https://askubuntu.com/questions/1335772/using-pandoc-crossref-on-ubuntu-20-04
 ##-----------------------------------------------------------------------------
 
 install: install_for_linux
@@ -196,7 +194,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--mathjax \
 		--filter pandoc-crossref \
 		$(BIBLIO_OPTIONS) \
-		-o $@ $< $(BACKMATTER_HTML) meta.yaml
+		-o $@ $< $(BACKMATTER_HTML) meta.yaml > pandoc.log 2>&1
 	@python scripts/transform_html.py $@
 	$(PRINT) "make $@ done."
 
@@ -216,7 +214,8 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 		--standalone \
 		--template=templates/default_template.tex \
 		--filter pandoc-crossref \
-		$(BIBLIO_OPTIONS) -o $@ $(MDP_FILES_ORDERED) $(BACKMATTER_PDF) meta.yaml
+		$(BIBLIO_OPTIONS) \
+		-o $@ $(MDP_FILES_ORDERED) $(BACKMATTER_PDF) meta.yaml
 	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
@@ -229,7 +228,8 @@ $(OUTPUT).tex: order.txt $(MDP_FILES) $(PDF_DEPS) meta.yaml
 		--standalone \
 		--template=templates/default_template.tex \
 		--filter pandoc-crossref \
-		$(BIBLIO_OPTIONS) -o $@ $< $(BACKMATTER_HTML) meta.yaml ; \
+		$(BIBLIO_OPTIONS) \
+		-o $@ $< $(BACKMATTER_HTML) meta.yaml ; \
 	@python scripts/transform_tex.py $@
 	$(PRINT) "make $@ done."
 
