@@ -93,6 +93,7 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	_pandoc_path=`which pandoc` ; \
+	echo ${_pandoc_path} ; \
 	if [ -z "${_pandoc_path}" ]; then \
 		echo "Installing pandoc..." ; \
 		wget https://github.com/jgm/pandoc/releases/download/2.13/pandoc-2.13-1-amd64.deb ; \
@@ -100,6 +101,7 @@ install_for_linux:
 	fi ; \
 	pandoc --version ; \
 	_crossref_path=`which pandoc-crossref` ; \
+	echo ${_crossref_path} ; \
 	if [ -z ${_crossref_path} ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
