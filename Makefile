@@ -80,12 +80,17 @@ wordcount: wordcount/words.png
 ## install
 ##-----------------------------------------------------------------------------
 
+.SHELLFLAGS := -eu -o pipefail -c
+
 install: install_for_linux
+	$(PRINT) "make $@ done."
 
 install_for_linux:
 	@echo "Installing for linux..." ; \
     sudo apt-get -y update ; \
+	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
+	echo "Installing pandoc..." ; \
     sudo apt-get -y install pandoc ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
@@ -96,26 +101,21 @@ install_for_linux:
     	sudo mkdir -p /usr/local/man/man1 ; \
     	sudo mv pandoc-crossref.1  /usr/local/man/man1 ; \
 	fi ; \
-    echo "" ; \
-    echo "MY PATH is" ; \
-    echo ${PATH} ; \
-    echo "" ; \
-    echo `which pandoc-crossref` ; \
-    echo "" ; \
-    sudo apt-get -y install python3-pandas ; \
-	echo "make $@ done."
+	echo "Installing other dependencies..." ; \
+    sudo apt-get -y install python3-pandas ;
+	$(PRINT) "make $@ done."
 
 install_for_mac:
 	@echo "Installing for mac..." ; \
-	true ; \
-	echo "make $@ done."
+	true ;
+	$(PRINT) "make $@ done."
 
 check:
 	@if [ ! -f index.html ]; then \
 		echo "Error: index.html does not exist." ; \
 		exit 1 ; \
-	fi ; \
-	echo "make $@ done."
+	fi
+	$(PRINT) "make $@ done."
 
 ##-----------------------------------------------------------------------------
 ## file targets
