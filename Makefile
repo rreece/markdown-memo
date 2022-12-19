@@ -94,7 +94,8 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Installing pandoc..." ; \
-    sudo apt-get -y install pandoc=2.17.1.1-1ubuntu2 ; \
+	wget https://github.com/jgm/pandoc/releases/download/2.19.1/pandoc-2.19.1-1-amd64.deb ; \
+	sudo dpkg -i pandoc-2.19.1-1-amd64.deb ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
 		echo "Installing pandoc-crossref..." ; \
     	wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.10.0a/pandoc-crossref-Linux.tar.xz ; \
