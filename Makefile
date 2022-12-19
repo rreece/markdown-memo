@@ -93,6 +93,7 @@ install_for_linux:
 	echo "Installing texlive-latex-extra..." ; \
     sudo apt-get -y install texlive-latex-extra ; \
 	echo "Installing pandoc..." ; \
+	apt-cache madison pandoc ; \
     sudo apt-get -y install pandoc ; \
 	sudo apt-get -y install pandoc-citeproc ; \
 	if [ ! -f /usr/local/bin/pandoc-crossref ]; then \
