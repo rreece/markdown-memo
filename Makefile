@@ -106,6 +106,7 @@ install_for_linux:
 	fi ; \
 	echo "Installing other dependencies..." ; \
     sudo apt-get -y install python3-pandas ;
+	pandoc --version
 	$(PRINT) "make $@ done."
 
 install_for_mac:
