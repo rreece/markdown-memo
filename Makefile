@@ -82,7 +82,6 @@ wordcount: wordcount/words.png
 
 ##-----------------------------------------------------------------------------
 ## install
-#	sudo apt-get -y install pandoc-citeproc ; \
 ##-----------------------------------------------------------------------------
 
 install: install_for_linux
@@ -184,6 +183,7 @@ $(OUTPUT).html: order.txt $(MDP_FILES) $(HTML_DEPS) meta.yaml
 		--variable=page_title:"$(page_title)" \
 		--variable=doc_title:"$(doc_title)" \
 		--template=./templates/outline_template.html \
+		--mathjax \
 		$(BIBLIO_OPTIONS) \
 		-o $@ $< $(BACKMATTER_HTML) meta.yaml
 	@python scripts/transform_html.py $@
