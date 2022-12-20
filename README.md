@@ -270,4 +270,4 @@ License
 ----------------------------------
 
 Copyleft 2014-2022 Ryan Reece     
-License: GPL <http://www.gnu.org/licenses/gpl.html>
+GPL-3 [LICENSE](LICENSE)
