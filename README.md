@@ -73,7 +73,9 @@ Instead of homebrew, some years ago, with *macports* I installed
 If something doesn't work for you, please let me know!
 I'll do my best improve the documentation and make
 the software more robust as time allows.
-Contact me at: <ryan.reece@gmail.com>
+
+TODO: Rewrite install instructions for Ubuntu and Mac.
+I'm sorry.
 
 
 Features
@@ -237,6 +239,8 @@ Wish list / TODOs
 -   Explain `make html` vs `make ohtml` in the documentation.
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 -   References to labels on other pages unfortunately don't work in html.
+-   ~~Add some basic CI.~~
+-   Rewrite a more simple and clean version of the whole thing.
 
 
 See also
