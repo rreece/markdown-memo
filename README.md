@@ -240,6 +240,7 @@ Wish list / TODOs
 -   Get tables to be normal `\begin{table}[bph]` instead of the `longtable` environment.
 -   References to labels on other pages unfortunately don't work in html.
 -   ~~Add some basic CI.~~
+-   Rewrite install instructions above.
 -   Fix `install_for_mac`.
 -   Make better dark template.
 -   Rewrite a more simple and clean version of the whole thing.
