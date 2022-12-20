@@ -246,6 +246,7 @@ Wish list / TODOs
 -   Rewrite install instructions above.
 -   Fix `install_for_mac`.
 -   Make better dark template.
+-   Clean up the yaml conventions.
 -   Rewrite a more simple and clean version of the whole thing.
 
 
@@ -272,5 +273,5 @@ Created: July 29, 2014
 License
 ----------------------------------
 
-Copyleft 2014-2022 Ryan Reece     
+Copyleft 2014-2023 Ryan Reece     
 GPL-3 [LICENSE](LICENSE)
