@@ -23,20 +23,6 @@ This same document compiled to a pdf can be found here:
 <http://rreece.github.io/sw/markdown-memo/example.pdf>
 
 
-Author
-----------------------------------
-
-Ryan Reece <ryan.reece@gmail.com>     
-Created: July 29, 2014
-
-
-License
-----------------------------------
-
-Copyleft 2014-2019 Ryan Reece     
-License: GPL <http://www.gnu.org/licenses/gpl.html>
-
-
 Requirements
 ----------------------------------
 
@@ -265,3 +251,16 @@ See also
 -   [scholarlymarkdown.com](http://scholarlymarkdown.com/)
 -   [github.com/lierdakil/pandoc-crossref](https://github.com/lierdakil/pandoc-crossref)
 
+
+Author
+----------------------------------
+
+Ryan Reece <ryan.d.reece@live.com>     
+Created: July 29, 2014
+
+
+License
+----------------------------------
+
+Copyleft 2014-2022 Ryan Reece     
+License: GPL <http://www.gnu.org/licenses/gpl.html>
