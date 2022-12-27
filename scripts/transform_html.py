@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NAME
-    name.py - short description
+    transform_html.py - short description
 
 SYNOPSIS
     Put synposis here.
@@ -22,27 +22,15 @@ AUTHOR
 COPYRIGHT
     Copyright 2010 Ryan Reece
     License: GPL <http://www.gnu.org/licenses/gpl.html>
-
-SEE ALSO
-    ROOT <http://root.cern.ch>
-
-TO DO
-    - One.
-    - Two.
-
-2011-06-15
 """
 
-import argparse, sys, time
+import argparse
+import glob
 import os
 import re
-import glob
 
 
-#------------------------------------------------------------------------------
-# options
-#------------------------------------------------------------------------------
-def options():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('infiles',  default=None, nargs='+',
             help='A positional argument.')
@@ -51,14 +39,11 @@ def options():
     return parser.parse_args()
 
 
-#------------------------------------------------------------------------------
-# main
-#------------------------------------------------------------------------------
 def main():
-    ops = options()
+    args = parse_args()
 
-    infiles = ops.infiles
-#    out = ops.out
+    infiles = args.infiles
+#    out = args.out
 
     rep_pagetoc = r'\s*<!\-\-\s*PAGETOC\s*\-?\-\->\s*'
     rep_navigation = r'\s*<!\-\-\s*NAVIGATION\s*\-?\-\->\s*'
@@ -116,11 +101,6 @@ def main():
         os.system('mv -f %s %s' % (fn_out, fn))
 
 
-#------------------------------------------------------------------------------
-# free functions
-#------------------------------------------------------------------------------
-
-#______________________________________________________________________________
 def make_navigation(filename):
     mds = list()
     if os.path.isfile('order.txt'):
@@ -166,19 +146,6 @@ def make_navigation(filename):
 
     return s
 
-#______________________________________________________________________________
-def fatal(message=''):
-    sys.exit("Fatal error in %s: %s" % (__file__, message))
 
-
-#______________________________________________________________________________
-def tprint(s, log=None):
-    line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print(line)
-    if log:
-        log.write(line + '\n')
-        log.flush()
-
-
-#------------------------------------------------------------------------------
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

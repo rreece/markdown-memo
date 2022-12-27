@@ -170,13 +170,13 @@ def main():
             print(a)
 
         print('')
-        print(' %3i entries found' % len(results))
-        print(' %3i articles' % len(articles))
-        print(' %3i incollections' % len(incollections))
-        print(' %3i books' % len(books))
-        print(' %3i miscs' % len(miscs))
-        print(' %3i errors' % len(errors))
-        print(' %3i duplicates' % len(duplicates))
+        print(' %4i entries found' % len(results))
+        print(' %4i articles' % len(articles))
+        print(' %4i incollections' % len(incollections))
+        print(' %4i books' % len(books))
+        print(' %4i miscs' % len(miscs))
+        print(' %4i errors' % len(errors))
+        print(' %4i duplicates' % len(duplicates))
         print('')
 
         output_log = '%s.log' % os.path.splitext(os.path.basename(ops.output))[0]

@@ -113,7 +113,7 @@ install_for_linux:
 	fi ; \
 	echo `which pandoc-crossref` ; \
 	echo "Installing other dependencies..." ; \
-    sudo apt-get -y install python3-pandas ;
+	pip install -r requirements.txt ;
 	$(PRINT) "make $@ done."
 
 install_for_mac:

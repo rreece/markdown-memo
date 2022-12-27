@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NAME
-    name.py - short description
+    make_index.py - make table of contents for markdown-memo
 
 SYNOPSIS
     Put synposis here.
@@ -22,27 +22,16 @@ AUTHOR
 COPYRIGHT
     Copyright 2010 Ryan Reece
     License: GPL <http://www.gnu.org/licenses/gpl.html>
-
-SEE ALSO
-    ROOT <http://root.cern.ch>
-
-TO DO
-    - One.
-    - Two.
-
-2011-06-15
 """
 
-import argparse, sys, time
+import argparse
+from bs4 import BeautifulSoup
 import os
 import re
 import unicodedata
 
 
-#------------------------------------------------------------------------------
-# options
-#------------------------------------------------------------------------------
-def options():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('infiles',  default=None, nargs='+',
             help='A positional argument.')
@@ -57,20 +46,15 @@ def options():
     return parser.parse_args()
 
 
-#------------------------------------------------------------------------------
-# main
-#------------------------------------------------------------------------------
 def main():
-    ops = options()
+    args = parse_args()
 
-    infiles = ops.infiles
-    out = ops.out
-
-    rep = r'\s*<h([1-6])\s+[^>]*id="([^>]+)">(.+)<\/h[1-6]>\s*'
+    infiles = args.infiles
+    out = args.out
 
     f_out = open(out, 'w')
 
-    if ops.contents:
+    if args.contents:
         f_out.write('### Contents  {.unnumbered}\n')
         f_out.write('\n')
 
@@ -79,24 +63,26 @@ def main():
 
         os.system('pandoc -t html --ascii --mathjax -o %s.index-tmp.html %s' % (root, fn))
 
-        f_in = open('%s.index-tmp.html' % root)
-        for line in f_in:
-            reo = re.match(rep, line)
-            if reo:
-                level   = int(reo.group(1))
-                id      = clean_unicode(reo.group(2))
-                name    = reo.group(3)
+        with open('%s.index-tmp.html' % root) as f_in:
+            soup = BeautifulSoup(f_in, 'lxml')
+            heading_tags = ["h1", "h2", "h3"]
+            heading_tags = list()
+            if not args.ignoreone:
+                heading_tags.append('h1')
+            heading_tags.extend(['h2', 'h3'])
+            if not args.ignorefour:
+                heading_tags.append('h4')
+
+            for tag in soup.find_all(heading_tags):
+                level   = int(tag.name[1:])
+                id      = clean_unicode(tag.get('id'))
+                name    = tag.text.strip()
                 alink   = '%s.html' % root
                 if alink == 'index.html':
                     alink = ''
 
-                if ops.ignoreone and level == 1:
-                    continue
-                if ops.ignorefour and level >= 4:
-                    continue
-
                 indent_level = level-1
-                if ops.ignoreone:
+                if args.ignoreone:
                     indent_level -= 1
 
                 if level == 1:
@@ -104,17 +90,11 @@ def main():
                 else:
                     f_out.write('%s1.  [%s](%s#%s)\n' % ('    '*indent_level, name, alink, id ) )
 
-        f_in.close()
-
         os.system('rm -f %s.index-tmp.html' % root)
 
     f_out.write('\n')
     f_out.close()
 
-
-#------------------------------------------------------------------------------
-# free functions
-#------------------------------------------------------------------------------
 
 def clean_unicode(s):
     new_s = str(s).strip()
@@ -135,21 +115,6 @@ def clean_unicode(s):
 
     return new_s
 
-#______________________________________________________________________________
-def fatal(message=''):
-    sys.exit("Fatal error in %s: %s" % (__file__, message))
 
-
-#______________________________________________________________________________
-def tprint(s, log=None):
-    line = '[%s] %s' % (time.strftime('%Y-%m-%d:%H:%M:%S'), s)
-    print(line)
-    if log:
-        log.write(line + '\n')
-        log.flush()
-
-
-#------------------------------------------------------------------------------
-if __name__ == '__main__': main()
-
-# EOF
+if __name__ == '__main__':
+    main()
