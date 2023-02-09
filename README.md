@@ -266,7 +266,7 @@ See also
 Author
 ----------------------------------
 
-Ryan Reece (@rreece)
+Ryan Reece ([@rreece](https://github.com/rreece))         
 Created: July 29, 2014
 
 
