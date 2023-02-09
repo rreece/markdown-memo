@@ -266,7 +266,7 @@ See also
 Author
 ----------------------------------
 
-Ryan Reece <ryan.d.reece@live.com>     
+Ryan Reece (@rreece)
 Created: July 29, 2014
 
 
